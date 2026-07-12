@@ -87,11 +87,11 @@ bee-army preview
 bee-army update --apply
 ```
 
-The manager records the exact upstream commit and hashes every managed file. It refuses to overwrite locally modified managed files, backs up every touched path before applying, and supports `bee-army rollback --apply`. It copies or translates declarative assets but never executes scripts from the upstream checkout.
+The manager records the exact upstream commit and hashes every managed file. It refuses to overwrite locally modified managed files, backs up every touched path before applying, retains the three newest backups by default, and supports `bee-army rollback --apply`. Interrupted updates are recovered from their pending backup before another update begins. It copies or translates declarative assets but never executes scripts from the upstream checkout.
 
 This is a **global-only installation**. Running any command must not create `.codex/`, `.agents/`, or `AGENTS.md` inside the current project. Codex receives native TOML Bee definitions plus the shared Stingers each Bee must read before working. Start a fresh Codex session after installation or update so it discovers the new global assets.
 
-Environment overrides are available for non-default layouts and tests: `CODEX_HOME`, `CLAUDE_HOME`, `CURSOR_HOME`, `AGENTS_HOME`, `BEE_ARMY_HOME`, `BEE_ARMY_STATE_ROOT`, `BEE_ARMY_UPSTREAM_URL`, and `BEE_ARMY_UPSTREAM_BRANCH`.
+Environment overrides are available for non-default layouts and tests: `CODEX_HOME`, `CLAUDE_HOME`, `CURSOR_HOME`, `AGENTS_HOME`, `BEE_ARMY_HOME`, `BEE_ARMY_STATE_ROOT`, `BEE_ARMY_UPSTREAM_URL`, `BEE_ARMY_UPSTREAM_BRANCH`, `BEE_ARMY_BACKUP_RETENTION`, `BEE_ARMY_GIT_TIMEOUT_MS`, and `BEE_ARMY_LOCK_STALE_MS`.
 
 ---
 
@@ -132,9 +132,9 @@ Always-on guidance that constrains every agent at all times: house style, safety
 | **Agents** | `.cursor/agents/*.md` | `.claude/agents/*.md` | globally generated `~/.codex/agents/*.toml` | runs on the Agent SDK; skills are the portable unit |
 | **Skills** | `.cursor/skills/<name>/` | `.claude/skills/<name>/` | globally installed `~/.agents/skills/<name>/` | `.cowork/skills/<name>.skill` (one-click install) |
 | **Hooks** | `.cursor/hooks.json` | `.claude/settings.json` | not used by the Bee Army | not user-configurable |
-| **Rules** | `.cursor/rules/*.mdc` | `CLAUDE.md` | global Codex instructions | `CLAUDE.md` + project instructions |
+| **Rules** | `.cursor/rules/*.mdc` (installed globally by `bee-army`) | `CLAUDE.md` (reference only) | global Codex instructions (reference only) | `CLAUDE.md` + project instructions |
 
-Skills port one-to-one across all three. Agents share a format across Cursor and Claude Code. Hooks and rules use different formats per harness, so they are translated rather than copied. The Cowork skill copies have their angle brackets swapped for curly braces so they survive import (see [SKILLS.md](./SKILLS.md)).
+Skills port one-to-one across all three. Agents share a format across Cursor and Claude Code. The current `bee-army` installer installs rules only for Cursor; it does not generate `CLAUDE.md` or global Codex instructions. The Cowork skill copies have their angle brackets swapped for curly braces so they survive import (see [SKILLS.md](./SKILLS.md)).
 
 ---
 

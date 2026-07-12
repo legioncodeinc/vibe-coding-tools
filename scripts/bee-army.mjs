@@ -2,12 +2,13 @@
 
 import {
   closeSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, openSync,
-  readFileSync, readdirSync, renameSync, rmSync, writeFileSync,
+  readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync,
 } from "node:fs";
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { homedir } from "node:os";
 import { basename, dirname, join, relative, sep } from "node:path";
+import { parseFrontmatter } from "./frontmatter.mjs";
 
 const HOME = process.env.BEE_ARMY_HOME || homedir();
 const CODEX_HOME = process.env.CODEX_HOME || join(HOME, ".codex");
@@ -19,13 +20,21 @@ const SOURCE_ROOT = join(STATE_ROOT, "upstream");
 const MANIFEST_PATH = join(STATE_ROOT, "manifest.json");
 const BACKUPS_ROOT = join(STATE_ROOT, "backups");
 const LOCK_PATH = join(STATE_ROOT, "update.lock");
+const PENDING_PATH = join(STATE_ROOT, "pending-update.json");
 const UPSTREAM_URL = process.env.BEE_ARMY_UPSTREAM_URL || "https://github.com/legioncodeinc/that-git-life.git";
 const UPSTREAM_BRANCH = process.env.BEE_ARMY_UPSTREAM_BRANCH || "main";
+const GIT_TIMEOUT_MS = positiveInteger(process.env.BEE_ARMY_GIT_TIMEOUT_MS, 180_000);
+const LOCK_STALE_MS = positiveInteger(process.env.BEE_ARMY_LOCK_STALE_MS, 900_000);
+const BACKUP_RETENTION = positiveInteger(process.env.BEE_ARMY_BACKUP_RETENTION, 3);
 const TEXT_EXTENSIONS = new Set([".md", ".mdc", ".txt", ".json", ".yaml", ".yml", ".toml", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".sh", ".py", ".css", ".html"]);
 
+function positiveInteger(value, fallback) {
+  const parsed = Number.parseInt(value || "", 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
 function fail(message) { throw new Error(message); }
 function run(command, args, options = {}) {
-  return execFileSync(command, args, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], ...options }).trim();
+  return execFileSync(command, args, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], timeout: GIT_TIMEOUT_MS, ...options }).trim();
 }
 function ensureSource() {
   mkdirSync(STATE_ROOT, { recursive: true });
@@ -41,6 +50,12 @@ function checkoutCommit(commit) {
   run("git", ["-C", SOURCE_ROOT, "switch", "--detach", commit]);
 }
 function loadManifest() { return existsSync(MANIFEST_PATH) ? JSON.parse(readFileSync(MANIFEST_PATH, "utf8")) : null; }
+function writeJsonAtomic(path, value) {
+  const temporary = `${path}.bee-army-new`;
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(temporary, JSON.stringify(value, null, 2) + "\n");
+  renameSync(temporary, path);
+}
 function sha256File(path) { return createHash("sha256").update(readFileSync(path)).digest("hex"); }
 function sha256Text(text) { return createHash("sha256").update(text).digest("hex"); }
 function walkFiles(root) {
@@ -62,17 +77,6 @@ function extension(path) {
   return index === -1 ? "" : name.slice(index);
 }
 function isText(path) { return TEXT_EXTENSIONS.has(extension(path)) || basename(path) === "SKILL.md"; }
-function parseFrontmatter(text, path, { requireName = true } = {}) {
-  const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
-  if (!match) fail(`Missing frontmatter: ${path}`);
-  const fields = {};
-  for (const line of match[1].split(/\r?\n/)) {
-    const field = line.match(/^([a-zA-Z0-9_-]+):\s*(.*)$/);
-    if (field) fields[field[1]] = field[2].replace(/^['"]|['"]$/g, "");
-  }
-  if ((requireName && !fields.name) || !fields.description) fail(`Frontmatter is missing required fields: ${path}`);
-  return { fields, body: text.slice(match[0].length) };
-}
 function pairedStinger(agentName, body, skillRoot) {
   const explicit = body.match(/(?:\.cursor\/|\.claude\/|\.\.\/|\/Users\/[^\s`)]*\/(?:\.cursor|\.claude)\/)skills\/([^/`\s)]+)/)?.[1];
   const inferred = agentName.replace(/-worker-bee$/, "-stinger");
@@ -208,11 +212,46 @@ function assertManagedFilesUnchanged(manifest) {
   if (changed.length) fail(`Managed files changed outside the updater. Refusing to overwrite:\n${changed.slice(0, 20).join("\n")}${changed.length > 20 ? `\n...and ${changed.length - 20} more` : ""}`);
 }
 function safeBackupName(path) { return relative(HOME, path).split(sep).join("__"); }
+function backupRootFor(backupId) {
+  if (!backupId || basename(backupId) !== backupId) fail(`Invalid backup ID: ${backupId || "missing"}`);
+  return join(BACKUPS_ROOT, backupId);
+}
+function loadPending() {
+  if (!existsSync(PENDING_PATH)) return null;
+  try { return JSON.parse(readFileSync(PENDING_PATH, "utf8")); }
+  catch { fail(`Pending update record is invalid: ${PENDING_PATH}`); }
+}
+function clearPending(backupId) {
+  const pending = loadPending();
+  if (!pending || pending.backupId === backupId) rmSync(PENDING_PATH, { force: true });
+}
+function recoverPendingBackup() {
+  const pending = loadPending();
+  if (!pending) return null;
+  if (loadManifest()?.backupId === pending.backupId) {
+    clearPending(pending.backupId);
+    return null;
+  }
+  const backupRoot = backupRootFor(pending.backupId);
+  restoreBackup(backupRoot);
+  return pending.backupId;
+}
+function pruneBackups() {
+  if (!existsSync(BACKUPS_ROOT)) return;
+  const protectedIds = new Set([loadManifest()?.backupId, loadPending()?.backupId].filter(Boolean));
+  const backups = readdirSync(BACKUPS_ROOT, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && existsSync(join(BACKUPS_ROOT, entry.name, "backup.json")))
+    .map((entry) => entry.name)
+    .sort()
+    .reverse();
+  const keep = new Set([...backups.slice(0, BACKUP_RETENTION), ...protectedIds]);
+  for (const backupId of backups) if (!keep.has(backupId)) rmSync(join(BACKUPS_ROOT, backupId), { recursive: true, force: true });
+}
 function applyStage(stage, previousManifest) {
   assertManagedFilesUnchanged(previousManifest);
   mkdirSync(BACKUPS_ROOT, { recursive: true });
   const backupId = new Date().toISOString().replace(/[:.]/g, "-");
-  const backupRoot = join(BACKUPS_ROOT, backupId);
+  const backupRoot = backupRootFor(backupId);
   mkdirSync(backupRoot, { recursive: true });
   const priorTargets = new Map((previousManifest?.files || []).map((entry) => [entry.target, entry]));
   const nextTargets = new Set(stage.outputs.map((entry) => entry.target));
@@ -223,7 +262,8 @@ function applyStage(stage, previousManifest) {
     if (existed) { mkdirSync(dirname(backupPath), { recursive: true }); copyFileSync(target, backupPath); }
     records.push({ target, existed, backupPath });
   }
-  writeFileSync(join(backupRoot, "backup.json"), JSON.stringify({ previousManifest, records }, null, 2) + "\n");
+  writeJsonAtomic(join(backupRoot, "backup.json"), { createdAt: new Date().toISOString(), previousManifest, records });
+  writeJsonAtomic(PENDING_PATH, { backupId, createdAt: new Date().toISOString() });
   try {
     for (const target of priorTargets.keys()) if (!nextTargets.has(target) && existsSync(target)) rmSync(target, { force: true });
     for (const output of stage.outputs) {
@@ -233,7 +273,9 @@ function applyStage(stage, previousManifest) {
       renameSync(temporary, output.target);
     }
     const manifest = { schemaVersion: 1, upstream: UPSTREAM_URL, branch: UPSTREAM_BRANCH, commit: stage.commit, installedAt: new Date().toISOString(), agentCount: stage.agentCount, skillCount: stage.skillCount, usableSkillCount: stage.usableSkillCount, backupId, files: stage.outputs.map(({ harness, target, source, hash }) => ({ harness, target, source, hash })) };
-    writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+    writeJsonAtomic(MANIFEST_PATH, manifest);
+    clearPending(backupId);
+    pruneBackups();
     return manifest;
   } catch (error) { restoreBackup(backupRoot); throw error; }
 }
@@ -245,8 +287,9 @@ function restoreBackup(backupRoot) {
     if (record.existed) { mkdirSync(dirname(record.target), { recursive: true }); copyFileSync(record.backupPath, record.target); }
     else if (existsSync(record.target)) rmSync(record.target, { force: true });
   }
-  if (backup.previousManifest) writeFileSync(MANIFEST_PATH, JSON.stringify(backup.previousManifest, null, 2) + "\n");
+  if (backup.previousManifest) writeJsonAtomic(MANIFEST_PATH, backup.previousManifest);
   else rmSync(MANIFEST_PATH, { force: true });
+  clearPending(basename(backupRoot));
 }
 function doctor(manifest = loadManifest()) {
   if (!manifest) fail("Bee Army is not installed by this manager");
@@ -302,26 +345,59 @@ function validateUpdate() {
 function rollback(apply) {
   if (!apply) fail("Refusing to roll back without --apply");
   const manifest = loadManifest();
-  if (!manifest?.backupId) fail("No rollback backup is recorded");
-  restoreBackup(join(BACKUPS_ROOT, manifest.backupId));
-  console.log(JSON.stringify({ ok: true, restoredBackup: manifest.backupId, currentCommit: loadManifest()?.commit || null }, null, 2));
+  const backupId = loadPending()?.backupId || manifest?.backupId;
+  if (!backupId) fail("No rollback backup is recorded");
+  restoreBackup(backupRootFor(backupId));
+  console.log(JSON.stringify({ ok: true, restoredBackup: backupId, currentCommit: loadManifest()?.commit || null }, null, 2));
 }
-function withLock(fn) {
+function processIsActive(pid) {
+  if (!Number.isInteger(pid) || pid < 1) return false;
+  try { process.kill(pid, 0); return true; }
+  catch (error) { return error?.code === "EPERM"; }
+}
+function removeStaleLock() {
+  let metadata = null;
+  try { metadata = JSON.parse(readFileSync(LOCK_PATH, "utf8")); } catch {}
+  const age = Date.now() - statSync(LOCK_PATH).mtimeMs;
+  if (metadata && processIsActive(metadata.pid)) return false;
+  if (!metadata && age < LOCK_STALE_MS) return false;
+  rmSync(LOCK_PATH, { force: true });
+  return true;
+}
+function withLock(fn, { recover = true } = {}) {
   mkdirSync(STATE_ROOT, { recursive: true });
   let fd;
-  try { fd = openSync(LOCK_PATH, "wx"); } catch { fail(`Another Bee Army operation appears active: ${LOCK_PATH}`); }
-  try { return fn(); } finally { closeSync(fd); rmSync(LOCK_PATH, { force: true }); }
+  const token = randomUUID();
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      fd = openSync(LOCK_PATH, "wx");
+      writeFileSync(fd, JSON.stringify({ pid: process.pid, token, createdAt: new Date().toISOString() }) + "\n");
+      break;
+    } catch (error) {
+      if (error?.code !== "EEXIST" || attempt > 0 || !removeStaleLock()) fail(`Another Bee Army operation appears active: ${LOCK_PATH}`);
+    }
+  }
+  try {
+    if (recover) recoverPendingBackup();
+    return fn();
+  } finally {
+    closeSync(fd);
+    try {
+      const current = JSON.parse(readFileSync(LOCK_PATH, "utf8"));
+      if (current.token === token) rmSync(LOCK_PATH, { force: true });
+    } catch {}
+  }
 }
 function main() {
   const [command = "status", ...args] = process.argv.slice(2);
   const apply = args.includes("--apply");
   if (command === "status") status();
-  else if (command === "check") check();
-  else if (command === "preview") preview();
+  else if (command === "check") withLock(check);
+  else if (command === "preview") withLock(preview);
   else if (command === "validate") withLock(validateUpdate);
   else if (command === "doctor") doctor();
   else if (command === "update" || command === "install") withLock(() => update(apply));
-  else if (command === "rollback") withLock(() => rollback(apply));
+  else if (command === "rollback") withLock(() => rollback(apply), { recover: false });
   else fail(`Unknown command: ${command}`);
 }
 try { main(); } catch (error) { console.error(error instanceof Error ? error.message : String(error)); process.exitCode = 1; }
