@@ -1,6 +1,6 @@
 # Agents
 
-> What agents are, how they work, and how they map across Cursor, Claude Code, and Claude Cowork.
+> What agents are, how they work, and how they map across Cursor, Claude Code, Codex, and Claude Cowork.
 
 ## What an agent is
 
@@ -37,9 +37,12 @@ Identity, responsibilities, hard rules, and the workflow the agent follows.
 |---|---|---|
 | **Cursor** | `.cursor/agents/*.md` | Custom agents the Cursor orchestrator routes to. This is the source of truth in this repo. |
 | **Claude Code** | `.claude/agents/*.md` | Subagents. Same Markdown + frontmatter shape, so the files port directly. Frontmatter may also carry `tools` and `model`. |
+| **Codex** | globally generated `~/.codex/agents/*.toml` | `bee-army` translates each canonical Bee into a native Codex agent and installs its paired Stinger globally under `~/.agents/skills/`. |
 | **Claude Cowork** | runs on the Claude Agent SDK | Cowork is built on the same engine as Claude Code, so it executes subagents through its Agent and Task tooling. Cowork's primary distributable unit is the skill, so most cross-harness sharing happens at the skill layer. |
 
-The short version: agents are a first-class concept in Cursor and Claude Code, and they share a file format, so the same agent definition works in both. Cowork leans on skills as the portable unit, while still running agent-style delegation under the hood.
+The short version: agents are a first-class concept in Cursor, Claude Code, and Codex. Cursor and Claude share a Markdown format. Codex uses native TOML definitions generated from the same canonical Bee and pairs them with the same Stingers. Cowork leans on skills as the portable unit, while still running agent-style delegation under the hood.
+
+Codex installation is global-only. The manager must never write `.codex/`, `.agents/`, or `AGENTS.md` into a user's project.
 
 ## The orchestration model in this repo
 

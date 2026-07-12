@@ -33,7 +33,7 @@
 
 ---
 
-That Git Life is a [Legion Code Inc.](https://www.legioncodeinc.com) project, and right now it is a blueprint, not a binary. There is no package to install yet. What lives in this repo today is two things: the plan for the product, and the AI tooling that will build it. The plan is a `library/` of PRDs and knowledge docs that spec exactly what gets built. The tooling is a cross-harness army of agents and skills (for Cursor, Claude Code, and Claude Cowork) that do the building.
+That Git Life is a [Legion Code Inc.](https://www.legioncodeinc.com) project. The product remains a blueprint, while the repository also includes a small `bee-army` CLI for globally installing and updating its AI tooling across Cursor, Claude Code, and Codex. The plan is a `library/` of PRDs and knowledge docs that spec exactly what gets built. The tooling is a cross-harness army of agents and skills that do the building.
 
 The product these plans describe will be a globally-installed npm package: a single-command installer for Windows, macOS, and Linux, an always-on local service on `http://localhost:3050`, and a React web UI that standardizes new repos, scans existing ones for drift, manages your GitHub root, and syncs skills and agents for Cursor or Claude Code. That is the destination. This repo is how we get there.
 
@@ -41,7 +41,7 @@ The product these plans describe will be a globally-installed npm package: a sin
 
 ## What this repo is
 
-This repo is the **planning and source of truth** for the product. Cursor (or another AI coding agent) reads the docs here and builds the product against them. Nothing here is shipping code yet. This is the blueprint.
+This repo is the **planning and source of truth** for the product. Cursor (or another AI coding agent) reads the docs here and builds the product against them. The `bee-army` CLI is intentionally limited to distributing the repository's existing AI assets; it is not the planned product service or web UI.
 
 | Where | What's in it |
 |---|---|
@@ -49,6 +49,7 @@ This repo is the **planning and source of truth** for the product. Cursor (or an
 | [`.cursor/`](.cursor/) | Cursor agents, skills, and rules. The source of truth for the asset system. |
 | [`.claude/`](.claude/) | The same agents and skills, in the structure Claude Code consumes. |
 | [`.cowork/`](.cowork/) | Every skill packaged as an installable `.skill` for Claude Cowork. |
+| [`scripts/bee-army.mjs`](scripts/bee-army.mjs) | Global installer and pinned cross-harness update manager for Cursor, Claude Code, and Codex. |
 | `AGENTS.md` · `SKILLS.md` · `HOOKS.md` · `RULES.md` | Deep explainers for each asset type and how they work across harnesses. |
 | `README.md` | This file. |
 | `LICENSE.md` | License. |
@@ -57,9 +58,46 @@ The work lives in `library/`. The agents read the PRDs there and build the produ
 
 ---
 
+## Global Bee Army installer
+
+The installer treats `.cursor/` as the canonical asset source and installs one pinned upstream commit into all three CLI/IDE harnesses:
+
+| Harness | Global destinations |
+|---|---|
+| Cursor | `~/.cursor/agents`, `~/.cursor/skills`, `~/.cursor/commands`, `~/.cursor/rules` |
+| Claude Code | `~/.claude/agents`, `~/.claude/skills`, `~/.claude/commands` |
+| Codex | `~/.codex/agents`, `~/.codex/skills/bee-army-update`, `~/.agents/skills` |
+
+From a checkout, install the command and then preview the global changes:
+
+```bash
+npm link
+bee-army check
+bee-army preview
+bee-army validate
+bee-army install --apply
+bee-army doctor
+```
+
+Later upstream changes use the same reviewed flow:
+
+```bash
+bee-army check
+bee-army preview
+bee-army update --apply
+```
+
+The manager records the exact upstream commit and hashes every managed file. It refuses to overwrite locally modified managed files, backs up every touched path before applying, and supports `bee-army rollback --apply`. It copies or translates declarative assets but never executes scripts from the upstream checkout.
+
+This is a **global-only installation**. Running any command must not create `.codex/`, `.agents/`, or `AGENTS.md` inside the current project. Codex receives native TOML Bee definitions plus the shared Stingers each Bee must read before working. Start a fresh Codex session after installation or update so it discovers the new global assets.
+
+Environment overrides are available for non-default layouts and tests: `CODEX_HOME`, `CLAUDE_HOME`, `CURSOR_HOME`, `AGENTS_HOME`, `BEE_ARMY_HOME`, `BEE_ARMY_STATE_ROOT`, `BEE_ARMY_UPSTREAM_URL`, and `BEE_ARMY_UPSTREAM_BRANCH`.
+
+---
+
 ## The asset system
 
-This repo ships a full army of AI assets that work across Cursor, Claude Code, and Claude Cowork. There are four kinds. Each has a deep-dive doc.
+This repo ships a full army of AI assets that work across Cursor, Claude Code, Codex, and Claude Cowork. There are four kinds. Each has a deep-dive doc.
 
 ### Agents
 
@@ -89,12 +127,12 @@ Always-on guidance that constrains every agent at all times: house style, safety
 
 ## Cross-harness compatibility
 
-| Asset | Cursor | Claude Code | Claude Cowork |
-|---|---|---|---|
-| **Agents** | `.cursor/agents/*.md` | `.claude/agents/*.md` | runs on the Agent SDK; skills are the portable unit |
-| **Skills** | `.cursor/skills/<name>/` | `.claude/skills/<name>/` | `.cowork/skills/<name>.skill` (one-click install) |
-| **Hooks** | `.cursor/hooks.json` | `.claude/settings.json` | not user-configurable |
-| **Rules** | `.cursor/rules/*.mdc` | `CLAUDE.md` | `CLAUDE.md` + project instructions |
+| Asset | Cursor | Claude Code | Codex | Claude Cowork |
+|---|---|---|---|---|
+| **Agents** | `.cursor/agents/*.md` | `.claude/agents/*.md` | globally generated `~/.codex/agents/*.toml` | runs on the Agent SDK; skills are the portable unit |
+| **Skills** | `.cursor/skills/<name>/` | `.claude/skills/<name>/` | globally installed `~/.agents/skills/<name>/` | `.cowork/skills/<name>.skill` (one-click install) |
+| **Hooks** | `.cursor/hooks.json` | `.claude/settings.json` | not used by the Bee Army | not user-configurable |
+| **Rules** | `.cursor/rules/*.mdc` | `CLAUDE.md` | global Codex instructions | `CLAUDE.md` + project instructions |
 
 Skills port one-to-one across all three. Agents share a format across Cursor and Claude Code. Hooks and rules use different formats per harness, so they are translated rather than copied. The Cowork skill copies have their angle brackets swapped for curly braces so they survive import (see [SKILLS.md](./SKILLS.md)).
 

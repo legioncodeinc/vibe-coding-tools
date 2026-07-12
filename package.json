@@ -1,0 +1,16 @@
+{
+  "name": "that-git-life",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Global cross-harness installer for the That Git Life Bee Army",
+  "type": "module",
+  "bin": {
+    "bee-army": "scripts/bee-army.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
