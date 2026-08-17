@@ -28,7 +28,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 
 ## Roster
 
-75 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+76 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -42,7 +42,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `react-worker-bee` | React 18/19 architecture: bulletproof-react patterns, Server Components, Suspense, Actions, Compiler, state layering | "review React architecture", "state management decision", "Server Components boundary", "React 19 patterns" | `react-stinger` |
 | `typescript-node-worker-bee` | TypeScript/Node code review and conventions: strict config, module resolution, test suites, boundary validation (body still cites a legacy package's specifics; see PAIRING-AUDIT.md) | "review this TypeScript code", "audit this Node code", "write a Vitest suite", "tighten the tsconfig" | `typescript-node-stinger` |
 | `python-worker-bee` | Python architecture: Django + Django Ninja + FastAPI + Celery + Channels + pytest + uv, ORM discipline, migrations, typed adoption | "review this Django code", "audit ORM patterns", "migrate DRF to Django Ninja", "set up Celery" | `python-stinger` |
-| `ux-ui-svelte-worker-bee` | Enforces this repo's SvelteKit UI standard: shadcn-svelte on Bits UI plus Melt UI, Tailwind v4 token bridge, white-label brand contract | "add a Button", "copy in this shadcn-svelte component", "convert this bespoke style to Tailwind", "does the white-label still work" | `ux-ui-svelte-stinger` |
+| `ux-ui-svelte-worker-bee` | Enforces this repo's SvelteKit UI standard: shadcn-svelte on Bits UI plus Melt UI, Tailwind v4 token bridge, white-label brand contract. Impeccable remains the primary router for UI/design implementation | "add a Button", "copy in this shadcn-svelte component", "convert this bespoke style to Tailwind", "does the white-label still work" | `ux-ui-svelte-stinger` |
 | `dark-mode-theming-worker-bee` | Dark-mode theming: CSS variable token architecture, theme-provider wiring, FOWT prevention, SSR hydration safety, Tailwind v4 dark variant | "set up dark mode", "dark mode on SSR", "multi-brand theming", "FOWT fix" | `dark-mode-theming-stinger` |
 | `modal-toast-dialog-worker-bee` | Accessible overlay primitives: dialog, alert dialog, drawer, toast, command menu; focus trap, escape, scroll lock, aria contract | "choosing between overlay primitives", "debugging focus trap regressions", "building a command palette" | `modal-toast-dialog-stinger` |
 | `icon-system-worker-bee` | Icon library selection and delivery: tree-shake vs sprite, dynamic-import-by-name, custom SVG components, icon accessibility contract | "choosing an icon library", "bundle-size regressions from icon imports", "icon accessibility" | `icon-system-stinger` |
@@ -50,7 +50,8 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `font-loading-worker-bee` | Font loading pipeline: font-display strategy, preload/crossorigin correctness, variable-font subsetting, CLS-from-font-swap elimination | "audit font loading", "fix FOIT", "CLS from font swap", "subset variable font" | `font-loading-stinger` |
 | `markdown-mdx-content-pipeline-worker-bee` | Markdown/MDX pipeline: compiler selection, remark/rehype chains, syntax highlighting, AST manipulation, XSS sanitization | "set up MDX", "configure Shiki", "write a remark plugin", "sanitize user markdown" | `markdown-mdx-content-pipeline-stinger` |
 | `csv-xlsx-import-export-worker-bee` | Spreadsheet upload and export feature: CSV/XLSX parsing, large-file streaming, column-mapping wizard, row validation, CSV injection prevention | "build a CSV import", "add XLSX upload", "column-mapping wizard", "CSV injection safe" | `csv-xlsx-import-export-stinger` |
-| `design-system-worker-bee` | Bootstraps a complete design system from scratch: tokens, utility layer, per-component and per-screen specs, static HTML examples | "build a design system for X", "bootstrap UI for product Y", "create tokens and utilities for this product" | `design-system-stinger` |
+| `design-system-worker-bee` | Bootstraps a complete design system from scratch: tokens, utility layer, per-component and per-screen specs, static HTML examples. Impeccable owns frontend UI/UX/design implementation and uses DESIGN.md drift rules plus its detector gate to make enforcement mechanical | "build a design system for X", "bootstrap UI for product Y", "create tokens and utilities for this product" | `design-system-stinger` |
+| `impeccable-worker-bee` | Frontend-design operating system for all UI/UX/design implementation, redesign, refinement, new surfaces, components, and design-system capture. Runs Start -> Iterate -> Polish -> Maintain, the context contract, and the deterministic detector gate | "polish the pricing page", "build a dashboard", "redo this hero", "make this not look like AI slop", "design a settings screen", "audit this UI" | `impeccable-stinger` |
 | `http-rest-fundamentals-worker-bee` | HTTP/REST protocol correctness: method safety and idempotency, status-code honesty, headers, conditional and range requests | "is this status code correct", "why is CORS failing", "explain preflight", "PUT vs PATCH" | `http-rest-fundamentals-stinger` |
 | `image-optimization-worker-bee` | Image delivery: AVIF/WebP format selection, responsive srcset/sizes, blur placeholders, remote image config, CLI tooling | "optimize my images", "convert to AVIF", "fix layout shift from images", "audit our images" | `image-optimization-stinger` |
 
@@ -208,6 +209,12 @@ Real sequences for this stack. Every sequence below closes with the Ship Gate; i
 5. `seo-aeo-worker-bee` for metadata, JSON-LD, and Core Web Vitals.
 6. Ship Gate.
 
+### Frontend design / UI implementation
+
+1. **`impeccable-worker-bee`** is the single router for all frontend UI/UX/design implementation, redesign, refinement, new-surface, component, and design-system-capture work. It runs Start -> Iterate -> Polish -> Maintain, including the pre-flight sync check and deterministic `npx impeccable detect <target>` gate.
+2. **`design-system-worker-bee`** and **`ux-ui-svelte-worker-bee`** own product-specific token, component-library, and accessibility enforcement on established systems. Impeccable makes that enforcement mechanical via DESIGN.md drift rules and the detector gate.
+3. **`security-worker-bee`** then **`quality-worker-bee`** close out under the Plan execution loop.
+
 ### Add auth
 
 1. `workos-worker-bee` wires AuthKit, sessions, and SSO.
@@ -251,7 +258,7 @@ Don't hand-roll a new Bee. Walk [`../queen-bee-stinger/guides/beekeeper-registra
 
 ---
 
-**75 Bees registered.** Every Bee has a spawnable agent in `.cursor/agents/` and a paired Stinger in `.cursor/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
+**76 Bees registered.** Every Bee has a spawnable agent in `.cursor/agents/` and a paired Stinger in `.cursor/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
 
 ---
 

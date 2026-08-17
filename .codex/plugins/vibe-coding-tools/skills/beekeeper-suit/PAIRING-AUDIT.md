@@ -4,16 +4,22 @@ Ground truth pulled from the filesystem on 2026-08-14, after the repair pass. Th
 
 ## Totals
 
-- Bees (`.claude/agents/*.md`): **75**
-- Stinger folders (`.claude/skills/*`): **78**
+- Bees (`.claude/agents/*.md`): **76**
+- Stinger folders (`.claude/skills/*`): **79**
 - Orchestrator-level skills with no paired Bee by design: **3** (`beekeeper-suit`, `queen-bee-stinger`, `get-started-stinger`)
-- Pairable Stingers: **75**
+- Pairable Stingers: **76**
 
 ## Pairing integrity
 
 Clean. Every Bee has a matching Stinger and every pairable Stinger has a matching Bee, verified in both directions by naming convention. Zero orphans.
 
-Every Bee also has a routing guide at `guides/<bee-name>.md`. 75 Bees, 75 guides, one-to-one.
+Every Bee also has a routing guide at `guides/<bee-name>.md`. 76 Bees, 76 guides, one-to-one.
+
+## New additions
+
+`impeccable-worker-bee` / `impeccable-stinger` was ported in from a prior fork and registered here: it operates the Impeccable design system (pbakaus/impeccable, Apache-2.0) as the frontend-design operating system. The Impeccable engine is installed per machine via `npx impeccable install --scope=global --providers=codex,claude,cursor`; it is not vendored in this repo. The stinger's pre-flight sync check (`scripts/sync-check.mjs`) verifies the installed engine is current.
+
+`impeccable-worker-bee` is the single router for frontend UI/UX/design implementation. `design-system-worker-bee` and `ux-ui-svelte-worker-bee` retain product-specific token, component-library, and accessibility enforcement on established systems.
 
 ## Path integrity
 
@@ -41,7 +47,7 @@ All routing references to the renamed `deeplake-dataset-worker-bee` were repaire
 
 ## Validation
 
-All 78 Stingers pass `per-type-validation.py --type skill --harness all` with zero errors. All 75 Bees pass `--type agent --harness claude-code` with zero errors. Remaining warnings are repo-wide patterns, not defects: descriptions above Cowork's 200 character soft cap on some legacy skills, and the `proactive` frontmatter field, which every Bee in this colony uses.
+All 79 Stingers pass `per-type-validation.py --type skill --harness all` with zero errors. All 76 Bees pass `--type agent --harness claude-code` with zero errors. Remaining warnings are repo-wide patterns, not defects: descriptions above Cowork's 200 character soft cap on some legacy skills, and the `proactive` frontmatter field, which every Bee in this colony uses.
 
 ## Dead reference repair
 
