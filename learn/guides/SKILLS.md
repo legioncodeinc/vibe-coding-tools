@@ -39,7 +39,7 @@ A portable skill does not pretend every harness has the same features. It keeps 
 | Cursor | `.cursor/skills/<name>/SKILL.md` |
 | Codex plugin | `.codex/plugins/vibe-coding-tools/skills/<name>/SKILL.md` |
 
-The 78 source Stingers are portable. Codex also packages the two command behaviors as skills, for 80 plugin skills total.
+The 80 source Stingers are portable. Codex also packages the two command behaviors as skills, for 82 plugin skills total.
 
 ## Skill versus prompt
 

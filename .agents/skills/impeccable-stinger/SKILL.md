@@ -1,6 +1,6 @@
 ---
 name: "impeccable-stinger"
-description: "Operates the entire Impeccable design system (pbakaus/impeccable, Apache-2.0) for the Bee Army: the four-phase loop (Start to Iterate to Polish to Maintain), the context contract (PRODUCT.md + DESIGN.md + surface briefs), the 23-command vocabulary, the deterministic 59-rule anti-slop detector gate, hooks, live mode, and native playbooks. Use when impeccable-worker-bee is invoked, or for ANY frontend UI/UX/design implementation, redesign, refinement, new surface, component work, or design-system capture that must stay cohesive and free of AI-slop tells. Do NOT use for backend-only or non-UI tasks, or for product-specific design-system token enforcement (that is design-system-stinger / ux-ui-stinger)."
+description: "Operates the entire Impeccable design system (pbakaus/impeccable, Apache-2.0) for the Bee Army: the four-phase loop (Start to Iterate to Polish to Maintain), the context contract (PRODUCT.md + DESIGN.md + surface briefs), the 23-command vocabulary, the deterministic 59-rule anti-slop detector gate, hooks, live mode, and native playbooks. Use when impeccable-worker-bee is invoked, or for ANY frontend UI/UX/design implementation, redesign, refinement, new surface, component work, or design-system capture that must stay cohesive and free of AI-slop tells. Do NOT use for backend-only or non-UI tasks, or for product-specific design-system token enforcement (that is design-system-stinger / ux-ui-svelte-stinger)."
 license: Apache-2.0 (upstream impeccable)
 ---
 

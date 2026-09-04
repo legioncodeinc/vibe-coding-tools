@@ -15,20 +15,23 @@ The colony is built on the second bet. Every Bee has a single, narrow domain; ev
 ## The two rules
 
 1. **The right Bee for the right job.** Never generalize work a specialist owns. If the user's request touches security, `security-worker-bee` is not a nice-to-have; it is the answer.
-2. **Every Bee wields a Stinger.** Invoking an Bee without its Stinger is invoking an unarmed persona. Always pass the Stinger path when delegating.
+2. **Every Bee wields a Stinger.** Invoking a Bee without its Stinger is invoking an unarmed persona. Always pass the Stinger path when delegating.
 
 ---
 
 ## The ritual
 
-When the `hive-registrar` skill forges a new Bee, registration with Beekeeper-Suit is the final step. Unregistered Bees are invisible. The pipeline is:
+When [`queen-bee-stinger`](../../queen-bee-stinger/) forges a new Bee and Stinger pair, registration with Beekeeper-Suit is the final step. Unregistered Bees are invisible. The pipeline is:
 
-1. Command Brief.
-2. Stinger (the paired Cursor skill under `.claude/skills/`).
-3. Subagent file (the Bee under `.claude/agents/`).
-4. Beekeeper-Suit registration (update roster + add guide).
+1. Topic.
+2. Research.
+3. Distillation.
+4. References.
+5. Guides.
+6. Skill File.
+7. Register the Bee, its Stinger, its routing guide, and every generated harness copy.
 
-Each phase produces an auditable artifact. Each phase is rerunnable. The whole pipeline is designed so that an Bee can be traced from idea to deployment without anyone opening a terminal log.
+Each phase produces an auditable artifact. Each phase is rerunnable. The whole pipeline is designed so that a Bee can be traced from idea to deployment without anyone opening a terminal log.
 
 ---
 

@@ -21,12 +21,13 @@ The pairing is enforced by two verbatim text blocks that queen-bee-stinger bakes
 - The **agent Critical Directive** at the top of every Bee body: load your core skill now, before any planning or execution, read all of it, supplement from the internet and knowledge base if it falls short, and here are the related skills.
 - The **skill Critical Directive** at the end of every Stinger: read all files in this skill, supplement if insufficient, related skills listed.
 
-Two skills are exempt from the pairing law because they operate at the harness orchestrator level, wielded by the main agent rather than a subagent:
+Three skills are exempt from the pairing law because they operate at the harness orchestrator level, wielded by the main agent rather than a subagent:
 
 | Skill | Function |
 |---|---|
 | `beekeeper-suit` | Routing. The roster of every registered Bee, its domain, triggers, and guide. The orchestrator consults it to decide who owns a task |
 | `queen-bee-stinger` | Creation. The forge that builds and validates new rules, plugins, commands, Bees, and Stingers |
+| `get-started-stinger` | Repository initialization. It establishes and hardens a healthy project baseline before domain work begins |
 
 No other skill may go unpaired. If you find one, it is either a candidate for a new Bee or a candidate for deletion.
 

@@ -28,7 +28,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 
 ## Roster
 
-76 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+77 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -42,6 +42,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `react-worker-bee` | React 18/19 architecture: bulletproof-react patterns, Server Components, Suspense, Actions, Compiler, state layering | "review React architecture", "state management decision", "Server Components boundary", "React 19 patterns" | `react-stinger` |
 | `typescript-node-worker-bee` | TypeScript/Node code review and conventions: strict config, module resolution, test suites, boundary validation (body still cites a legacy package's specifics; see PAIRING-AUDIT.md) | "review this TypeScript code", "audit this Node code", "write a Vitest suite", "tighten the tsconfig" | `typescript-node-stinger` |
 | `python-worker-bee` | Python architecture: Django + Django Ninja + FastAPI + Celery + Channels + pytest + uv, ORM discipline, migrations, typed adoption | "review this Django code", "audit ORM patterns", "migrate DRF to Django Ninja", "set up Celery" | `python-stinger` |
+| `rust-worker-bee` | Rust implementation and code review for production Cargo workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, Rust tests, and local packaging evidence | "implement this in Rust", "review this Cargo workspace", "fix this Tokio or SQLx service", "audit this SQLx transaction", "build the approved Rust PRD slice" | `rust-stinger` |
 | `ux-ui-svelte-worker-bee` | Enforces this repo's SvelteKit UI standard: shadcn-svelte on Bits UI plus Melt UI, Tailwind v4 token bridge, white-label brand contract. Impeccable remains the primary router for UI/design implementation | "add a Button", "copy in this shadcn-svelte component", "convert this bespoke style to Tailwind", "does the white-label still work" | `ux-ui-svelte-stinger` |
 | `dark-mode-theming-worker-bee` | Dark-mode theming: CSS variable token architecture, theme-provider wiring, FOWT prevention, SSR hydration safety, Tailwind v4 dark variant | "set up dark mode", "dark mode on SSR", "multi-brand theming", "FOWT fix" | `dark-mode-theming-stinger` |
 | `modal-toast-dialog-worker-bee` | Accessible overlay primitives: dialog, alert dialog, drawer, toast, command menu; focus trap, escape, scroll lock, aria contract | "choosing between overlay primitives", "debugging focus trap regressions", "building a command palette" | `modal-toast-dialog-stinger` |
@@ -200,6 +201,16 @@ After all three gates pass, the user reviews the findings and the diff and gives
 
 Real sequences for this stack. Every sequence below closes with the Ship Gate; it isn't repeated in each entry.
 
+### Plan execution loop
+
+1. `beekeeper-suit` selects the narrowest implementation Bee for the approved plan. Use `rust-worker-bee` for Rust and Cargo work, `impeccable-worker-bee` for frontend design implementation, or the matching domain Bee for other work.
+2. The implementation Bee completes the bounded scope and records fresh verification evidence.
+3. `security-worker-bee` audits the completed change first and every medium-or-higher finding is resolved.
+4. The implementation owner reruns every affected check after security fixes.
+5. `quality-worker-bee` independently verifies the final implementation against its source plan.
+6. The orchestrator loads `github-repo-health-stinger` and completes the repository-health gate.
+7. The user reviews the reports and diff before the authorized commit or push.
+
 ### Build a website
 
 1. `website-worker-bee` scaffolds or extends the site from the brief.
@@ -258,7 +269,7 @@ Don't hand-roll a new Bee. Walk [`../queen-bee-stinger/guides/beekeeper-registra
 
 ---
 
-**76 Bees registered.** Every Bee has a spawnable agent in `.cursor/agents/` and a paired Stinger in `.cursor/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
+**77 Bees registered.** Every Bee has a spawnable agent in `.cursor/agents/` and a paired Stinger in `.cursor/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
 
 ---
 

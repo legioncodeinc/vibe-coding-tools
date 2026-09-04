@@ -1,6 +1,6 @@
 # Release Packages
 
-These archives are generated from the operational harness directories at repository root.
+These version `1.0.0` archives are snapshots generated from the operational harness directories at repository root. Their table describes the archived contents, not the current source-tree inventory. See the [Asset Catalog](../ASSET-CATALOG.md) for current counts, and rebuild the archives before publishing a newer release.
 
 | Archive | Installable root | Contents |
 |---|---|---|
@@ -16,7 +16,7 @@ Before publishing a new version:
 1. Run `python learn/scripts/generate-harnesses.py`.
 2. Validate Claude and Codex manifests.
 3. Validate every component.
-4. Rebuild all three archives.
+4. Rebuild all four archives.
 5. Extract them into an empty temporary folder.
 6. Check for absolute paths, parent traversal, `.git`, `.env`, and secrets.
 7. Run security before quality.

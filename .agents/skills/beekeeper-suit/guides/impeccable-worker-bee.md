@@ -1,12 +1,12 @@
 # impeccable-worker-bee
 
 ## Domain
-This Bee is the frontend-design operating system operator. It owns the entire Impeccable system (pbakaus/impeccable, Apache-2.0) as a closed loop: the context contract (`PRODUCT.md` + `DESIGN.md` + per-surface briefs + `.impeccable/design.json`), the 23-command vocabulary, the four-phase design loop (Start -> Iterate -> Polish -> Maintain), the deterministic 59-rule anti-slop detector gate, hooks, live mode, and native playbooks. It is the single router for all frontend UI/UX/design implementation work: new surfaces, redesigns, refinements, component work, and design-system capture. It does not fork or modify the upstream Impeccable engine; it operates the pinned portable runtime bundle.
+This Bee is the frontend-design operating system operator. It owns the entire Impeccable system (pbakaus/impeccable, Apache-2.0) as a closed loop: the context contract (`PRODUCT.md` + `DESIGN.md` + per-surface briefs + `.impeccable/design.json`), the 23-command vocabulary, the four-phase design loop (Start -> Iterate -> Polish -> Maintain), the deterministic 59-rule anti-slop detector gate, hooks, live mode, and native playbooks. It is the single router for all frontend UI/UX/design implementation work: new surfaces, redesigns, refinements, component work, and design-system capture. It does not fork or modify the upstream Impeccable engine; it operates the installed system and verifies it against the pinned upstream manifest.
 
-**Explicit exclusions:** product-specific design-system token enforcement stays with `design-system-worker-bee` / `ux-ui-worker-bee` (this Bee makes that enforcement mechanical via DESIGN.md-drift rules); backend/non-UI work routes to the domain Bee; Lighthouse/perf-only audits stay with `quality-worker-bee`; Security acceptance stays with `security-worker-bee`.
+**Explicit exclusions:** product-specific design-system token enforcement stays with `design-system-worker-bee` / `ux-ui-svelte-worker-bee` (this Bee makes that enforcement mechanical via DESIGN.md-drift rules); backend/non-UI work routes to the domain Bee; Lighthouse/perf-only audits stay with `lighthouse-pagespeed-worker-bee`; Security acceptance stays with `security-worker-bee`.
 
 ## Paired Stinger
-[impeccable-stinger](../../impeccable-stinger) - the four-phase loop, Phase 0 pre-flight sync check, context contract, detector gate, hooks, live mode, native playbooks, install-and-verify, and the vendored Impeccable engine it operates.
+[impeccable-stinger](../../impeccable-stinger) - the four-phase loop, Phase 0 pre-flight sync check, context contract, detector gate, hooks, live mode, native playbooks, install-and-verify procedure, and pinned manifest for the installed upstream engine.
 
 ## Trigger phrases
 - "polish the pricing page"
@@ -20,9 +20,9 @@ This Bee is the frontend-design operating system operator. It owns the entire Im
 Or route proactively when the assigned work touches any frontend UI/UX/design implementation, redesign, refinement, new surface, component work, or design-system capture, or when the user wants to see the design live during development and point at issues before a PR.
 
 ## Do NOT route when
-- The request is product-specific design-system token enforcement, component-library wrapping, or accessibility compliance on an established system: that belongs to `design-system-worker-bee` / `ux-ui-worker-bee`.
+- The request is product-specific design-system token enforcement, component-library wrapping, or accessibility compliance on an established system: that belongs to `design-system-worker-bee` / `ux-ui-svelte-worker-bee`.
 - The request is backend-only or non-UI logic: that belongs to `react-worker-bee`, `preact-worker-bee`, or the relevant domain Bee.
-- The request is a Lighthouse/perf-only audit: that belongs to `quality-worker-bee`.
+- The request is a Lighthouse/perf-only audit: that belongs to `lighthouse-pagespeed-worker-bee`.
 - The request is Security acceptance: that belongs to `security-worker-bee` (always before quality).
 
 If a request straddles two Bees' domains, prefer the narrower-scoped Bee and let the broader one act as backup.
@@ -43,7 +43,7 @@ If a request straddles two Bees' domains, prefer the narrower-scoped Bee and let
 
 ## Commonly sequenced with
 - Plan execution loop: `impeccable-worker-bee` is the implementation Bee for frontend UI/UX/design work; it hands the final implemented state to `security-worker-bee`, reruns affected checks after security fixes, and only then hands it to `quality-worker-bee`.
-- Design-system enforcement: `design-system-worker-bee` / `ux-ui-worker-bee` own product-specific token enforcement; `impeccable-worker-bee` makes it mechanical via the DESIGN.md-drift rules and the detector gate.
+- Design-system enforcement: `design-system-worker-bee` / `ux-ui-svelte-worker-bee` own product-specific token enforcement; `impeccable-worker-bee` makes it mechanical via the DESIGN.md-drift rules and the detector gate.
 
 ## Critical directives the orchestrator should respect
 - **Phase 0 pre-flight sync check first** - run `node .claude/skills/impeccable-stinger/scripts/sync-check.mjs` before any design work; skip when current (exit 0), update when behind (exit 2), global-install first when not installed (exit 1).

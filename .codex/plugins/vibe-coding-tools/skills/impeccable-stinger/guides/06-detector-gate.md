@@ -27,7 +27,7 @@ Severities: `error` (flat-type-hierarchy, gradient-text), `warning` (most), `adv
 
 ## DESIGN.md awareness
 
-With a local `DESIGN.md`, the detector enables the 4 design-system rules (font, color, radius, font-size outside the documented system) using `.impeccable/design.json` for richer token/ramp data. This is what makes product-token enforcement mechanical — it complements `design-system-stinger`/`ux-ui-stinger`.
+With a local `DESIGN.md`, the detector enables the 4 design-system rules (font, color, radius, font-size outside the documented system) using `.impeccable/design.json` for richer token/ramp data. This is what makes product-token enforcement mechanical. It complements `design-system-stinger` and `ux-ui-svelte-stinger`.
 
 ## Ignores & waivers
 

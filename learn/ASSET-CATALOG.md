@@ -4,19 +4,19 @@ This file is generated from the canonical `.claude` tree. Do not maintain the ro
 
 ## Exact manifest
 
-- Agents: 75
-- Core skills: 78
+- Agents: 77
+- Core skills: 80
 - Commands: 2
 - Rules: 4
 - Hook behaviors: 2
-- Codex-facing skills: 80 (78 core skills plus 2 command translations)
+- Codex-facing skills: 82 (80 core skills plus 2 command translations)
 
 ## Compatibility ledger
 
 | Source capability | Claude Code | Codex | Cursor |
 |---|---|---|---|
-| 75 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |
-| 78 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |
+| 77 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |
+| 80 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |
 | 2 commands | PRESERVE | TRANSLATE to explicit skills in both Codex layers | PRESERVE |
 | 4 rules | TRANSLATE to Claude rules and CLAUDE.md | TRANSLATE to project instructions | PRESERVE as MDC |
 | 2 hooks | PRESERVE | TRANSLATE patch input, preserve outcomes | TRANSLATE event and output schema |
@@ -60,6 +60,7 @@ No capability is intentionally dropped.
 | [http-rest-fundamentals-worker-bee](../.claude/agents/http-rest-fundamentals-worker-bee.md) | [http-rest-fundamentals-stinger](../.claude/skills/http-rest-fundamentals-stinger/) | [TOML](../.codex/agents/http-rest-fundamentals-worker-bee.toml) |
 | [icon-system-worker-bee](../.claude/agents/icon-system-worker-bee.md) | [icon-system-stinger](../.claude/skills/icon-system-stinger/) | [TOML](../.codex/agents/icon-system-worker-bee.toml) |
 | [image-optimization-worker-bee](../.claude/agents/image-optimization-worker-bee.md) | [image-optimization-stinger](../.claude/skills/image-optimization-stinger/) | [TOML](../.codex/agents/image-optimization-worker-bee.toml) |
+| [impeccable-worker-bee](../.claude/agents/impeccable-worker-bee.md) | [impeccable-stinger](../.claude/skills/impeccable-stinger/) | [TOML](../.codex/agents/impeccable-worker-bee.toml) |
 | [kanban-flow-worker-bee](../.claude/agents/kanban-flow-worker-bee.md) | [kanban-flow-stinger](../.claude/skills/kanban-flow-stinger/) | [TOML](../.codex/agents/kanban-flow-worker-bee.toml) |
 | [knowledge-worker-bee](../.claude/agents/knowledge-worker-bee.md) | [knowledge-stinger](../.claude/skills/knowledge-stinger/) | [TOML](../.codex/agents/knowledge-worker-bee.toml) |
 | [library-worker-bee](../.claude/agents/library-worker-bee.md) | [library-stinger](../.claude/skills/library-stinger/) | [TOML](../.codex/agents/library-worker-bee.toml) |
@@ -81,6 +82,7 @@ No capability is intentionally dropped.
 | [retrieval-worker-bee](../.claude/agents/retrieval-worker-bee.md) | [retrieval-stinger](../.claude/skills/retrieval-stinger/) | [TOML](../.codex/agents/retrieval-worker-bee.toml) |
 | [retrospective-worker-bee](../.claude/agents/retrospective-worker-bee.md) | [retrospective-stinger](../.claude/skills/retrospective-stinger/) | [TOML](../.codex/agents/retrospective-worker-bee.toml) |
 | [runbook-writing-worker-bee](../.claude/agents/runbook-writing-worker-bee.md) | [runbook-writing-stinger](../.claude/skills/runbook-writing-stinger/) | [TOML](../.codex/agents/runbook-writing-worker-bee.toml) |
+| [rust-worker-bee](../.claude/agents/rust-worker-bee.md) | [rust-stinger](../.claude/skills/rust-stinger/) | [TOML](../.codex/agents/rust-worker-bee.toml) |
 | [security-worker-bee](../.claude/agents/security-worker-bee.md) | [security-stinger](../.claude/skills/security-stinger/) | [TOML](../.codex/agents/security-worker-bee.toml) |
 | [sentry-worker-bee](../.claude/agents/sentry-worker-bee.md) | [sentry-stinger](../.claude/skills/sentry-stinger/) | [TOML](../.codex/agents/sentry-worker-bee.toml) |
 | [seo-aeo-worker-bee](../.claude/agents/seo-aeo-worker-bee.md) | [seo-aeo-stinger](../.claude/skills/seo-aeo-stinger/) | [TOML](../.codex/agents/seo-aeo-worker-bee.toml) |

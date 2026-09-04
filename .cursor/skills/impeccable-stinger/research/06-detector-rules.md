@@ -80,5 +80,5 @@ design-system-font-size | quality | warning — font size between documented ste
 ## Evidence for the stinger
 
 - The gate is the Bee's mandatory close-out step: `npx impeccable detect <target>`; exit code 2 fails until resolved or explicitly waived (narrowest ignore + reason).
-- The 4 design-system rules make product-token enforcement mechanical — they complement `design-system-stinger`/`ux-ui-stinger`.
+- The 4 design-system rules make product-token enforcement mechanical. They complement `design-system-stinger` and `ux-ui-svelte-stinger`.
 - Verified live during research: `node cli/bin/cli.js detect tests/fixtures` returned line-numbered findings (side-tab, design-system-color, etc.) with remediation text.

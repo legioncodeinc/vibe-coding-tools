@@ -1,6 +1,6 @@
 # Hive Bee template: reference-agents.md
 
-Fill-in-the-blanks template for a Bee agent. A Bee is the Hive's agent component. Every Bee pairs with exactly one Stinger (the Hive's skill component) except beekeeper-suit and queen-bee-stinger, which operate at orchestrator level with no paired agent.
+Fill-in-the-blanks template for a Bee agent. A Bee is the Hive's agent component. Every Bee pairs with exactly one Stinger (the Hive's skill component) except `beekeeper-suit`, `queen-bee-stinger`, and `get-started-stinger`, which operate at orchestrator level with no paired agent.
 
 Glossary: Beekeeper and Tools are commands. Bees are agents. Stingers are skills. The Hive is the whole framework. Vibe Coding Tools is the repository that distributes it.
 
