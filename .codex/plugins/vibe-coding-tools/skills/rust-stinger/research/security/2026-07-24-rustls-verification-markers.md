@@ -1,5 +1,5 @@
 ---
-source_url: https://rustls.dev/src/rustls/verify.rs.html
+source_url: https://docs.rs/rustls/latest/src/rustls/verify.rs.html
 retrieved_on: 2026-07-24
 source_type: official-docs
 authority: official

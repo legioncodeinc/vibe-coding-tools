@@ -1,6 +1,6 @@
 # Rust implementation handoff: {{slice_name}}
 
-Use the complete reusable form in [`../templates/implementation-handoff.md`](../templates/implementation-handoff.md). Store a populated copy here as `YYYY-MM-DD-{{slice_slug}}.md` only when the orchestrator designates this global Stinger as the report archive; product-specific evidence normally remains in the product's authorized artifact path.
+Use the complete reusable form in [`../templates/implementation-handoff.md`](../templates/implementation-handoff.md). This file is template-only. Store every populated report in the active repository's root `library/` hierarchy under the relevant feature, issue, or standalone audit path. Never store execution history inside the installed Stinger.
 
 Required sections:
 

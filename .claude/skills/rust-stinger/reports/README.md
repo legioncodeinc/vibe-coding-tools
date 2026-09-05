@@ -1,3 +1,3 @@
-# Rust Stinger reports
+# Rust Stinger report templates
 
-This folder accumulates dated implementation handoffs produced by `rust-worker-bee`; copy `implementation-handoff-report-template.md`, preserve exact command evidence, and never overwrite an earlier run.
+This folder stores reusable report-shape templates only. Actual `rust-worker-bee` execution and Ship Gate reports belong in the active repository's root `library/` hierarchy under the relevant feature, issue, or standalone audit path. Do not write run history into the installed Stinger.

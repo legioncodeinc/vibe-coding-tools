@@ -28,7 +28,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 
 ## Roster
 
-79 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+82 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -43,6 +43,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `typescript-node-worker-bee` | TypeScript/Node code review and conventions: strict config, module resolution, test suites, boundary validation (body still cites a legacy package's specifics; see PAIRING-AUDIT.md) | "review this TypeScript code", "audit this Node code", "write a Vitest suite", "tighten the tsconfig" | `typescript-node-stinger` |
 | `python-worker-bee` | Python architecture: Django + Django Ninja + FastAPI + Celery + Channels + pytest + uv, ORM discipline, migrations, typed adoption | "review this Django code", "audit ORM patterns", "migrate DRF to Django Ninja", "set up Celery" | `python-stinger` |
 | `rust-worker-bee` | Rust implementation and code review for production Cargo workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, Rust tests, and local packaging evidence | "implement this in Rust", "review this Cargo workspace", "fix this Tokio or SQLx service", "audit this SQLx transaction", "build the approved Rust PRD slice" | `rust-stinger` |
+| `tauri-worker-bee` | Tauri 2 application boundary: update reviews, v1 migration, typed IPC, capabilities, plugins, sidecars, updater behavior, and desktop/mobile AI integration | "build a Tauri 2 desktop app", "what changed in Tauri 2", "migrate Tauri v1 to v2", "bundle a local model sidecar" | `tauri-stinger` |
 | `ux-ui-svelte-worker-bee` | Enforces this repo's SvelteKit UI standard: shadcn-svelte on Bits UI plus Melt UI, Tailwind v4 token bridge, white-label brand contract. Impeccable remains the primary router for UI/design implementation | "add a Button", "copy in this shadcn-svelte component", "convert this bespoke style to Tailwind", "does the white-label still work" | `ux-ui-svelte-stinger` |
 | `dark-mode-theming-worker-bee` | Dark-mode theming: CSS variable token architecture, theme-provider wiring, FOWT prevention, SSR hydration safety, Tailwind v4 dark variant | "set up dark mode", "dark mode on SSR", "multi-brand theming", "FOWT fix" | `dark-mode-theming-stinger` |
 | `modal-toast-dialog-worker-bee` | Accessible overlay primitives: dialog, alert dialog, drawer, toast, command menu; focus trap, escape, scroll lock, aria contract | "choosing between overlay primitives", "debugging focus trap regressions", "building a command palette" | `modal-toast-dialog-stinger` |
@@ -87,6 +88,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `discord-bot-worker-bee` | Discord bot development: slash commands, interactive components, voice playback, gateway architecture, rate limits, verification checklist | "add a slash command", "set up voice", "my bot hits 100 servers", "wire up a modal" | `discord-bot-stinger` |
 | `slack-app-worker-bee` | Slack app development on the Bolt SDK: slash commands, modals, Events API, multi-workspace OAuth, Marketplace submission | "build a Slack app", "create a Slack modal", "set up Slack Events API" | `slack-app-stinger` |
 | `telegram-bot-worker-bee` | Telegram bot development: Bot API, grammY/aiogram, webhook vs long-polling, Mini App initData validation, Stars payments | "building a new Telegram bot", "debugging webhook delivery failures", "wiring a Mini App" | `telegram-bot-stinger` |
+| `lifecycle-email-worker-bee` | Evidence-grounded lead follow-up emails: classification, sequences, cadence, suppression, QA, and handoff records | "write a lead follow-up email", "build a nurture sequence", "what should this prospect receive next" | `lifecycle-email-stinger` |
 
 ### AI and cognitive layer
 
@@ -148,6 +150,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `adr-writing-worker-bee` | Architecture Decision Records: Nygard format, MADR template, Y-statement framing, supersession lifecycle | "write an ADR", "record this decision", "supersede ADR-NNN", "set up our ADR log" | `adr-writing-stinger` |
 | `api-docs-worker-bee` | API documentation: docs-renderer selection, OpenAPI spec enrichment with examples, hosted/self-hosted deployment, SDK generation | "set up API docs", "which docs renderer should I use", "generate a TypeScript SDK from my spec" | `api-docs-stinger` |
 | `asset-worker-bee` | Owns the Universal Asset Registry: the platform-owned catalog of features, pages, routes, controls, tokens, and other first-class assets | "registering a new asset", "auditing drift between code and DB", "generating registry migrations" | `asset-stinger` |
+| `archivist-worker-bee` | Acquired-repository archival: provenance and license intake, attribution and PII scrub, documentation consolidation, research-object preparation | "archive this acquired repo", "strip attribution and PII", "prepare this repository as a research object" | `archivist-stinger` |
 | `docs-site-worker-bee` | Documentation-site infrastructure: platform selection, the Diataxis content pyramid, docs-as-code CI, search | "pick a docs platform", "set up Docusaurus", "add search to docs" | `docs-site-stinger` |
 | `knowledge-worker-bee` | Authors narrative knowledge documentation: system overviews, architecture docs with diagrams, schema references, coding standards | "document the auth architecture", "write the system overview", "create knowledge docs for this repo" | `knowledge-stinger` |
 | `library-worker-bee` | Owns the full documentation lifecycle for the repo's library/: scaffolds structure, ingests issues into IRDs, generates PRDs, backwards-PRDs | "initialize library", "ingest new issues", "write a PRD for X", "backwards-PRD this module" | `library-stinger` |
@@ -205,7 +208,7 @@ Real sequences for this stack. Every sequence below closes with the Ship Gate; i
 
 ### Plan execution loop
 
-1. `beekeeper-suit` selects the narrowest implementation Bee for the approved plan. Use `rust-worker-bee` for Rust and Cargo work, `impeccable-worker-bee` for frontend design implementation, or the matching domain Bee for other work.
+1. `beekeeper-suit` selects the narrowest implementation Bee for the approved plan. Use `rust-worker-bee` for Rust and Cargo work, `tauri-worker-bee` for the Tauri application boundary, `impeccable-worker-bee` for frontend design implementation, or the matching domain Bee for other work.
 2. The implementation Bee completes the bounded scope and records fresh verification evidence.
 3. `security-worker-bee` audits the completed change first and every medium-or-higher finding is resolved.
 4. The implementation owner reruns every affected check after security fixes.
@@ -271,7 +274,7 @@ Don't hand-roll a new Bee. Walk [`../queen-bee-stinger/guides/beekeeper-registra
 
 ---
 
-**79 Bees registered.** Every Bee has a spawnable agent in `.claude/agents/` and a paired Stinger in `.claude/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
+**82 Bees registered.** Every Bee has a spawnable agent in `.claude/agents/` and a paired Stinger in `.claude/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
 
 ---
 

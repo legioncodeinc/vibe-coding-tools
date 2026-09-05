@@ -114,7 +114,7 @@ def normalized_agent_text(path: Path, harness: str) -> str:
         "description": fields["description"],
     }
     if harness == "claude":
-        for key in ("model", "tools"):
+        for key in ("model", "tools", "isolation"):
             if key in fields:
                 kept[key] = fields[key]
     frontmatter = "\n".join(

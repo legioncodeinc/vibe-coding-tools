@@ -1,23 +1,27 @@
 # Pairing audit
 
-Ground truth pulled from the filesystem on 2026-09-03, after the repair pass. This file is a record of current state, refreshed whenever the colony changes.
+Ground truth pulled from the filesystem on 2026-09-05, after the Rust and Tauri forge pass. This file is a record of current state, refreshed whenever the colony changes.
 
 ## Totals
 
-- Bees (`.claude/agents/*.md`): **77**
-- Stinger folders (`.claude/skills/*`): **80**
+- Bees (`.claude/agents/*.md`): **82**
+- Stinger folders (`.claude/skills/*`): **85**
 - Orchestrator-level skills with no paired Bee by design: **3** (`beekeeper-suit`, `queen-bee-stinger`, `get-started-stinger`)
-- Pairable Stingers: **77**
+- Pairable Stingers: **82**
 
 ## Pairing integrity
 
 Clean. Every Bee has a matching Stinger and every pairable Stinger has a matching Bee, verified in both directions by naming convention. Zero orphans.
 
-Every Bee also has a routing guide at `guides/<bee-name>.md`. 77 Bees, 77 guides, one-to-one.
+Every Bee also has a routing guide at `guides/<bee-name>.md`. 82 Bees, 82 guides, one-to-one.
 
 ## New additions
 
 `rust-worker-bee` / `rust-stinger` was ported in from a prior fork and registered here: Rust implementation and code review for Cargo workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, tests, and local packaging evidence.
+
+`tauri-worker-bee` / `tauri-stinger` was forged in the 2026-09-03 research window: current Tauri 2 impact review, v1 migration, typed IPC, capabilities, plugins, sidecars, updater behavior, and desktop/mobile AI integration. It is deliberately bounded to the Tauri application boundary and hands general Rust implementation to `rust-worker-bee`.
+
+The pre-existing `archivist-worker-bee` / `archivist-stinger` and `lifecycle-email-worker-bee` / `lifecycle-email-stinger` pairs now have their previously missing Beekeeper routing guides and roster rows. `competitive-research-worker-bee` / `competitive-research-stinger` now also has its missing routing guide.
 
 `impeccable-worker-bee` / `impeccable-stinger` was ported in from a prior fork and registered here: it operates the Impeccable design system (pbakaus/impeccable, Apache-2.0) as the frontend-design operating system. The Impeccable engine is installed per machine via `npx impeccable install --scope=global --providers=codex,claude,cursor`; it is not vendored in this repo. The stinger's pre-flight sync check (`scripts/sync-check.mjs`) verifies the installed engine is current.
 
@@ -49,7 +53,7 @@ All routing references to the renamed `deeplake-dataset-worker-bee` were repaire
 
 ## Validation
 
-All 80 Stingers pass `per-type-validation.py --type skill --harness all` with zero errors. All 77 Bees pass `--type agent --harness claude-code` with zero errors. Remaining warnings are repo-wide patterns, not defects: descriptions above Cowork's 200 character soft cap on some legacy skills, and the `proactive` frontmatter field, which every Bee in this colony uses.
+All 85 Stingers pass `per-type-validation.py --type skill --harness all` with zero errors. All 82 Bees pass `--type agent --harness claude-code` with zero errors. Remaining warnings are repo-wide patterns, not defects: descriptions above Cowork's 200 character soft cap on some legacy skills, and the `proactive` frontmatter field, which every Bee in this colony uses.
 
 ## Dead reference repair
 

@@ -1,0 +1,10 @@
+# Public scanner-fixture captures preserved in generated research mirrors.
+# These are documented example findings from upstream TruffleHog and Gitleaks
+# READMEs, not repository credentials. Keep the source URLs and provenance
+# metadata in the paired canonical raw records when renewing this allowlist.
+.codex/plugins/vibe-coding-tools/skills/archivist-stinger/references/research/raw/identity--trufflehog--readme.md:aws-access-token:71
+.codex/plugins/vibe-coding-tools/skills/archivist-stinger/references/research/raw/identity--gitleaks--readme.md:sidekiq-secret:14
+.codex/plugins/vibe-coding-tools/skills/archivist-stinger/references/research/raw/identity--gitleaks--readme.md:generic-api-key:359
+.cursor/skills/archivist-stinger/references/research/raw/identity--trufflehog--readme.md:aws-access-token:71
+.cursor/skills/archivist-stinger/references/research/raw/identity--gitleaks--readme.md:sidekiq-secret:14
+.cursor/skills/archivist-stinger/references/research/raw/identity--gitleaks--readme.md:generic-api-key:359
