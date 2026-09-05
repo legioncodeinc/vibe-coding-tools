@@ -1,0 +1,20 @@
+# Raw source: empirical observation transcript (authorized pentest)
+Origin: loungeatswift.com audit session (pt-lounge/probe6.json)
+Fetched into archive: 2026-08-30
+Source type: empirical observation - authorized penetration test of loungeatswift.com (operator grant; all writes labeled 'pentest probe - safe to delete')
+
+{
+ "settings": {
+  "status": 200,
+  "body": "{\"external\":{\"anonymous_users\":false,\"apple\":true,\"azure\":false,\"bitbucket\":false,\"discord\":false,\"facebook\":false,\"snapchat\":false,\"figma\":false,\"fly\":false,\"github\":false,\"gitlab\":false,\"google\":true,\"keycloak\":false,\"kakao\":false,\"linkedin\":false,\"linkedin_oidc\":false,\"notion\":false,\"spotify\":false,\"slack\":false,\"slack_oidc\":false,\"workos\":false,\"twitch\":false,\"twitter\":false,\"email\":true,\"phone\":false,\"zoom\":false},\"disable_signup\":false,\"mailer_autoconfirm\":false,\"phone_autoconfirm\":false,\"sms_provider\":\"twilio\",\"saml_enabled\":false,\"saml_private_key_next_configured\":true,\"passkeys_enabled\":false}"
+ },
+ "activate": {
+  "status": 200,
+  "body": "{\"id\":\"618f90e5-a70b-447c-9026-6419a9ba9285\",\"aud\":\"authenticated\",\"role\":\"authenticated\",\"email\":\"pt-probe-1788149133176@example.com\",\"phone\":\"\",\"confirmation_sent_at\":\"2026-08-31T04:08:50.197383856Z\",\"app_metadata\":{\"provider\":\"email\",\"providers\":[\"email\"]},\"user_metadata\":{\"email\":\"pt-probe-1788149133176@example.com\",\"email_verified\":false,\"phone_verified\":false,\"probe\":\"anon-signup-test\",\"sub\":\"618f90e5-a70b-447c-9026-6419a9ba9285\"},\"identities\":[{\"identity_id\":\"17da08ed-0aba-4b08-958c-539922d63232\",\"id\":\"618f90e5-a70b-447c-9026-6419a9ba9285\",\"user_id\":\"618f90e5-a70b-447c-9026-6419a9ba9285\",\"identity_data\":{\"email\":\"pt-probe-1788149133176@example.com\",\"email_verified\":false,\"phone_verified\":false,\"probe\":\"anon-signup-test\",\"sub\":\"618f90e5-a70b-447c-9026-6419a9ba9285\"},\"provider\":\"email\",\"last_sign_in_at\":\"2026-08-31T04:06:20.018351Z\",\"created_at\":\"2026-08-31T04:06:20.018403Z\",\"updated_at\":\"2026-08-31T04:06:20.018403Z\",\"email\":\"pt-probe-1788149133176@example.com\"}],\"created_at\":\"2026-08-31T04:06:19.990472Z\",\"updated_at\":\"2026-08-31T04:08:50.803852Z\",\"is_anonymous\":false}",
+  "userId": "618f90e5-a70b-447c-9026-6419a9ba9285"
+ },
+ "piRetry": {
+  "status": 401,
+  "body": "{\"code\":\"42501\",\"details\":null,\"hint\":null,\"message\":\"new row violates row-level security policy for table \\\"party_inquiries\\\"\"}"
+ }
+}

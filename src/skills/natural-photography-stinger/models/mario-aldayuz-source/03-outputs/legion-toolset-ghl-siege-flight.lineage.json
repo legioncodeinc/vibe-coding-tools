@@ -1,0 +1,26 @@
+{
+  "case": "B_scene",
+  "written_utc": "2026-08-21T07:24:38.094758+00:00",
+  "source_frame": null,
+  "output": "C:\\Users\\mario\\.codex\\skills\\natural-photography-stinger\\models\\mario-aldayuz-source\\03-outputs\\legion-toolset-ghl-siege-flight.jpg",
+  "output_sha256": "58ae9893345fd3f4a8cdc9a86e506017f535ecdc10491ca762b609586be04757",
+  "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "profile": {
+    "FocalLength": "40",
+    "FocalLengthIn35mmFormat": "40",
+    "FNumber": "3.2",
+    "ExposureTime": "1/500",
+    "ISO": "4000",
+    "ExposureProgram": "3",
+    "MeteringMode": "5",
+    "WhiteBalance": "0",
+    "Flash": "16",
+    "ColorSpace": "1",
+    "Orientation": "1",
+    "Artist": "Mario Aldayuz",
+    "Copyright": "Copyright Mario Aldayuz 2026",
+    "Creator": "Mario Aldayuz",
+    "Rights": "Copyright Mario Aldayuz 2026"
+  },
+  "capture_identity_written": false
+}

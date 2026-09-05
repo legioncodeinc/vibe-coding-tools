@@ -1,6 +1,0 @@
-interface:
-  display_name: "the-beekeeper"
-  short_description: "Route a request to the right specialist Bee and its paired Stinger."
-  default_prompt: "Use $the-beekeeper for this request."
-policy:
-  allow_implicit_invocation: false

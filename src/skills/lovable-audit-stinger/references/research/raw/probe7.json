@@ -1,0 +1,34 @@
+# Raw source: empirical observation transcript (authorized pentest)
+Origin: loungeatswift.com audit session (pt-lounge/probe7.json)
+Fetched into archive: 2026-08-30
+Source type: empirical observation - authorized penetration test of loungeatswift.com (operator grant; all writes labeled 'pentest probe - safe to delete')
+
+{
+ "eventsById": {
+  "status": 400,
+  "body": "{\"code\":\"PGRST100\",\"details\":\"unexpected \\\"6\\\" expecting \\\"(\\\"\",\"hint\":null,\"message\":\"\\\"failed to parse filter (in.637dee11-d4d8-4eb0-9d19-21abe5284cc6)\\\" (line 1, column 4)\"}"
+ },
+ "loginEvents": {
+  "status": 200,
+  "body": "[]"
+ },
+ "sensitiveLog": {
+  "status": 200,
+  "body": "[]"
+ },
+ "documents": {
+  "status": 200,
+  "body": "[]"
+ },
+ "docSigs": {
+  "status": 200,
+  "body": "[]"
+ },
+ "unsubFmt": {
+  "status": 404,
+  "body": "{\"error\":\"Invalid or expired token\"}"
+ },
+ "realtime": {
+  "result": "ws_error"
+ }
+}

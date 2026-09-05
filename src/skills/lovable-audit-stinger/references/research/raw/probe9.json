@@ -1,0 +1,193 @@
+# Raw source: empirical observation transcript (authorized pentest)
+Origin: loungeatswift.com audit session (pt-lounge/probe9.json)
+Fetched into archive: 2026-08-30
+Source type: empirical observation - authorized penetration test of loungeatswift.com (operator grant; all writes labeled 'pentest probe - safe to delete')
+
+{
+  "startedAt": "2026-08-31T04:41:49.592Z",
+  "sections": {
+    "signin": {
+      "status": 200,
+      "body": "{\"access_token\":\"[REDACTED_RESEARCH_JWT]",
+      "claims": {
+        "iss": "https://pwvpqefffgmtsgyhhpfi.supabase.co/auth/v1",
+        "sub": "a326d7d9-eb29-4c77-b8d2-83ea7f92bd2b",
+        "aud": "authenticated",
+        "exp": 1788154910,
+        "iat": 1788151310,
+        "email": "mario@legioncodeinc.com",
+        "phone": "",
+        "app_metadata": {
+          "provider": "email",
+          "providers": [
+            "email"
+          ]
+        },
+        "user_metadata": {
+          "email": "mario@legioncodeinc.com",
+          "email_verified": true,
+          "phone_verified": false,
+          "sub": "a326d7d9-eb29-4c77-b8d2-83ea7f92bd2b"
+        },
+        "role": "authenticated",
+        "aal": "aal1",
+        "amr": [
+          {
+            "method": "password",
+            "timestamp": 1788151310
+          }
+        ],
+        "session_id": "df841f01-69ac-4423-9839-0feb616a5df6",
+        "is_anonymous": false
+      },
+      "tokenFingerprint": "[REDACTED_RESEARCH_TOKEN_FINGERPRINT]"
+    },
+    "user": {
+      "status": 200,
+      "body": "{\"id\":\"a326d7d9-eb29-4c77-b8d2-83ea7f92bd2b\",\"aud\":\"authenticated\",\"role\":\"authenticated\",\"email\":\"mario@legioncodeinc.com\",\"email_confirmed_at\":\"2026-08-31T04:33:50.781666Z\",\"phone\":\"\",\"confirmation_sent_at\":\"2026-08-31T04:33:09.514627Z\",\"confirmed_at\":\"2026-08-31T04:33:50.781666Z\",\"last_sign_in_at\":\"2026-08-31T04:41:50.073703Z\",\"app_metadata\":{\"provider\":\"email\",\"providers\":[\"email\"]},\"user_metadata\":{\"email\":\"mario@legioncodeinc.com\",\"email_verified\":true,\"phone_verified\":false,\"sub\":\"a326d7d9-eb29-4c77-b8d2-83ea7f92bd2b\"},\"identities\":[{\"identity_id\":\"daf7919e-ce7b-4836-976b-c9f7a2075caa\",\"id\":\"a326d7d9-eb29-4c77-b8d2-83ea7f92bd2b\",\"user_id\":\"a326d7d9-eb29-4c77-b8d2-83ea7f92bd2b\",\"identi"
+    },
+    "bucketsAuth": {
+      "status": 200,
+      "body": "[]"
+    },
+    "authReads": {
+      "employees": {
+        "status": 200,
+        "body": "[]"
+      },
+      "employee_wages": {
+        "status": 200,
+        "body": "[]"
+      },
+      "payroll_settings": {
+        "status": 200,
+        "body": "[]"
+      },
+      "payroll_periods": {
+        "status": 200,
+        "body": "[]"
+      },
+      "business_settings": {
+        "status": 200,
+        "body": "[]"
+      },
+      "contact_messages": {
+        "status": 200,
+        "body": "[]"
+      },
+      "party_inquiries": {
+        "status": 200,
+        "body": "[]"
+      },
+      "event_reservations": {
+        "status": 200,
+        "body": "[]"
+      },
+      "login_events": {
+        "status": 200,
+        "body": "[]"
+      },
+      "sensitive_data_access_log": {
+        "status": 200,
+        "body": "[]"
+      },
+      "documents": {
+        "status": 200,
+        "body": "[{\"id\":\"539ec9e1-b226-451d-a8cb-3ebb4283bf96\",\"title\":\"Social Media Policy\",\"description\":\"SOP on social media activit\",\"category\":\"general\",\"file_path\":\"1786747894630_social-media-policy.html\",\"file_name\":\"social-media-policy.html\",\"file_size\":7291,\"requires_signature\":true,\"location_id\":null,\"roles\":[],\"uploaded_by\":null,\"is_active\":true,\"created_at\":\"2026-08-14T22:51:35.157274+00:00\",\"updated_at\":\"2026-08-14T22:51:35.157274+00:00\"}]"
+      },
+      "document_signatures": {
+        "status": 200,
+        "body": "[]"
+      },
+      "chat_channels": {
+        "status": 200,
+        "body": "[]"
+      },
+      "chat_messages": {
+        "status": 200,
+        "body": "[]"
+      },
+      "chat_channel_members": {
+        "status": 200,
+        "body": "[]"
+      }
+    },
+    "hasRoleAdmin": {
+      "status": 200,
+      "body": "false"
+    },
+    "inviteEmployee": {
+      "status": 403,
+      "body": "{\"error\":\"Admin access required\"}"
+    },
+    "anonEmployeesAfterInvite": {
+      "status": 200,
+      "body": "[]"
+    },
+    "deleteInvitedEmployee": {
+      "status": 204,
+      "body": ""
+    },
+    "authInsertContact": {
+      "status": 400,
+      "body": "{\"code\":\"PGRST204\",\"details\":null,\"hint\":null,\"message\":\"Could not find the 'marketing_consent' column of 'contact_messages' in the schema cache\"}"
+    },
+    "anonContactAfterInsert": {
+      "status": 200,
+      "body": "[]"
+    },
+    "deleteProbeContact": {
+      "status": 204,
+      "body": ""
+    },
+    "scrapeArticle": {
+      "status": 503,
+      "body": "{\"code\":\"BOOT_ERROR\",\"message\":\"Function failed to start (please check logs)\"}"
+    },
+    "getLoginStatus": {
+      "status": 200,
+      "body": "{\"users\":{},\"authStatus\":\"forbidden\"}"
+    },
+    "scanFileAnon": {
+      "status": 401,
+      "body": "{\"safe\":false,\"reason\":\"Unauthorized\"}"
+    },
+    "scanFileAuth": {
+      "status": 200,
+      "body": "{\"safe\":true,\"fileName\":\"pentest-probe.pdf\",\"size\":303,\"type\":\"application/pdf\"}"
+    },
+    "submitContactMessage": {
+      "status": 200,
+      "body": "{\"success\":true}"
+    },
+    "submitPartyInquiry": {
+      "status": 200,
+      "body": "{\"success\":true}"
+    },
+    "submitEventReservation": {
+      "status": 200,
+      "body": "{\"success\":true}"
+    },
+    "newsletterSignup": {
+      "status": 200,
+      "body": "{\"success\":true}"
+    },
+    "cleanupContact": {
+      "status": 204,
+      "body": ""
+    },
+    "cleanupParty": {
+      "status": 204,
+      "body": ""
+    },
+    "cleanupReservation": {
+      "status": 204,
+      "body": ""
+    },
+    "logout": {
+      "status": 204,
+      "body": ""
+    }
+  },
+  "finishedAt": "2026-08-31T04:42:54.029Z"
+}
