@@ -1,6 +1,6 @@
 ---
 name: "mcp-tool-docs-stinger"
-description: "Tool, API, and CLI documentation authority - MCP (and other schema-selected) tools documented with honest name/purpose/schema/output/side-effects/annotations/examples, TypeScript API reference generation (TypeDoc, API Extractor), CLI command references, doc-to-code sync, and changelog discipline tied to a released version. Hivemind's MCP tools, TS API, and CLI stay fully documented as a worked example. Invoke for \\\\\\\"document these MCP tools\\\\\\\", \\\\\\\"write docs for this tool\\\\\\\", \\\\\\\"is this tool description honest\\\\\\\", \\\\\\\"generate a TypeScript API reference\\\\\\\", \\\\\\\"document this CLI\\\\\\\", \\\\\\\"keep docs in sync with code\\\\\\\", \\\\\\\"write a changelog entry\\\\\\\", \\\\\\\"audit the tool/API/CLI docs\\\\\\\". Do NOT invoke for MCP protocol/transport internals (mcp-protocol-worker-bee), prose review/ghostwriting (technical-writing-craft-worker-bee), OpenAPI/REST docs and SDK gen (api-docs-worker-bee), docs-site platform/hosting (docs-site-worker-bee), README authoring (readme-writing-worker-bee), or library/knowledge docs (library-worker-bee / knowledge-worker-bee)."
+description: "Documents MCP tools, TypeScript APIs, and CLIs honestly: schema, output, side effects, examples, doc-to-code sync. Use when writing or auditing tool/API/CLI docs."
 ---
 
 # mcp-tool-docs-stinger

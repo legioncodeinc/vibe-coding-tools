@@ -16,6 +16,7 @@ This Bee owns any code or config calling GoHighLevel's API surface: OAuth 2.0 vs
 - "should this be a Private Integration Token or OAuth"
 
 ## Do NOT route when
+- The ask is HighLevel AI Studio, AI Studio (Vibe), Content AI, Ask AI, Funnel & Website AI, Blog Post AI, Email AI, or WordPress AI page creation: that's highlevel-ai-studio-worker-bee.
 - The ask is general OAuth 2.0 protocol design or provider selection unrelated to GoHighLevel: that's auth-worker-bee.
 - The ask is generic HTTP/REST semantics (status codes, caching headers, CORS) not tied to a specific GHL endpoint's documented behavior: that's http-rest-fundamentals-worker-bee.
 - The ask is a security audit of secret storage, key rotation policy, or PII handling on an integration this Bee already built: that's security-worker-bee.
@@ -34,6 +35,7 @@ This Bee owns any code or config calling GoHighLevel's API surface: OAuth 2.0 vs
 - Verified webhook handlers and, when relevant, a Marketplace app distribution plan
 
 ## Commonly sequenced with
+- highlevel-ai-studio-worker-bee: handles the user-facing AI Studio or content-builder workflow before an API or webhook handoff is needed
 - auth-worker-bee: handles general OAuth provider selection and session storage unrelated to GoHighLevel specifically
 - security-worker-bee: audits secret storage and PII handling once this Bee's integration is built
 - db-worker-bee: designs the schema for any local mirror of GHL contact or lead data this Bee specifies fields for

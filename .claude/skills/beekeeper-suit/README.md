@@ -12,7 +12,14 @@ The roster stays in `SKILL.md` so this README cannot drift when the colony grows
 
 ## Add or update a Bee
 
-Use the [`queen-bee-stinger` registration guide](../queen-bee-stinger/guides/beekeeper-registration.md). It covers the full forge pipeline, roster and guide updates, cross-harness generation, validation, and the Ship Gate. Do not hand-edit generated `.agents`, `.cursor`, or `.codex` copies.
+The orchestrator uses [`queen-bee-stinger`](../queen-bee-stinger) to forge new components. Its registration guide is the source of truth:
+
+1. Complete Topic, Research, Distillation, References, Guides, and the root Skill File in order.
+2. Create the paired Bee from the Queen template.
+3. Follow [`queen-bee-stinger/guides/beekeeper-registration.md`](../queen-bee-stinger/guides/beekeeper-registration.md) to add the roster row, routing guide, cross-links, harness outputs, and validation.
+4. Update multi-Bee orchestration only when the pair joins a real recurring sequence.
+
+Do not hand-edit generated `.agents`, `.cursor`, or `.codex` copies.
 
 ## Philosophy
 

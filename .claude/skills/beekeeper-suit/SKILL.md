@@ -28,7 +28,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 
 ## Roster
 
-77 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+79 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -78,6 +78,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 |---|---|---|---|
 | `payments-worker-bee` | Stripe integration for SvelteKit on Vercel: custom checkout via Elements, Payment Intents, subscriptions, webhook verification | "integrate Stripe", "build a custom checkout", "add the Payment Element", "webhook isn't firing" | `payments-stinger` |
 | `gohighlevel-worker-bee` | GoHighLevel API integration: OAuth vs Private Integration Tokens, contacts/opportunities/pipelines, webhooks, workflows, Marketplace apps | "integrate GoHighLevel", "wire up a GHL webhook", "push leads into GoHighLevel", "GoHighLevel OAuth" | `gohighlevel-stinger` |
+| `highlevel-ai-studio-worker-bee` | HighLevel AI Studio and AI creation: Vibe sites, Content AI selection, Visual Edits, Code Editor, forms, calendars, publishing, domains, SEO, and troubleshooting | "HighLevel AI Studio", "AI Content Studio", "AI website builder", "HighLevel vibe code", "AI Studio form" | `highlevel-ai-studio-stinger` |
 
 ### Communication and bots
 
@@ -138,6 +139,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `website-worker-bee` | Builds production-grade SvelteKit plus Payload CMS websites end to end from a brief: architecture, SEO, auth, admin, lead capture, blog | "build a website", "scaffold a SvelteKit site", "ship a website from scratch" | `website-stinger` |
 | `seo-aeo-worker-bee` | SvelteKit plus Payload CMS plus Vercel SEO and Answer Engine Optimization: metadata, JSON-LD, Payload SEO fields, Core Web Vitals, llms.txt | "audit SEO on this SvelteKit site", "optimize for AI Overviews", "fix Core Web Vitals" | `seo-aeo-stinger` |
 | `product-tour-onboarding-ui-worker-bee` | In-app product tour and onboarding UI: tool selection, tooltip/modal/hotspot/checklist components, segment-based triggers | "set up a product tour", "build an onboarding checklist", "our tours keep breaking after deploys" | `product-tour-onboarding-ui-stinger` |
+| `competitive-research-worker-bee` | Competitor-landscape research: XLSX workbook and brand-matched PDF report, category taxonomy, feature-gap analysis, computed market-pattern insights, sales battlecards | "build a competitor comparison spreadsheet", "research our competitors", "make a battlecard deck", "competitive landscape report" | `competitive-research-stinger` |
 
 ### Documentation and knowledge
 
@@ -269,7 +271,7 @@ Don't hand-roll a new Bee. Walk [`../queen-bee-stinger/guides/beekeeper-registra
 
 ---
 
-**77 Bees registered.** Every Bee has a spawnable agent in `.claude/agents/` and a paired Stinger in `.claude/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
+**79 Bees registered.** Every Bee has a spawnable agent in `.claude/agents/` and a paired Stinger in `.claude/skills/`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
 
 ---
 

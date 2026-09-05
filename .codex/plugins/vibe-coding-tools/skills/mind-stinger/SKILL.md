@@ -1,6 +1,6 @@
 ---
 name: "mind-stinger"
-description: "Reviews, audits, and extends the cognitive layer (coach/agent routing, prompt cascade, RAG/GraphRAG, three-tier memory, observability, evaluation, multimodal, orchestration, matching, onboarding) as stack-neutral architecture, plus SvelteKit +server.ts streaming LLM responses on Vercel. Default retrieval substrate here is Neon Postgres plus pgvector (via vector-store-stinger, retrieval-stinger); Qdrant/Cohere/Valkey/OpenRouter is a documented alternative for a project already running it. Host product can override via `library/knowledge/private/ai/`. Use for \\\\\\\"review this AI code\\\\\\\", \\\\\\\"audit RAG\\\\\\\", \\\\\\\"investigate AiTrace\\\\\\\", \\\\\\\"add a coach\\\\\\\", \\\\\\\"change the prompt cascade\\\\\\\", \\\\\\\"tune retrieval\\\\\\\", \\\\\\\"sycophancy spike\\\\\\\", \\\\\\\"enable GraphRAG\\\\\\\", \\\\\\\"stream an LLM response\\\\\\\", or when `mind-worker-bee` is invoked. Not for chat UI (react-worker-bee), AI table indexing (db-worker-bee), injection/key/PII audits (security-worker-bee), PRD authoring (library-worker-bee), retrieval schema (vector-store-worker-bee), recall tuning (retrieval-worker-bee)."
+description: "Reviews, audits, and extends the AI cognitive layer: coach routing, prompt cascade, RAG, three-tier memory, observability, evaluation. Use when reviewing AI code or tuning retrieval."
 license: MIT
 ---
 
@@ -11,6 +11,16 @@ You are equipping **mind-worker-bee**, the cognitive brain of the deploying prod
 The Bee/Stinger are versatile by design. The host product owns `library/knowledge/private/ai/` (the same change-control discipline as ux-ui-svelte-worker-bee's `library/knowledge/private/<product>-ux-ui/`). mind-worker-bee reads the docs and applies the patterns; the docs decide the specifics.
 
 **Concept before vendor.** Every subsystem this Stinger covers is reviewed first as an architectural concept (does routing get traced and measured? does retrieval have a two-stage recall-then-rerank shape? are the memory tiers kept separate?), then checked against whichever specific stack this project has committed to. For this repo, retrieval defaults to Neon Postgres plus pgvector; a fully documented alternative stack (Qdrant, Cohere, Valkey, OpenRouter, Llama, Deepgram) remains available and enforced with the same rigor for a project that runs it. Substitutions away from *whichever stack a project has actually committed to* are findings; the references/ folder exists for awareness of alternatives beyond that, not invitation to swap without justification.
+
+---
+
+## When to use this skill
+
+Load this skill when `mind-worker-bee` is invoked, or the user says: "review this AI code", "audit RAG", "investigate AiTrace", "add a coach", "change the prompt cascade", "tune retrieval", "sycophancy spike", "enable GraphRAG", or "stream an LLM response".
+
+This skill reviews, audits, and extends the cognitive layer (coach/agent routing, prompt cascade, RAG/GraphRAG, three-tier memory, observability, evaluation, multimodal, orchestration, matching, onboarding) as stack-neutral architecture, plus SvelteKit `+server.ts` streaming LLM responses on Vercel. The default retrieval substrate here is Neon Postgres plus pgvector (via `vector-store-stinger`, `retrieval-stinger`); Qdrant/Cohere/Valkey/OpenRouter is a documented alternative for a project already running it. The host product can override via `library/knowledge/private/ai/`.
+
+Not for chat UI (`react-worker-bee`), AI table indexing (`db-worker-bee`), injection/key/PII audits (`security-worker-bee`), PRD authoring (`library-worker-bee`), retrieval schema (`vector-store-worker-bee`), or recall tuning (`retrieval-worker-bee`).
 
 ---
 
