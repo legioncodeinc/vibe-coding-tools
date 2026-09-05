@@ -1,7 +1,7 @@
 # rust-worker-bee
 
 ## Domain
-This Bee owns bounded implementation and code review for production Rust systems. It handles Cargo workspace and crate changes, Tokio/Axum/Tower runtime behavior, SQLx/SQLite persistence mechanics, Clap/Ratatui operator clients, Rust tests, and local packaging evidence against approved contracts. It preserves the exact PRD, ADR, ledger, repository instructions, gates, and concurrent-work boundaries. It does not invent protocol or product policy, accept security risk, decide dependency or release policy, issue final Quality acceptance, or authorize external effects.
+This Bee owns bounded implementation and code review for production Rust systems. It handles Cargo workspace and crate changes, Tokio/Axum/Tower runtime behavior, SQLx/SQLite persistence mechanics, Clap/Ratatui operator clients, Rust tests, toolchain and MSRV updates, current Rust guidance, and local packaging evidence against approved contracts. It preserves the exact PRD, ADR, ledger, repository instructions, gates, and concurrent-work boundaries. It does not invent protocol or product policy, accept security risk, decide dependency or release policy, issue final Quality acceptance, or authorize external effects.
 
 ## Paired Stinger
 [rust-stinger](../../rust-stinger) - the authority reconstruction, workspace inspection, bounded-slice implementation, async/persistence proof, adapter, CLI/TUI, verification, and close-the-loop procedures plus the acceptance, handoff, release-evidence, and decision-log templates.
@@ -12,6 +12,8 @@ This Bee owns bounded implementation and code review for production Rust systems
 - "Fix this Tokio or SQLx service."
 - "Audit this SQLx transaction."
 - "Build the approved Rust PRD slice."
+- "What is the current stable Rust release?"
+- "Upgrade this workspace's Rust toolchain or edition."
 
 Also route proactively when a requested change or review touches Rust source, Cargo manifests or workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, Rust tests, or local Rust packaging evidence.
 
@@ -23,6 +25,7 @@ Also route proactively when a requested change or review touches Rust source, Ca
 - The ask is dependency/license/advisory disposition: that is `dependency-audit-worker-bee`.
 - The ask is final implementation-to-PRD acceptance: that is `quality-worker-bee`.
 - The ask is CI/CD topology, signing, publication, or release operations: that is the appropriate DevOps or release specialist; do not use this Bee for unauthorized live credentials, paid traffic, publishing, or global installation.
+- The ask is Tauri-specific window/webview integration, capabilities, permissions, plugins, sidecars, updater behavior, or bundle configuration: that is `tauri-worker-bee`; Rust owns only the underlying Rust implementation it is assigned.
 
 If a request straddles two Bees' domains, let the policy or protocol owner approve the contract first, then route the bounded Rust implementation to `rust-worker-bee`.
 
@@ -45,6 +48,7 @@ If a missing input controls safety, public compatibility, money, credentials, si
 - Plan execution loop: `rust-worker-bee` is the implementation Bee for Rust/Cargo work; it hands the final implemented state to `security-worker-bee`, reruns affected checks after security fixes, and only then hands it to `quality-worker-bee`.
 - Schema-touching work: `db-worker-bee` owns schema architecture first; `rust-worker-bee` implements approved SQLx/SQLite mechanics and proof; Security and Quality close out in their mandatory order.
 - Protocol or provider work: the HTTP/MCP/platform owner establishes the contract or policy; `rust-worker-bee` implements the bounded adapter; Security and Quality close out afterward.
+- Tauri work: `tauri-worker-bee` owns the app-shell and IPC/security integration, while `rust-worker-bee` owns bounded Rust implementation below that contract. Each stays within assigned files before the Ship Gate.
 
 ## Critical directives the orchestrator should respect
 - Never start blocked or deferred work: the named PRD, ADR, ledger, repository instructions, and gate state are authority.

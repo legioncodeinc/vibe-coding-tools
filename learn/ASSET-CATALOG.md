@@ -4,19 +4,19 @@ This file is generated from the canonical `.claude` tree. Do not maintain the ro
 
 ## Exact manifest
 
-- Agents: 81
-- Core skills: 84
+- Agents: 82
+- Core skills: 85
 - Commands: 7 (2 translated into Codex-facing skills)
 - Rules: 4
 - Hook behaviors: 2
-- Codex-facing skills: 86 (84 core skills plus 2 command translations)
+- Codex-facing skills: 87 (85 core skills plus 2 command translations)
 
 ## Compatibility ledger
 
 | Source capability | Claude Code | Codex | Cursor |
 |---|---|---|---|
-| 81 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |
-| 84 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |
+| 82 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |
+| 85 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |
 | 7 commands | PRESERVE | TRANSLATE 2 to explicit skills in both Codex layers | PRESERVE |
 | 4 rules | TRANSLATE to Claude rules and CLAUDE.md | TRANSLATE to project instructions | PRESERVE as MDC |
 | 2 hooks | PRESERVE | TRANSLATE patch input, preserve outcomes | TRANSLATE event and output schema |
@@ -97,6 +97,7 @@ No capability is intentionally dropped.
 | [tailscale-worker-bee](../.claude/agents/tailscale-worker-bee.md) | [tailscale-stinger](../.claude/skills/tailscale-stinger/) | [TOML](../.codex/agents/tailscale-worker-bee.toml) |
 | [tailwind-worker-bee](../.claude/agents/tailwind-worker-bee.md) | [tailwind-stinger](../.claude/skills/tailwind-stinger/) | [TOML](../.codex/agents/tailwind-worker-bee.toml) |
 | [tanstack-worker-bee](../.claude/agents/tanstack-worker-bee.md) | [tanstack-stinger](../.claude/skills/tanstack-stinger/) | [TOML](../.codex/agents/tanstack-worker-bee.toml) |
+| [tauri-worker-bee](../.claude/agents/tauri-worker-bee.md) | [tauri-stinger](../.claude/skills/tauri-stinger/) | [TOML](../.codex/agents/tauri-worker-bee.toml) |
 | [technical-writing-craft-worker-bee](../.claude/agents/technical-writing-craft-worker-bee.md) | [technical-writing-craft-stinger](../.claude/skills/technical-writing-craft-stinger/) | [TOML](../.codex/agents/technical-writing-craft-worker-bee.toml) |
 | [telegram-bot-worker-bee](../.claude/agents/telegram-bot-worker-bee.md) | [telegram-bot-stinger](../.claude/skills/telegram-bot-stinger/) | [TOML](../.codex/agents/telegram-bot-worker-bee.toml) |
 | [terminal-bash-worker-bee](../.claude/agents/terminal-bash-worker-bee.md) | [terminal-bash-stinger](../.claude/skills/terminal-bash-stinger/) | [TOML](../.codex/agents/terminal-bash-worker-bee.toml) |

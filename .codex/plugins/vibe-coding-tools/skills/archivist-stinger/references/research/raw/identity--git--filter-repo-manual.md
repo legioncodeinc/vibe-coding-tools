@@ -1,0 +1,1242 @@
+# git-filter-repo(1) manual
+- URL: https://www.mankier.com/1/git-filter-repo
+- Fetched: 2026-09-05
+- Source type: official-docs
+- Extraction: HTML to text by script; navigation, scripts, and styles dropped; tables flattened with pipes
+
+git-filter-repo: Rewrite repository history | Man Page | Commands | git-filter-repo | ManKier
+
+- Home
+
+- git-filter-repo
+ git-filter-repo
+
+-
+
+-
+
+-
+
+-
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+-
+
+-
+
+-
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+-
+
+-
+
+-
+
+-
+
+-
+
+-
+
+#
+
+## Examples (TL;DR)
+
+- Replace a sensitive string in all files: `git filter-repo --replace-text <(echo 'find==>replacement')`
+
+- Extract a single folder, keeping history: `git filter-repo --path path/to/folder`
+
+- Remove a single folder, keeping history: `git filter-repo --path path/to/folder --invert-paths`
+
+- Move everything from sub-folder one level up: `git filter-repo --path-rename path/to/folder/:`
+
+tldr.sh
+
+## Synopsis
+
+git filter-repo --analyze
+git filter-repo [<path_filtering_options>] [<content_filtering_options>]
+ [<ref_renaming_options>] [<commit_message_filtering_options>]
+ [<name_or_email_filtering_options>] [<parent_rewriting_options>]
+ [<generic_callback_options>] [<miscellaneous_options>]
+
+## Description
+
+Rapidly rewrite entire repository history using user-specified filters. This is a destructive operation which should not be used lightly; it writes new commits, trees, tags, and blobs corresponding to (but filtered from) the original objects in the repository, then deletes the original history and leaves only the new. See the section called “Discussion” for more details on the ramifications of using this tool. Several different types of history rewrites are possible; examples include (but are not limited to):
+
+- stripping large files (or large directories or large extensions)
+
+- stripping unwanted files by path
+
+- extracting wanted paths and their history (stripping everything else)
+
+- restructuring the file layout (such as moving all files into a subdirectory in preparation for merging with another repo, making a subdirectory become the new toplevel directory, or merging two directories with independent filenames into one directory)
+
+- renaming tags (also often in preparation for merging with another repo)
+
+- replacing or removing sensitive text such as passwords
+
+- making mailmap rewriting of user names or emails permanent
+
+- making grafts or replacement refs permanent
+
+- rewriting commit messages
+
+Additionally, several concerns are handled automatically (many of these can be overridden, but they are all on by default):
+
+- rewriting (possibly abbreviated) hashes in commit messages to refer to the new post-rewrite commit hashes
+
+- pruning commits which become empty due to the above filters (also handles edge cases like pruning of merge commits which become degenerate and empty)
+
+- rewriting stashes
+
+- baking the changes made by refs/replace/ refs into the permanent history and removing the replace refs
+
+- stripping of original history to avoid mixing old and new history
+
+- repacking the repository post-rewrite to shrink the repo for the user
+
+And additional facilities are available via a config option
+
+- creating replace-refs (see git-replace(1)) for old commit hashes, which if manually pushed and fetched will allow users to continue to refer to new commits using (unabbreviated) old commit IDs
+
+Also, it’s worth noting that there is an important safety mechanism:
+
+- abort if run from a repo that is not a fresh clone (to prevent accidental data loss from rewriting local history that doesn’t exist anywhere else). See the section called “Fresh Clone Safety Check and --force”.
+
+For those who know that there is large unwanted stuff in their history and want help finding it, this command also
+
+- provides an option to analyze a repository and generate reports that can be useful in determining what to filter (or in determining whether a separate filtering command was successful).
+
+See also the section called “Versatility”, the section called “Discussion”, the section called “Examples”, and the section called “Internals”.
+
+## Options
+
+### Analysis Options
+
+--analyze
+
+Analyze repository history and create a report that may be useful in determining what to filter in a subsequent run (or in determining if a previous filtering command did what you wanted). Will not modify your repo.
+
+### Filtering based on paths (see also --filename-callback)
+
+These options specify the paths to select. Note that much like git itself, renames are NOT followed so you may need to specify multiple paths, e.g. --path olddir/ --path newdir/
+
+--invert-paths
+
+Invert the selection of files from the specified --path-{match,glob,regex} options below, i.e. only select files matching none of those options.
+
+--path-match <dir_or_file>, --path <dir_or_file>
+
+Exact paths (files or directories) to include in filtered history. Multiple --path options can be specified to get a union of paths.
+
+--path-glob <glob>
+
+Glob of paths to include in filtered history. Multiple --path-glob options can be specified to get a union of paths.
+
+--path-regex <regex>
+
+Regex of paths to include in filtered history. Multiple --path-regex options can be specified to get a union of paths.
+
+--use-base-name
+
+Match on file base name instead of full path from the top of the repo. Incompatible with --path-rename, and incompatible with matching against directory names.
+
+### Renaming based on paths (see also --filename-callback)
+
+Note: if you combine path filtering with path renaming, be aware that a rename directive does not select paths, it only says how to rename paths that are selected with the filters.
+
+--path-rename <old_name:new_name>, --path-rename-match <old_name:new_name>
+
+Path to rename; if filename or directory matches <old_name> rename to <new_name>. Multiple --path-rename options can be specified.
+
+### Path shortcuts
+
+--paths-from-file <filename>
+
+Specify several path filtering and renaming directives, one per line. Lines with ==> in them specify path renames, and lines can begin with literal: (the default), glob:, or regex: to specify different matching styles. Blank lines and lines starting with a # are ignored (if you have a filename that you want to filter on that starts with literal:, #, glob:, or regex:, then prefix the line with literal:).
+
+--subdirectory-filter <directory>
+
+Only look at history that touches the given subdirectory and treat that directory as the project root. Equivalent to using --path <directory>/ --path-rename <directory>/:
+
+--to-subdirectory-filter <directory>
+
+Treat the project root as if it were under <directory>. Equivalent to using --path-rename :<directory>/
+
+### Content editing filters (see also --blob-callback)
+
+--replace-text <expressions_file>
+
+A file with expressions that, if found, will be replaced. By default, each expression is treated as literal text, but regex: and glob: prefixes are supported. You can end the line with ==> and some replacement text to choose a replacement choice other than the default of ***REMOVED***.
+
+--strip-blobs-bigger-than <size>
+
+Strip blobs (files) bigger than specified size (e.g. 5M, 2G, etc)
+
+--strip-blobs-with-ids <blob_id_filename>
+
+Read git object ids from each line of the given file, and strip all of them from history
+
+### Renaming of refs (see also --refname-callback)
+
+--tag-rename <old:new>
+
+Rename tags starting with <old> to start with <new>. For example, --tag-rename foo:bar will rename tag foo-1.2.3 to bar-1.2.3; either <old> or <new> can be empty.
+
+### Filtering of commit messages (see also --message-callback)
+
+--replace-message <expressions_file>
+
+A file with expressions that, if found in commit or tag messages, will be replaced. This file uses the same syntax as --replace-text.
+
+--preserve-commit-hashes
+
+By default, since commits are rewritten and thus gain new hashes, references to old commit hashes in commit messages are replaced with new commit hashes (abbreviated to the same length as the old reference). Use this flag to turn off updating commit hashes in commit messages.
+
+--preserve-commit-encoding
+
+Do not reencode commit messages into UTF-8. By default, if the commit object specifies an encoding for the commit message, the message is re-encoded into UTF-8.
+
+### Filtering of names & emails (see also --name-callback and --email-callback)
+
+--mailmap <filename>
+
+Use specified mailmap file (see git-shortlog(1) for details on the format) when rewriting author, committer, and tagger names and emails. If the specified file is part of git history, historical versions of the file will be ignored; only the current contents are consulted.
+
+--use-mailmap
+
+Same as: --mailmap .mailmap
+
+### Parent rewriting
+
+--replace-refs {delete-no-add, delete-and-add, update-no-add, update-or-add, update-and-add, old-default}
+
+How to handle replace refs (see git-replace(1)). Replace refs can be added during the history rewrite as a way to allow users to pass old commit IDs (from before git-filter-repo was run) to git commands and have git know how to translate those old commit IDs to the new (post-rewrite) commit IDs. Also, replace refs that existed before the rewrite can either be deleted or updated. The choices to pass to --replace-refs thus need to specify both what to do with existing refs and what to do with commit rewrites. Thus update-and-add means to update existing replace refs, and for any commit rewrite (even if already pointed at by a replace ref) add a new refs/replace/ reference to map from the old commit ID to the new commit ID. The default is update-no-add, meaning update existing replace refs but do not add any new ones. There is also a special old-default option for picking the default used in versions prior to git-filter-repo-2.45, namely update-and-add upon the first run of git-filter-repo in a repository and update-or-add if running git-filter-repo again on a repository.
+
+--prune-empty {always, auto, never}
+
+Whether to prune empty commits. auto (the default) means only prune commits which become empty (not commits which were empty in the original repo, unless their parent was pruned). When the parent of a commit is pruned, the first non-pruned ancestor becomes the new parent.
+
+--prune-degenerate {always, auto, never}
+
+Since merge commits are needed for history topology, they are typically exempt from pruning. However, they can become degenerate with the pruning of other commits (having fewer than two parents, having one commit serve as both parents, or having one parent as the ancestor of the other.) If such merge commits have no file changes, they can be pruned. The default (auto) is to only prune empty merge commits which become degenerate (not which started as such).
+
+--no-ff
+
+Even if the first parent is or becomes an ancestor of another parent, do not prune it. This modifies how --prune-degenerate behaves, and may be useful in projects who always use merge --no-ff.
+
+### Generic callback code snippets
+
+--filename-callback <function_body>
+
+Python code body for processing filenames; see the section called “Callbacks”.
+
+--message-callback <function_body>
+
+Python code body for processing messages (both commit messages and tag messages); see the section called “Callbacks”.
+
+--name-callback <function_body>
+
+Python code body for processing names of people; see the section called “Callbacks”.
+
+--email-callback <function_body>
+
+Python code body for processing emails addresses; see the section called “Callbacks”.
+
+--refname-callback <function_body>
+
+Python code body for processing refnames; see the section called “Callbacks”.
+
+--file-info-callback <function_body>
+
+Python code body for processing the combination of filename, mode, and associated file contents; see <<Callbacks>. Note that when --file-info-callback is specified, any replacements specified by --replace-text will not be automatically applied; instead, you have control within the --file-info-callback to choose which files to apply those transformations to.
+
+--blob-callback <function_body>
+
+Python code body for processing blob objects; see the section called “Callbacks”.
+
+--commit-callback <function_body>
+
+Python code body for processing commit objects; see the section called “Callbacks”.
+
+--tag-callback <function_body>
+
+Python code body for processing tag objects; see the section called “Callbacks”. Note that lightweight tags have no tag object and thus are not handled by this callback. The only thing you really could do with a lightweight tag is rename it, but for that you should see --refname-callback instead.
+
+--reset-callback <function_body>
+
+Python code body for processing reset objects; see the section called “Callbacks”.
+
+### Sensitive Data Removal
+
+--sensitive-data-removal,  --sdr
+
+This rewrite is intended to remove sensitive data from a repository. Gather extra information from the rewrite needed to provide additional instructions on how to clean up other copies. This includes:
+
+-
+Fetching all refs, so that if refs outside of branches and tags also reference the sensitive data, they can be cleaned up too
+
+Note that if you have any local-only changes (i.e. un-pushed
+changes) in your repository, on any branch or ref, this fetch step
+may discard them. Working in a fresh clone avoids this problem;
+see also the --no-fetch option if you don't want to work with a
+fresh clone and you have important local-only changes.
+
+- Tracking and reporting on the first changed commit(s)
+
+- Tracking and reporting whether any LFS objects become orphaned by the rewrite, so they can be removed
+
+- Providing additional instructions at the end on how to clean up the repository you cloned from, and other clones of the repo
+
+--no-fetch
+
+Avoid the "fetch all refs" step with --sensitive-data-removal, and thus avoid overwriting local-only changes in the repository, but at the risk of leaving the sensitive data in other refs in the source repository. This option is implied by --partial or any flag that implies --partial.
+
+### Location to filter from/to
+
+Note
+
+Specifying alternate source or target locations implies --partial. However, unlike normal uses of --partial, this doesn’t risk mixing old and new history since the old and new histories are in different repositories.
+
+--source <source>
+
+Git repository to read from
+
+--target <target>
+
+Git repository to overwrite with filtered history
+
+### Miscellaneous options
+
+--help,  -h
+
+Show a help message and exit.
+
+--force,  -f
+
+Ignore fresh clone checks and rewrite history (an irreversible operation, especially since it by default ends with an immediate pruning of reflogs and old objects). See the section called “Fresh Clone Safety Check and --force”. Note that when cloning repos on a local filesystem, it is better to pass --no-local to git clone than passing --force to git-filter-repo.
+
+--partial
+
+Do a partial history rewrite, resulting in the mixture of old and new history. This disables rewriting refs/remotes/origin/* to refs/heads/*, disables removing of the origin remote, disables removing unexported refs, disables expiring the reflog, and disables the automatic post-filter gc. Also, this modifies --tag-rename and --refname-callback options such that instead of replacing old refs with new refnames, it will instead create new refs and keep the old ones around. Use with caution.
+
+--refs <refs+>
+
+Limit history rewriting to the specified refs. Implies --partial. In addition to the normal caveats of --partial (mixing old and new history, no automatic remapping of refs/remotes/origin/* to refs/heads/*, etc.), this also may cause problems for pruning of degenerate empty merge commits when negative revisions are specified.
+
+--dry-run
+
+Do not change the repository. Run git fast-export and filter its output, and save both the original and the filtered version for comparison. This also disables rewriting commit messages due to not knowing new commit IDs and disables filtering of some empty commits due to inability to query the fast-import backend.
+
+--debug
+
+Print additional information about operations being performed and commands being run. (If used together with --dry-run, shows extra information about what would be run).
+
+--stdin
+
+Instead of running git fast-export and filtering its output, filter the fast-export stream from stdin. The stdin must be in the expected input format (e.g. it needs to include original-oid directives).
+
+--quiet
+
+Pass --quiet to other git commands called.
+
+## Output
+
+Every time filter-repo is run, files are created in the .git/filter-repo/ directory. These files are updated or overwritten on every run.
+
+### Commit map
+
+The $GIT_DIR/filter-repo/commit-map file contains a mapping of how all commits were (or were not) changed.
+
+- A header is the first line with the text "old" and "new"
+
+- Commit mappings are in no particular order
+
+- All commits in range of the rewrite will be listed, even commits that are unchanged (e.g. because the commit pre-dated when files the filtering operation are removing were introduced to the repo).
+
+- An all-zeros hash, or null SHA, represents a non-existent object. When in the "new" column, this means the commit was removed entirely.
+
+### Reference map
+
+The $GIT_DIR/filter-repo/ref-map file contains a mapping of which local references were (or were not) changed.
+
+- A header is the first line with the text "old", "new" and "ref"
+
+- Reference mappings are sorted by ref
+
+- An all-zeros hash, or null SHA, represents a non-existent object. When in the "new" column, this means the ref was removed entirely.
+
+### Changed References
+
+The $GIT_DIR/filter-repo/changed-refs file contains a list of refs that were changed.
+
+- No header is provided
+
+- Lists the subsets of refs from ref-map for which old != new
+
+- While unnecessary since this provides no new information over ref-map, it does make it easier to quickly determine which refs were changed by the rewrite.
+
+### First Changed Commits
+
+The $GIT_DIR/filter-repo/first-changed-commits contains a list of the first commit(s) changed by the filtering operation. These are the commits that got rewritten and which had no parents that were also rewritten.
+
+So, for example if you had commits A1-B1-C1-D1-E1 before running git-filter-repo, and afterward you had commits A1-B2-C2-D2-E2 then the First Changed Commits file would contain just one line, which would be the hash of B2.
+
+In most cases, there will only be one commit listed, but if you had multiple root commits or a non-linear history where the commits on those diverging histories were the first ones modified, then there could be multiple first changed commits and they will each be listed on separate lines.
+
+### Already Ran
+
+The $GIT_DIR/filter-repo/already_ran file contains a file recording that git-filter-repo has been run. When this file is present, future runs will be treated as an extension of the previous filtering operation.
+
+Concretely, this means: * The "Fresh Clone" check is bypassed
+
+This is done because past runs would cause the repository to no longer
+look like a fresh clone, and thus fail the fresh clone check, but doing
+filtering via multiple invocations of git-filter-repo is an intended
+and support usecase. You already passed or bypassed the "Fresh Clone"
+check on your initial run.
+
+-
+The commit-map and ref-map files above will be updated rather than simply rewritten.
+
+In other words, if the first filter-repo invocation rewrote commit
+A to commit B, and the second filter-repo invocation rewrite
+commit B to commit C, then the second run would have an "A C"
+entry rather than a "B C" entry for the changed commit.
+
+-
+The first changed commit(s) (reported When using the --sensitive-data-removal option) will be the first original commit modified, not the first intermediate commit modified.
+
+In more detail, if the repository original had the following commits:
+ A1-B1-C1-D1-E1
+and the first invocation of filter-repo changed this to
+ A1-B1-C2-D2-E2
+then the first run would report "C1" as the first changed commit. If
+a second filter-repo run further changed this to
+ A1-B1-C2-D3-E3
+then it would report "C1" as the first changed commit, not "D2",
+because it is comparing to the original commits rather than the
+intermediate ones.
+
+However, if the already_ran file exists but is older than 1 day when they invoke git-filter-repo, the user will be prompted for whether the new run should be considered a continuation of the previous run. If they do not answer in the affirmative, then the above three bullets will not apply. This prompt exists because users might do a history rewrite in a repository, forget about it and leave the $GIT_DIR/filter-repo directory around, and then some months or years later need to do another rewrite. If commits have been made public and shared from the previous rewrite, then the next filter-repo run should not be considered a continuation of the previous filtering run.
+
+### Original LFS Objects
+
+When running with the --sensitive-data-removal flag, and LFS is in use by the repository, the $GIT_DIR/filter-repo/original_lfs_objects contains a list of LFS objects referenced by the repository before the rewrite, in sorted order.
+
+### Orphaned LFS Objects
+
+When running with the --sensitive-data-removal flag, and LFS is in use by the repository, the $GIT_DIR/filter-repo/orphaned_lfs_objects contains a list of LFS objects that used to be referenced by the repository but no longer are after git-filter-repo has run. Objects appear in sorted order.
+
+## Fresh Clone Safety Check and --force
+
+Since filter-repo does irreversible rewriting of history, it is important to avoid making changes to a repo for which the user doesn’t have a good backup. The primary defense mechanism is to simply educate users and rely on them to be good stewards of their data; thus there are several warnings in the documentation about how filter repo rewrites history.
+
+However, as a service to users, we would like to provide an additional safety check beyond the documentation. There isn’t a good way to check if the user has a good backup, but we can ask a related question that is an imperfect but quite reasonable proxy: "Is this repository a fresh clone?" Unfortunately, that is also a question we can’t get a perfect answer to; git provides no way to answer that question. However, there are approximately a dozen things that I found that seem to always be true of brand new clones (assuming they are either clones of remote repositories or are made with the --no-local flag), and I check for all of those.
+
+These checks can have both false positives and false negatives. Someone might have a perfectly good backup of their repo without it actually being a fresh clone — but there’s no way for filter-repo to know that. Conversely, someone could look at all things that filter-repo checks for in its safety checks and then just tweak their non-backed-up repository to satisfy those conditions (though it would take a fair amount of effort, and it’s astronomically unlikely that a repo that isn’t a fresh clone randomly happens to match all the criteria). In practice, the safety checks filter-repo uses seem to be really good at avoiding people accidentally running filter-repo on a repository that they shouldn’t be running it on. It even caught me once when I did mean to run filter-repo but was in a different directory than I thought I was.
+
+In short, it’s perfectly fine to use ‘--force` to override the safety checks as long as you’re okay with filter-repo irreversibly rewriting the contents of the current repository. It is a really bad idea to get in the habit of always specifying --force; if you do, one day you will run one of your commands in the wrong directory like I did, and you won’t have the safety check anymore to bail you out. Also, it is definitely NOT okay to recommend --force on forums, Q&A sites, or in emails to other users without first carefully explaining that --force means putting your repositories’ data at risk. I am especially bothered by people who suggest the flag when it clearly is NOT needed; they are needlessly putting other peoples' data at risk.
+
+## Versatility
+
+filter-repo has a hierarchy of capabilities on the spectrum from easy to use convenience flags that perform pre-defined types of filtering, to choices that provide lots of flexibility in controlling how filtering occurs. This spectrum includes the following:
+
+- Convenience flags making common types of history rewriting simple (e.g. --path, --strip-blobs-bigger-than, --replace-text, --mailmap)
+
+- Options which are shorthand for others or which provide greater control than others (e.g. --subdirectory-filter could just be written using both a path selection (--path) and a path rename (--path-rename) filter; --paths-from-file can handle all other --path* options and more such as regex renaming of paths)
+
+- Generic python callbacks for handling a certain type of data (the filename, message, name, email, and refname callbacks)
+
+- Generic python callbacks for handling fundamental git objects, allowing greater control over the combination of data types the object holds (the commit, tag, blob, and reset callbacks)
+
+- The ability to import filter-repo as a module in a python program and use its classes and functions for even greater control and flexibility while still leveraging lots of basic capabilities. One can even use this to write new tools with a completely different interface.
+
+For more information about callbacks, see the section called “Callbacks”. For examples on writing python programs that import filter-repo as a module to create new history rewriting tools, look at the contrib/filter-repo-demos/ directory. That directory includes, among other examples, a reimplementation of git-filter-branch which is faster than git-filter-branch, and a reimplementation of BFG Repo Cleaner with several bug fixes and new features.
+
+## Discussion
+
+Using filter-repo is relatively simple, but rewriting history is part of a larger discussion in terms of collaboration. When you rewrite history, the old and new histories are no longer compatible; if you push this history somewhere for others to view, it will look as though you’ve done a rebase of all branches and tags. Make sure you are familiar with the "RECOVERING FROM UPSTREAM REBASE" section of git-rebase(1) (and in particular, "The hard case") before proceeding, in addition to this section.
+
+Steps to use git-filter-repo as part of the bigger picture of doing a history rewrite are roughly as follows:
+
+- Create a clone of your repository. You may pass --bare or --mirror to git clone, if you prefer. You should pass --no-local if the repository you are cloning from is on the local filesystem. Avoid other flags; some might confuse the fresh clone check, and others could cause parts of the data to be missing that are needed for the rewrite.
+
+- (Optional) Run git filter-repo --analyze. This will create a directory of reports mentioning multiple things: (a) paths that have existed over time in your repo, (b) renames that have occurred in your repo and (c) sizes of objects aggregated by path/directory/extension/blob-id. This information may be useful in choosing how to filter your repo. It can also be useful to re-run --analyze after filtering to verify the changes look correct.
+
+-
+Before rewriting the history of your local copy with git-filter-repo, determine where you will push the rewritten history to when you are done. In the special case that you are trying to remove sensitive data from an existing repository, you will want to push it back where you cloned from, as well as clean up all other clones/copies of the repo. If you will be pushing back to the repository you cloned from, you will want to use the --sensitive-data-removal option and see the Sensitive Data Removal section below. In most cases not dealing with sensitive data removal, you will want to push to a new repo, because:
+
+- Even after you rewrite history and push it back, other people who previously cloned from the original repo will have the old history. If they simply run git pull && git push, it will merge the unrewritten history with the new, resulting in what looks like two copies of each commit involved in your rewrite — a new copy of each commit which has the cleanups you made, and an old copy of each commit that has not been cleaned up — being merged together. That means everything you carefully worked to remove from the repository has been pushed back. You’re more likely to succeed in making sure they don’t re-push the unclean data if you just give them a new repository URL and tell them to reclone.
+
+- Rewriting history will rewrite tags; those who have already downloaded tags will not get the updated tags even if they specify --tags to git fetch or git pull (see the "On Re-tagging" section of git-tag(1)). Every user trying to use an existing clone will have to forcibly delete all tags they already downloaded before re-fetching them; it may be easier for them to just re-clone, which they are more likely to do with a new clone URL.
+
+- Rewriting history may delete some refs (e.g. branches that only had files that you wanted excised from history); unless you run git push with the --mirror or --prune options, those refs will continue to exist on the server. If folks then merge these branches into others, then people have started mixing old and new history. If users had already cloned these branches, removing them from the server isn’t enough; you need all users to delete any local branches based on these refs and run fetch with the --prune option as well. Simply re-cloning from a new URL is easier.
+
+- The server may not allow you to force push over some refs. For example, code review systems may have special ref namespaces (e.g. refs/changes/, refs/pull/, refs/merge-requests/) that they have locked down, and you’ll need to somehow prevent users from merging those locked-down (and thus not cleaned up) histories with your cleaned-up history. Every software code review system handles this differently (see the sensitive data removal section for some links).
+
+- Run filter-repo with your desired filtering options. Many examples are given in the the section called “Examples” section. For more complex cases, note that doing the filtering in multiple steps (by running multiple filter-repo invocations in a sequence) is supported. If anything goes wrong here, simply delete your clone and restart.
+
+- Push your new repository to its new home (note that refs/remotes/origin/* will have been moved to refs/heads/* as the first part of filter-repo, so you can just deal with normal branches instead of remote tracking branches).
+
+-
+(Optional) Some additional considerations
+
+- filter-repo has a --replace-refs option to allow creating replace refs (see git-replace(1)) for each rewritten commit ID, allowing you to use old (unabbreviated) commit hashes in the git command line to refer to the newly rewritten commits. If you want to use these replace refs, manually push them to the relevant clone URL and tell users to manually fetch them (e.g. by adjusting their fetch refspec, git config --add remote.origin.fetch +refs/replace/*:refs/replace/*). Sadly, replace refs are not yet widely understood; projects like jgit and libgit2 do not support them and existing repository managers (e.g. Gerrit, GitHub, GitLab) do not yet understand replace refs. Thus one can’t use old commit hashes within the UI of these other systems. This may change in the future, but replace refs at least help users locally within the git command line interface. Also, be aware that commit-graphs are excessively cautious around replace refs and just turn off entirely if any are present, so after enough time has passed that old commit IDs become less relevant, users may want to locally delete the replace refs to regain the speedups from commit-graphs.
+
+### Why is my origin removed?
+
+When you rewrite history, all commit IDs (starting with the first one where changes are made) are modified. Even if you think you didn’t change an intermediate commit, the fact that you changed any of its ancestors is also a change that counts and will cause a commit’s ID to change as well. It is unfortunately all-too-easy for yourself or someone else to accidentally merge the old ugly history you were trying to rewrite with the new history, resulting in not only the old ugly history returning but getting you "two copies" of each commit (both an original commit and a cleaned-up alternative), and thus doubling the number of commits in your repository. In short, you end up with an even bigger mess to clean up than you started with.
+
+This happens frequently to people using git filter-branch or BFG repo cleaner, and can happen to folks using git filter-repo if they insist on pushing back to the original repo. Example ways you can get such an even uglier history include:
+
+- at the command line (of another clone of the same repo from before the cleanup): git pull && git push
+
+- in a software forge: "reopen old Pull-Request/Merge-Request/Code-Review and hit the merge/submit button"
+
+Removing the origin remote and suggesting people push to a new repo (and ensuring they tell others to clone the new repo) is usually a good forcing function to avoid these problems. But, if people really want to push to the original repository despite these warnings, it is trivial to do so; simply run:
+
+- git remote add origin $ORIGINAL_CLONE_URL
+
+and then you can push (e.g. git push --force --branches --tags --prune). Since removing the origin url is such a cheap way to potentially prevent big messes, and it’s so easy to work around for those that really do want to push back over the original history, removing the origin url is a great safety measure that I employ.
+
+One final warning if you really want to push back to the original repo: see the next section on sensitive data removals. Those are the steps needed when pushing back to the original repo; they are so involved that I assume they are only worth it when sensitive data is involved, but you can choose to follow them for other kinds of rewrites too.
+
+### Sensitive Data Removals
+
+Sensitive data removals are a specialized type of history rewrite. While it is always very problematic to mix the cleaned-up history with the non-cleaned-up history, for sensitive data removals it is also bad to allow others to continue to view/clone/fetch the non-cleaned-up history at all; users often need to try to expunge the old history as well.
+
+Note that if the sensitive data under consideration is a token/password/credential/secret (as is often the case), then it is important that you revoke and rotate that credential first. Once the credential is revoked or rotated, it can no longer be used for access. Revoking/rotating may resolve your problem without resorting to the heavy-handed action of rewriting and purging history.
+
+For sensitive data removal history rewrites, there are three high-level steps:
+
+- Rewrite the repository locally, using git-filter-repo
+
+-
+Make sure other copies are cleaned up, including:
+
+- the server you cloned from
+
+- other clones that exist, such as ones your colleagues made
+
+- Prevent repeats and avoid future sensitive data spills
+
+Each will be discussed in greater detail below.
+
+One important thing to note, though, is that others working on the same repository should be instructed to stop while you do the cleanup; if they continue development during your cleanup, you’ll likely be forced to either discard their changes or start over on your cleanup.
+
+Rewrite the repository locally, using git-filter-repo
+
+The first step is to rewrite a copy of your repository locally using git-filter-repo. The exact commands to run will differ based on where in your repository the sensitive data is found, but some general tips:
+
+- Use the --sensitive-data-removal flag. It will provide additional information useful for the other steps.
+
+- If the sensitive data is the entirety of one or more files, and no version of those files from history needs to be kept in your repository, the --invert-paths flag together with one or more --path arguments may come in handy.
+
+- If the sensitive data is just a string found within one or more files and you want to replace that sensitive string with something else while leaving the rest of the file(s) intact, the --replace-text option may come in handy.
+
+After rewriting the history locally, make sure to inspect it to ensure the sensitive data has been removed. Some commands that might be handy for checking are:
+
+git log --all --name-status -- ${PROBLEMATIC_FILE1} ${PROBLEMATIC_FILE2}
+
+or
+
+git log -S"${PROBLEMATIC_STRING}" --all -p --
+
+If either of these commands turn up more sensitive data, then run additional git-filter-repo commands to clean up the necessary data before proceeding.
+
+Make sure other copies are cleaned up: primary server
+
+Cleaning up the repository you cloned from requires force pushing your rewritten history over the original. You need to force push all refs, not just your current branch. You can use the following command to do so (read the bulleted list right after this command before running it):
+
+git push --force --mirror origin
+
+Several comments on this command:
+
+- If any of your colleagues have pushed any changes since you started, this force push command will discard their changes.
+
+- This force push is likely to fail to push some refs, since most forges (Gerrit, GitHub, GitLab, etc.) prevent you from updating some refs (e.g. refs/changes/*, refs/pull/*, refs/merge-requests/*). You will need to follow the directions from those forges to get the remaining refs updated or deleted, and a garbage collection to be triggered on their end. Some examples: (GitLab’s docs on reducing repository size[1], or the "Fully removing the data from GitHub" section of GitHub’s docs[2]).
+
+- If you passed the --no-fetch option to git-filter-repo (or implied it with another option), you will either need to (1) drop the --mirror option and figure out which refs or refspecs to push on your own, or (2) use the --mirror option and risk deleting any refs you didn’t fetch. Further, if you lacked some refs the server had which included the sensitive data in their history, then your only options at this point to actually clean up the sensitive data from the server are to either redo your rewrite from scratch (and make sure to get the relevant refs included this time) or delete those refs on the server.
+
+- Yes, I know that --mirror implies --force and is unnecessary. I included --force anyway as a visual reminder to readers that this is going to overwrite changes on the server.
+
+Also, if any LFS objects were orphaned by your rewrite, those objects likely contain sensitive data and need to be deleted/purged from the LFS server. You’ll have to ask the maintainer of the LFS server you are using for how to delete/purge those on the server.
+
+Make sure other copies are cleaned up: clones of colleagues
+
+After you have cleaned up the server, the easiest way to clean up other clones is to make everyone delete their existing clones and reclone.
+
+If that isn’t an option, then you will need to proceed carefully because a simple git pull && git push from any other clone will recontaminate the main repository and make the mess even harder to clean up. To avoid this, before pushing from any other clone, you’ll need to have them clean up their copy, as detailed below.
+
+First, though, let me note that you should not have other developers try to cleanup their clone by running the same git-filter-repo commands that you ran. While that sometimes may happen to work, it is not reliable in general. Running the same git-filter-repo commands, even if identical, can result in them getting new hashes for commits that are different than your new hashes, and you’ll end up with a mess involving two or more copies of every commit.
+
+Instead developers with other clones of the repository should run through the following steps to clean up their copy if they are unwilling to discard their copy and reclone:
+
+- delete all tags and run git fetch --prune --tags. Running the fetch command without deleting tags first will result in the old tags being kept, which will keep the sensitive data.
+
+- rebase any changes they have on any branch (or other ref) on top of the new history. See the "RECOVERING FROM UPSTREAM REBASE" section of git-rebase(1) (and in particular, "The hard case") for instructions.
+
+-
+run a few steps to clean out the pre-rebase history (note that the first step drops all reflogs including all stash entries. That’s a high cost, but needed to clean up the sensitive data):
+
+- git reflog expire --expire=now --all
+
+- git gc --prune=now
+
+Once these steps are complete, you also need to verify that the clone no longer contains any sensitive data (it is really easy to miss something, which puts you at risk of recontaminating other repositories with the sensitive data). You can do so by running:
+
+git cat-file -t ${HASH_OF_FIRST_CHANGED_COMMIT}
+
+Where ${HASH_OF_FIRST_CHANGED_COMMIT} was printed by git-filter-repo at the end of its run (if there was more than one "first changed commit", run this command multiple times, with each commit hash). If this command returns a fatal error, then the commit has correctly been removed from this repository. If it responds with "commit", then the object still exists and you need to re-delete tags, re-rebase all necessary branches/refs, and re-expire reflogs and redo the gc. If you are curious about which branches or refs were the problematic ones holding on to ${HASH_OF_FIRST_CHANGED_COMMIT}, then presuming you did the reflog expire and gc jobs above, the following command should help you find the problematic branches/refs:
+
+git for-each-ref --contains ${HASH_OF_FIRST_CHANGED_COMMIT}
+
+Also, remember, the cat-file command needs to come back with a fatal error for every ${HASH_OF_FIRST_CHANGED_COMMIT} involved if you have more than one.
+
+After this is all done, then if any LFS objects were orphaned by the rewrite (which again, you will be told if you use the --sensitive-data-removal option when you run git-filter-repo), then you also need to remove those LFS objects. Look for them a couple directories under .git/lfs/objects/, and delete them.
+
+Prevent repeats and avoid future sensitive data spills
+
+There are several measures you can take to help avoid repeat problems. Not all may be applicable for your case, but the more that are, the more likely you can avoid problems.
+
+For dealing with the existing sensitive data spill:
+
+- Since it is so easy to re-contaminate the repository you cloned from (it merely takes a colleague to run git pull && git push from their clone that was created before your cleanup), take extra vigilance in performing the clean ups steps above for other clones to ensure they have all been cleaned up.
+
+- If you have a central repository everyone pushes to, look into methods to ban the First Changed Commit(s) from being (re-)pushed to your repository. Sadly, few repository managers currently have such a built-in capability (see Gerrit’s ban-commit ability for one such example at https://gerrit-review.googlesource.com/Documentation/cmd-ban-commit.html), but a few may allow you to write your own pre-receive hooks that reject pushes containing these bad commits. (Pro-tip for writing such a pre-receive hook: use git cat-file -t ${BAD_COMMIT} as a cheap check before checking if any revision range between <old-oid> and <new-oid> contains ${BAD_COMMIT})
+
+Steps to help avoid other future sensitive data spills:
+
+- If sensitive data is likely to appear within certain filenames that should not be tracked in git at all, then add those filenames to .gitignore to reduce the risk that others accidentally add them.
+
+- Avoid hardcoding secrets in code. Use environment variables, configuration management tools, or secrets management services like Azure Key Vault, AWS Secrets Manager, or HashiCorp Vault to manage and inject secrets at runtime.
+
+- Create a pre-commit hook to check for sensitive data before it is committed or pushed anywhere, or use a well-known tool in a pre-commit hook like git-secrets or gitleaks.
+
+## Examples
+
+### Path based filtering
+
+To only keep the README.md file plus the directories guides and tools/releases/:
+
+git filter-repo --path README.md --path guides/ --path tools/releases
+
+Directory names can be given with or without a trailing slash, and all filenames are relative to the toplevel of the repo. To keep all files except these paths, just add --invert-paths:
+
+git filter-repo --path README.md --path guides/ --path tools/releases --invert-paths
+
+If you want to have both an inclusion filter and an exclusion filter, just run filter-repo multiple times. For example, to keep the src/main subdirectory but exclude files under src/main named data, run:
+
+git filter-repo --path src/main/
+git filter-repo --path-glob 'src/*/data' --invert-paths
+
+Note that the asterisk (*) will match across multiple directories, so the second command would remove e.g. src/main/org/whatever/data. Also, the second command by itself would also remove e.g. src/not-main/foo/data, but since src/not-main/ was removed by the first command, that’s not an issue. Also, the use of quotes around the asterisk is sometimes important to avoid glob expansion by the shell.
+
+You can also select paths by regular expression (see https://docs.python.org/3/library/re.html#regular-expression-syntax). For example, to only include files from the repo whose name is in the format YYYY-MM-DD.txt and is found at least two subdirectories deep:
+
+git filter-repo --path-regex '^.*/.*/[0-9]{4}-[0-9]{2}-[0-9]{2}.txt$'
+
+If you want two directories to be renamed (and maybe merged if both are renamed to the same location), use --path-rename; for example, to rename both cmds/ and src/scripts/ to tools/:
+
+git filter-repo --path-rename cmds:tools --path-rename src/scripts/:tools/
+
+As with --path, directories can be specified with or without a trailing slash for --path-rename.
+
+If you do a --path-rename to something that was already in use, it will be silently overwritten. However, if you try to rename multiple files to the same location (e.g. src/scripts/run_release.sh and cmds/run_release.sh both existed and had different content with the renames above), then you will be given an error. If you have such a case, you may want to add another rename command to move one of the paths somewhere else where it won’t collide:
+
+git filter-repo --path-rename cmds/run_release.sh:tools/do_release.sh \
+ --path-rename cmds/:tools/ \
+ --path-rename src/scripts/:tools/
+
+Also, --path-rename brings up ordering issues; all path arguments are applied in order. Thus, a command like
+
+git filter-repo --path-rename sources/:src/main/ --path src/main/
+
+would make sense but reversing the two arguments would not (src/main/ is created by the rename so reversing the two would give you an empty repo). Also, note that the rename of cmds/run_release.sh a couple examples ago was done before the other renames.
+
+Note that path renaming does not do path filtering, thus the following command
+
+git filter-repo --path src/main/ --path-rename tools/:scripts/
+
+would not result in the tools or scripts directories being present, because the single filter selected only src/main/. It’s likely that you would instead want to run:
+
+git filter-repo --path src/main/ --path tools/ --path-rename tools/:scripts/
+
+If you prefer to filter based solely on basename, use the --use-base-name flag (though this is incompatible with --path-rename). For example, to only include README.md and Makefile files from any directory:
+
+git filter-repo --use-base-name --path README.md --path Makefile
+
+If you wanted to delete all .DS_Store files in any directory, you could either use:
+
+git filter-repo --invert-paths --path '.DS_Store' --use-base-name
+
+or
+
+git filter-repo --invert-paths --path-glob '*/.DS_Store' --path '.DS_Store'
+
+(the --path-glob isn’t sufficient by itself as it might miss a toplevel .DS_Store file; further while something like --path-glob '*.DS_Store' would workaround that problem it would also grab files named foo.DS_Store or bar/baz.DS_Store)
+
+Finally, see also the --filename-callback from the section called “Callbacks”.
+
+### Filtering based on many paths
+
+If you have a long list of files, directories, globs, or regular expressions to filter on, you can stick them in a file and use --paths-from-file; for example, with a file named stuff-i-want.txt with contents of
+
+# Blank lines and comment lines are ignored.
+# Examples similar to --path:
+README.md
+guides/
+tools/releases
+
+# An example that is like --path-glob:
+glob:*.py
+
+# An example that is like --path-regex:
+regex:^.*/.*/[0-9]{4}-[0-9]{2}-[0-9]{2}.txt$
+
+# An example of renaming a path
+tools/==>scripts/
+
+# An example of using a regex to rename a path
+regex:(.*)/([^/]*)/([^/]*)\.text$==>\2/\1/\3.txt
+
+then you could run
+
+git filter-repo --paths-from-file stuff-i-want.txt
+
+to get a repo containing only the toplevel README.md file, the guides/ and tools/releases/ directories, all python files, files whose name was of the form YYYY-MM-DD.txt at least two subdirectories deep, and would rename tools/ to scripts/ and rename files like foo/bar/baz.text to bar/foo/baz.txt. Note the special line prefixes of glob: and regex: and the special string ==> denoting renames.
+
+Sometimes you have a way of easily generating all the files you want. For example, if you know that none of the currently tracked files have any newlines or special characters in them (see core.quotePath from git config --help) so that git ls-files would print all files literally one per line, and you knew that you wanted to keep only the files that are currently tracked (thus deleting from all commits in history any files that only appear on other branches or that only appear in older commits), then you could use a pair of commands such as
+
+git ls-files >../paths-i-want.txt
+git filter-repo --paths-from-file ../paths-i-want.txt
+
+Similarly, you could use --paths-from-file to delete many files. For example, you could run git filter-repo --analyze to get reports, look in one such as .git/filter-repo/analysis/path-deleted-sizes.txt and copy all the filenames into a file such as /tmp/files-i-dont-want-anymore.txt and then run
+
+git filter-repo --invert-paths --paths-from-file /tmp/files-i-dont-want-anymore.txt
+
+to delete them all.
+
+### Directory based shortcuts
+
+Let’s say you had a directory structure like the following:
+
+module/
+ foo.c
+ bar.c
+otherDir/
+ blah.config
+ stuff.txt
+zebra.jpg
+
+If you wanted just the module/ directory and you wanted it to become the new root so that your new directory structure looked like
+
+foo.c
+bar.c
+
+then you could run:
+
+git filter-repo --subdirectory-filter module/
+
+If you wanted all the files from the original repo, but wanted to move everything under a subdirectory named my-module/, so that your new directory structure looked like
+
+my-module/
+ module/
+ foo.c
+ bar.c
+ otherDir/
+ blah.config
+ stuff.txt
+ zebra.jpg
+
+then you would instead run run
+
+git filter-repo --to-subdirectory-filter my-module/
+
+### Content based filtering
+
+If you want to filter out all files bigger than a certain size, you can use --strip-blobs-bigger-than with some size (K, M, and G suffixes are recognized), e.g.:
+
+git filter-repo --strip-blobs-bigger-than 10M
+
+If you want to strip out all files with specified git object ids (hashes), list the hashes in a file and run
+
+git filter-repo --strip-blobs-with-ids FILE_WITH_GIT_BLOB_IDS
+
+If you want to modify file contents, you can do so based on a list of expressions in a file, one per line. For example, with a file named expressions.txt containing
+
+p455w0rd
+foo==>bar
+glob:*666*==>
+regex:\bdriver\b==>pilot
+literal:MM/DD/YYYY==>YYYY-MM-DD
+regex:([0-9]{2})/([0-9]{2})/([0-9]{4})==>\3-\1-\2
+
+then running
+
+git filter-repo --replace-text expressions.txt
+
+will go through and replace p455w0rd with ***REMOVED***, foo with bar, any line containing 666 with a blank line, the word driver with pilot (but not if it has letters before or after; e.g. drivers will be unmodified), replace the exact text MM/DD/YYYY with YYYY-MM-DD and replace date strings of the form MM/DD/YYYY with ones of the form YYYY-MM-DD. In the expressions file, there are a few things to note:
+
+- Every line has a replacement, given by whatever is on the right of ==>. If ==> does not appear on the line, the default replacement is ***REMOVED***.
+
+- Lines can start with literal:, glob:, or regex: to specify whether to do literal string matches, globs (see https://docs.python.org/3/library/fnmatch.html), or regular expressions (see https://docs.python.org/3/library/re.html#regular-expression-syntax). If none of these are specified, literal: is assumed.
+
+- If multiple matches are found, all are replaced.
+
+- globs and regexes are applied to the entire file, but without any special flags turned on. Some folks may be interested in adding (?m) to the regex to turn on MULTILINE mode, so that ^ and $ match the beginning and ends of lines rather than the beginning and end of file. See https://docs.python.org/3/library/re.html for details.
+
+See also the --blob-callback from the section called “Callbacks”.
+
+### Updating commit/tag messages
+
+If you want to modify commit or tag messages, you can do so with the same syntax as --replace-text, explained above. For example, with a file named expressions.txt containing
+
+foo==>bar
+
+then running
+
+git filter-repo --replace-message expressions.txt
+
+will replace foo in commit or tag messages with bar.
+
+See also the --message-callback from the section called “Callbacks”.
+
+### Refname based filtering
+
+To rename tags, use --tag-rename, e.g.:
+
+git filter-repo --tag-rename foo:bar
+
+This will rename any tags starting with foo to now start with bar. Either side of the colon could be blank, e.g.
+
+git filter-repo --tag-rename '':'my-module-'
+
+For more general refname modification, see --refname-callback from the section called “Callbacks”.
+
+### User and email based filtering
+
+To modify username and emails of commits, you can create a mailmap file in the format accepted by git-shortlog(1). For example, if you have a file named my-mailmap you can run
+
+git filter-repo --mailmap my-mailmap
+
+and if the current contents of that file are as follows (if the specified mailmap file is version controlled, historical versions of the file are ignored):
+
+Name For User <email@addre.ss>
+<new@ema.il> <old1@ema.il>
+New Name And <new@ema.il> <old2@ema.il>
+New Name And <new@ema.il> Old Name And <old3@ema.il>
+
+then we can update username and/or emails based on the specified mapping.
+
+See also the --name-callback and --email-callback from the section called “Callbacks”.
+
+### Parent rewriting
+
+To replace $commit_A with $commit_B (e.g. make all commits which had $commit_A as a parent instead have $commit_B for that parent), and rewrite history to make it permanent:
+
+git replace $commit_A $commit_B
+git filter-repo --proceed
+
+To create a new commit with the same contents as $commit_A except with different parent(s) and then replace $commit_A with the new commit, and rewrite history to make it permanent:
+
+git replace --graft $commit_A $new_parent_or_parents
+git filter-repo --proceed
+
+The --proceed option is needed to avoid failing the "no arguments specified" check. Note that older versions of git-filter-repo required --force to be passed after creating a graft to avoid triggering the not-a-fresh-clone check; that check has been modified to remove this overuse of --force.
+
+### Partial history rewrites
+
+To rewrite the history on just one branch (which may cause it to no longer share any common history with other branches), use --refs. For example, to remove a file named extraneous.txt from the master branch:
+
+git filter-repo --invert-paths --path extraneous.txt --refs master
+
+To rewrite just some recent commits:
+
+git filter-repo --invert-paths --path extraneous.txt --refs master~3..master
+
+## Callbacks
+
+For flexibility, filter-repo allows you to specify functions on the command line to further filter all changes. Please note that there are some API compatibility caveats associated with these callbacks that you should be aware of before using them; see the "API BACKWARD COMPATIBILITY CAVEAT" comment near the top of git-filter-repo source code.
+
+Most callback functions are of the same general format (--file-info-callback is an exception which will be noted later). For a command line argument like
+
+--foo-callback 'BODY'
+
+the following code will be compiled and called:
+
+def foo_callback(foo):
+ BODY
+
+Thus, you just need to make sure your BODY modifies and returns foo appropriately. One important thing to note for all callbacks is that filter-repo uses bytestrings (see https://docs.python.org/3/library/stdtypes.html#bytes) everywhere instead of strings.
+
+There are four callbacks that allow you to operate directly on raw objects that contain data that’s easy to write in git-fast-import(1) format:
+
+--blob-callback
+--commit-callback
+--tag-callback
+--reset-callback
+
+We’ll come back to these later because it is often the case that the other callbacks are more convenient. The other callbacks operate on a small piece of the raw objects or operate on pieces across multiple types of raw object (e.g. author names and committer names and tagger names across commits and tags, or refnames across commits, tags, and resets, or messages across commits and tags). The convenience callbacks are:
+
+--filename-callback
+--message-callback
+--name-callback
+--email-callback
+--refname-callback
+--file-info-callback
+
+in each you are expected to simply return a new value based on the one passed in. For example,
+
+git-filter-repo --name-callback 'return name.replace(b"Wiliam", b"William")'
+
+would result in the following function being called:
+
+def name_callback(name):
+ return name.replace(b"Wiliam", b"William")
+
+The email callback is quite similar:
+
+git-filter-repo --email-callback 'return email.replace(b".cm", b".com")'
+
+The refname callback is also similar, but note that the refname passed in and returned are expected to be fully qualified (e.g. b"refs/heads/master" instead of just b"master" and b"refs/tags/v1.0.7" instead of b"1.0.7"):
+
+git-filter-repo --refname-callback '
+ # Change e.g. refs/heads/master to refs/heads/prefix-master
+ rdir,rpath = os.path.split(refname)
+ return rdir + b"/prefix-" + rpath'
+
+The message callback is quite similar to the previous three callbacks, though it operates on a bytestring that is likely more than one line:
+
+git-filter-repo --message-callback '
+ if b"Signed-off-by:" not in message:
+ message += b"\nSigned-off-by: Me My <self@and.eye>"
+ return re.sub(b"[Ee]-?[Mm][Aa][Ii][Ll]", b"email", message)'
+
+The filename callback is slightly more interesting. Returning None means the file should be removed from all commits, returning the filename unmodified marks the file to be kept, and returning a different name means the file should be renamed. An example:
+
+git-filter-repo --filename-callback '
+ if b"/src/" in filename:
+ # Remove all files with a directory named "src" in their path
+ # (except when "src" appears at the toplevel).
+ return None
+ elif filename.startswith(b"tools/"):
+ # Rename tools/ -> scripts/misc/
+ return b"scripts/misc/" + filename[6:]
+ else:
+ # Keep the filename and do not rename it
+ return filename
+ '
+
+The file-info callback is more involved. It is designed to be used in cases where filtering depends on both filename and contents (and maybe mode). It is called for file changes other than deletions (since deletions have no file contents to operate on). The file info callback takes four parameters (filename, mode, blob_id, and value), and expects three to be returned (filename, mode, blob_id). The filename is handled similar to the filename callback; it can be used to rename the file (or set to None to drop the change). The mode is a simple bytestring (b"100644" for regular non-executable files, b"100755" for executable files/scripts, b"120000" for symlinks, and b"160000" for submodules). The blob_id is most useful in conjunction with the value parameter. The value parameter is an instance of a class that has the following functions value.get_contents_by_identifier(blob_id) → contents (bytestring) value.get_size_by_identifier(blob_id) → size_of_blob (int) value.insert_file_with_contents(contents) → blob_id value.is_binary(contents) → bool value.apply_replace_text(contents) → new_contents (bytestring) and has the following member data you can write to value.data (dict) These functions allow you to get the contents of the file, or its size, create a new file in the stream whose blob_id you can return, check whether some given contents are binary (using the heuristic from the grep(1) command), and apply the replacement rules from --replace-text (note that --file-info-callback makes the changes from --replace-text not auto-apply). You could use this for example to only apply the changes from --replace-text to certain file types and simultaneously rename the files it applies the changes to:
+
+git-filter-repo --file-info-callback '
+ if not filename.endswith(b".config"):
+ # Make no changes to the file; return as-is
+ return (filename, mode, blob_id)
+
+ new_filename = filename[0:-7] + b".cfg"
+
+ contents = value.get_contents_by_identifier(blob_id)
+ new_contents = value.apply_replace_text(contents)
+ new_blob_id = value.insert_file_with_contents(new_contents)
+
+ return (new_filename, mode, new_blob_id)
+
+Note that if history has multiple revisions with the same file (e.g. it was cherry-picked to multiple branches or there were a number of reverts), then the --file-info-callback will be called multiple times. If you want to avoid processing the same file multiple times, then you can stash transformation results in the value.data dict. For, example, we could modify the above example to make it only apply transformations on blob_ids we have not seen before:
+
+git-filter-repo --file-info-callback '
+ if not filename.endswith(b".config"):
+ # Make no changes to the file; return as-is
+ return (filename, mode, blob_id)
+
+ new_filename = filename[0:-7] + b".cfg"
+
+ if blob_id in value.data:
+ return (new_filename, mode, value.data[blob_id])
+
+ contents = value.get_contents_by_identifier(blob_id)
+ new_contents = value.apply_replace_text(contents)
+ new_blob_id = value.insert_file_with_contents(new_contents)
+ value.data[blob_id] = new_blob_id
+
+ return (new_filename, mode, new_blob_id)
+
+An alternative example for the --file-info-callback is to make all .sh files executable and add an extra trailing newline to the .sh files:
+
+git-filter-repo --file-info-callback '
+ if not filename.endswith(b".sh"):
+ # Make no changes to the file; return as-is
+ return (filename, mode, blob_id)
+
+ # There are only 4 valid modes in git:
+ # - 100644, for regular non-executable files
+ # - 100755, for executable files/scripts
+ # - 120000, for symlinks
+ # - 160000, for submodules
+ new_mode = b"100755"
+
+ contents = value.get_contents_by_identifier(blob_id)
+ new_contents = contents + b"\n"
+ new_blob_id = value.insert_file_with_contents(new_contents)
+
+ return (filename, new_mode, new_blob_id)
+
+In contrast to the previous callback types, the blob, reset, tag, and commit callbacks are not expected to return a value, but are instead expected to modify the object passed in. Major fields for these objects are (subject to API backward compatibility caveats mentioned previously):
+
+- Blob: original_id (original hash) and data
+
+- Reset: ref (name of reference) and from_ref (hash or integer mark)
+
+- Tag: ref, from_ref, original_id, tagger_name, tagger_email, tagger_date, message
+
+- Commit: branch, original_id, author_name, author_email, author_date, committer_name, committer_email, committer_date, message, file_changes (list of FileChange objects, each containing a type, filename, mode, and blob_id), parents (list of hashes or integer marks)
+
+An example of each:
+
+git filter-repo --blob-callback '
+ if len(blob.data) > 25:
+ # Mark this blob for removal from all commits
+ blob.skip()
+ else:
+ blob.data = blob.data.replace(b"Hello", b"Goodbye")
+ '
+
+git filter-repo --reset-callback 'reset.ref = reset.ref.replace(b"master", b"dev")'
+
+git filter-repo --tag-callback '
+ if tag.tagger_name == b"Jim Williams":
+ # Omit this tag
+ tag.skip()
+ else:
+ tag.message = tag.message + b"\n\nTag of %s by %s on %s" % (tag.ref, tag.tagger_email, tag.tagger_date)'
+
+git filter-repo --commit-callback '
+ # Remove executable files with three 6s in their name (including
+ # from leading directories).
+ # Also, undo deletion of sources/foo/bar.txt (change types are
+ # either b"D" (deletion) or b"M" (add or modify); renames are
+ # handled by deleting the old file and adding a new one)
+ commit.file_changes = [
+ change for change in commit.file_changes
+ if not (change.mode == b"100755" and
+ change.filename.count(b"6") == 3) and
+ not (change.type == b"D" and
+ change.filename == b"sources/foo/bar.txt")]
+ # Mark all .sh files as executable; modes in git are always one of
+ # 100644 (normal file), 100755 (executable), 120000 (symlink), or
+ # 160000 (submodule)
+ for change in commit.file_changes:
+ if change.filename.endswith(b".sh"):
+ change.mode = b"100755"
+ '
+
+## Internals
+
+You probably don’t need to read this section unless you are just very curious or you are trying to do a very complex history rewrite.
+
+### How filter-repo works
+
+Roughly, filter-repo works by running
+
+git fast-export <options> | filter | git fast-import <options>
+
+where filter-repo not only launches the whole pipeline but also serves as the filter in the middle. However, filter-repo does a few additional things on top in order to make it into a well-rounded filtering tool. A sequence that more accurately reflects what filter-repo runs is:
+
+- Verify we’re in a fresh clone
+
+- git fetch -u . refs/remotes/origin/*:refs/heads/*
+
+- git remote rm origin
+
+- git fast-export --show-original-ids --reference-excluded-parents --fake-missing-tagger --signed-tags=strip --tag-of-filtered-object=rewrite --use-done-feature --no-data --reencode=yes --mark-tags --all | filter | git -c core.ignorecase=false fast-import --date-format=raw-permissive --force --quiet
+
+- git update-ref --no-deref --stdin, fed with a list of refs to nuke, and a list of replace refs to delete, create, or update.
+
+- git reset --hard
+
+- git reflog expire --expire=now --all
+
+- git gc --prune=now
+
+Some notes or exceptions on each of the above:
+
+- If we’re not in a fresh clone, users will not be able to recover if they used the wrong command or ran in the wrong repo. (Though --force overrides this check, and it’s also off if you’ve already ran filter-repo once in this repo.)
+
+- Technically, we actually use a git update-ref command fed with a lot of input due to the fact that users can use --force when local branches might not match remote branches. But this fetch command catches the intent rather succinctly.
+
+- We don’t want users accidentally pushing back to the original repo, as discussed in the section called “Discussion”. It also reminds users that since history has been rewritten, this repo is no longer compatible with the original. Finally, another minor benefit is this allows users to push with the --mirror option to their new home without accidentally sending remote tracking branches.
+
+- Some of these flags are always used but others are actually conditional. For example, filter-repo’s --replace-text and --blob-callback options need to work on blobs so --no-data cannot be passed to fast-export. But when we don’t need to work on blobs, passing --no-data speeds things up. Also, other flags may change the structure of the pipeline as well (e.g. --dry-run and --debug)
+
+- We use this step to write replace refs for accessing the newly written commit hashes using their previous names. Also, if refs were renamed by various steps, we need to delete the old refnames in order to avoid mixing old and new history.
+
+- Users also have old versions of files in their working tree and index; we want those cleaned up to match the rewritten history as well. Note that this step is skipped in bare repos.
+
+- Reflogs will hold on to old history, so we need to expire them.
+
+- We need to gc to avoid mixing new and old history. Also, it shrinks the repository for users, so they don’t have to do extra work. (Odds are that they’ve only rewritten trees and commits and maybe a few blobs, so --aggressive isn’t needed and would be too slow.)
+
+Information about these steps is printed out when --debug is passed to filter-repo. When doing a --partial history rewrite, steps 2, 3, 7, and 8 are unconditionally skipped, step 5 is skipped if --replace-refs is update-no-add, and just the nuke-unused-refs portion of step 5 is skipped if --replace-refs is something else.
+
+### Limitations
+
+Inherited limitations
+
+Since git filter-repo calls fast-export and fast-import to do a lot of the heavy lifting, it inherits limitations from those systems:
+
+- extended commit headers, if any, are stripped
+
+- commits get rewritten meaning they will have new hashes; therefore, signatures on commits and tags cannot continue to work and instead are just removed (thus signed tags become annotated tags)
+
+- tags of commits are supported. Prior to git-2.24.0, tags of blobs and tags of tags are not supported (fast-export would die on such tags). tags of trees are not supported in any git version (since fast-export ignores tags of trees with a warning and fast-import provides no way to import them).
+
+- annotated and signed tags outside of the refs/tags/ namespace are not supported (their location will be mangled in weird ways)
+
+- fast-import will die on various forms of invalid input, such as a timezone with more than four digits
+
+- fast-export cannot reencode commit messages into UTF-8 if the commit message is not valid in its specified encoding (in such cases, it’ll leave the commit message and the encoding header alone).
+
+- commits without an author will be given one matching the committer
+
+- tags without a tagger will be given a fake tagger
+
+- references that include commit cycles in their history (which can be created with git-replace(1)) will not be flagged to the user as an error but will be silently deleted by fast-export as though the branch or tag contained no interesting files
+
+There are also some limitations due to the design of these systems:
+
+- Trying to insert additional files into the stream can be tricky; since fast-export only lists file changes in a merge relative to its first parent, if you insert additional files into a commit that is in the second (or third or fourth) parent history of a merge, then you also need to add it to the merge manually. (Similarly, if you change which parent is the first parent in a merge commit, you need to manually update the list of file changes to be relative to the new first parent.)
+
+- fast-export and fast-import work with exact file contents, not patches. (e.g. "Whatever the current contents of this file, update them to now have these contents") Because of this, removing the changes made in a single commit or inserting additional changes to a file in some commit and expecting them to propagate forward is not something that can be done with these tools. Use git-rebase(1) for that.
+
+Intrinsic limitations
+
+Some types of filtering have limitations that would affect any tool attempting to perform them; the most any tool can do is attempt to notify the user when it detects an issue:
+
+-
+When rewriting commit hashes in commit messages, there are a variety of cases when the hash will not be updated (whenever this happens, a note is written to .git/filter-repo/suboptimal-issues):
+
+- if a commit hash does not correspond to a commit in the old repo
+
+- if a commit hash corresponds to a commit that gets pruned
+
+- if an abbreviated hash is not unique
+
+- Pruning of empty commits can cause a merge commit to lose an entire ancestry line and become a non-merge. If the merge commit had no changes then it can be pruned too, but if it still has changes it needs to be kept. This might cause minor confusion since the commit will likely have a commit message that makes it sound like a merge commit even though it’s not. (Whenever a merge commit becomes a non-merge commit, a note is written to .git/filter-repo/suboptimal-issues)
+
+Issues specific to filter-repo
+
+- Multiple repositories in the wild have been observed which use a bogus timezone (+051800); google will find you some reports. The intended timezone wasn’t clear or wasn’t always the same. Replace with a different bogus timezone that fast-import will accept (+0261).
+
+- --path-rename can result in pathname collisions; to avoid excessive memory requirements of tracking which files are in all commits or looking up what files exist with either every commit or every usage of --path-rename, we just tell the user that they might clobber other changes if they aren’t careful. We can check if the clobbering comes from another --path-rename without much overhead. (Perhaps in the future it’s worth adding a slow mode to --path-rename that will do the more exhaustive checks?)
+
+- There is no mechanism for directly controlling which flags are passed to fast-export (or fast-import); only pre-defined flags can be turned on or off as a side-effect of other options. Direct control would make little sense because some options like --full-tree would require additional code in filter-repo (to parse new directives), and others such as -M or -C would break assumptions used in other places of filter-repo.
+
+- Partial-repo filtering, while supported, runs counter to filter-repo’s "avoid mixing old and new history" design. This support has required improvements to core git as well (e.g. it depends upon the --reference-excluded-parents option to fast-export that was added specifically for this usage within filter-repo). The --partial and --refs options will continue to be supported since there are people with usecases for them; however, I am concerned that this inconsistency about mixing old and new history seems likely to lead to user mistakes. For now, I just hope that long explanations of caveats in the documentation of these options suffice to curtail any such problems.
+
+Comments on reversibility
+
+Some people are interested in reversibility of a rewrite; e.g. rewrite history, possibly add some commits, then unrewrite and get the original history back plus a few new "unrewritten" commits. Obviously this is impossible if your rewrite involves throwing away information (e.g. filtering out files or replacing several different strings with ***REMOVED***), but may be possible with some rewrites. filter-repo is likely to be a poor fit for this type of workflow for a few reasons:
+
+- most of the limitations inherited from fast-export and fast-import are of a type that cause reversibility issues
+
+- grafts and replace refs, if present, are used in the rewrite and made permanent
+
+- rewriting of commit hashes will probably be reversible, but it is possible for rewritten abbreviated hashes to not be unique even if the original abbreviated hashes were.
+
+- filter-repo defaults to several forms of irreversible rewriting that you may need to turn off (e.g. the last two bullet points above or reencoding commit messages into UTF-8); it’s possible that additional forms of irreversible rewrites will be added in the future.
+
+- I assume that people use filter-repo for one-shot conversions, not ongoing data transfers. I explicitly reserve the right to change any API in filter-repo based on this presumption (and a comment to this effect is found in multiple places in the code and examples). You have been warned.
+
+## See Also
+
+git-rebase(1), git-filter-branch(1)
+
+## Git
+
+Part of the git(1) suite
+
+## Notes
+
+- GitLab’s docs on reducing repository size
+https://docs.gitlab.com/ee/user/project/repository/reducing_the_repo_size_using_git.html
+
+- the "Fully removing the data from GitHub" section of GitHub’s docs
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository#fully-removing-the-data-from-github
+
+## Referenced By
+
+public-inbox-v1-format(5).
+
+2024-11-27 Git 2.47.1.2.g787e9d71 Git Manual
+
+-
+-
+-
+-
