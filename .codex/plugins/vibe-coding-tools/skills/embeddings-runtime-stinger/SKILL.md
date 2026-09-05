@@ -1,6 +1,6 @@
 ---
 name: "embeddings-runtime-stinger"
-description: "Embedding model selection and runtime. Covers choosing and calling a hosted provider (OpenAI text-embedding-3, Cohere embed-v3/v4, Voyage AI) or running a self-hosted local model (transformers.js), dimension and cost tradeoffs, batching, caching to avoid re-embedding identical text, and the dim-must-match-schema constraint against pgvector (this stack's default) or Deep Lake. The local-daemon material (nomic-embed-text-v1.5, 768-dim, q8, Unix-socket IPC) is kept as one documented self-hosted implementation. Use when the user says \\\\\\\"which embedding model should I use\\\\\\\", \\\\\\\"OpenAI vs Cohere vs Voyage\\\\\\\", \\\\\\\"should I turn embeddings on\\\\\\\", \\\\\\\"swap the embedding model\\\\\\\", \\\\\\\"cache embeddings\\\\\\\", \\\\\\\"batch embedding calls\\\\\\\", \\\\\\\"the embed daemon is stuck\\\\\\\", \\\\\\\"change the embedding dimension\\\\\\\", or \\\\\\\"local vs hosted embeddings\\\\\\\". Do NOT use for the vector column/index/schema mechanics themselves (vector-store-stinger), API key security (security-worker-bee), or PRD authorship (library-worker-bee)."
+description: "Picks and runs embedding models: hosted (OpenAI, Cohere, Voyage) vs self-hosted, cost tradeoffs, batching, caching. Use when choosing, swapping, or debugging an embedding model."
 ---
 
 # embeddings-runtime Stinger
@@ -10,6 +10,14 @@ You are the playbook for `embeddings-runtime-worker-bee`. Every invocation produ
 ## Scope in one sentence
 
 Embedding model selection and runtime, generally: hosted providers (OpenAI, Cohere, Voyage AI) and self-hosted local models, dimension/cost/latency tradeoffs, batching, caching, and the dim-must-match-schema constraint against whichever vector store is in play. The local-daemon (nomic-embed-text-v1.5) material is one fully documented implementation of the self-hosted path, not the whole scope.
+
+## When to use this skill
+
+Use when the user says: "which embedding model should I use", "OpenAI vs Cohere vs Voyage", "should I turn embeddings on", "swap the embedding model", "cache embeddings", "batch embedding calls", "the embed daemon is stuck", "change the embedding dimension", or "local vs hosted embeddings".
+
+Covers choosing and calling a hosted provider (OpenAI text-embedding-3, Cohere embed-v3/v4, Voyage AI) or running a self-hosted local model (transformers.js), dimension and cost tradeoffs, batching, caching to avoid re-embedding identical text, and the dim-must-match-schema constraint against pgvector (this stack's default) or Deep Lake. The local-daemon material (nomic-embed-text-v1.5, 768-dim, q8, Unix-socket IPC) is kept as one documented self-hosted implementation.
+
+Do NOT use for the vector column/index/schema mechanics themselves (`vector-store-stinger`), API key security (`security-worker-bee`), or PRD authorship (`library-worker-bee`).
 
 ## Invocation modes (routing table)
 

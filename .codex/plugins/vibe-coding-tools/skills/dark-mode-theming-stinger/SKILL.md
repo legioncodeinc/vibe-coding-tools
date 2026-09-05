@@ -1,6 +1,6 @@
 ---
 name: "dark-mode-theming-stinger"
-description: "'Audits and implements the full dark-mode theming surface for React/Next.js applications: CSS variable token architecture (semantic vs. primitive), next-themes wiring (ThemeProvider, storageKey, enableSystem), FOWT (flash-of-wrong-theme) prevention via blocking inline script, SSR hydration safety (suppressHydrationWarning, typeof window guards, mounted guard pattern), Tailwind v4 dark-mode configuration (@custom-variant, selector strategy), and multi-brand/white-label runtime theme swapping via CSS variable overrides. Use when the user says \\\\\\\"set up dark mode\\\\\\\", \\\\\\\"next-themes keeps flashing\\\\\\\", \\\\\\\"dark mode on SSR\\\\\\\", \\\\\\\"multi-brand theming\\\\\\\", \\\\\\\"CSS variable token layer\\\\\\\", \\\\\\\"Tailwind v4 dark mode\\\\\\\", \\\\\\\"prefers-color-scheme in Next.js\\\\\\\", \\\\\\\"white-label theme runtime swap\\\\\\\", or when dark-mode-theming-worker-bee is invoked. Do NOT use for palette creation or source-of-truth token file authorship (design-system-worker-bee), per-component visual deltas (ux-ui-svelte-worker-bee), or persisted-preference schema design (db-worker-bee).'"
+description: "Audits and implements dark mode for React/Next.js: CSS tokens, next-themes wiring, FOWT prevention, SSR hydration, Tailwind v4 config, multi-brand theming. Use for dark mode setup or flashing bugs."
 license: MIT
 ---
 
@@ -9,6 +9,25 @@ license: MIT
 The dark-mode theming surface is one of the most deceptively complex areas of a modern React/Next.js stack. Getting it right requires aligning four systems: CSS token architecture, a theme provider library, SSR hydration semantics, and (in multi-brand apps) a runtime CSS variable override layer. Getting any one of them wrong produces visible flashes, hydration warnings, inaccessible OS-native controls, or cross-tenant token leakage.
 
 This Stinger encodes the 2026 consensus patterns for all of these. Read `SKILL.md` for the overview and task routing; follow the specific guide for deep implementation.
+
+---
+
+## When to use this skill
+
+Load this skill when `dark-mode-theming-worker-bee` is invoked, or the user says:
+
+- "Set up dark mode"
+- "next-themes keeps flashing"
+- "Dark mode on SSR"
+- "Multi-brand theming"
+- "CSS variable token layer"
+- "Tailwind v4 dark mode"
+- "prefers-color-scheme in Next.js"
+- "White-label theme runtime swap"
+
+This skill covers the full dark-mode theming surface for React/Next.js applications: CSS variable token architecture (semantic vs. primitive), `next-themes` wiring (ThemeProvider, storageKey, enableSystem), FOWT (flash-of-wrong-theme) prevention via a blocking inline script, SSR hydration safety (suppressHydrationWarning, typeof window guards, mounted guard pattern), Tailwind v4 dark-mode configuration (@custom-variant, selector strategy), and multi-brand/white-label runtime theme swapping via CSS variable overrides.
+
+Do NOT use for palette creation or source-of-truth token file authorship (`design-system-worker-bee`), per-component visual deltas (`ux-ui-svelte-worker-bee`), or persisted-preference schema design (`db-worker-bee`). See the scope boundary table below for the full routing map.
 
 ---
 

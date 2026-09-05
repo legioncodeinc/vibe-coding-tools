@@ -1,6 +1,6 @@
 ---
 name: "lighthouse-pagespeed-stinger"
-description: "Lighthouse + PageSpeed Insights specialist for React/Next.js stacks. Covers running Lighthouse locally vs in CI (LHCI, GitHub Actions), all four audit categories (Performance, Accessibility, Best Practices, SEO), score budgets and performance budgets, the Lighthouse lab-vs-CrUX field-data gap (including the TBT/INP limitation), and performance tracking over time with Treo, SpeedCurve, or a self-hosted LHCI server. Use when the user says \\\\\\\"set up Lighthouse CI\\\\\\\", \\\\\\\"add a performance budget to CI\\\\\\\", \\\\\\\"my Lighthouse score differs from CrUX\\\\\\\", \\\\\\\"compare Treo vs SpeedCurve\\\\\\\", \\\\\\\"write a custom Lighthouse plugin\\\\\\\", \\\\\\\"my field INP is bad but TBT is fine\\\\\\\", \\\\\\\"configure LHCI for GitHub Actions\\\\\\\", \\\\\\\"audit our site with Lighthouse\\\\\\\", or when `lighthouse-pagespeed-worker-bee` is invoked. Do NOT use for SEO content strategy or keyword research (seo-aeo-worker-bee), accessibility remediation beyond Lighthouse-surfaced findings (future a11y Bee), or Core Web Vitals optimization implementation (react-worker-bee / performance-optimizer)."
+description: "Runs Lighthouse and PageSpeed Insights for React/Next.js: CI setup (LHCI), audit categories, performance budgets, lab-vs-CrUX gap. Use when setting up or debugging Lighthouse CI."
 ---
 
 # lighthouse-pagespeed-stinger

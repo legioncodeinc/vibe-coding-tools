@@ -1,6 +1,6 @@
 ---
 name: "retrieval-stinger"
-description: "Designs and audits retrieval for an app - Postgres full-text search, pgvector semantic recall, Reciprocal Rank Fusion hybrid search, optional cross-encoder reranking, chunking strategy, and recall/precision evaluation with golden query sets. Neon Postgres plus pgvector plus RRF is primary for this stack. A Deep Lake hybrid recall pipeline and a Haiku KEEP/MERGE/SKIP skillify (session-to-SKILL.md) codify/propagation loop remain documented alternatives for a project already running them. Use for \\\\\\\"tune recall\\\\\\\", \\\\\\\"why did this query miss\\\\\\\", \\\\\\\"hybrid search this\\\\\\\", \\\\\\\"add reranking\\\\\\\", \\\\\\\"chunk this for retrieval\\\\\\\", \\\\\\\"score retrieval quality\\\\\\\", \\\\\\\"semantic vs lexical here\\\\\\\", \\\\\\\"audit the skillify gate\\\\\\\", \\\\\\\"a bad skill got mined\\\\\\\", \\\\\\\"fix propagation\\\\\\\", or when `retrieval-worker-bee` is invoked. Do NOT use for the embedding model/daemon (embeddings-runtime-worker-bee), the vector column/index/schema (vector-store-worker-bee), security audits (security-worker-bee), or PRD authoring (library-worker-bee)."
+description: "Designs and audits retrieval: full-text search, pgvector recall, hybrid RRF fusion, reranking, chunking, recall quality eval. Use when tuning recall or a search query misses."
 license: MIT
 ---
 
@@ -13,6 +13,16 @@ This skill covers the domain generally: how a query finds the right rows, chunks
 **Neon Postgres plus pgvector plus Reciprocal Rank Fusion is the primary, default implementation for this repo's stack.** Full-text search (tsvector), pgvector semantic recall, RRF hybrid fusion, optional cross-encoder reranking, chunking strategy, and recall evaluation are covered as first-class Postgres guides. **The Deep Lake-backed hybrid recall pipeline** built for the Hivemind product (hybrid lexical+semantic recall over the `memory`/`sessions` tables, the `<#>` cosine path vs the BM25/ILIKE silent fallback, `deeplake_hybrid_record` weighting, the `grep-direct.ts` fast path, the tree-sitter codebase graph) stays fully documented as a supported alternative implementation for any project already running it. **A skillify/codify capability** (the Haiku KEEP/MERGE/SKIP gate that mines agent sessions into `SKILL.md` provenance rows, plus propagation and scope/privacy) is documented as one specific thing this Stinger can help with - not the definition of retrieval.
 
 **Opinionation is the product.** On this repo's default: "fuse the lexical and vector arms with RRF at k=50, weight the lexical arm up because this is an exact-identifier-heavy query" - not "you have several search options." On a Deep Lake project: "this query should run hybrid with 0.7/0.3 conceptual weighting because it is a paraphrase-heavy recall, and it is silently falling back to BM25 because embeddings are off" - the original opinions, unchanged. Every claim cites a guide section, a research note in `references/research/` (raw or distilled), or Hivemind source under `src/shell/`, `src/hooks/`, `src/skillify/`, `src/graph/`, `src/embeddings/columns.ts` when the finding is Deep Lake-specific.
+
+---
+
+## When to use this skill
+
+Use when `retrieval-worker-bee` is invoked, or the user says: "tune recall", "why did this query miss", "hybrid search this", "add reranking", "chunk this for retrieval", "score retrieval quality", "semantic vs lexical here", "audit the skillify gate", "a bad skill got mined", or "fix propagation".
+
+Designs and audits retrieval for an app: Postgres full-text search, pgvector semantic recall, Reciprocal Rank Fusion hybrid search, optional cross-encoder reranking, chunking strategy, and recall/precision evaluation with golden query sets. Neon Postgres plus pgvector plus RRF is primary for this stack. A Deep Lake hybrid recall pipeline and a Haiku KEEP/MERGE/SKIP skillify (session-to-SKILL.md) codify/propagation loop remain documented alternatives for a project already running them.
+
+Do NOT use for the embedding model/daemon (`embeddings-runtime-worker-bee`), the vector column/index/schema (`vector-store-worker-bee`), security audits (`security-worker-bee`), or PRD authoring (`library-worker-bee`).
 
 ---
 

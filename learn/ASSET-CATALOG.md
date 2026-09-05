@@ -4,20 +4,20 @@ This file is generated from the canonical `.claude` tree. Do not maintain the ro
 
 ## Exact manifest
 
-- Agents: 75
-- Core skills: 78
-- Commands: 2
+- Agents: 81
+- Core skills: 84
+- Commands: 7 (2 translated into Codex-facing skills)
 - Rules: 4
 - Hook behaviors: 2
-- Codex-facing skills: 80 (78 core skills plus 2 command translations)
+- Codex-facing skills: 86 (84 core skills plus 2 command translations)
 
 ## Compatibility ledger
 
 | Source capability | Claude Code | Codex | Cursor |
 |---|---|---|---|
-| 75 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |
-| 78 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |
-| 2 commands | PRESERVE | TRANSLATE to explicit skills in both Codex layers | PRESERVE |
+| 81 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |
+| 84 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |
+| 7 commands | PRESERVE | TRANSLATE 2 to explicit skills in both Codex layers | PRESERVE |
 | 4 rules | TRANSLATE to Claude rules and CLAUDE.md | TRANSLATE to project instructions | PRESERVE as MDC |
 | 2 hooks | PRESERVE | TRANSLATE patch input, preserve outcomes | TRANSLATE event and output schema |
 
@@ -33,12 +33,14 @@ No capability is intentionally dropped.
 | [ai-tools-platform-worker-bee](../.claude/agents/ai-tools-platform-worker-bee.md) | [ai-tools-platform-stinger](../.claude/skills/ai-tools-platform-stinger/) | [TOML](../.codex/agents/ai-tools-platform-worker-bee.toml) |
 | [api-docs-worker-bee](../.claude/agents/api-docs-worker-bee.md) | [api-docs-stinger](../.claude/skills/api-docs-stinger/) | [TOML](../.codex/agents/api-docs-worker-bee.toml) |
 | [app-store-submission-worker-bee](../.claude/agents/app-store-submission-worker-bee.md) | [app-store-submission-stinger](../.claude/skills/app-store-submission-stinger/) | [TOML](../.codex/agents/app-store-submission-worker-bee.toml) |
+| [archivist-worker-bee](../.claude/agents/archivist-worker-bee.md) | [archivist-stinger](../.claude/skills/archivist-stinger/) | [TOML](../.codex/agents/archivist-worker-bee.toml) |
 | [asset-worker-bee](../.claude/agents/asset-worker-bee.md) | [asset-stinger](../.claude/skills/asset-stinger/) | [TOML](../.codex/agents/asset-worker-bee.toml) |
 | [auth-worker-bee](../.claude/agents/auth-worker-bee.md) | [auth-stinger](../.claude/skills/auth-stinger/) | [TOML](../.codex/agents/auth-worker-bee.toml) |
 | [branching-strategy-worker-bee](../.claude/agents/branching-strategy-worker-bee.md) | [branching-strategy-stinger](../.claude/skills/branching-strategy-stinger/) | [TOML](../.codex/agents/branching-strategy-worker-bee.toml) |
 | [changelog-release-notes-worker-bee](../.claude/agents/changelog-release-notes-worker-bee.md) | [changelog-release-notes-stinger](../.claude/skills/changelog-release-notes-stinger/) | [TOML](../.codex/agents/changelog-release-notes-worker-bee.toml) |
 | [ci-release-worker-bee](../.claude/agents/ci-release-worker-bee.md) | [ci-release-stinger](../.claude/skills/ci-release-stinger/) | [TOML](../.codex/agents/ci-release-worker-bee.toml) |
 | [code-review-pr-worker-bee](../.claude/agents/code-review-pr-worker-bee.md) | [code-review-pr-stinger](../.claude/skills/code-review-pr-stinger/) | [TOML](../.codex/agents/code-review-pr-worker-bee.toml) |
+| [competitive-research-worker-bee](../.claude/agents/competitive-research-worker-bee.md) | [competitive-research-stinger](../.claude/skills/competitive-research-stinger/) | [TOML](../.codex/agents/competitive-research-worker-bee.toml) |
 | [cron-scheduling-worker-bee](../.claude/agents/cron-scheduling-worker-bee.md) | [cron-scheduling-stinger](../.claude/skills/cron-scheduling-stinger/) | [TOML](../.codex/agents/cron-scheduling-worker-bee.toml) |
 | [csv-xlsx-import-export-worker-bee](../.claude/agents/csv-xlsx-import-export-worker-bee.md) | [csv-xlsx-import-export-stinger](../.claude/skills/csv-xlsx-import-export-stinger/) | [TOML](../.codex/agents/csv-xlsx-import-export-worker-bee.toml) |
 | [cursor-ide-worker-bee](../.claude/agents/cursor-ide-worker-bee.md) | [cursor-ide-stinger](../.claude/skills/cursor-ide-stinger/) | [TOML](../.codex/agents/cursor-ide-worker-bee.toml) |
@@ -57,12 +59,15 @@ No capability is intentionally dropped.
 | [github-repo-health-worker-bee](../.claude/agents/github-repo-health-worker-bee.md) | [github-repo-health-stinger](../.claude/skills/github-repo-health-stinger/) | [TOML](../.codex/agents/github-repo-health-worker-bee.toml) |
 | [gohighlevel-worker-bee](../.claude/agents/gohighlevel-worker-bee.md) | [gohighlevel-stinger](../.claude/skills/gohighlevel-stinger/) | [TOML](../.codex/agents/gohighlevel-worker-bee.toml) |
 | [harness-integration-worker-bee](../.claude/agents/harness-integration-worker-bee.md) | [harness-integration-stinger](../.claude/skills/harness-integration-stinger/) | [TOML](../.codex/agents/harness-integration-worker-bee.toml) |
+| [highlevel-ai-studio-worker-bee](../.claude/agents/highlevel-ai-studio-worker-bee.md) | [highlevel-ai-studio-stinger](../.claude/skills/highlevel-ai-studio-stinger/) | [TOML](../.codex/agents/highlevel-ai-studio-worker-bee.toml) |
 | [http-rest-fundamentals-worker-bee](../.claude/agents/http-rest-fundamentals-worker-bee.md) | [http-rest-fundamentals-stinger](../.claude/skills/http-rest-fundamentals-stinger/) | [TOML](../.codex/agents/http-rest-fundamentals-worker-bee.toml) |
 | [icon-system-worker-bee](../.claude/agents/icon-system-worker-bee.md) | [icon-system-stinger](../.claude/skills/icon-system-stinger/) | [TOML](../.codex/agents/icon-system-worker-bee.toml) |
 | [image-optimization-worker-bee](../.claude/agents/image-optimization-worker-bee.md) | [image-optimization-stinger](../.claude/skills/image-optimization-stinger/) | [TOML](../.codex/agents/image-optimization-worker-bee.toml) |
+| [impeccable-worker-bee](../.claude/agents/impeccable-worker-bee.md) | [impeccable-stinger](../.claude/skills/impeccable-stinger/) | [TOML](../.codex/agents/impeccable-worker-bee.toml) |
 | [kanban-flow-worker-bee](../.claude/agents/kanban-flow-worker-bee.md) | [kanban-flow-stinger](../.claude/skills/kanban-flow-stinger/) | [TOML](../.codex/agents/kanban-flow-worker-bee.toml) |
 | [knowledge-worker-bee](../.claude/agents/knowledge-worker-bee.md) | [knowledge-stinger](../.claude/skills/knowledge-stinger/) | [TOML](../.codex/agents/knowledge-worker-bee.toml) |
 | [library-worker-bee](../.claude/agents/library-worker-bee.md) | [library-stinger](../.claude/skills/library-stinger/) | [TOML](../.codex/agents/library-worker-bee.toml) |
+| [lifecycle-email-worker-bee](../.claude/agents/lifecycle-email-worker-bee.md) | [lifecycle-email-stinger](../.claude/skills/lifecycle-email-stinger/) | [TOML](../.codex/agents/lifecycle-email-worker-bee.toml) |
 | [lighthouse-pagespeed-worker-bee](../.claude/agents/lighthouse-pagespeed-worker-bee.md) | [lighthouse-pagespeed-stinger](../.claude/skills/lighthouse-pagespeed-stinger/) | [TOML](../.codex/agents/lighthouse-pagespeed-worker-bee.toml) |
 | [markdown-mdx-content-pipeline-worker-bee](../.claude/agents/markdown-mdx-content-pipeline-worker-bee.md) | [markdown-mdx-content-pipeline-stinger](../.claude/skills/markdown-mdx-content-pipeline-stinger/) | [TOML](../.codex/agents/markdown-mdx-content-pipeline-worker-bee.toml) |
 | [mcp-protocol-worker-bee](../.claude/agents/mcp-protocol-worker-bee.md) | [mcp-protocol-stinger](../.claude/skills/mcp-protocol-stinger/) | [TOML](../.codex/agents/mcp-protocol-worker-bee.toml) |
@@ -81,6 +86,7 @@ No capability is intentionally dropped.
 | [retrieval-worker-bee](../.claude/agents/retrieval-worker-bee.md) | [retrieval-stinger](../.claude/skills/retrieval-stinger/) | [TOML](../.codex/agents/retrieval-worker-bee.toml) |
 | [retrospective-worker-bee](../.claude/agents/retrospective-worker-bee.md) | [retrospective-stinger](../.claude/skills/retrospective-stinger/) | [TOML](../.codex/agents/retrospective-worker-bee.toml) |
 | [runbook-writing-worker-bee](../.claude/agents/runbook-writing-worker-bee.md) | [runbook-writing-stinger](../.claude/skills/runbook-writing-stinger/) | [TOML](../.codex/agents/runbook-writing-worker-bee.toml) |
+| [rust-worker-bee](../.claude/agents/rust-worker-bee.md) | [rust-stinger](../.claude/skills/rust-stinger/) | [TOML](../.codex/agents/rust-worker-bee.toml) |
 | [security-worker-bee](../.claude/agents/security-worker-bee.md) | [security-stinger](../.claude/skills/security-stinger/) | [TOML](../.codex/agents/security-worker-bee.toml) |
 | [sentry-worker-bee](../.claude/agents/sentry-worker-bee.md) | [sentry-stinger](../.claude/skills/sentry-stinger/) | [TOML](../.codex/agents/sentry-worker-bee.toml) |
 | [seo-aeo-worker-bee](../.claude/agents/seo-aeo-worker-bee.md) | [seo-aeo-stinger](../.claude/skills/seo-aeo-stinger/) | [TOML](../.codex/agents/seo-aeo-worker-bee.toml) |

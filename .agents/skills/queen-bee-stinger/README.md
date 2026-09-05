@@ -54,6 +54,6 @@ Research window 2026-02-14 to 2026-08-14. 289 sources reviewed, 59 raw documents
 
 ## Hive placement
 
-Orchestrator level. No paired Bee. The only other skill at this level is beekeeper-suit. Everything this skill forges follows the pairing law: every Bee gets a Stinger, every Stinger gets a Bee.
+Orchestrator level. No paired Bee. The other skills at this level are `beekeeper-suit` and `get-started-stinger`. Everything this skill forges follows the pairing law: every Bee gets a Stinger, every Stinger gets a Bee.
 
 Part of The Hive, curated by [Mario Aldayuz a.k.a @thenotoriousllama](https://github.com/thenotoriousllama).

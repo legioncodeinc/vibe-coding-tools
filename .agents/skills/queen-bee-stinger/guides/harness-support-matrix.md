@@ -15,7 +15,7 @@ Hive naming is not harness naming. Use this table to translate before reading fu
 | Stingers | Skills | Skills |
 | Repo-wide conventions | Rules | Rules |
 | Bundled Bee + Stinger distribution | Plugins | Plugins |
-| The Hive (whole framework) | (none) | Orchestrator level; see `queen-bee-stinger` and `beekeeper-suit`, no single generic-component equivalent |
+| The Hive (whole framework) | (none) | Orchestrator level; see `beekeeper-suit`, `queen-bee-stinger`, and `get-started-stinger`, with no single generic-component equivalent |
 
 ## How to read this matrix
 

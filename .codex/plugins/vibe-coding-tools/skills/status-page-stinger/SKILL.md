@@ -1,6 +1,6 @@
 ---
 name: "status-page-stinger"
-description: "'Public status page specialist for React/Next.js and SaaS products: platform selection (Statuspage/Atlassian, Better Stack, Instatus, Cachet OSS), component tree architecture, incident communication templates (initial/update/resolution), subscriber notification setup (email, SMS, webhook, Slack), GDPR/CAN-SPAM compliance for notification lists, post-incident update discipline, and API-driven automation integration. Use when the user says \\\\\\\"set up a status page\\\\\\\", \\\\\\\"which status page tool should we use\\\\\\\", \\\\\\\"write an incident communication template\\\\\\\", \\\\\\\"configure subscriber notifications\\\\\\\", \\\\\\\"migrate from Statuspage\\\\\\\", \\\\\\\"audit our incident communication\\\\\\\", \\\\\\\"post-mortem cross-link\\\\\\\", \\\\\\\"maintenance window announcement\\\\\\\", or when `status-page-worker-bee` is invoked. Do NOT use for configuring monitoring/alerting infrastructure (devops-worker-bee), on-call rotation setup (devops-worker-bee), observability dashboards (devops-worker-bee), or operational runbook authorship (runbook-writing-worker-bee).'"
+description: "Public status page specialist: platform selection, incident communication templates, subscriber notifications, compliance. Use when setting up or auditing a status page."
 ---
 
 # Status Page Stinger
@@ -14,6 +14,8 @@ Research: `../status-page-stinger/research/research-summary.md`
 
 ## When this stinger applies
 
+Covers platform selection (Statuspage/Atlassian, Better Stack, Instatus, Cachet OSS), component tree architecture, incident communication templates (initial/update/resolution), subscriber notification setup (email, SMS, webhook, Slack), GDPR/CAN-SPAM compliance for notification lists, post-incident update discipline, and API-driven automation integration, for React/Next.js and SaaS products.
+
 Load this stinger when `status-page-worker-bee` is invoked. Typical triggers:
 
 - "Set up a status page for our SaaS product"
@@ -25,6 +27,7 @@ Load this stinger when `status-page-worker-bee` is invoked. Typical triggers:
 - "Write a maintenance window announcement"
 - "Connect PagerDuty to our status page"
 - "We're getting complaints about radio silence during incidents"
+- "Cross-link this post-mortem to the status page incident"
 
 Do NOT load for:
 - Monitoring/alerting infrastructure configuration → `devops-worker-bee`

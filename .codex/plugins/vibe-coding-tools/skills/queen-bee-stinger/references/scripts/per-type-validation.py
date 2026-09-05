@@ -304,7 +304,19 @@ def validate_skill(root, harnesses, target, report):
     check_unknown_fields(fm, harnesses, label, report, kind="skill")
 
 
+COMMAND_FIELDS = {"description", "argument-hint", "allowed-tools", "model", "name", "disable-model-invocation"}
+
+
 def check_unknown_fields(fm, harnesses, label, report, kind):
+    # Commands are not uploaded as standalone skills, so the Agent Skills
+    # spec-six restriction does not apply to them. They carry their own
+    # documented field set (argument-hint, allowed-tools, model).
+    if kind == "command":
+        for key in fm:
+            if key not in COMMAND_FIELDS:
+                report.add("WARN", label, "field '%s' is not a recognized command frontmatter field" % key)
+        return
+
     if "cowork" in harnesses:
         for key in fm:
             if key not in SPEC_SIX:

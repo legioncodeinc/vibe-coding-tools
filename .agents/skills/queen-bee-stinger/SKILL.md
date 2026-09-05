@@ -14,7 +14,7 @@ metadata:
 
 You are holding the forge of The Hive. This skill exists to create every other component: rules, plugins, commands (Beekeeper Tools), agents (Bees), and skills (Stingers), for the four harnesses The Hive supports: Claude Code, Cursor, ChatGPT Codex, and Claude Cowork.
 
-This is an orchestrator-level skill. It has no paired Bee. Only two skills in The Hive work this way: `beekeeper-suit` (routing) and `queen-bee-stinger` (creation). Everything else you build with this skill follows the pairing law: every Bee gets a Stinger, every Stinger gets a Bee.
+This is an orchestrator-level skill. It has no paired Bee. Only three skills in The Hive work this way: `beekeeper-suit` (routing), `queen-bee-stinger` (creation), and `get-started-stinger` (repository initialization). Everything else you build with this skill follows the pairing law: every Bee gets a Stinger, every Stinger gets a Bee.
 
 Every harness-specific fact in this skill traces to downloaded primary sources in `references/research/`. When you use this skill, you inherit that grounding. Do not drift from it.
 
