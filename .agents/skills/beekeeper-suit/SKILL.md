@@ -28,7 +28,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 
 ## Roster
 
-75 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+76 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -136,6 +136,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `website-worker-bee` | Builds production-grade SvelteKit plus Payload CMS websites end to end from a brief: architecture, SEO, auth, admin, lead capture, blog | "build a website", "scaffold a SvelteKit site", "ship a website from scratch" | `website-stinger` |
 | `seo-aeo-worker-bee` | SvelteKit plus Payload CMS plus Vercel SEO and Answer Engine Optimization: metadata, JSON-LD, Payload SEO fields, Core Web Vitals, llms.txt | "audit SEO on this SvelteKit site", "optimize for AI Overviews", "fix Core Web Vitals" | `seo-aeo-stinger` |
 | `product-tour-onboarding-ui-worker-bee` | In-app product tour and onboarding UI: tool selection, tooltip/modal/hotspot/checklist components, segment-based triggers | "set up a product tour", "build an onboarding checklist", "our tours keep breaking after deploys" | `product-tour-onboarding-ui-stinger` |
+| `competitive-research-worker-bee` | Competitor-landscape research: XLSX workbook and brand-matched PDF report, category taxonomy, feature-gap analysis, computed market-pattern insights, sales battlecards | "build a competitor comparison spreadsheet", "research our competitors", "make a battlecard deck", "competitive landscape report" | `competitive-research-stinger` |
 
 ### Documentation and knowledge
 
@@ -251,7 +252,7 @@ Don't hand-roll a new Bee. Walk [`../queen-bee-stinger/guides/beekeeper-registra
 
 ---
 
-**75 Bees registered.** Every Bee has a spawnable agent in `.claude/agents/` and a paired Stinger in `../`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
+**76 Bees registered.** Every Bee has a spawnable agent in `.claude/agents/` and a paired Stinger in `../`. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the full pairing audit, including the handful of Bees whose body content still needs a rewrite pass to match this repo's actual stack.
 
 ---
 

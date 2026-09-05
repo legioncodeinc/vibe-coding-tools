@@ -10,7 +10,10 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import tempfile
+from collections.abc import Callable
 from pathlib import Path
+from uuid import uuid4
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -19,6 +22,69 @@ CURSOR = ROOT / ".cursor"
 CODEX = ROOT / ".codex"
 AGENTS = ROOT / ".agents"
 CODEX_PLUGIN = CODEX / "plugins" / "vibe-coding-tools"
+CODEX_COMMAND_TRANSLATIONS = {
+    "the-beekeeper": "the-beekeeper.md",
+    "the-smoker": "the-smoker.md",
+}
+
+
+def require_repo_path(path: Path, label: str) -> None:
+    try:
+        path.resolve(strict=False).relative_to(ROOT.resolve())
+    except ValueError as error:
+        raise ValueError(f"Refusing {label} outside repository: {path}") from error
+
+
+def require_link_free_tree(path: Path, label: str) -> None:
+    require_repo_path(path, label)
+    for candidate in (path, *path.rglob("*")):
+        if candidate.is_symlink():
+            raise ValueError(f"Refusing symlink in {label}: {candidate}")
+        require_repo_path(candidate, label)
+
+
+def remove_generated_path(path: Path) -> None:
+    if path.is_symlink() or path.is_file():
+        path.unlink(missing_ok=True)
+    elif path.exists():
+        shutil.rmtree(path)
+
+
+def replace_generated_directory(
+    target: Path, populate: Callable[[Path], None]
+) -> None:
+    """Build a generated directory beside its target, then swap it into place."""
+    require_repo_path(target, "generated target")
+    if target.is_symlink():
+        raise ValueError(f"Refusing symlink as generated target: {target}")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    staging = Path(
+        tempfile.mkdtemp(prefix=f".{target.name}.staging-", dir=target.parent)
+    )
+    backup = target.with_name(f".{target.name}.backup-{uuid4().hex}")
+    target_moved = False
+    try:
+        populate(staging)
+        if target.exists() or target.is_symlink():
+            target.replace(backup)
+            target_moved = True
+        try:
+            staging.replace(target)
+        except BaseException as swap_error:
+            if target_moved:
+                try:
+                    backup.replace(target)
+                except BaseException as rollback_error:
+                    raise RuntimeError(
+                        f"Could not install generated directory {target}. "
+                        f"The prior tree remains at {backup}. "
+                        f"Rollback also failed: {rollback_error}"
+                    ) from swap_error
+            raise
+        if target_moved:
+            remove_generated_path(backup)
+    finally:
+        remove_generated_path(staging)
 
 
 def read_agent(path: Path) -> tuple[dict[str, str], str]:
@@ -59,9 +125,29 @@ def normalized_agent_text(path: Path, harness: str) -> str:
     return f"---\n{frontmatter}\n---\n\n{body}"
 
 
+def codex_agent_text(path: Path) -> str:
+    fields, body = read_agent(path)
+    body = body.replace(".claude/skills/", ".agents/skills/").replace(
+        "../skills/", ".agents/skills/"
+    )
+    return "\n".join(
+        [
+            f"name = {json.dumps(fields['name'], ensure_ascii=False)}",
+            f"description = {json.dumps(fields['description'], ensure_ascii=False)}",
+            f"developer_instructions = {json.dumps(body, ensure_ascii=False)}",
+            "",
+        ]
+    )
+
+
 def copy_tree(source: Path, target: Path) -> None:
+    require_link_free_tree(source, "canonical source tree")
+    require_repo_path(target, "generated copy target")
+    if target.exists() or target.is_symlink():
+        require_link_free_tree(target, "generated copy target")
     target.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(source, target, dirs_exist_ok=True)
+    shutil.copytree(source, target, dirs_exist_ok=True, symlinks=True)
+    require_link_free_tree(target, "generated copy target")
 
 
 def normalize_skill_frontmatter(path: Path) -> None:
@@ -91,54 +177,63 @@ def normalize_skill_frontmatter(path: Path) -> None:
     path.write_text(f"---\n{frontmatter}\n---\n{match.group(2)}", encoding="utf-8")
 
 
-def translate_active_cursor_files() -> None:
-    for folder in (CURSOR / "commands", CURSOR / "agents"):
-        for path in folder.rglob("*.md"):
-            text = path.read_text(encoding="utf-8")
-            path.write_text(text.replace(".claude/", ".cursor/"), encoding="utf-8")
-    for path in (CURSOR / "skills").glob("*/SKILL.md"):
-        text = path.read_text(encoding="utf-8")
-        path.write_text(text.replace(".claude/", ".cursor/"), encoding="utf-8")
-
-
 def generate_agents() -> None:
     cursor_agents = CURSOR / "agents"
     codex_agents = CODEX / "agents"
-    cursor_agents.mkdir(parents=True, exist_ok=True)
-    codex_agents.mkdir(parents=True, exist_ok=True)
+    repository_agents = AGENTS / "agents"
+    agents = sorted((CLAUDE / "agents").glob("*.md"))
 
-    for path in sorted((CLAUDE / "agents").glob("*.md")):
-        path.write_text(normalized_agent_text(path, "claude"), encoding="utf-8")
-        (cursor_agents / path.name).write_text(
-            normalized_agent_text(path, "cursor"), encoding="utf-8"
-        )
-        fields, body = read_agent(path)
-        body = body.replace(".claude/skills/", ".agents/skills/").replace(
-            "../skills/", ".agents/skills/"
-        )
-        toml = "\n".join(
-            [
-                f"name = {json.dumps(fields['name'], ensure_ascii=False)}",
-                f"description = {json.dumps(fields['description'], ensure_ascii=False)}",
-                f"developer_instructions = {json.dumps(body, ensure_ascii=False)}",
-                "",
-            ]
-        )
-        (codex_agents / f"{path.stem}.toml").write_text(toml, encoding="utf-8")
+    def populate_markdown_agents(target: Path, harness: str) -> None:
+        for path in agents:
+            (target / path.name).write_text(
+                normalized_agent_text(path, harness), encoding="utf-8"
+            )
+
+    replace_generated_directory(
+        cursor_agents, lambda target: populate_markdown_agents(target, "cursor")
+    )
+
+    def populate_repository_agents(target: Path) -> None:
+        for path in agents:
+            shutil.copy2(path, target / path.name)
+
+    replace_generated_directory(repository_agents, populate_repository_agents)
+
+    def populate_codex_agents(target: Path) -> None:
+        for path in agents:
+            (target / f"{path.stem}.toml").write_text(
+                codex_agent_text(path), encoding="utf-8"
+            )
+
+    replace_generated_directory(codex_agents, populate_codex_agents)
 
 
 def generate_cursor() -> None:
-    for path in (CLAUDE / "skills").glob("*/SKILL.md"):
-        normalize_skill_frontmatter(path)
-    for name in ("skills", "commands"):
-        copy_tree(CLAUDE / name, CURSOR / name)
+    def populate_skills(target: Path) -> None:
+        copy_tree(CLAUDE / "skills", target)
+        for path in target.glob("*/SKILL.md"):
+            normalize_skill_frontmatter(path)
+            text = path.read_text(encoding="utf-8")
+            path.write_text(
+                text.replace(".claude/", ".cursor/"), encoding="utf-8"
+            )
+
+    def populate_commands(target: Path) -> None:
+        copy_tree(CLAUDE / "commands", target)
+        for path in target.rglob("*.md"):
+            text = path.read_text(encoding="utf-8")
+            path.write_text(
+                text.replace(".claude/", ".cursor/"), encoding="utf-8"
+            )
+
+    replace_generated_directory(CURSOR / "skills", populate_skills)
+    replace_generated_directory(CURSOR / "commands", populate_commands)
     copy_tree(CLAUDE / "hooks", CURSOR / "hooks")
     shutil.copy2(CLAUDE / "model-comparison-matrix.md", CURSOR / "model-comparison-matrix.md")
-    translate_active_cursor_files()
 
 
 def generate_codex_skill_tree(target: Path) -> None:
-    prior_files = {}
+    prior_files: dict[Path, bytes] = {}
     if target.exists():
         for existing in target.rglob("*"):
             if existing.is_file():
@@ -146,77 +241,110 @@ def generate_codex_skill_tree(target: Path) -> None:
                     prior_files[existing.relative_to(target)] = existing.read_bytes()
                 except OSError:
                     pass
-        shutil.rmtree(target)
-    copy_tree(CLAUDE / "skills", target)
-    text_suffixes = {
-        ".css", ".env", ".hcl", ".html", ".ini", ".js", ".json", ".jsx",
-        ".md", ".mdc", ".mdx", ".mjs", ".prisma", ".py", ".sh", ".toml",
-        ".ts", ".tsx", ".txt", ".yaml", ".yml",
-    }
-    for path in target.rglob("*"):
-        if not path.is_file() or path.suffix.lower() not in text_suffixes:
-            continue
-        try:
+
+    def normalize_newlines(text: str) -> str:
+        return text.replace("\r\n", "\n").replace("\r", "\n")
+
+    def normalize_text(text: str) -> str:
+        return re.sub(r"[ \t]+(?=$)", "", normalize_newlines(text), flags=re.M)
+
+    def populate(staging: Path) -> None:
+        copy_tree(CLAUDE / "skills", staging)
+        text_suffixes = {
+            ".css",
+            ".env",
+            ".hcl",
+            ".html",
+            ".ini",
+            ".js",
+            ".json",
+            ".jsx",
+            ".md",
+            ".mdc",
+            ".mdx",
+            ".mjs",
+            ".prisma",
+            ".py",
+            ".sh",
+            ".toml",
+            ".ts",
+            ".tsx",
+            ".txt",
+            ".yaml",
+            ".yml",
+        }
+        for path in staging.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in text_suffixes:
+                continue
+            try:
+                text = path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                continue
+            path.write_text(normalize_text(text), encoding="utf-8")
+        for path in staging.glob("*/SKILL.md"):
+            normalize_skill_frontmatter(path)
             text = path.read_text(encoding="utf-8")
-        except UnicodeDecodeError:
-            continue
-        normalized = re.sub(r"[ \t]+(?=\r?$)", "", text, flags=re.M)
-        prior = prior_files.get(path.relative_to(target))
-        if prior is not None:
+            text = text.replace(".claude/skills/", "../")
+            text = text.replace(
+                ".claude/model-comparison-matrix.md",
+                "../../model-comparison-matrix.md",
+            )
+            path.write_text(text, encoding="utf-8")
+
+        for name, source_name in CODEX_COMMAND_TRANSLATIONS.items():
+            source = CLAUDE / "commands" / source_name
+            command_target = staging / name
+            command_target.mkdir(parents=True, exist_ok=True)
+            command_text = source.read_text(encoding="utf-8")
+            match = re.match(r"^---\r?\n.*?\r?\n---\r?\n(.*)$", command_text, re.S)
+            body = (match.group(1) if match else command_text).lstrip()
+            body = body.replace(".claude/skills/", "../")
+            body = body.replace(
+                ".claude/model-comparison-matrix.md",
+                "../../model-comparison-matrix.md",
+            )
+            body = body.replace("Cursor-specific", "harness-specific")
+            description = (
+                "Route a request to the right specialist Bee and its paired Stinger."
+                if name == "the-beekeeper"
+                else "Run the repository delivery pipeline from planning through verified review."
+            )
+            (command_target / "SKILL.md").write_text(
+                f"---\nname: {name}\ndescription: {description}\n---\n\n{body}",
+                encoding="utf-8",
+            )
+            metadata = "\n".join(
+                [
+                    "interface:",
+                    f'  display_name: "{name}"',
+                    f'  short_description: "{description}"',
+                    f'  default_prompt: "Use ${name} for this request."',
+                    "policy:",
+                    "  allow_implicit_invocation: false",
+                    "",
+                ]
+            )
+            metadata_path = command_target / "agents" / "openai.yaml"
+            metadata_path.parent.mkdir(parents=True, exist_ok=True)
+            metadata_path.write_text(metadata, encoding="utf-8")
+
+        for path in staging.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in text_suffixes:
+                continue
+            prior = prior_files.get(path.relative_to(staging))
+            if prior is None:
+                continue
             try:
                 prior_text = prior.decode("utf-8")
+                generated_text = path.read_bytes().decode("utf-8")
             except UnicodeDecodeError:
-                prior_text = None
-            if prior_text is not None:
-                prior_normalized = re.sub(
-                    r"[ \t]+(?=\r?$)", "", prior_text, flags=re.M
-                )
-                if prior_normalized.rstrip("\r\n") == normalized.rstrip("\r\n"):
-                    path.write_bytes(prior)
-                    continue
-        path.write_text(normalized, encoding="utf-8")
-    for path in target.glob("*/SKILL.md"):
-        text = path.read_text(encoding="utf-8")
-        text = text.replace(".claude/skills/", "../")
-        text = text.replace(
-            ".claude/model-comparison-matrix.md", "../../model-comparison-matrix.md"
-        )
-        path.write_text(text, encoding="utf-8")
+                continue
+            if normalize_text(prior_text).rstrip("\n") == normalize_text(
+                generated_text
+            ).rstrip("\n"):
+                path.write_bytes(prior)
 
-    command_skills = {
-        "the-beekeeper": CLAUDE / "commands" / "the-beekeeper.md",
-        "the-smoker": CLAUDE / "commands" / "the-smoker.md",
-    }
-    for name, source in command_skills.items():
-        command_target = target / name
-        command_target.mkdir(parents=True, exist_ok=True)
-        command_text = source.read_text(encoding="utf-8")
-        match = re.match(r"^---\r?\n.*?\r?\n---\r?\n(.*)$", command_text, re.S)
-        body = (match.group(1) if match else command_text).lstrip()
-        body = body.replace(".claude/skills/", "../")
-        body = body.replace(".claude/model-comparison-matrix.md", "../../model-comparison-matrix.md")
-        body = body.replace("Cursor-specific", "harness-specific")
-        description = (
-            "Route a request to the right specialist Bee and its paired Stinger."
-            if name == "the-beekeeper"
-            else "Run the repository delivery pipeline from planning through verified review."
-        )
-        (command_target / "SKILL.md").write_text(
-            f"---\nname: {name}\ndescription: {description}\n---\n\n{body}",
-            encoding="utf-8",
-        )
-        metadata = "\n".join([
-            "interface:",
-            f'  display_name: "{name}"',
-            f'  short_description: "{description}"',
-            f'  default_prompt: "Use ${name} for this request."',
-            "policy:",
-            "  allow_implicit_invocation: false",
-            "",
-        ])
-        metadata_path = command_target / "agents" / "openai.yaml"
-        metadata_path.parent.mkdir(parents=True, exist_ok=True)
-        metadata_path.write_text(metadata, encoding="utf-8")
+    replace_generated_directory(target, populate)
 
 
 def generate_codex_project() -> None:
@@ -233,7 +361,17 @@ def generate_codex_plugin() -> None:
 
 def generate_catalog() -> None:
     agents = sorted((CLAUDE / "agents").glob("*.md"))
-    skills = sorted(path for path in (CLAUDE / "skills").iterdir() if path.is_dir())
+    skills = sorted(
+        path
+        for path in (CLAUDE / "skills").iterdir()
+        if path.is_dir() and (path / "SKILL.md").is_file()
+    )
+    commands = sorted((CLAUDE / "commands").glob("*.md"))
+    agent_count = len(agents)
+    core_skill_count = len(skills)
+    command_count = len(commands)
+    command_translation_count = len(CODEX_COMMAND_TRANSLATIONS)
+    codex_skill_count = core_skill_count + command_translation_count
     skill_names = {path.name for path in skills}
     rows = []
     for agent in agents:
@@ -256,20 +394,27 @@ def generate_catalog() -> None:
         "",
         "## Exact manifest",
         "",
-        f"- Agents: {len(agents)}",
-        f"- Core skills: {len(skills)}",
-        "- Commands: 2",
+        f"- Agents: {agent_count}",
+        f"- Core skills: {core_skill_count}",
+        (
+            f"- Commands: {command_count} "
+            f"({command_translation_count} translated into Codex-facing skills)"
+        ),
         "- Rules: 4",
         "- Hook behaviors: 2",
-        "- Codex-facing skills: 80 (78 core skills plus 2 command translations)",
+        (
+            f"- Codex-facing skills: {codex_skill_count} "
+            f"({core_skill_count} core skills plus "
+            f"{command_translation_count} command translations)"
+        ),
         "",
         "## Compatibility ledger",
         "",
         "| Source capability | Claude Code | Codex | Cursor |",
         "|---|---|---|---|",
-        "| 75 agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |",
-        "| 78 skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |",
-        "| 2 commands | PRESERVE | TRANSLATE to explicit skills in both Codex layers | PRESERVE |",
+        f"| {agent_count} agents | PRESERVE as Markdown | TRANSLATE to TOML project agents | PRESERVE as Markdown |",
+        f"| {core_skill_count} skills | PRESERVE | PRESERVE in `.agents/skills` and plugin | PRESERVE |",
+        f"| {command_count} commands | PRESERVE | TRANSLATE {command_translation_count} to explicit skills in both Codex layers | PRESERVE |",
         "| 4 rules | TRANSLATE to Claude rules and CLAUDE.md | TRANSLATE to project instructions | PRESERVE as MDC |",
         "| 2 hooks | PRESERVE | TRANSLATE patch input, preserve outcomes | TRANSLATE event and output schema |",
         "",

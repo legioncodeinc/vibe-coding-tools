@@ -21,12 +21,15 @@ The colony is built on the second bet. Every Bee has a single, narrow domain; ev
 
 ## The ritual
 
-When the `hive-registrar` skill forges a new Bee, registration with Beekeeper-Suit is the final step. Unregistered Bees are invisible. The pipeline is:
+When `queen-bee-stinger` forges a new Bee and Stinger pair, registration with Beekeeper-Suit is the final stage. Unregistered Bees are invisible. The pipeline is:
 
-1. Command Brief.
-2. Stinger (the paired Cursor skill under `.claude/skills/`).
-3. Subagent file (the Bee under `.claude/agents/`).
-4. Beekeeper-Suit registration (update roster + add guide).
+1. Topic.
+2. Research.
+3. Distillation.
+4. References.
+5. Guides.
+6. Skill File.
+7. Register the paired Bee and Stinger in Beekeeper-Suit and every supported harness.
 
 Each phase produces an auditable artifact. Each phase is rerunnable. The whole pipeline is designed so that an Bee can be traced from idea to deployment without anyone opening a terminal log.
 

@@ -1,8 +1,8 @@
 # Beekeeper-Suit
 
-The master routing skill for the Beekeeper-Suit repository Cursor setup.
+The Hive's cross-harness routing skill for Claude Code, Cursor, ChatGPT Codex, and Claude Cowork.
 
-Beekeeper-Suit does not perform work. It routes the primary Cursor agent's tasks to the correct Bee (subagent) in the colony, passing along the paired Stinger (skill) so every delegation arrives fully equipped.
+Beekeeper-Suit does not perform domain work. It routes the orchestrator's tasks to the correct Bee and passes the paired Stinger so every delegation arrives fully equipped.
 
 ## Entry point
 
@@ -10,41 +10,16 @@ Beekeeper-Suit does not perform work. It routes the primary Cursor agent's tasks
 
 ## Roster
 
-25 Bees registered. Each Bee has a dedicated, in-depth guide:
-
-- [`guides/typescript-node-worker-bee.md`](guides/typescript-node-worker-bee.md)
-- [`guides/vector-store-worker-bee.md`](guides/vector-store-worker-bee.md)
-- [`guides/retrieval-worker-bee.md`](guides/retrieval-worker-bee.md)
-- [`guides/embeddings-runtime-worker-bee.md`](guides/embeddings-runtime-worker-bee.md)
-- [`guides/mcp-protocol-worker-bee.md`](guides/mcp-protocol-worker-bee.md)
-- [`guides/mcp-tool-docs-worker-bee.md`](guides/mcp-tool-docs-worker-bee.md)
-- [`guides/harness-integration-worker-bee.md`](guides/harness-integration-worker-bee.md)
-- [`guides/ci-release-worker-bee.md`](guides/ci-release-worker-bee.md)
-- [`guides/wiki-worker-bee.md`](guides/wiki-worker-bee.md)
-- [`guides/dependency-audit-worker-bee.md`](guides/dependency-audit-worker-bee.md)
-- [`guides/cursor-ide-worker-bee.md`](guides/cursor-ide-worker-bee.md)
-- [`guides/changelog-release-notes-worker-bee.md`](guides/changelog-release-notes-worker-bee.md)
-- [`guides/library-worker-bee.md`](guides/library-worker-bee.md)
-- [`guides/knowledge-worker-bee.md`](guides/knowledge-worker-bee.md)
-- [`guides/quality-worker-bee.md`](guides/quality-worker-bee.md)
-- [`guides/security-worker-bee.md`](guides/security-worker-bee.md)
-- [`guides/git-worker-bee.md`](guides/git-worker-bee.md)
-- [`guides/branching-strategy-worker-bee.md`](guides/branching-strategy-worker-bee.md)
-- [`guides/code-review-pr-worker-bee.md`](guides/code-review-pr-worker-bee.md)
-- [`guides/github-repo-health-worker-bee.md`](guides/github-repo-health-worker-bee.md)
-- [`guides/readme-writing-worker-bee.md`](guides/readme-writing-worker-bee.md)
-- [`guides/adr-writing-worker-bee.md`](guides/adr-writing-worker-bee.md)
-- [`guides/runbook-writing-worker-bee.md`](guides/runbook-writing-worker-bee.md)
-- [`guides/technical-writing-craft-worker-bee.md`](guides/technical-writing-craft-worker-bee.md)
-- [`guides/terminal-bash-worker-bee.md`](guides/terminal-bash-worker-bee.md)
+77 Bees are registered in the live roster in [`SKILL.md`](./SKILL.md). Each registered Bee has a routing guide under [`guides/`](guides/), subject to any explicitly reported in-progress registration work in the current checkout.
 
 ## Adding new Bees
 
-The `hive-registrar` skill forges new Bees end to end. To register a new Bee with Beekeeper-Suit after the artifacts exist:
+The orchestrator uses [`queen-bee-stinger`](../queen-bee-stinger) to forge new components. Its registration guide is the source of truth:
 
-1. Add the Bee to the roster table in [`SKILL.md`](./SKILL.md).
-2. Author a new guide under [`guides/`](./guides/) using [`templates/guide-template.md`](./templates/guide-template.md).
-3. Update the multi-Bee orchestration section in `SKILL.md` if the new Bee fits an existing sequence.
+1. Complete Topic, Research, Distillation, References, Guides, and the root Skill File in order.
+2. Create the paired Bee from the Queen template.
+3. Follow [`queen-bee-stinger/guides/beekeeper-registration.md`](../queen-bee-stinger/guides/beekeeper-registration.md) to add the roster row, routing guide, cross-links, harness outputs, and validation.
+4. Update multi-Bee orchestration only when the pair joins a real recurring sequence.
 
 ## Philosophy
 

@@ -6,7 +6,7 @@
 
 ### Get the Git life.
 
-**75 specialist agents, 78 skills, plus commands, hooks, and rules for Claude Code, Cursor, Codex, and Cowork.**
+**77 specialist agents, 80 skills, plus commands, hooks, and rules for Claude Code, Cursor, Codex, and Cowork.**
 
 I call it The Hive. Your coding assistant stops being one guy guessing and starts being a whole crew that already knows the job.
 
@@ -100,7 +100,7 @@ Every piece has one job. That is the whole design.
 
 **The one rule that makes it work:** every Bee is paired with exactly one Stinger. A Bee without its Stinger is a smart agent with amnesia, so a Bee dispatched without loading its skill is a failed dispatch and it starts over.
 
-Three skills break that rule on purpose because they run the show instead of doing the work: `beekeeper-suit` routes, `queen-bee-stinger` forges new components, and `get-started-stinger` sets up repos. The full roster of all 75 pairs lives in the [Asset Catalog](learn/ASSET-CATALOG.md).
+Three skills break that rule on purpose because they run the show instead of doing the work: `beekeeper-suit` routes, `queen-bee-stinger` forges new components, and `get-started-stinger` sets up repos. The full roster of all 77 pairs lives in the [Asset Catalog](learn/ASSET-CATALOG.md).
 
 ## Nothing ships without passing the gate
 
@@ -120,9 +120,9 @@ claude --plugin-dir .claude
 
 Then use `/the-beekeeper` to route a task or `/the-smoker` to run the whole delivery line.
 
-**Cursor.** Open the repo. That is it. The [`.cursor/`](.cursor/) tree has 75 agents, 78 skills, 2 commands, 4 MDC rules, and hooks already in place.
+**Cursor.** Open the repo. That is it. The [`.cursor/`](.cursor/) tree has 77 agents, 80 skills, 2 commands, 4 MDC rules, and hooks already in place.
 
-**Codex.** A plain clone works with no install. [`.agents/skills/`](.agents/skills/) has all 80 repo skills, [`.codex/agents/`](.codex/agents/) has 75 native TOML agents, and the config and hooks are wired. Call the workflows directly:
+**Codex.** A plain clone works with no install. [`.agents/skills/`](.agents/skills/) has all 82 repo skills, [`.codex/agents/`](.codex/agents/) has 77 native TOML agents, and the config and hooks are wired. Call the workflows directly:
 
 ```text
 $the-beekeeper route this task to the right specialists

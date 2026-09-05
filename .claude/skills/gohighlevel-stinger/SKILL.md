@@ -26,6 +26,7 @@ GoHighLevel (also branded HighLevel) exposes its whole platform through a REST A
 
 ## When not to use
 
+- HighLevel AI Studio, AI Studio (Vibe), Content AI, Ask AI, Funnel & Website AI, Blog Post AI, Email AI, or WordPress AI page creation -- route to `highlevel-ai-studio-stinger`
 - General OAuth 2.0 protocol questions unrelated to GoHighLevel specifically -- route to `auth-stinger`
 - Generic HTTP/REST semantics questions (status codes, idempotency in the abstract, CORS) -- route to `http-rest-fundamentals-stinger`
 - Payment processing itself once a GHL Payments/Invoices webhook fires -- that event's downstream handling is generic webhook engineering; use `payments-stinger` for Stripe-specific work if the location's payment rail is Stripe under the hood
@@ -57,6 +58,7 @@ GoHighLevel (also branded HighLevel) exposes its whole platform through a REST A
 ## Related bees and stingers
 
 - [gohighlevel-worker-bee](../../agents/gohighlevel-worker-bee.md) - the paired agent; delegate to it for hands-on GoHighLevel integration work rather than running this stinger inline for anything beyond a quick lookup
+- [highlevel-ai-studio-stinger](../highlevel-ai-studio-stinger) - HighLevel AI Studio, Vibe sites, user-facing AI content and page builders, publishing, and product selection
 - [auth-stinger](../auth-stinger) - general OAuth 2.0/provider selection, session storage, and RBAC patterns not specific to GoHighLevel
 - [http-rest-fundamentals-stinger](../http-rest-fundamentals-stinger) - generic HTTP method safety/idempotency, status codes, and header correctness
 - [payments-stinger](../payments-stinger) - Stripe-specific webhook verification and subscription lifecycle, useful as a comparison pattern when a GHL location's payment rail is Stripe
@@ -67,6 +69,7 @@ GoHighLevel (also branded HighLevel) exposes its whole platform through a REST A
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
+  - [highlevel-ai-studio-stinger](../highlevel-ai-studio-stinger) - HighLevel AI Studio, Vibe sites, content and page builders, and publishing workflows.
   - [auth-stinger](../auth-stinger) - General OAuth 2.0, provider selection, session storage, and RBAC patterns not specific to GoHighLevel.
   - [http-rest-fundamentals-stinger](../http-rest-fundamentals-stinger) - Generic HTTP/REST method safety, idempotency, status codes, and header correctness.
   - [payments-stinger](../payments-stinger) - Stripe-specific webhook verification and subscription lifecycle patterns, useful for comparison.
