@@ -1,0 +1,469 @@
+# Raw source: empirical observation transcript (authorized pentest)
+Origin: loungeatswift.com audit session (pt-lounge/sweep.json)
+Fetched into archive: 2026-08-30
+Source type: empirical observation - authorized penetration test of loungeatswift.com (operator grant; all writes labeled 'pentest probe - safe to delete')
+
+{
+ "chunksScanned": 185,
+ "jwt": [
+  {
+   "file": "/assets/Unsubscribe-Bo8uaweh.js",
+   "role": "anon",
+   "iss": "supabase",
+   "iat": 1773456107,
+   "exp": 2089032107,
+   "len": 208
+  },
+  {
+   "file": "/assets/Checklists-Dvh13gI7.js",
+   "role": "anon",
+   "iss": "supabase",
+   "iat": 1773456107,
+   "exp": 2089032107,
+   "len": 208
+  },
+  {
+   "file": "/assets/Checklists-Dvh13gI7.js",
+   "role": "anon",
+   "iss": "supabase",
+   "iat": 1773456107,
+   "exp": 2089032107,
+   "len": 208
+  },
+  {
+   "file": "/assets/Documents-8hh0EG06.js",
+   "role": "anon",
+   "iss": "supabase",
+   "iat": 1773456107,
+   "exp": 2089032107,
+   "len": 208
+  },
+  {
+   "file": "/assets/index-C98FyuaK.js",
+   "role": "anon",
+   "iss": "supabase",
+   "iat": 1773456107,
+   "exp": 2089032107,
+   "len": 208
+  }
+ ],
+ "topHosts": [
+  [
+   "loungeatswift.com",
+   62
+  ],
+  [
+   "schema.org",
+   24
+  ],
+  [
+   "www.w3.org",
+   20
+  ],
+  [
+   "github.com",
+   6
+  ],
+  [
+   "pwvpqefffgmtsgyhhpfi.supabase.co",
+   5
+  ],
+  [
+   "www.google.com",
+   5
+  ],
+  [
+   "www.instagram.com",
+   3
+  ],
+  [
+   "lovable.dev",
+   3
+  ],
+  [
+   "payroll.toasttab.com",
+   3
+  ],
+  [
+   "localhost",
+   3
+  ],
+  [
+   "radix-ui.com",
+   2
+  ],
+  [
+   "maps.google.com",
+   2
+  ],
+  [
+   "login.prd.floridarevenue.com",
+   2
+  ],
+  [
+   "portal.fl.revenuepremier.com",
+   2
+  ],
+  [
+   "bit.ly",
+   2
+  ],
+  [
+   "www.fpdf.org",
+   2
+  ],
+  [
+   "opensource.org",
+   2
+  ],
+  [
+   "reactrouter.com",
+   2
+  ],
+  [
+   "www.facebook.com",
+   2
+  ],
+  [
+   "mas",
+   2
+  ],
+  [
+   "example.com",
+   1
+  ],
+  [
+   "oauth.lovable.app",
+   1
+  ],
+  [
+   "redux.js.org",
+   1
+  ],
+  [
+   "redux-toolkit.js.org",
+   1
+  ],
+  [
+   "www.phpied.com",
+   1
+  ],
+  [
+   "www.myersdaily.org",
+   1
+  ],
+  [
+   "www.cs.cmu.edu",
+   1
+  ],
+  [
+   "cdnjs.cloudflare.com",
+   1
+  ],
+  [
+   "jspdf.default.namespaceuri",
+   1
+  ],
+  [
+   "prosemirror.net",
+   1
+  ],
+  [
+   "reactjs.org",
+   1
+  ],
+  [
+   "storage.googleapis.com",
+   1
+  ]
+ ],
+ "tablesFromCalls": [
+  "break_logs",
+  "business_settings",
+  "cash_drawer_logs",
+  "cash_drawer_settings",
+  "chat_channel_members",
+  "chat_channels",
+  "chat_messages",
+  "checklist_completions",
+  "checklist_submissions",
+  "checklist_template_items",
+  "checklist_templates",
+  "compliance_rules",
+  "compliance_violations",
+  "contact_messages",
+  "document_signatures",
+  "documents",
+  "email_send_log",
+  "employee_availability",
+  "employee_deductions",
+  "employee_direct_deposits",
+  "employee_role_rates",
+  "employee_tax_forms",
+  "employee_wage_history",
+  "employee_wages",
+  "employees",
+  "employees_directory",
+  "event_reservations",
+  "events",
+  "locations",
+  "login_events",
+  "menu_items",
+  "news_articles",
+  "notifications",
+  "party_inquiries",
+  "payroll_periods",
+  "payroll_settings",
+  "paystubs",
+  "pto_accrual_settings",
+  "pto_ledger",
+  "push_notification_log",
+  "push_notification_preferences",
+  "recipes",
+  "role_default_wages",
+  "schedule_templates",
+  "schedules",
+  "sensitive_data_access_log",
+  "shift_checklist_assignments",
+  "shift_notes",
+  "shift_swap_requests",
+  "shifts",
+  "shopping_list_items",
+  "tax_period_adjustments",
+  "tax_periods",
+  "tax_settings",
+  "time_clock_edit_history",
+  "time_clock_edit_permissions",
+  "time_clock_entries",
+  "time_off_requests",
+  "timecard_entries",
+  "tip_payouts_sent",
+  "tip_pool_templates",
+  "tip_role_types",
+  "tip_settings",
+  "tip_shift_employees",
+  "tip_shift_expos",
+  "tip_shift_role_percentages",
+  "tip_shifts",
+  "toast_order_items",
+  "toast_orders",
+  "toast_payroll_imports",
+  "toast_sales_sync_log",
+  "toast_sync_log",
+  "user_roles"
+ ],
+ "rpcCalls": [
+  "create_time_clock_entry",
+  "delete_time_clock_entry_with_reason",
+  "edit_time_clock_entry",
+  "get_events_reserved_counts",
+  "has_role"
+ ],
+ "secrets": [],
+ "envVars": [
+  "ADD_TOAST",
+  "ANIMATION_END",
+  "ANIMATION_OUT",
+  "ASCII_HEX_DECODE",
+  "BEST_COMPRESSION",
+  "BEST_SPEED",
+  "BUF_ERROR",
+  "CAL_GREY",
+  "CAL_RGB",
+  "CCITT_FAX_DECODE",
+  "DATA_ERROR",
+  "DCT_DECODE",
+  "DEFAULT_COMPRESSION",
+  "DEFAULT_STRATEGY",
+  "DEFAULT_TITLE",
+  "DEVICE_CMYK",
+  "DEVICE_GRAY",
+  "DEVICE_RGB",
+  "DISMISS_TOAST",
+  "ENCODE_SPECIAL_CHARACTERS",
+  "FILTER_ACCEPT",
+  "FILTER_SKIP",
+  "FLATE_DECODE",
+  "FULL_FLUSH",
+  "GREYSCALE_ALPHA",
+  "HEADER_LENGTH",
+  "HEARTBEAT_INTERVAL",
+  "HEARTBEAT_TIMEOUT_FALLBACK",
+  "HUFFMAN_ONLY",
+  "ICC_BASED",
+  "INDEXED_COLOUR",
+  "JPX_DECODE",
+  "LZW_DECODE",
+  "MAX_VALUE",
+  "MEM_ERROR",
+  "META_LENGTH",
+  "NEED_DICT",
+  "NO_COMPRESSION",
+  "NO_FLUSH",
+  "NO_INTERLACE",
+  "ON_CHANGE_CLIENT_STATE",
+  "PARTIAL_FLUSH",
+  "PASSWORD_RECOVERY",
+  "POINTER_ENTER",
+  "POINTER_LEAVE",
+  "PRIORITIZE_SEO_TAGS",
+  "PROBE_UNKNOWN_ACTION",
+  "RECONNECT_DELAY",
+  "REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+  "REMOVE_TOAST",
+  "RUN_LENGTH_DECODE",
+  "SCROLL_END",
+  "STREAM_END",
+  "STREAM_ERROR",
+  "SYNC_FLUSH",
+  "TITLE_TEMPLATE",
+  "TRUECOLOUR_ALPHA",
+  "UPDATE_TOAST"
+ ],
+ "supabaseCtx": [
+  {
+   "file": "/assets/Unsubscribe-Bo8uaweh.js",
+   "ctx": ";const b=\"https://pwvpqefffgmtsgyhhpfi.supabase.co\""
+  },
+  {
+   "file": "/assets/Checklists-Dvh13gI7.js",
+   "ctx": "nc()=>{if(x){Ne(!0),C([]);try{const s=await fetch(\"https://pwvpqefffgmtsgyhhpfi.supabase.co/functions/v1/ai-generate-checklist\""
+  },
+  {
+   "file": "/assets/Checklists-Dvh13gI7.js",
+   "ctx": "(R.trim()){ye(!0),F(null);try{const s=await fetch(\"https://pwvpqefffgmtsgyhhpfi.supabase.co/functions/v1/ai-generate-checklist\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "tends ce{constructor(t,e={},r,s){const n=new URL(t);s!=null&&s.useNewHostname&&/supabase\\.(co|in|red"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ")}function L(t){if(!t.passkey)throw new Error(\"@supabase/auth-js: the passkey API is experimental and disabled by default. Enable it by passing `auth: { experimental: { passkey"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "sskey.bind(this)}}async signOut(e,r=Ye[0]){if(Ye.indexOf(r)<0)throw new Error(`@supabase/auth-js: Parameter scope must be one of ${Ye.join(\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "t }) instead.\")}else{if(typeof m!=\"object\"||!(v!=null&&v.url))throw new Error(\"@supabase/auth-js: Both wallet and url must be specified in non-browser environments.\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "t }) instead.\")}else{if(typeof b!=\"object\"||!(_!=null&&_.url))throw new Error(\"@supabase/auth-js: Both wallet and url must be specified in non-browser environments.\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "se58\"in S.publicKey)||typeof S.publicKey.toBase58!=\"function\")throw new Error(\"@supabase/auth-js: Wallet does not have a compatible signMessage("
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "d=parseInt(l);let f=u+d;c&&(f=parseInt(c));const p=f-u;p*1e3<=J&&console.warn(`@supabase/gotrue-js: Session as retrieved from URL expires in ${p}s"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ", should have been closer to ${d}s`);const g=f-d;u-g>=120?console.warn(\"@supabase/gotrue-js: Session as retrieved from URL was issued over 120s ago"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ", URL could be stale\",g,f,u):u-g<0&&console.warn(\"@supabase/gotrue-js: Session as retrieved from URL was issued in the future? Check the device clock for skew\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "t){const e=[];try{const r=new URL(t);e.push(r.hostname)}catch{}return e.push(\"*.supabase.co\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "tartsWith(\"sb_secret_\"),yi=t=>{if(t.startsWith(\"sb_\")&&!yr(t))throw new Error('@supabase/supabase-js: Unrecognized Supabase API key format. Expected a legacy JWT key or a new-forma"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "is \"sb_\" key type is not supported by this version of the SDK — please upgrade @supabase/supabase-js.'"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "ssToken,v}function _i(t){const e=t==null?void 0:t.trim();if(!e)throw new Error(\"supabaseUrl is required.\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ");if(!e.match(/^https?:\\/\\//i))throw new Error(\"Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ");try{return new URL(vi(e))}catch{throw Error(\"Invalid supabaseUrl: Provided URL is malformed.\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "s extends Gn{constructor(t){super(t)}},ki=class{constructor(t,e,r){var s,n;this.supabaseUrl=t"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ",this.supabaseKey=e;const i=_i(t);if(!e)throw new Error(\"supabaseKey is required.\""
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "oken(){var t=this,e;return(e=await t._getSessionToken())!==null&&e!==void 0?e:t.supabaseKey}_initSupabaseAuthClient({autoRefreshToken:t"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "quireTimeout:u,skipAutoInitialize:d},f,p){const g={Authorization:`Bearer ${this.supabaseKey}`"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": ",apikey:`${this.supabaseKey}`}"
+  },
+  {
+   "file": "/assets/vendor-supabase-ClilYW0H.js",
+   "ctx": "t){return new vs(this.realtimeUrl.href,A(A({},t),{},{params:A(A({},{apikey:this.supabaseKey}"
+  },
+  {
+   "file": "/assets/Documents-8hh0EG06.js",
+   "ctx": "m prompt'\");return}R(!0);try{const Qe=await fetch(\"https://pwvpqefffgmtsgyhhpfi.supabase.co/functions/v1/ai-write-document\""
+  }
+ ],
+ "api": {
+  "root": {
+   "status": 404,
+   "hdrs": {
+    "server": "cloudflare"
+   },
+   "body": "{\"error\":\"requested path is invalid\"}"
+  },
+  "auth_settings": {
+   "status": 200,
+   "hdrs": {
+    "server": "cloudflare"
+   },
+   "body": "{\"external\":{\"anonymous_users\":false,\"apple\":true,\"azure\":false,\"bitbucket\":false,\"discord\":false,\"facebook\":false,\"snapchat\":false,\"figma\":false,\"fly\":false,\"github\":false,\"gitlab\":false,\"google\":true,\"keycloak\":false,\"kakao\":false,\"linkedin\":false,\"linkedin_oidc\":false,\"notion\":false,\"spotify\":false,\"slack\":false,\"slack_oidc\":false,\"workos\":false,\"twitch\":false,\"twitter\":false,\"email\":true,\"phon"
+  },
+  "auth_root": {
+   "status": 404,
+   "hdrs": {
+    "server": "cloudflare"
+   },
+   "body": "404 page not found\n"
+  },
+  "storage_buckets": {
+   "status": 200,
+   "hdrs": {
+    "server": "cloudflare"
+   },
+   "body": "[]"
+  },
+  "functions_root": {
+   "status": 404,
+   "hdrs": {
+    "server": "cloudflare"
+   },
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "realtime_root": {
+   "status": 401,
+   "hdrs": {
+    "server": "cloudflare"
+   },
+   "body": "{\"error\":\"API key is missing\"}"
+  }
+ }
+}

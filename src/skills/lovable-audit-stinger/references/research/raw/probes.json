@@ -1,0 +1,466 @@
+# Raw source: empirical observation transcript (authorized pentest)
+Origin: loungeatswift.com audit session (pt-lounge/probes.json)
+Fetched into archive: 2026-08-30
+Source type: empirical observation - authorized penetration test of loungeatswift.com (operator grant; all writes labeled 'pentest probe - safe to delete')
+
+{
+ "localCtx": {
+  "localhost": [
+   {
+    "file": "bundle.js",
+    "hits": [
+     "localhost",
+     "localhost:3000$/:/^https:\\/\\/([a-z0-9-]+\\.)*(lovable\\.dev|gptengineer\\.app)$/,c=location.ancestorOr",
+     "localhost:3000"
+    ]
+   },
+   {
+    "file": "chunk_index-C98FyuaK_js",
+    "hits": [
+     "localhost",
+     "localhost:3000$/:/^https:\\/\\/([a-z0-9-]+\\.)*(lovable\\.dev|gptengineer\\.app)$/,c=location.ancestorOr",
+     "localhost:3000"
+    ]
+   },
+   {
+    "file": "chunk_vendor-supabase-ClilYW0H_js",
+    "hits": [
+     "localhost:9999",
+     "localhost"
+    ]
+   }
+  ],
+  "notifyFn": [
+   {
+    "file": "bundle.js",
+    "hits": [
+     "notify({type:",
+     "notify({query:this,type:",
+     "notify(t){Fe.batch(()=>{this.listeners.forEach(",
+     "notify({mutation:this,type:",
+     "notifyOnChangeProps:o}=this.options,s=typeof o=",
+     "notify({query:E(this,se),type:"
+    ]
+   },
+   {
+    "file": "chunk_BarChart-MQW3l3OH_js",
+    "hits": [
+     "notify(){Vx(()=>{let r=e;for(;r;)r.callback(),r",
+     "notify(){},get:()=>[]};function Zx(e,t){let r,n",
+     "notify()}function l(){h.onStateChange&&h.onStat",
+     "notifyNestedSubs:u,handleChangeWrapper:l,isSubs",
+     "notifyNestedSubs,l.trySubscribe(),o!==i.getStat",
+     "notifyNestedSubs(),()=>{l.tryUnsubscribe(),l.on"
+    ]
+   },
+   {
+    "file": "chunk_index-C98FyuaK_js",
+    "hits": [
+     "notify({type:",
+     "notify({query:this,type:",
+     "notify(t){Fe.batch(()=>{this.listeners.forEach(",
+     "notify({mutation:this,type:",
+     "notifyOnChangeProps:o}=this.options,s=typeof o=",
+     "notify({query:E(this,se),type:"
+    ]
+   },
+   {
+    "file": "chunk_Install-CxWV6PWu_js",
+    "hits": [
+     "notify me about"
+    ]
+   },
+   {
+    "file": "chunk_Reservations-DvYvUPqS_js",
+    "hits": [
+     "notify guest"
+    ]
+   },
+   {
+    "file": "chunk_vendor-motion-Cuw0_T_U_js",
+    "hits": [
+     "notify(e,n,s){const i=this.subscriptions.length",
+     "notifyFinished(){this.resolve()}then(e,n){retur",
+     "notifyFinished(),this.teardown(),this.state=",
+     "notifyFinished()}}play(){this.isStopped||(this.",
+     "notifyFinished()}).catch(W),this.pendingTimelin",
+     "notify(this.current),this.dependents))for(const"
+    ]
+   },
+   {
+    "file": "chunk_vendor-supabase-ClilYW0H_js",
+    "hits": [
+     "notifyAllSubscribers(a.data.event,a.data.sessio",
+     "notifyAllSubscribers(n.event,n.session,n.broadc",
+     "notifyAllSubscribers(",
+     "notifyAllSubscribers(n===",
+     "notifyAllSubscribers(e.type==",
+     "notifyAllSubscribers(e,r,s=!0){if(this._pending"
+    ]
+   }
+  ],
+  "bitly": [
+   {
+    "file": "chunk_BarChart-MQW3l3OH_js",
+    "hits": [
+     "bit.ly/3cXEKWf"
+    ]
+   }
+  ],
+  "functionsPath": [
+   {
+    "file": "chunk_Checklists-Dvh13gI7_js",
+    "hits": [
+     "functions/v1/ai-generate-checklist"
+    ]
+   },
+   {
+    "file": "chunk_Documents-8hh0EG06_js",
+    "hits": [
+     "functions/v1/ai-write-document"
+    ]
+   },
+   {
+    "file": "chunk_Unsubscribe-Bo8uaweh_js",
+    "hits": [
+     "functions/v1/handle-email-unsubscribe"
+    ]
+   }
+  ],
+  "toasttab": [
+   {
+    "file": "chunk_MyPayrollTax-Sg1uM7ku_js",
+    "hits": [
+     "toasttab.com"
+    ]
+   },
+   {
+    "file": "chunk_Payroll-DXjDKU90_js",
+    "hits": [
+     "toasttab.com"
+    ]
+   }
+  ]
+ },
+ "authFlow": {
+  "/assets/Login-CYXTieDg.js": {
+   "size": 21976,
+   "authCalls": [
+    ".signInWithOAuth",
+    ".resetPasswordForEmail",
+    ".signInWithPassword",
+    ".signOut"
+   ],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [
+    "password",
+    "email"
+   ],
+   "placeholders": [
+    "000000"
+   ],
+   "autoComplete": [],
+   "tables": [
+    "employees",
+    "user_roles"
+   ],
+   "rpc": []
+  },
+  "/assets/LoginHelp-Cx3eUcu2.js": {
+   "size": 7480,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [],
+   "rpc": []
+  },
+  "/assets/LoginActivity-DYJRoz6p.js": {
+   "size": 8350,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [
+    "Search email, IP, device, or error...",
+    "All employees"
+   ],
+   "autoComplete": [],
+   "tables": [
+    "employees",
+    "login_events"
+   ],
+   "rpc": []
+  },
+  "/assets/ResetPassword-DYsvdnbp.js": {
+   "size": 2667,
+   "authCalls": [
+    ".updateUser"
+   ],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [
+    "password"
+   ],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [],
+   "rpc": []
+  },
+  "/assets/Contact-30Su4Ra8.js": {
+   "size": 12461,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [
+    "email",
+    "tel"
+   ],
+   "placeholders": [
+    "Your name",
+    "you@email.com",
+    "(941) 555-0100",
+    "How can we help?"
+   ],
+   "autoComplete": [
+    "name",
+    "email",
+    "tel"
+   ],
+   "tables": [],
+   "rpc": []
+  },
+  "/assets/ContactMessages-Bd-ZJGNG.js": {
+   "size": 3161,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [
+    "contact_messages"
+   ],
+   "rpc": []
+  },
+  "/assets/NewsArticle-DuZ2-woY.js": {
+   "size": 5392,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [
+    "news_articles"
+   ],
+   "rpc": []
+  },
+  "/assets/Newsletter-CYykQ1Pk.js": {
+   "size": 5613,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [
+    "email",
+    "tel"
+   ],
+   "placeholders": [
+    "Jane",
+    "Doe",
+    "you@example.com",
+    "(941) 555-0100"
+   ],
+   "autoComplete": [],
+   "tables": [],
+   "rpc": []
+  },
+  "/assets/newspaper-BaiQVTuq.js": {
+   "size": 511,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [],
+   "rpc": []
+  },
+  "/assets/NewsManager-DqM6V4yg.js": {
+   "size": 7338,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [
+    "https://example.com/article-about-swift-lounge"
+   ],
+   "autoComplete": [],
+   "tables": [
+    "news_articles"
+   ],
+   "rpc": []
+  },
+  "/assets/PrivateEvents-DDv5tMxw.js": {
+   "size": 13077,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [],
+   "rpc": []
+  },
+  "/assets/events-hero-bg.mp4.asset-CpN7W-US.js": {
+   "size": 326,
+   "authCalls": [],
+   "providers": [],
+   "otpChannels": [],
+   "inputTypes": [],
+   "placeholders": [],
+   "autoComplete": [],
+   "tables": [],
+   "rpc": []
+  }
+ },
+ "authSettings": {
+  "status": 200,
+  "body": "{\"external\":{\"anonymous_users\":false,\"apple\":true,\"azure\":false,\"bitbucket\":false,\"discord\":false,\"facebook\":false,\"snapchat\":false,\"figma\":false,\"fly\":false,\"github\":false,\"gitlab\":false,\"google\":true,\"keycloak\":false,\"kakao\":false,\"linkedin\":false,\"linkedin_"
+ },
+ "funcs": {
+  "ai-generate-checklist": {
+   "status": 401,
+   "body": "{\"error\":\"Unauthorized\"}"
+  },
+  "ai-write-document": {
+   "status": 401,
+   "body": "{\"error\":\"Unauthorized\"}"
+  },
+  "handle-email-unsubscribe": {
+   "status": 400,
+   "body": "{\"error\":\"Token is required\"}"
+  },
+  "hello": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "send-email": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "send_email": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "email": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "webhook": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "toast-sync": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "toast_sync": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "sync": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "notify": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "push": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  },
+  "otp": {
+   "status": 404,
+   "body": "{\"code\":\"NOT_FOUND\",\"message\":\"Requested function was not found\"}"
+  }
+ },
+ "rpc": {
+  "has_role": {
+   "status": 404,
+   "body": "{\"code\":\"PGRST202\",\"details\":\"Searched for the function public.has_role without parameters or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.\",\"hint\":null,\"message\":\"Could not find the function public.has_role without"
+  },
+  "create_time_clock_entry": {
+   "status": 404,
+   "body": "{\"code\":\"PGRST202\",\"details\":\"Searched for the function public.create_time_clock_entry without parameters or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.\",\"hint\":null,\"message\":\"Could not find the function public.c"
+  },
+  "get_events_reserved_counts": {
+   "status": 200,
+   "body": "[{\"event_id\":\"637dee11-d4d8-4eb0-9d19-21abe5284cc6\",\"reserved\":6}, \n {\"event_id\":\"d06f1314-5cbe-4871-b3fa-edfee105f03c\",\"reserved\":25}]"
+  },
+  "edit_time_clock_entry": {
+   "status": 404,
+   "body": "{\"code\":\"PGRST202\",\"details\":\"Searched for the function public.edit_time_clock_entry without parameters or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.\",\"hint\":null,\"message\":\"Could not find the function public.edi"
+  },
+  "delete_time_clock_entry_with_reason": {
+   "status": 404,
+   "body": "{\"code\":\"PGRST202\",\"details\":\"Searched for the function public.delete_time_clock_entry_with_reason without parameters or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.\",\"hint\":null,\"message\":\"Could not find the funct"
+  }
+ },
+ "tables": {
+  "contact_messages": {
+   "status": 200,
+   "body": "[]"
+  },
+  "party_inquiries": {
+   "status": 200,
+   "body": "[]"
+  },
+  "event_reservations": {
+   "status": 200,
+   "body": "[]"
+  },
+  "employees": {
+   "status": 200,
+   "body": "[]"
+  },
+  "employees_directory": {
+   "status": 200,
+   "body": "[]"
+  },
+  "payroll_settings": {
+   "status": 200,
+   "body": "[]"
+  },
+  "business_settings": {
+   "status": 200,
+   "body": "[]"
+  },
+  "menu_items": {
+   "status": 200,
+   "body": "[{\"id\":\"55dcacb5-f231-4495-8e8f-5e8861142820\",\"name\":\"Members Only\",\"description\":\"Bourbon, Bordeaux Reduction, Tonka Bean, Lemon, Chocolate Bitters, Smoked With Vanilla Pipe Tobacco\",\"price\":\"25\",\"category\":\"cocktail\",\"image_path\":null,\"sort_order\":2,\"is_acti"
+  }
+ },
+ "writes": {
+  "contact_messages": {
+   "status": 401,
+   "body": "{\"code\":\"42501\",\"details\":null,\"hint\":null,\"message\":\"new row violates row-level security policy for table \\\"contact_messages\\\"\"}"
+  },
+  "party_inquiries": {
+   "status": 400,
+   "body": "{\"code\":\"PGRST204\",\"details\":null,\"hint\":null,\"message\":\"Could not find the 'details' column of 'party_inquiries' in the schema cache\"}"
+  }
+ },
+ "signup": {
+  "status": 200,
+  "body": "{\"id\":\"618f90e5-a70b-447c-9026-6419a9ba9285\",\"aud\":\"authenticated\",\"role\":\"authenticated\",\"email\":\"pt-probe-1788149133176@example.com\",\"phone\":\"\",\"confirmation_sent_at\":\"2026-08-31T04:06:20.026186652Z\",\"app_metadata\":{\"provider\":\"email\",\"providers\":[\"email\"]},"
+ },
+ "otp": {
+  "status": 429,
+  "body": "{\"code\":429,\"error_code\":\"over_email_send_rate_limit\",\"msg\":\"For security purposes, you can only request this after 58 seconds.\"}"
+ }
+}

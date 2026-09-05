@@ -1,0 +1,26 @@
+{
+  "case": "B_scene",
+  "written_utc": "2026-08-21T07:24:37.111967+00:00",
+  "source_frame": null,
+  "output": "C:\\Users\\mario\\.codex\\skills\\natural-photography-stinger\\models\\mario-aldayuz-source\\03-outputs\\legion-toolset-ghl-black-flight.jpg",
+  "output_sha256": "851fe22ef6d213190458318451951301472f501d2a036d5312c9e8ac96daa611",
+  "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "profile": {
+    "FocalLength": "35",
+    "FocalLengthIn35mmFormat": "35",
+    "FNumber": "2.8",
+    "ExposureTime": "1/500",
+    "ISO": "3200",
+    "ExposureProgram": "3",
+    "MeteringMode": "5",
+    "WhiteBalance": "0",
+    "Flash": "16",
+    "ColorSpace": "1",
+    "Orientation": "1",
+    "Artist": "Mario Aldayuz",
+    "Copyright": "Copyright Mario Aldayuz 2026",
+    "Creator": "Mario Aldayuz",
+    "Rights": "Copyright Mario Aldayuz 2026"
+  },
+  "capture_identity_written": false
+}

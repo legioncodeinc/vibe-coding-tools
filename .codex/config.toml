@@ -1,6 +1,0 @@
-developer_instructions = """
-Use Vibe Coding Tools as the project specialist library. Route domain work to the matching agent in .codex/agents and its paired Stinger under .agents/skills. Run security review before independent quality review. Preserve user work and never claim an external verification that was not actually run.
-"""
-
-[agents]
-max_concurrent_threads_per_session = 8

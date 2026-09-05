@@ -1,0 +1,23 @@
+Raw source: client bundle forensics (byte-exact excerpts)
+Origin: loungeatswift.com production JS bundle + route chunks (pt-lounge/)
+Fetched into archive: 2026-08-30
+Source type: empirical observation - frontend JS of audited application; every JWT (eyJ) occurrence in bundle.js plus first occurrence per chunk file, sliced by documented offsets via Node indexOf/slice
+bundle.js length: 538870 chars; JWT offsets in bundle.js: 368264, 368301; chunk files containing JWTs: 4
+
+[bundle.js offset 368264]
+calStorage.setItem(g,x),h("lovable-preview-auth:set",g,x).then(()=>{})),removeItem:g=>(localStorage.removeItem(g),h("lovable-preview-auth:remove",g).then(()=>{}))}}const HN="https://pwvpqefffgmtsgyhhpfi.supabase.co",WN="[REDACTED_RESEARCH_JWT]",ue=N1(HN,W
+
+[bundle.js offset 368301]
+eview-auth:set",g,x).then(()=>{})),removeItem:g=>(localStorage.removeItem(g),h("lovable-preview-auth:remove",g).then(()=>{}))}}const HN="https://pwvpqefffgmtsgyhhpfi.supabase.co",WN="[REDACTED_RESEARCH_JWT]",ue=N1(HN,WN,{auth:{storage:VN(),persistSession:
+
+[chunk_Checklists-Dvh13gI7_js offset 7107]
+im(),sort_order:J.length}),je(""))},as=async()=>{if(x){Ne(!0),C([]);try{const s=await fetch("https://pwvpqefffgmtsgyhhpfi.supabase.co/functions/v1/ai-generate-checklist",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer [REDACTED_RESEARCH_JWT]"},body:JSON.stringify({mode:"generate_tas
+
+[chunk_Documents-8hh0EG06_js offset 418240]
+empty - add content first or use 'Generate from prompt'");return}R(!0);try{const Qe=await fetch("https://pwvpqefffgmtsgyhhpfi.supabase.co/functions/v1/ai-write-document",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer [REDACTED_RESEARCH_JWT]"},body:JSON.stringify({prompt:M,existingC
+
+[chunk_index-C98FyuaK_js offset 368264]
+getItem(g)},setItem:(g,x)=>(localStorage.setItem(g,x),h("lovable-preview-auth:set",g,x).then(()=>{})),removeItem:g=>(localStorage.removeItem(g),h("lovable-preview-auth:remove",g).then(()=>{}))}}const HN="https://pwvpqefffgmtsgyhhpfi.supabase.co",WN="[REDACTED_RESEARCH_JWT]",ue=N1(HN,WN,{auth:{storage:VN(),persistS
+
+[chunk_Unsubscribe-Bo8uaweh_js offset 201]
+import{r as i,j as s}from"./vendor-motion-Cuw0_T_U.js";import{$ as d,B as m,s as f}from"./index-C98FyuaK.js";import"./vendor-supabase-ClilYW0H.js";const b="https://pwvpqefffgmtsgyhhpfi.supabase.co",p="[REDACTED_RESEARCH_JWT]";function y(){const[c]=d(),n=c.get("token

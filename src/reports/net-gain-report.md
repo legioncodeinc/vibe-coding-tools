@@ -1,0 +1,637 @@
+# Cumulative net gain against src
+
+This ledger is sorted by asset name, then last-updated time descending. Each source asset has one selected disposition. The complete source-level record set is in common-folder-inventory.md and asset-inventory.csv.
+
+- Active canonical baseline: 181
+- Active additive assets: 57
+- Quarantine copies: 56
+- Superseded or withheld selections: 332
+
+## Action ledger
+
+- _to_delete | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\_to_delete | unpaired or unmatched legacy asset
+- .system | 9/3/2026 10:57:43 PM | quarantine-unpaired-or-legacy | skills | user global codex | quarantine\skills\.system | unpaired or unmatched legacy asset
+- adr-writing-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- adr-writing-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\adr-writing-stinger | canonical baseline
+- adr-writing-stinger | 9/4/2026 10:11:12 PM | canonical-authority | skills | user global claude | not copied | canonical-authority
+- adr-writing-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- adr-writing-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\adr-writing-worker-bee.md | canonical baseline
+- adr-writing-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- affiliate-referral-program-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- affiliate-referral-program-stinger | 6/18/2026 5:54:35 AM | active-paired | skills | user global claude | skills\affiliate-referral-program-stinger | complete pair or additive non-pair asset
+- affiliate-referral-program-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- affiliate-referral-program-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\affiliate-referral-program-worker-bee.md | complete pair or additive non-pair asset
+- agile-scrum-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- agile-scrum-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\agile-scrum-stinger | canonical baseline
+- agile-scrum-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- agile-scrum-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- agile-scrum-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\agile-scrum-worker-bee.md | canonical baseline
+- agile-scrum-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- ai-coding-tools-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- ai-coding-tools-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\ai-coding-tools-stinger | canonical baseline
+- ai-coding-tools-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- ai-coding-tools-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- ai-coding-tools-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\ai-coding-tools-worker-bee.md | canonical baseline
+- ai-coding-tools-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- ai-docs-stinger | 8/14/2026 11:10:31 AM | quarantine-unpaired-or-legacy | skills | user global agents | quarantine\skills\ai-docs-stinger | unpaired or unmatched legacy asset
+- ai-docs-weapon | 5/22/2026 11:01:53 PM | quarantine-unpaired-or-legacy | skills | legion-suite cursor | quarantine\skills\ai-docs-weapon | unpaired or unmatched legacy asset
+- ai-tools-platform-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- ai-tools-platform-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\ai-tools-platform-stinger | canonical baseline
+- ai-tools-platform-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- ai-tools-platform-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- ai-tools-platform-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\ai-tools-platform-worker-bee.md | canonical baseline
+- ai-tools-platform-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- alt-ads-platforms-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- alt-ads-platforms-stinger | 6/18/2026 5:54:36 AM | active-paired | skills | user global claude | skills\alt-ads-platforms-stinger | complete pair or additive non-pair asset
+- alt-ads-platforms-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- alt-ads-platforms-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\alt-ads-platforms-worker-bee.md | complete pair or additive non-pair asset
+- angel-creator | 6/18/2026 5:54:36 AM | quarantine-unpaired-or-legacy | skills | user global claude | quarantine\skills\angel-creator | unpaired or unmatched legacy asset
+- api-docs-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- api-docs-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\api-docs-stinger | canonical baseline
+- api-docs-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- api-docs-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- api-docs-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\api-docs-worker-bee.md | canonical baseline
+- api-docs-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- app-store-submission-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- app-store-submission-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\app-store-submission-stinger | canonical baseline
+- app-store-submission-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- app-store-submission-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- app-store-submission-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\app-store-submission-worker-bee.md | canonical baseline
+- app-store-submission-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- archivist-stinger | 9/5/2026 9:53:42 AM | canonical-authority | skills | vibe-coding-tools local cursor | not copied | canonical-authority
+- archivist-stinger | 9/5/2026 8:26:07 AM | active-canonical | skills | vibe-coding-tools canonical | skills\archivist-stinger | canonical baseline
+- archivist-worker-bee.md | 9/5/2026 8:26:38 AM | active-canonical | agents | vibe-coding-tools canonical | agents\archivist-worker-bee.md | canonical baseline
+- archivist-worker-bee.toml | 9/5/2026 9:53:41 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- asset-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- asset-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\asset-stinger | canonical baseline
+- asset-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- asset-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- asset-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\asset-worker-bee.md | canonical baseline
+- asset-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- auth-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- auth-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\auth-stinger | canonical baseline
+- auth-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- auth-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- auth-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\auth-worker-bee.md | canonical baseline
+- auth-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- beekeeper-suit | 9/5/2026 9:53:42 AM | canonical-authority | skills | vibe-coding-tools local cursor | not copied | canonical-authority
+- beekeeper-suit | 9/5/2026 9:53:41 AM | active-canonical | skills | vibe-coding-tools canonical | skills\beekeeper-suit | canonical baseline
+- bifrost-stinger | 9/4/2026 10:42:52 PM | active-paired | skills | user global agents | skills\bifrost-stinger | complete pair or additive non-pair asset
+- bifrost-worker-bee.md | 9/4/2026 10:45:38 PM | active-paired | agents | user global agents | agents\bifrost-worker-bee.md | complete pair or additive non-pair asset
+- big-bang-earth | 5/22/2026 11:01:53 PM | quarantine-unpaired-or-legacy | skills | legion-suite cursor | quarantine\skills\big-bang-earth | unpaired or unmatched legacy asset
+- big-bang-space.md | 5/20/2026 11:51:57 PM | quarantine-unpaired-or-legacy | agents | legion-suite cursor | quarantine\agents\big-bang-space.md | unpaired or unmatched legacy asset
+- blogging-content-strategy-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- blogging-content-strategy-stinger | 6/18/2026 5:54:36 AM | active-paired | skills | user global claude | skills\blogging-content-strategy-stinger | complete pair or additive non-pair asset
+- blogging-content-strategy-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- blogging-content-strategy-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\blogging-content-strategy-worker-bee.md | complete pair or additive non-pair asset
+- branching-strategy-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- branching-strategy-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\branching-strategy-stinger | canonical baseline
+- branching-strategy-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- branching-strategy-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- branching-strategy-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\branching-strategy-worker-bee.md | canonical baseline
+- branching-strategy-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- brand-voice-guardian | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\brand-voice-guardian | unpaired or unmatched legacy asset
+- cadegent-legion-staging.mdc | 8/31/2026 10:38:36 AM | active-additive | rules | user global cursor | rules\cadegent-legion-staging.mdc | complete pair or additive non-pair asset
+- changelog-release-notes-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- changelog-release-notes-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\changelog-release-notes-stinger | canonical baseline
+- changelog-release-notes-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- changelog-release-notes-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- changelog-release-notes-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\changelog-release-notes-worker-bee.md | canonical baseline
+- changelog-release-notes-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- ci-release-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\ci-release-stinger | canonical baseline
+- ci-release-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- ci-release-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\ci-release-worker-bee.md | canonical baseline
+- ci-release-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- client-health-radar | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\client-health-radar | unpaired or unmatched legacy asset
+- code-forensics-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- code-forensics-stinger | 6/18/2026 5:54:37 AM | active-paired | skills | user global claude | skills\code-forensics-stinger | complete pair or additive non-pair asset
+- code-forensics-weapon | 5/22/2026 11:01:53 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- code-forensics-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\code-forensics-worker-bee.md | complete pair or additive non-pair asset
+- code-review-pr-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- code-review-pr-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\code-review-pr-stinger | canonical baseline
+- code-review-pr-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- code-review-pr-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- code-review-pr-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\code-review-pr-worker-bee.md | canonical baseline
+- code-review-pr-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- cold-outreach-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- cold-outreach-stinger | 6/18/2026 5:54:37 AM | active-paired | skills | user global claude | skills\cold-outreach-stinger | complete pair or additive non-pair asset
+- cold-outreach-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- cold-outreach-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\cold-outreach-worker-bee.md | complete pair or additive non-pair asset
+- combined-voice-creator | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\combined-voice-creator | unpaired or unmatched legacy asset
+- command-center | 6/18/2026 5:54:37 AM | quarantine-unpaired-or-legacy | skills | user global claude | quarantine\skills\command-center | unpaired or unmatched legacy asset
+- comment-to-crm-piper | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\comment-to-crm-piper | unpaired or unmatched legacy asset
+- commitment-tracker | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\commitment-tracker | unpaired or unmatched legacy asset
+- competitive-research-stinger | 9/3/2026 6:49:42 AM | canonical-authority | skills | user global cursor | not copied | canonical-authority
+- competitive-research-stinger | 8/26/2026 3:09:23 PM | active-canonical | skills | vibe-coding-tools canonical | skills\competitive-research-stinger | canonical baseline
+- competitive-research-worker-bee.md | 9/4/2026 3:50:17 AM | active-canonical | agents | vibe-coding-tools canonical | agents\competitive-research-worker-bee.md | canonical baseline
+- competitive-research-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- competitor-watch | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\competitor-watch | unpaired or unmatched legacy asset
+- component-validate.mjs | 8/14/2026 9:50:13 PM | active-canonical | hooks | vibe-coding-tools canonical | hooks\component-validate.mjs | canonical baseline
+- component-validate.mjs | 8/14/2026 9:50:13 PM | canonical-authority | hooks | user global codex | not copied | canonical-authority
+- content-repurposer | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\content-repurposer | unpaired or unmatched legacy asset
+- crm-integration-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- crm-integration-stinger | 6/18/2026 5:54:37 AM | active-paired | skills | user global claude | skills\crm-integration-stinger | complete pair or additive non-pair asset
+- crm-integration-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- crm-integration-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\crm-integration-worker-bee.md | complete pair or additive non-pair asset
+- cron-scheduling-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- cron-scheduling-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\cron-scheduling-stinger | canonical baseline
+- cron-scheduling-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- cron-scheduling-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- cron-scheduling-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\cron-scheduling-worker-bee.md | canonical baseline
+- cron-scheduling-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- csv-xlsx-import-export-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- csv-xlsx-import-export-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\csv-xlsx-import-export-stinger | canonical baseline
+- csv-xlsx-import-export-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- csv-xlsx-import-export-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- csv-xlsx-import-export-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\csv-xlsx-import-export-worker-bee.md | canonical baseline
+- csv-xlsx-import-export-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- cursor-ide-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- cursor-ide-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\cursor-ide-stinger | canonical baseline
+- cursor-ide-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- cursor-ide-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- cursor-ide-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\cursor-ide-worker-bee.md | canonical baseline
+- cursor-ide-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- customer-support-tooling-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- customer-support-tooling-stinger | 6/18/2026 5:54:37 AM | active-paired | skills | user global claude | skills\customer-support-tooling-stinger | complete pair or additive non-pair asset
+- customer-support-tooling-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- customer-support-tooling-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\customer-support-tooling-worker-bee.md | complete pair or additive non-pair asset
+- daily-brief | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\daily-brief | unpaired or unmatched legacy asset
+- dark-mode-theming-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- dark-mode-theming-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\dark-mode-theming-stinger | canonical baseline
+- dark-mode-theming-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- dark-mode-theming-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- dark-mode-theming-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\dark-mode-theming-worker-bee.md | canonical baseline
+- dark-mode-theming-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- dash-guard.mjs | 8/14/2026 9:50:13 PM | active-canonical | hooks | vibe-coding-tools canonical | hooks\dash-guard.mjs | canonical baseline
+- dash-guard.mjs | 8/14/2026 9:50:13 PM | canonical-authority | hooks | user global codex | not copied | canonical-authority
+- day-reconstructor | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\day-reconstructor | unpaired or unmatched legacy asset
+- db-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- db-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\db-stinger | canonical baseline
+- db-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- db-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- db-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\db-worker-bee.md | canonical baseline
+- db-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- deal-pipeline-reconstructor | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\deal-pipeline-reconstructor | unpaired or unmatched legacy asset
+- deeplake-dataset-stinger | 8/14/2026 11:10:32 AM | active-paired | skills | user global agents | skills\deeplake-dataset-stinger | complete pair or additive non-pair asset
+- deeplake-dataset-worker-bee.md | 6/17/2026 11:59:52 AM | active-paired | agents | user global agents | agents\deeplake-dataset-worker-bee.md | complete pair or additive non-pair asset
+- dependency-audit-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- dependency-audit-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\dependency-audit-stinger | canonical baseline
+- dependency-audit-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- dependency-audit-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- dependency-audit-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\dependency-audit-worker-bee.md | canonical baseline
+- dependency-audit-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- design-system-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- design-system-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\design-system-stinger | canonical baseline
+- design-system-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- design-system-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- design-system-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\design-system-worker-bee.md | canonical baseline
+- design-system-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- devops-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- devops-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\devops-stinger | canonical baseline
+- devops-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- devops-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- devops-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\devops-worker-bee.md | canonical baseline
+- devops-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- discord-bot-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- discord-bot-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\discord-bot-stinger | canonical baseline
+- discord-bot-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- discord-bot-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- discord-bot-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\discord-bot-worker-bee.md | canonical baseline
+- discord-bot-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- discovery-research-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- discovery-research-stinger | 6/18/2026 5:54:38 AM | active-paired | skills | user global claude | skills\discovery-research-stinger | complete pair or additive non-pair asset
+- discovery-research-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- discovery-research-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\discovery-research-worker-bee.md | complete pair or additive non-pair asset
+- docs-site-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- docs-site-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\docs-site-stinger | canonical baseline
+- docs-site-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- docs-site-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- docs-site-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\docs-site-worker-bee.md | canonical baseline
+- docs-site-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- doppler-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\doppler-stinger | canonical baseline
+- doppler-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- doppler-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\doppler-worker-bee.md | canonical baseline
+- doppler-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- drift-audit.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- drift-audit.md | 8/15/2026 4:14:02 AM | active-canonical | commands | vibe-coding-tools canonical | commands\drift-audit.md | canonical baseline
+- electron-dissection-stinger | 9/4/2026 11:47:43 PM | quarantine-unpaired-or-legacy | skills | user global agents | quarantine\skills\electron-dissection-stinger | unpaired or unmatched legacy asset
+- embeddings-runtime-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\embeddings-runtime-stinger | canonical baseline
+- embeddings-runtime-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- embeddings-runtime-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\embeddings-runtime-worker-bee.md | canonical baseline
+- embeddings-runtime-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- estimation-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- estimation-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\estimation-stinger | canonical baseline
+- estimation-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- estimation-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- estimation-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\estimation-worker-bee.md | canonical baseline
+- estimation-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- facebook-voice-creator | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\facebook-voice-creator | unpaired or unmatched legacy asset
+- focus-forensics | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\focus-forensics | unpaired or unmatched legacy asset
+- font-loading-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- font-loading-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\font-loading-stinger | canonical baseline
+- font-loading-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- font-loading-weapon | 5/22/2026 11:01:54 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- font-loading-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\font-loading-worker-bee.md | canonical baseline
+- font-loading-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- forge.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- forge.md | 8/15/2026 4:12:53 AM | active-canonical | commands | vibe-coding-tools canonical | commands\forge.md | canonical baseline
+- get-started-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\get-started-stinger | canonical baseline
+- get-started-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- git-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- git-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\git-stinger | canonical baseline
+- git-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- git-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- git-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\git-worker-bee.md | canonical baseline
+- git-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- github-repo-health-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- github-repo-health-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\github-repo-health-stinger | canonical baseline
+- github-repo-health-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- github-repo-health-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- github-repo-health-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\github-repo-health-worker-bee.md | canonical baseline
+- github-repo-health-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- go-stinger | 9/4/2026 10:42:52 PM | active-paired | skills | user global agents | skills\go-stinger | complete pair or additive non-pair asset
+- go-worker-bee.md | 9/4/2026 10:45:37 PM | active-paired | agents | user global agents | agents\go-worker-bee.md | complete pair or additive non-pair asset
+- god | 5/22/2026 11:01:55 PM | quarantine-unpaired-or-legacy | skills | legion-suite cursor | quarantine\skills\god | unpaired or unmatched legacy asset
+- god-registrar | 5/22/2026 11:01:55 PM | quarantine-unpaired-or-legacy | skills | legion-suite cursor | quarantine\skills\god-registrar | unpaired or unmatched legacy asset
+- gods-hand-weapon | 5/22/2026 11:01:55 PM | quarantine-unpaired-or-legacy | skills | legion-suite cursor | quarantine\skills\gods-hand-weapon | unpaired or unmatched legacy asset
+- gods-hand.md | 5/20/2026 11:51:57 PM | quarantine-unpaired-or-legacy | agents | legion-suite cursor | quarantine\agents\gods-hand.md | unpaired or unmatched legacy asset
+- gohighlevel-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\gohighlevel-stinger | canonical baseline
+- gohighlevel-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- gohighlevel-worker-bee.md | 9/4/2026 4:09:36 AM | active-canonical | agents | vibe-coding-tools canonical | agents\gohighlevel-worker-bee.md | canonical baseline
+- gohighlevel-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- harness-integration-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\harness-integration-stinger | canonical baseline
+- harness-integration-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- harness-integration-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\harness-integration-worker-bee.md | canonical baseline
+- harness-integration-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- highlevel-ai-studio-stinger | 9/5/2026 8:41:49 AM | canonical-authority | skills | user global claude | not copied | canonical-authority
+- highlevel-ai-studio-stinger | 9/4/2026 4:12:51 AM | active-canonical | skills | vibe-coding-tools canonical | skills\highlevel-ai-studio-stinger | canonical baseline
+- highlevel-ai-studio-worker-bee.md | 9/4/2026 4:08:50 AM | active-canonical | agents | vibe-coding-tools canonical | agents\highlevel-ai-studio-worker-bee.md | canonical baseline
+- highlevel-ai-studio-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- hiring-ats-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- hiring-ats-stinger | 6/18/2026 5:54:39 AM | active-paired | skills | user global claude | skills\hiring-ats-stinger | complete pair or additive non-pair asset
+- hiring-ats-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- hiring-ats-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\hiring-ats-worker-bee.md | complete pair or additive non-pair asset
+- hive-registrar | 8/14/2026 11:10:33 AM | quarantine-unpaired-or-legacy | skills | user global agents | quarantine\skills\hive-registrar | unpaired or unmatched legacy asset
+- hivenectar-worker-bee.md | 7/1/2026 9:14:24 AM | quarantine-unpaired-or-legacy | agents | the-apiary nectar | quarantine\agents\hivenectar-worker-bee.md | unpaired or unmatched legacy asset
+- hooks.json | 9/3/2026 7:06:25 AM | canonical-authority | hooks | user global claude | not copied | canonical-authority
+- hooks.json | 8/14/2026 9:51:41 PM | active-canonical | hooks | vibe-coding-tools canonical | hooks\hooks.json | canonical baseline
+- hr-payroll-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- hr-payroll-stinger | 6/18/2026 5:54:40 AM | active-paired | skills | user global claude | skills\hr-payroll-stinger | complete pair or additive non-pair asset
+- hr-payroll-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- hr-payroll-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\hr-payroll-worker-bee.md | complete pair or additive non-pair asset
+- http-rest-fundamentals-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- http-rest-fundamentals-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\http-rest-fundamentals-stinger | canonical baseline
+- http-rest-fundamentals-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- http-rest-fundamentals-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- http-rest-fundamentals-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\http-rest-fundamentals-worker-bee.md | canonical baseline
+- http-rest-fundamentals-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- icon-system-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- icon-system-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\icon-system-stinger | canonical baseline
+- icon-system-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- icon-system-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- icon-system-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\icon-system-worker-bee.md | canonical baseline
+- icon-system-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- image-optimization-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- image-optimization-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\image-optimization-stinger | canonical baseline
+- image-optimization-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- image-optimization-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- image-optimization-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\image-optimization-worker-bee.md | canonical baseline
+- image-optimization-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- impeccable-stinger | 9/5/2026 8:53:32 AM | active-canonical | skills | vibe-coding-tools canonical | skills\impeccable-stinger | canonical baseline
+- impeccable-stinger | 9/5/2026 8:53:32 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- impeccable-worker-bee.md | 9/5/2026 8:53:32 AM | active-canonical | agents | vibe-coding-tools canonical | agents\impeccable-worker-bee.md | canonical baseline
+- impeccable-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- incorporation-startup-stack-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- incorporation-startup-stack-stinger | 6/18/2026 5:54:40 AM | active-paired | skills | user global claude | skills\incorporation-startup-stack-stinger | complete pair or additive non-pair asset
+- incorporation-startup-stack-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- incorporation-startup-stack-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\incorporation-startup-stack-worker-bee.md | complete pair or additive non-pair asset
+- investor-cap-table-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- investor-cap-table-stinger | 6/18/2026 5:54:40 AM | active-paired | skills | user global claude | skills\investor-cap-table-stinger | complete pair or additive non-pair asset
+- investor-cap-table-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- investor-cap-table-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\investor-cap-table-worker-bee.md | complete pair or additive non-pair asset
+- invoice-chaser | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\invoice-chaser | unpaired or unmatched legacy asset
+- kanban-flow-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- kanban-flow-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\kanban-flow-stinger | canonical baseline
+- kanban-flow-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- kanban-flow-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- kanban-flow-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\kanban-flow-worker-bee.md | canonical baseline
+- kanban-flow-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- knowledge-base-builder | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\knowledge-base-builder | unpaired or unmatched legacy asset
+- knowledge-base-help-center-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- knowledge-base-help-center-stinger | 6/18/2026 5:54:40 AM | active-paired | skills | user global claude | skills\knowledge-base-help-center-stinger | complete pair or additive non-pair asset
+- knowledge-base-help-center-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- knowledge-base-help-center-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\knowledge-base-help-center-worker-bee.md | complete pair or additive non-pair asset
+- knowledge-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\knowledge-stinger | canonical baseline
+- knowledge-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- knowledge-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\knowledge-worker-bee.md | canonical baseline
+- knowledge-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- lead-harvester | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\lead-harvester | unpaired or unmatched legacy asset
+- learning-capturer | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\learning-capturer | unpaired or unmatched legacy asset
+- legal-docs-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- legal-docs-stinger | 6/18/2026 5:54:40 AM | active-paired | skills | user global claude | skills\legal-docs-stinger | complete pair or additive non-pair asset
+- legal-docs-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- legal-docs-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\legal-docs-worker-bee.md | complete pair or additive non-pair asset
+- library-guardian.md | 5/24/2026 4:25:34 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- library-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\library-stinger | canonical baseline
+- library-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- library-weapon | 5/21/2026 12:01:13 AM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- library-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\library-worker-bee.md | canonical baseline
+- library-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- lifecycle-email-stinger | 9/5/2026 9:53:42 AM | canonical-authority | skills | vibe-coding-tools local cursor | not copied | canonical-authority
+- lifecycle-email-stinger | 9/4/2026 4:13:31 AM | active-canonical | skills | vibe-coding-tools canonical | skills\lifecycle-email-stinger | canonical baseline
+- lifecycle-email-worker-bee.md | 9/4/2026 4:14:45 AM | active-canonical | agents | vibe-coding-tools canonical | agents\lifecycle-email-worker-bee.md | canonical baseline
+- lifecycle-email-worker-bee.toml | 9/5/2026 9:53:41 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- lighthouse-pagespeed-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- lighthouse-pagespeed-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\lighthouse-pagespeed-stinger | canonical baseline
+- lighthouse-pagespeed-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- lighthouse-pagespeed-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- lighthouse-pagespeed-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\lighthouse-pagespeed-worker-bee.md | canonical baseline
+- lighthouse-pagespeed-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- littlebird-voice-creator | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\littlebird-voice-creator | unpaired or unmatched legacy asset
+- live-chat-support-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- live-chat-support-stinger | 6/18/2026 5:54:41 AM | active-paired | skills | user global claude | skills\live-chat-support-stinger | complete pair or additive non-pair asset
+- live-chat-support-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- live-chat-support-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\live-chat-support-worker-bee.md | complete pair or additive non-pair asset
+- lovable-audit-stinger | 8/31/2026 6:53:56 AM | active-paired | skills | user global agents | skills\lovable-audit-stinger | complete pair or additive non-pair asset
+- lovable-audit-worker-bee.md | 8/31/2026 7:05:21 AM | active-paired | agents | user global agents | agents\lovable-audit-worker-bee.md | complete pair or additive non-pair asset
+- mario-voice-skill | 8/18/2026 7:35:55 AM | quarantine-unpaired-or-legacy | skills | user global codex | quarantine\skills\mario-voice-skill | unpaired or unmatched legacy asset
+- markdown-mdx-content-pipeline-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- markdown-mdx-content-pipeline-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\markdown-mdx-content-pipeline-stinger | canonical baseline
+- markdown-mdx-content-pipeline-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- markdown-mdx-content-pipeline-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- markdown-mdx-content-pipeline-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\markdown-mdx-content-pipeline-worker-bee.md | canonical baseline
+- markdown-mdx-content-pipeline-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- mcp-protocol-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\mcp-protocol-stinger | canonical baseline
+- mcp-protocol-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- mcp-protocol-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\mcp-protocol-worker-bee.md | canonical baseline
+- mcp-protocol-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- mcp-tool-docs-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\mcp-tool-docs-stinger | canonical baseline
+- mcp-tool-docs-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- mcp-tool-docs-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\mcp-tool-docs-worker-bee.md | canonical baseline
+- mcp-tool-docs-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- meeting-scribe | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\meeting-scribe | unpaired or unmatched legacy asset
+- mind-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- mind-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\mind-stinger | canonical baseline
+- mind-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- mind-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- mind-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\mind-worker-bee.md | canonical baseline
+- mind-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- modal-toast-dialog-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- modal-toast-dialog-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\modal-toast-dialog-stinger | canonical baseline
+- modal-toast-dialog-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- modal-toast-dialog-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- modal-toast-dialog-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\modal-toast-dialog-worker-bee.md | canonical baseline
+- modal-toast-dialog-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- money-leak-auditor | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\money-leak-auditor | unpaired or unmatched legacy asset
+- natural-photography-stinger | 8/18/2026 2:21:14 AM | active-paired | skills | user global codex | skills\natural-photography-stinger | complete pair or additive non-pair asset
+- natural-photography-worker-bee.toml | 8/18/2026 2:26:34 AM | active-paired | agents | user global codex | agents\natural-photography-worker-bee.toml | complete pair or additive non-pair asset
+- neon-drizzle-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\neon-drizzle-stinger | canonical baseline
+- neon-drizzle-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- neon-drizzle-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\neon-drizzle-worker-bee.md | canonical baseline
+- neon-drizzle-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- newsletter-platform-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- newsletter-platform-stinger | 6/18/2026 5:54:41 AM | active-paired | skills | user global claude | skills\newsletter-platform-stinger | complete pair or additive non-pair asset
+- newsletter-platform-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- newsletter-platform-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\newsletter-platform-worker-bee.md | complete pair or additive non-pair asset
+- no-em-dashes.md | 8/14/2026 9:51:15 PM | active-canonical | rules | vibe-coding-tools canonical | rules\no-em-dashes.md | canonical baseline
+- no-em-dashes.md | 8/14/2026 9:51:15 PM | canonical-authority | rules | user global claude | not copied | canonical-authority
+- okr-goal-setting-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- okr-goal-setting-stinger | 6/18/2026 5:54:41 AM | active-paired | skills | user global claude | skills\okr-goal-setting-stinger | complete pair or additive non-pair asset
+- okr-goal-setting-weapon | 5/22/2026 11:01:55 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- okr-goal-setting-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\okr-goal-setting-worker-bee.md | complete pair or additive non-pair asset
+- osint-investigator | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\osint-investigator | unpaired or unmatched legacy asset
+- ospry-main-guard.mjs | 9/2/2026 6:27:06 AM | active-additive | hooks | user global claude | hooks\ospry-main-guard.mjs | complete pair or additive non-pair asset
+- payments-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- payments-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\payments-stinger | canonical baseline
+- payments-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- payments-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- payments-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\payments-worker-bee.md | canonical baseline
+- payments-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- plan-construction-protocol.md | 8/14/2026 9:51:15 PM | active-canonical | rules | vibe-coding-tools canonical | rules\plan-construction-protocol.md | canonical baseline
+- plan-construction-protocol.md | 8/14/2026 9:51:15 PM | canonical-authority | rules | user global claude | not copied | canonical-authority
+- posthog-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\posthog-stinger | canonical baseline
+- posthog-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- posthog-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\posthog-worker-bee.md | canonical baseline
+- posthog-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- pr-conflict-check.md | 8/14/2026 9:51:15 PM | active-canonical | rules | vibe-coding-tools canonical | rules\pr-conflict-check.md | canonical baseline
+- pr-conflict-check.md | 8/14/2026 9:51:15 PM | canonical-authority | rules | user global claude | not copied | canonical-authority
+- pre-call-prep | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\pre-call-prep | unpaired or unmatched legacy asset
+- preact-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- preact-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\preact-stinger | canonical baseline
+- preact-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- preact-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- preact-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\preact-worker-bee.md | canonical baseline
+- preact-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- product-feedback-roadmap-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- product-feedback-roadmap-stinger | 6/18/2026 5:54:42 AM | active-paired | skills | user global claude | skills\product-feedback-roadmap-stinger | complete pair or additive non-pair asset
+- product-feedback-roadmap-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- product-feedback-roadmap-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\product-feedback-roadmap-worker-bee.md | complete pair or additive non-pair asset
+- product-tour-onboarding-ui-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- product-tour-onboarding-ui-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\product-tour-onboarding-ui-stinger | canonical baseline
+- product-tour-onboarding-ui-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- product-tour-onboarding-ui-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- product-tour-onboarding-ui-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\product-tour-onboarding-ui-worker-bee.md | canonical baseline
+- product-tour-onboarding-ui-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- python-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- python-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\python-stinger | canonical baseline
+- python-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- python-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- python-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\python-worker-bee.md | canonical baseline
+- python-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- quality-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- quality-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\quality-stinger | canonical baseline
+- quality-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- quality-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- quality-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\quality-worker-bee.md | canonical baseline
+- quality-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- queen-bee-stinger | 9/5/2026 8:53:32 AM | active-canonical | skills | vibe-coding-tools canonical | skills\queen-bee-stinger | canonical baseline
+- queen-bee-stinger | 9/5/2026 8:53:32 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- re-research.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- re-research.md | 8/15/2026 4:13:36 AM | active-canonical | commands | vibe-coding-tools canonical | commands\re-research.md | canonical baseline
+- react-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- react-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\react-stinger | canonical baseline
+- react-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- react-to-svelte-stinger | 9/4/2026 10:57:51 PM | active-paired | skills | user global agents | skills\react-to-svelte-stinger | complete pair or additive non-pair asset
+- react-to-svelte-worker-bee.md | 9/4/2026 10:45:38 PM | active-paired | agents | user global agents | agents\react-to-svelte-worker-bee.md | complete pair or additive non-pair asset
+- react-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- react-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\react-worker-bee.md | canonical baseline
+- react-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- readme-writing-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- readme-writing-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\readme-writing-stinger | canonical baseline
+- readme-writing-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- readme-writing-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- readme-writing-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\readme-writing-worker-bee.md | canonical baseline
+- readme-writing-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- register.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- register.md | 8/15/2026 4:13:14 AM | active-canonical | commands | vibe-coding-tools canonical | commands\register.md | canonical baseline
+- renewal-sentinel | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\renewal-sentinel | unpaired or unmatched legacy asset
+- research-synthesizer | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\research-synthesizer | unpaired or unmatched legacy asset
+- respect-agent-work-boundaries.md | 8/14/2026 9:51:15 PM | active-canonical | rules | vibe-coding-tools canonical | rules\respect-agent-work-boundaries.md | canonical baseline
+- respect-agent-work-boundaries.md | 8/14/2026 9:51:15 PM | canonical-authority | rules | user global claude | not copied | canonical-authority
+- retrieval-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\retrieval-stinger | canonical baseline
+- retrieval-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- retrieval-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\retrieval-worker-bee.md | canonical baseline
+- retrieval-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- retrospective-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- retrospective-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\retrospective-stinger | canonical baseline
+- retrospective-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- retrospective-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- retrospective-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\retrospective-worker-bee.md | canonical baseline
+- retrospective-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- review-funnels-g2-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- review-funnels-g2-stinger | 6/18/2026 5:54:43 AM | active-paired | skills | user global claude | skills\review-funnels-g2-stinger | complete pair or additive non-pair asset
+- review-funnels-g2-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- review-funnels-g2-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\review-funnels-g2-worker-bee.md | complete pair or additive non-pair asset
+- router-model-grok-oauth-grok-4-5.toml | 8/19/2026 10:02:02 PM | quarantine-unpaired-or-legacy | agents | user global codex | quarantine\agents\router-model-grok-oauth-grok-4-5.toml | unpaired or unmatched legacy asset
+- router-model-kimi-oauth-k3.toml | 8/19/2026 10:02:02 PM | quarantine-unpaired-or-legacy | agents | user global codex | quarantine\agents\router-model-kimi-oauth-k3.toml | unpaired or unmatched legacy asset
+- router-model-kimi-oauth-kimi-for-coding-highspeed.toml | 8/19/2026 10:02:02 PM | quarantine-unpaired-or-legacy | agents | user global codex | quarantine\agents\router-model-kimi-oauth-kimi-for-coding-highspeed.toml | unpaired or unmatched legacy asset
+- router-model-kimi-oauth-kimi-for-coding.toml | 8/19/2026 10:02:02 PM | quarantine-unpaired-or-legacy | agents | user global codex | quarantine\agents\router-model-kimi-oauth-kimi-for-coding.toml | unpaired or unmatched legacy asset
+- routine-architect | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\routine-architect | unpaired or unmatched legacy asset
+- runbook-writing-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- runbook-writing-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\runbook-writing-stinger | canonical baseline
+- runbook-writing-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- runbook-writing-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- runbook-writing-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\runbook-writing-worker-bee.md | canonical baseline
+- runbook-writing-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- rust-stinger | 9/5/2026 9:53:42 AM | canonical-authority | skills | vibe-coding-tools local cursor | not copied | canonical-authority
+- rust-stinger | 9/5/2026 9:53:41 AM | active-canonical | skills | vibe-coding-tools canonical | skills\rust-stinger | canonical baseline
+- rust-worker-bee.md | 9/5/2026 9:53:42 AM | canonical-authority | agents | vibe-coding-tools local cursor | not copied | canonical-authority
+- rust-worker-bee.md | 9/5/2026 9:53:41 AM | active-canonical | agents | vibe-coding-tools canonical | agents\rust-worker-bee.md | canonical baseline
+- said-it-already | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\said-it-already | unpaired or unmatched legacy asset
+- screenpipe-api | 9/2/2026 3:15:36 AM | quarantine-unpaired-or-legacy | skills | user global claude | quarantine\skills\screenpipe-api | unpaired or unmatched legacy asset
+- screenpipe-cli | 8/29/2026 10:54:28 PM | quarantine-unpaired-or-legacy | skills | user global claude | quarantine\skills\screenpipe-cli | unpaired or unmatched legacy asset
+- scripture-historian.md | 5/20/2026 11:51:57 PM | quarantine-unpaired-or-legacy | agents | legion-suite cursor | quarantine\agents\scripture-historian.md | unpaired or unmatched legacy asset
+- security-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- security-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\security-stinger | canonical baseline
+- security-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- security-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- security-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\security-worker-bee.md | canonical baseline
+- security-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- sentry-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\sentry-stinger | canonical baseline
+- sentry-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- sentry-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\sentry-worker-bee.md | canonical baseline
+- sentry-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- seo-aeo-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- seo-aeo-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\seo-aeo-stinger | canonical baseline
+- seo-aeo-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- seo-aeo-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- seo-aeo-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\seo-aeo-worker-bee.md | canonical baseline
+- seo-aeo-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- shadcn-svelte-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\shadcn-svelte-stinger | canonical baseline
+- shadcn-svelte-stinger | 9/4/2026 10:48:42 PM | canonical-authority | skills | user global agents | not copied | canonical-authority
+- shadcn-svelte-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\shadcn-svelte-worker-bee.md | canonical baseline
+- shadcn-svelte-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- ship-gate.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- ship-gate.md | 8/15/2026 4:13:02 AM | active-canonical | commands | vibe-coding-tools canonical | commands\ship-gate.md | canonical baseline
+- skill-suggester | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\skill-suggester | unpaired or unmatched legacy asset
+- slack-app-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- slack-app-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\slack-app-stinger | canonical baseline
+- slack-app-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- slack-app-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- slack-app-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\slack-app-worker-bee.md | canonical baseline
+- slack-app-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- social-media-marketing-organic-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- social-media-marketing-organic-stinger | 6/18/2026 5:54:43 AM | active-paired | skills | user global claude | skills\social-media-marketing-organic-stinger | complete pair or additive non-pair asset
+- social-media-marketing-organic-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- social-media-marketing-organic-worker-bee.md | 6/18/2026 5:54:35 AM | active-paired | agents | user global claude | agents\social-media-marketing-organic-worker-bee.md | complete pair or additive non-pair asset
+- sop-forge | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\sop-forge | unpaired or unmatched legacy asset
+- status-page-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- status-page-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\status-page-stinger | canonical baseline
+- status-page-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- status-page-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- status-page-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\status-page-worker-bee.md | canonical baseline
+- status-page-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- summary-state | 7/19/2026 9:14:31 PM | active-additive | hooks | user global claude | hooks\summary-state | complete pair or additive non-pair asset
+- support-response-stinger | 9/5/2026 9:53:42 AM | canonical-authority | skills | vibe-coding-tools local cursor | not copied | canonical-authority
+- support-response-stinger | 9/4/2026 4:23:40 AM | quarantine-unpaired-or-legacy | skills | vibe-coding-tools canonical | quarantine\skills\support-response-stinger | unpaired or unmatched legacy asset
+- svelte-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\svelte-stinger | canonical baseline
+- svelte-stinger | 9/4/2026 10:48:41 PM | canonical-authority | skills | user global agents | not copied | canonical-authority
+- svelte-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\svelte-worker-bee.md | canonical baseline
+- svelte-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- tailscale-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\tailscale-stinger | canonical baseline
+- tailscale-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- tailscale-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\tailscale-worker-bee.md | canonical baseline
+- tailscale-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- tailwind-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\tailwind-stinger | canonical baseline
+- tailwind-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- tailwind-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\tailwind-worker-bee.md | canonical baseline
+- tailwind-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- tanstack-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\tanstack-stinger | canonical baseline
+- tanstack-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- tanstack-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\tanstack-worker-bee.md | canonical baseline
+- tanstack-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- tauri-stinger | 9/5/2026 9:53:42 AM | canonical-authority | skills | vibe-coding-tools local cursor | not copied | canonical-authority
+- tauri-stinger | 9/5/2026 9:53:41 AM | active-canonical | skills | vibe-coding-tools canonical | skills\tauri-stinger | canonical baseline
+- tauri-worker-bee.md | 9/5/2026 9:53:42 AM | canonical-authority | agents | vibe-coding-tools local cursor | not copied | canonical-authority
+- tauri-worker-bee.md | 9/5/2026 9:53:41 AM | active-canonical | agents | vibe-coding-tools canonical | agents\tauri-worker-bee.md | canonical baseline
+- technical-writing-craft-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- technical-writing-craft-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\technical-writing-craft-stinger | canonical baseline
+- technical-writing-craft-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- technical-writing-craft-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- technical-writing-craft-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\technical-writing-craft-worker-bee.md | canonical baseline
+- technical-writing-craft-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- telegram-bot-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- telegram-bot-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\telegram-bot-stinger | canonical baseline
+- telegram-bot-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- telegram-bot-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- telegram-bot-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\telegram-bot-worker-bee.md | canonical baseline
+- telegram-bot-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- terminal-bash-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- terminal-bash-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\terminal-bash-stinger | canonical baseline
+- terminal-bash-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- terminal-bash-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- terminal-bash-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\terminal-bash-worker-bee.md | canonical baseline
+- terminal-bash-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- testimonial-miner | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\testimonial-miner | unpaired or unmatched legacy asset
+- thanos-gauntlet-glove | 8/14/2026 11:10:36 AM | quarantine-unpaired-or-legacy | skills | user global agents | quarantine\skills\thanos-gauntlet-glove | unpaired or unmatched legacy asset
+- the-beekeeper | 9/5/2026 8:56:11 AM | renamed-command | skills | vibe-coding-tools local agents | not copied | renamed-command
+- the-beekeeper.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- the-beekeeper.md | 8/15/2026 12:42:12 AM | canonical-remapped | commands | vibe-coding-tools canonical | commands/beekeeper.md | renamed to beekeeper
+- the-smoker | 9/5/2026 8:56:11 AM | renamed-command | skills | vibe-coding-tools local agents | not copied | renamed-command
+- the-smoker.md | 9/5/2026 8:55:24 AM | canonical-authority | commands | vibe-coding-tools local cursor | not copied | canonical-authority
+- the-smoker.md | 8/15/2026 12:42:12 AM | canonical-remapped | commands | vibe-coding-tools canonical | commands/smoke-it.md | renamed to smoke-it
+- typescript-node-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\typescript-node-stinger | canonical baseline
+- typescript-node-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- typescript-node-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\typescript-node-worker-bee.md | canonical baseline
+- typescript-node-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- typography-font-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- typography-font-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\typography-font-stinger | canonical baseline
+- typography-font-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- typography-font-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- typography-font-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\typography-font-worker-bee.md | canonical baseline
+- typography-font-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- ux-ui-guardian.md | 5/23/2026 2:04:09 AM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- ux-ui-stinger | 6/18/2026 5:54:44 AM | active-paired | skills | user global claude | skills\ux-ui-stinger | complete pair or additive non-pair asset
+- ux-ui-svelte-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\ux-ui-svelte-stinger | canonical baseline
+- ux-ui-svelte-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- ux-ui-svelte-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\ux-ui-svelte-worker-bee.md | canonical baseline
+- ux-ui-svelte-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- ux-ui-weapon | 5/21/2026 12:01:14 AM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- ux-ui-worker-bee.md | 6/18/2026 5:58:52 AM | active-paired | agents | user global claude | agents\ux-ui-worker-bee.md | complete pair or additive non-pair asset
+- vector-store-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\vector-store-stinger | canonical baseline
+- vector-store-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- vector-store-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\vector-store-worker-bee.md | canonical baseline
+- vector-store-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- vercel-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\vercel-stinger | canonical baseline
+- vercel-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- vercel-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\vercel-worker-bee.md | canonical baseline
+- vercel-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- weapon-forge | 5/22/2026 11:01:56 PM | quarantine-unpaired-or-legacy | skills | legion-suite cursor | quarantine\skills\weapon-forge | unpaired or unmatched legacy asset
+- website-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- website-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\website-stinger | canonical baseline
+- website-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- website-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- website-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\website-worker-bee.md | canonical baseline
+- website-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- weekly-review | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\weekly-review | unpaired or unmatched legacy asset
+- who-am-i-ghosting | 8/17/2026 12:21:46 PM | quarantine-unpaired-or-legacy | skills | littlebird-skills | quarantine\skills\who-am-i-ghosting | unpaired or unmatched legacy asset
+- wiki-guardian.md | 5/20/2026 11:51:57 PM | superseded-legacy | agents | legion-suite cursor | not copied | superseded-legacy
+- wiki-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\wiki-stinger | canonical baseline
+- wiki-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- wiki-weapon | 5/22/2026 11:01:56 PM | superseded-legacy | skills | legion-suite cursor | not copied | superseded-legacy
+- wiki-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\wiki-worker-bee.md | canonical baseline
+- wiki-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority
+- workos-stinger | 9/4/2026 3:51:33 AM | active-canonical | skills | vibe-coding-tools canonical | skills\workos-stinger | canonical baseline
+- workos-stinger | 9/4/2026 3:51:33 AM | canonical-authority | skills | vibe-coding-tools local agents | not copied | canonical-authority
+- workos-worker-bee.md | 9/4/2026 3:51:33 AM | active-canonical | agents | vibe-coding-tools canonical | agents\workos-worker-bee.md | canonical baseline
+- workos-worker-bee.toml | 9/5/2026 8:55:24 AM | canonical-authority | agents | vibe-coding-tools local codex | not copied | canonical-authority

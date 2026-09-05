@@ -1,0 +1,24 @@
+{
+  "case": "B_scene",
+  "written_utc": "2026-09-04T11:41:15.490066+00:00",
+  "source_frame": null,
+  "output": "C:\\Users\\mario\\Desktop\\Projects\\Mario Aldayuz (Personal)\\Headshots\\Mario Aldayuz - Loom Zoom Avatar.jpg",
+  "output_sha256": "c649b1a09ec9af70bf5d7e607552b03de5943e8d679a98d6919cf2d901a35e53",
+  "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "profile": {
+    "FocalLength": "85",
+    "FocalLengthIn35mmFormat": "85",
+    "FNumber": "4.0",
+    "ExposureTime": "1/160",
+    "ISO": "200",
+    "ExposureProgram": "3",
+    "MeteringMode": "5",
+    "WhiteBalance": "0",
+    "Flash": "16",
+    "ColorSpace": "1",
+    "Orientation": "Horizontal (normal)",
+    "Artist": "Mario Aldayuz",
+    "Copyright": "Copyright Mario Aldayuz 2026"
+  },
+  "capture_identity_written": false
+}

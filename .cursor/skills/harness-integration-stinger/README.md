@@ -1,5 +1,0 @@
-# harness-integration-stinger
-
-The cross-harness capability integration playbook for `harness-integration-worker-bee`. Covers wiring one capability across The Hive's four harnesses (Claude Code, Cursor, ChatGPT Codex, Claude Cowork) - per-harness component placement, the wiring-mechanism decision (hooks, MCP, native extension, plain instruction file), hook/lifecycle events per harness, MCP registration per harness, capability detection and graceful degradation, and cross-harness portability (spec-six skill frontmatter, AGENTS.md baseline, plugin manifest differences) - with research-backed, opinionated guidance on the top integration failure modes. Includes a fully preserved worked case study of a real six-host integration (Hivemind: Claude Code, Codex, Cursor, Hermes, pi, OpenClaw), the product this stinger was originally built around.
-
-See the [Command Brief](../../command-briefs/harness-

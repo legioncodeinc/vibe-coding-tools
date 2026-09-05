@@ -1,6 +1,0 @@
-interface:
-  display_name: "the-smoker"
-  short_description: "Run the repository delivery pipeline from planning through verified review."
-  default_prompt: "Use $the-smoker for this request."
-policy:
-  allow_implicit_invocation: false
