@@ -28,7 +28,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 
 ## Roster
 
-82 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+87 Bees registered, sorted into domain groups. The Domain column is a one-line summary of the Bee's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -44,6 +44,7 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `python-worker-bee` | Python architecture: Django + Django Ninja + FastAPI + Celery + Channels + pytest + uv, ORM discipline, migrations, typed adoption | "review this Django code", "audit ORM patterns", "migrate DRF to Django Ninja", "set up Celery" | `python-stinger` |
 | `rust-worker-bee` | Rust implementation and code review for production Cargo workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, Rust tests, and local packaging evidence | "implement this in Rust", "review this Cargo workspace", "fix this Tokio or SQLx service", "audit this SQLx transaction", "build the approved Rust PRD slice" | `rust-stinger` |
 | `tauri-worker-bee` | Tauri 2 application boundary: update reviews, v1 migration, typed IPC, capabilities, plugins, sidecars, updater behavior, and desktop/mobile AI integration | "build a Tauri 2 desktop app", "what changed in Tauri 2", "migrate Tauri v1 to v2", "bundle a local model sidecar" | `tauri-stinger` |
+| `electron-app-worker-bee` | Electron desktop applications: main, preload, renderer, IPC, sandbox, permissions, packaging, and native verification | "build an Electron app", "Electron preload", "Electron IPC", "package Electron" | `electron-app-stinger` |
 | `ux-ui-svelte-worker-bee` | Enforces this repo's SvelteKit UI standard: shadcn-svelte on Bits UI plus Melt UI, Tailwind v4 token bridge, white-label brand contract. Impeccable remains the primary router for UI/design implementation | "add a Button", "copy in this shadcn-svelte component", "convert this bespoke style to Tailwind", "does the white-label still work" | `ux-ui-svelte-stinger` |
 | `dark-mode-theming-worker-bee` | Dark-mode theming: CSS variable token architecture, theme-provider wiring, FOWT prevention, SSR hydration safety, Tailwind v4 dark variant | "set up dark mode", "dark mode on SSR", "multi-brand theming", "FOWT fix" | `dark-mode-theming-stinger` |
 | `modal-toast-dialog-worker-bee` | Accessible overlay primitives: dialog, alert dialog, drawer, toast, command menu; focus trap, escape, scroll lock, aria contract | "choosing between overlay primitives", "debugging focus trap regressions", "building a command palette" | `modal-toast-dialog-stinger` |
@@ -56,6 +57,13 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 | `impeccable-worker-bee` | Frontend-design operating system for all UI/UX/design implementation, redesign, refinement, new surfaces, components, and design-system capture. Runs Start -> Iterate -> Polish -> Maintain, the context contract, and the deterministic detector gate | "polish the pricing page", "build a dashboard", "redo this hero", "make this not look like AI slop", "design a settings screen", "audit this UI" | `impeccable-stinger` |
 | `http-rest-fundamentals-worker-bee` | HTTP/REST protocol correctness: method safety and idempotency, status-code honesty, headers, conditional and range requests | "is this status code correct", "why is CORS failing", "explain preflight", "PUT vs PATCH" | `http-rest-fundamentals-stinger` |
 | `image-optimization-worker-bee` | Image delivery: AVIF/WebP format selection, responsive srcset/sizes, blur placeholders, remote image config, CLI tooling | "optimize my images", "convert to AVIF", "fix layout shift from images", "audit our images" | `image-optimization-stinger` |
+
+### Browser and desktop engineering
+
+| Bee | Domain | Trigger keywords | Paired Stinger |
+|---|---|---|---|
+| `browser-automation-worker-bee` | Playwright and Puppeteer automation: browser tests, scripts, traces, screenshots, browser installs, and CI reliability | "write a Playwright test", "Puppeteer script", "browser automation", "Playwright browser install" | `browser-automation-stinger` |
+| `chrome-chromium-worker-bee` | Chrome DevTools Protocol and Chromium engineering: remote debugging, developer profiles, protocol inspection, source builds, and browser-engine diagnosis | "Chrome DevTools Protocol", "remote debugging Chrome", "Chromium build", "debug Chromium" | `chrome-chromium-stinger` |
 
 ### Data and persistence
 
@@ -79,6 +87,8 @@ Three skills sit above the pairing law because they are orchestrator level, not 
 |---|---|---|---|
 | `payments-worker-bee` | Stripe integration for SvelteKit on Vercel: custom checkout via Elements, Payment Intents, subscriptions, webhook verification | "integrate Stripe", "build a custom checkout", "add the Payment Element", "webhook isn't firing" | `payments-stinger` |
 | `gohighlevel-worker-bee` | GoHighLevel API integration: OAuth vs Private Integration Tokens, contacts/opportunities/pipelines, webhooks, workflows, Marketplace apps | "integrate GoHighLevel", "wire up a GHL webhook", "push leads into GoHighLevel", "GoHighLevel OAuth" | `gohighlevel-stinger` |
+| `elevenlabs-api-worker-bee` | ElevenLabs API integration: speech, voices, streaming, usage metadata, and safe server boundaries | "integrate ElevenLabs", "ElevenLabs text to speech", "ElevenLabs streaming", "ElevenLabs API key" | `elevenlabs-api-stinger` |
+| `heygen-api-worker-bee` | HeyGen API integration: asynchronous video jobs, avatars, assets, webhooks, limits, and safe delivery | "integrate HeyGen", "HeyGen API", "HeyGen video generation", "HeyGen webhook" | `heygen-api-stinger` |
 | `highlevel-ai-studio-worker-bee` | HighLevel AI Studio and AI creation: Vibe sites, Content AI selection, Visual Edits, Code Editor, forms, calendars, publishing, domains, SEO, and troubleshooting | "HighLevel AI Studio", "AI Content Studio", "AI website builder", "HighLevel vibe code", "AI Studio form" | `highlevel-ai-studio-stinger` |
 
 ### Communication and bots
