@@ -1,25 +1,27 @@
 # Pairing audit
 
-Ground truth pulled from the filesystem on 2026-09-05, after the Rust and Tauri forge pass. This file is a record of current state, refreshed whenever the colony changes.
+Ground truth pulled from the filesystem on 2026-09-05, after the API and browser-desktop forge pass. This file is a record of current state, refreshed whenever the colony changes.
 
 ## Totals
 
-- Bees (`.claude/agents/*.md`): **82**
-- Stinger folders (`.claude/skills/*`): **85**
+- Active Bee files (`src/agents/*-worker-bee.{md,toml}`): **114**
+- Active Stinger folders (`src/skills/*/SKILL.md`): **117**
 - Orchestrator-level skills with no paired Bee by design: **3** (`beekeeper-suit`, `queen-bee-stinger`, `get-started-stinger`)
-- Pairable Stingers: **82**
+- Pairable Stingers: **114**
 
 ## Pairing integrity
 
 Clean. Every Bee has a matching Stinger and every pairable Stinger has a matching Bee, verified in both directions by naming convention. Zero orphans.
 
-Every Bee also has a routing guide at `guides/<bee-name>.md`. 82 Bees, 82 guides, one-to-one.
+All 114 active Bee base names have matching pairable Stinger base names. The current Beekeeper roster has 87 registered routing guides. The remaining 27 active source-package pairs predate this forge and are not represented in the roster; they are an existing registration backlog, not evidence that the five pairs forged here are unregistered.
 
 ## New additions
 
 `rust-worker-bee` / `rust-stinger` was ported in from a prior fork and registered here: Rust implementation and code review for Cargo workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, tests, and local packaging evidence.
 
 `tauri-worker-bee` / `tauri-stinger` was forged in the 2026-09-03 research window: current Tauri 2 impact review, v1 migration, typed IPC, capabilities, plugins, sidecars, updater behavior, and desktop/mobile AI integration. It is deliberately bounded to the Tauri application boundary and hands general Rust implementation to `rust-worker-bee`.
+
+`elevenlabs-api-worker-bee` / `elevenlabs-api-stinger`, `heygen-api-worker-bee` / `heygen-api-stinger`, `electron-app-worker-bee` / `electron-app-stinger`, `browser-automation-worker-bee` / `browser-automation-stinger`, and `chrome-chromium-worker-bee` / `chrome-chromium-stinger` were forged in the 2026-09-05 research window. Each carries a distinct primary-source archive, distillation, guide, and routing boundary. Docker and Compose remain owned by the existing `devops-worker-bee` / `devops-stinger` pair and were not duplicated.
 
 The pre-existing `archivist-worker-bee` / `archivist-stinger` and `lifecycle-email-worker-bee` / `lifecycle-email-stinger` pairs now have their previously missing Beekeeper routing guides and roster rows. `competitive-research-worker-bee` / `competitive-research-stinger` now also has its missing routing guide.
 
@@ -53,7 +55,7 @@ All routing references to the renamed `deeplake-dataset-worker-bee` were repaire
 
 ## Validation
 
-All 85 Stingers pass `per-type-validation.py --type skill --harness all` with zero errors. All 82 Bees pass `--type agent --harness claude-code` with zero errors. Remaining warnings are repo-wide patterns, not defects: descriptions above Cowork's 200 character soft cap on some legacy skills, and the `proactive` frontmatter field, which every Bee in this colony uses.
+All five new Stingers pass `per-type-validation.py --type skill --harness all` from the canonical source and generated `.agents/skills` and `.cursor/skills` mirrors with zero errors and warnings. Their Bee files pass the same validator with zero errors; the known Cursor advisory is that the Claude-compatible `tools` field is ignored by Cursor. The generated Codex TOML agent files parse successfully. Existing source-package coverage outside this forge remains a separate baseline audit concern.
 
 ## Dead reference repair
 
