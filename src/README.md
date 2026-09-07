@@ -1,6 +1,6 @@
 # Honeybee source package
 
-This folder is the normalized, portable source package assembled from the audited local libraries and attached repositories. It does not replace any source directory. Every imported active asset has a recorded origin, and every legacy or incomplete agent or skill lives separately under `quarantine/`.
+This folder is the canonical, portable source package assembled from the audited local libraries and attached repositories. Installed harness folders are disposable outputs generated from this source. Every imported active asset has a recorded origin, and every legacy or incomplete agent or skill lives separately under `quarantine/`.
 
 ## Start here
 
@@ -17,3 +17,7 @@ This folder is the normalized, portable source package assembled from the audite
 Active assets are in `agents/`, `skills/`, `commands/`, `hooks/`, and `rules/`. Quarantine contains only unpaired or unresolved legacy agents and skills. It is not part of an installable hive.
 
 Internal navigation in active commands, agents, and skill entrypoints uses paths relative to this package. Historical research sources and literal external harness locations retain their original text when changing them would alter source evidence or instructions about a third-party product.
+
+## Harness source templates
+
+Keep shared harness entry files and manifests in [`harnesses/`](harnesses/). The generator can materialize these templates alongside local adapters. Root harness folders and generated entry files are ignored and must not be committed.

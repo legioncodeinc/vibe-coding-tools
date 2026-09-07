@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Cursor and Codex distributions from the canonical Claude assets.
+"""Generate Cursor and Codex distributions from the canonical source package.
 
 Run from the repository root. The script deliberately keeps research archives
 unchanged while translating active instructions and component metadata.
@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import stat
 import tempfile
 from collections.abc import Callable
 from pathlib import Path
@@ -17,14 +18,17 @@ from uuid import uuid4
 
 
 ROOT = Path(__file__).resolve().parents[2]
-CLAUDE = ROOT / ".claude"
+SOURCE = ROOT / "src"
+# Keep the established helper name because src/ retains the Claude-shaped
+# agents/, skills/, commands/, hooks/, and model-comparison-matrix.md layout.
+CLAUDE = SOURCE
 CURSOR = ROOT / ".cursor"
 CODEX = ROOT / ".codex"
 AGENTS = ROOT / ".agents"
 CODEX_PLUGIN = CODEX / "plugins" / "vibe-coding-tools"
 CODEX_COMMAND_TRANSLATIONS = {
-    "the-beekeeper": "the-beekeeper.md",
-    "the-smoker": "the-smoker.md",
+    "the-beekeeper": "beekeeper.md",
+    "the-smoker": "smoke-it.md",
 }
 
 
@@ -359,6 +363,50 @@ def generate_codex_plugin() -> None:
     shutil.copy2(CLAUDE / "model-comparison-matrix.md", CODEX_PLUGIN / "model-comparison-matrix.md")
 
 
+def require_plain_template_path(path: Path, label: str) -> None:
+    """Reject links and Windows reparse points along a template path."""
+    require_repo_path(path, label)
+    root = ROOT.absolute()
+    candidate = path.absolute()
+    try:
+        candidate.relative_to(root)
+    except ValueError as error:
+        raise ValueError(f"Refusing {label} outside repository: {path}") from error
+    while True:
+        try:
+            metadata = candidate.lstat()
+        except FileNotFoundError:
+            pass
+        else:
+            reparse_point = getattr(metadata, "st_file_attributes", 0) & getattr(
+                stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400
+            )
+            if stat.S_ISLNK(metadata.st_mode) or reparse_point:
+                raise ValueError(f"Refusing link or reparse point in {label}: {candidate}")
+        if candidate == root:
+            break
+        candidate = candidate.parent
+
+
+def generate_source_templates() -> None:
+    """Materialize optional harness entry points from their source templates."""
+    templates = (
+        (SOURCE / "harnesses" / "claude" / "CLAUDE.md", ROOT / "CLAUDE.md"),
+        (
+            SOURCE / "harnesses" / "codex" / "marketplace.json",
+            AGENTS / "plugins" / "marketplace.json",
+        ),
+    )
+    for source, target in templates:
+        require_plain_template_path(source, "harness source template")
+        if not source.exists():
+            continue
+        require_plain_template_path(target, "generated harness entry point")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        require_plain_template_path(target, "generated harness entry point")
+        shutil.copy2(source, target)
+
+
 def generate_catalog() -> None:
     agents = sorted((CLAUDE / "agents").glob("*.md"))
     skills = sorted(
@@ -380,8 +428,8 @@ def generate_catalog() -> None:
         if expected not in skill_names:
             expected = "beekeeper-suit" if bee == "beekeeper" else expected
         rows.append(
-            f"| [{bee}](../.claude/agents/{agent.name}) | "
-            f"[{expected}](../.claude/skills/{expected}/) | "
+            f"| [{bee}](../src/agents/{agent.name}) | "
+            f"[{expected}](../src/skills/{expected}/) | "
             f"[TOML](../.codex/agents/{agent.stem}.toml) |"
         )
     utilities = sorted(skill_names - {
@@ -390,7 +438,7 @@ def generate_catalog() -> None:
     text = "\n".join([
         "# Asset Catalog",
         "",
-        "This file is generated from the canonical `.claude` tree. Do not maintain the roster by hand.",
+        "This file is generated from the canonical `src/` source package. Do not maintain the roster by hand.",
         "",
         "## Exact manifest",
         "",
@@ -428,7 +476,7 @@ def generate_catalog() -> None:
         "",
         "## Utility skills",
         "",
-        *[f"- [{name}](../.claude/skills/{name}/)" for name in utilities],
+        *[f"- [{name}](../src/skills/{name}/)" for name in utilities],
         "",
         "Regenerate with `python learn/scripts/generate-harnesses.py`.",
         "",
@@ -437,8 +485,9 @@ def generate_catalog() -> None:
 
 
 def main() -> None:
-    if not CLAUDE.is_dir():
-        raise SystemExit("Run this script from a Vibe Coding Tools checkout.")
+    if not SOURCE.is_dir():
+        raise SystemExit("Run this script from a Vibe Coding Tools checkout with src/ available.")
+    generate_source_templates()
     generate_cursor()
     generate_agents()
     generate_codex_project()

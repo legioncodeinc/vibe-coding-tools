@@ -59,7 +59,7 @@ The three unpaired utility skills coordinate the system rather than represent a 
 | Cursor | `.cursor/agents/*.md` |
 | Codex | `.codex/agents/*.toml` |
 
-Codex TOML files contain `name`, `description`, and `developer_instructions`. They preserve the Bee's full instructions in Codex's supported project-agent format. The generator creates all 82 from the canonical Claude sources.
+Codex TOML files contain `name`, `description`, and `developer_instructions`. They preserve the Bee's full instructions in Codex's supported project-agent format. The generator creates all 82 from the canonical `src/agents/` sources.
 
 ## Safe delegation
 
@@ -79,7 +79,7 @@ Do not have several agents edit the same file at once. Do not use delegation to 
 1. Confirm an existing Bee does not already own the domain.
 2. Define one narrow responsibility and explicit exclusions.
 3. Create the matching Stinger first or as part of the same change.
-4. Add the canonical Markdown agent under `.claude/agents/`.
+4. Add the canonical Markdown agent under `src/agents/`.
 5. Register the pair in `beekeeper-suit`.
 6. Run `python learn/scripts/generate-harnesses.py`.
 7. Verify the Claude, Cursor, and Codex versions preserve the same intent.

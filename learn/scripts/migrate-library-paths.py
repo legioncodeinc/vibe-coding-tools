@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 EXCLUDED_PARTS = {"references/research/raw"}
-EXCLUDED_ROOT = ROOT / ".claude" / "skills" / "library-stinger"
+EXCLUDED_ROOT = ROOT / "src" / "skills" / "library-stinger"
 REPLACEMENTS = (
     ("library/requirements/features/feature-", "library/requirements/<lifecycle>/prd-"),
     ("library/requirements/features/", "library/requirements/<lifecycle>/"),
@@ -21,7 +21,7 @@ REPLACEMENTS = (
 def main() -> None:
     changed = 0
     for folder in ("agents", "skills", "commands"):
-        for path in (ROOT / ".claude" / folder).rglob("*.md"):
+        for path in (ROOT / "src" / folder).rglob("*.md"):
             normalized = path.as_posix()
             if any(part in normalized for part in EXCLUDED_PARTS):
                 continue

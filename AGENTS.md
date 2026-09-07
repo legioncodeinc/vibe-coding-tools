@@ -46,21 +46,21 @@ If a domain claim is not in a research archive on disk, it is not a fact yet. Do
 
 ## Component locations
 
-- Agents: [`.claude/agents/`](.claude/agents/)
-- Skills: [`.claude/skills/`](.claude/skills/)
-- Commands: [`.claude/commands/`](.claude/commands/)
-- Rules: [`.claude/rules/`](.claude/rules/)
-- Hooks: [`.claude/hooks/`](.claude/hooks/)
-- Model guidance: [`.claude/model-comparison-matrix.md`](.claude/model-comparison-matrix.md)
+- Agents: [`src/agents/`](src/agents/)
+- Skills: [`src/skills/`](src/skills/)
+- Commands: [`src/commands/`](src/commands/)
+- Rules: [`src/rules/`](src/rules/)
+- Hooks: [`src/hooks/`](src/hooks/)
+- Model guidance: [`src/model-comparison-matrix.md`](src/model-comparison-matrix.md)
 
-The `.claude/` tree is canonical. After changing a portable component, run `python learn/scripts/generate-harnesses.py`, inspect the generated `.cursor/`, `.codex/`, and `.agents/` changes, then validate all affected packages. Never hand-edit a generated tree.
+The `src/` tree is canonical. Keep portable components there and store harness entry templates or manifests under `src/harnesses/`. Harness folders and generated root entry files are local build outputs: ignore them, do not commit them, and never edit them as source. Validate affected source packages after a change. When checking generated adapters, run `python learn/scripts/generate-harnesses.py` in a disposable checkout and inspect its output there.
 
 ## Validation
 
 Validate any component you create or change:
 
 ```
-python .claude/skills/queen-bee-stinger/references/scripts/per-type-validation.py <path> --type skill|agent|rule|command|plugin --harness all
+python src/skills/queen-bee-stinger/references/scripts/per-type-validation.py <path> --type skill|agent|rule|command|plugin --harness all
 ```
 
 Zero errors is the bar. Skill frontmatter that crosses harnesses uses only the six Agent Skills spec fields: `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`. Anything else hard-fails a claude.ai or Cowork upload.

@@ -64,6 +64,6 @@ Never make a fake credential look structurally real. A scanner does not know you
 
 ## Changing a skill
 
-Edit the canonical `.claude/skills/` source, run `python learn/scripts/generate-harnesses.py`, inspect every generated mirror, validate links and metadata, then run security before quality. Do not hand-edit a generated copy and forget the source.
+Edit the canonical `src/skills/` source, run `python learn/scripts/generate-harnesses.py`, inspect every generated mirror, validate links and metadata, then run security before quality. Keep generated harness folders untracked. Do not hand-edit a generated copy and forget the source.
 
 See [Asset Catalog](../ASSET-CATALOG.md) for the live inventory.

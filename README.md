@@ -112,28 +112,19 @@ Security runs before quality for a reason that took me a while to appreciate. A 
 
 ## Pick your tool
 
-**Claude Code.** Everything lives in [`.claude/`](.claude/). Point it at the folder and go:
+The portable source lives in [`src/`](src/). A clone contains the source assets and shared project guidance. Harness folders are generated or installed locally and are not committed.
+
+**Claude Code and Claude Cowork.** Use an appropriate release package for installation. The portable agents, skills, commands, hooks, and rules live under `src`; shared entry templates live under `src/harnesses`.
+
+**Cursor and Codex.** To build the local adapters from source, run:
 
 ```powershell
-claude --plugin-dir .claude
+python learn/scripts/generate-harnesses.py
 ```
 
-Then use `/the-beekeeper` to route a task or `/the-smoker` to run the whole delivery line.
+The generator creates ignored `.cursor`, `.codex`, and `.agents` output. Codex receives repository skills, native agent TOMLs, and a separate plugin skill layer. Edit the source and regenerate when needed; local adapters are disposable.
 
-**Cursor.** Open the repo. That is it. The [`.cursor/`](.cursor/) tree has 82 agents, 85 skills, 2 commands, 4 MDC rules, and hooks already in place.
-
-**Codex.** A plain clone works with no install. [`.agents/skills/`](.agents/skills/) has all 87 Codex-facing skills, [`.codex/agents/`](.codex/agents/) has 82 native TOML agents, and the config and hooks are wired. Call the workflows directly:
-
-```text
-$the-beekeeper route this task to the right specialists
-$the-smoker execute these PRDs through verified completion
-```
-
-There is also an installable plugin at [`.codex/plugins/vibe-coding-tools/`](.codex/plugins/vibe-coding-tools/) for Codex CLI and the ChatGPT desktop app. The project adapter stays separate because installing a plugin does not install repo agent TOMLs.
-
-**Claude Cowork.** Open Customize in the sidebar, go to Plugins, upload `learn/packages/vibe-coding-tools-claude-code-1.0.0.zip`. Same package format as Claude Code.
-
-Prebuilt archives and SHA-256 checksums for all four are in [`learn/packages/`](learn/packages/).
+Existing release archives and SHA-256 checksums are in [`learn/packages/`](learn/packages/). They are versioned snapshots and do not automatically include later source changes.
 
 ## Why documents, not just code
 
@@ -159,13 +150,13 @@ An agent with no context guesses well and confidently. An agent with your projec
 
 ## Building on it
 
-The `.claude/` tree is the source of truth. Everything else is generated from it. Change an agent, skill, command, or hook, then run:
+The `src/` tree is the source of truth. Change the source agent, skill, command, or hook, then generate local adapters when needed:
 
 ```powershell
 python learn/scripts/generate-harnesses.py
 ```
 
-That rebuilds the Cursor mirror, the Codex agents, the repo skills, the plugin skills, and the catalog. Do not hand-edit the generated trees. You will lose the change on the next build and spend an hour wondering why.
+That rebuilds the local Cursor mirror, Codex agents, repository skills, plugin skills, and catalog. Keep the generated harness folders untracked. To validate a change while keeping your checkout free of local adapters, run generation in a disposable checkout.
 
 Want to add your own Bee and Stinger? `queen-bee-stinger` runs the seven stage forge: Topic, Research, Distillation, References, Guides, Skill File, Register. It does real research and archives the sources, so the skill you get is grounded instead of guessed. That is the same pipeline every skill in here went through.
 

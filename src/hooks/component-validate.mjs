@@ -36,6 +36,8 @@ if (!paths.length) emit(data);
 const pluginRoot = process.env.PLUGIN_ROOT || process.env.CLAUDE_PLUGIN_ROOT || process.cwd();
 const candidates = [
   resolve(pluginRoot, "skills/queen-bee-stinger/references/scripts/per-type-validation.py"),
+  resolve(pluginRoot, "src/skills/queen-bee-stinger/references/scripts/per-type-validation.py"),
+  resolve(process.cwd(), "src/skills/queen-bee-stinger/references/scripts/per-type-validation.py"),
   resolve(pluginRoot, ".claude/skills/queen-bee-stinger/references/scripts/per-type-validation.py"),
   resolve(process.cwd(), ".claude/skills/queen-bee-stinger/references/scripts/per-type-validation.py"),
 ];
@@ -45,9 +47,9 @@ if (!validator) emit(data);
 const failures = [];
 for (const path of paths) {
   const rel = relative(process.cwd(), path).split(sep).join("/");
-  const match = rel.match(/^\.(claude|cursor)\/(skills\/[^/]+|agents\/[^/]+\.md)(?:\/|$)/);
+  const match = rel.match(/^(src|\.(?:claude|cursor))\/(skills\/[^/]+|agents\/[^/]+\.md)(?:\/|$)/);
   if (!match) continue;
-  const target = `.${match[1]}/${match[2]}`;
+  const target = `${match[1]}/${match[2]}`;
   const type = match[2].startsWith("skills/") ? "skill" : "agent";
   try {
     execFileSync(process.platform === "win32" ? "python" : "python3", [

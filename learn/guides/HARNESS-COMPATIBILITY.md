@@ -14,11 +14,11 @@ Vibe Coding Tools preserves each capability using the format its harness actuall
 
 ## Codex has two layers
 
-The Codex plugin provides skills and hooks in the ChatGPT desktop app and Codex CLI. The repository also ships `.agents/skills`, `.codex/agents`, `.codex/config.toml`, and `.codex/hooks.json` as a standalone project adapter. This gives a cloned repository all 87 Codex-facing skills in Codex CLI and the IDE extension without requiring plugin installation.
+The Codex plugin provides skills and hooks in the ChatGPT desktop app and Codex CLI. The generator builds `.agents/skills`, `.codex/agents`, and a separate plugin skill layer under `.codex/plugins/vibe-coding-tools/skills` as ignored local output. Generate these from `src` before using a source checkout as an installed adapter.
 
 ## Source and generation
 
-The `.claude` tree is canonical. `learn/scripts/generate-harnesses.py` removes unsupported shared agent metadata, translates active Cursor paths, creates Codex TOML agents, and refreshes the same 87 Codex-facing skills in `.agents/skills` and the plugin.
+The `src` tree is canonical. Harness folders are ignored build outputs; shared entry templates and manifests live under `src/harnesses/`. `learn/scripts/generate-harnesses.py` removes unsupported shared agent metadata, translates active Cursor paths, creates Codex TOML agents, and refreshes the same 87 Codex-facing skills in `.agents/skills` and the plugin.
 
 ## Honest limits
 

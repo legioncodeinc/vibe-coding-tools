@@ -4,9 +4,9 @@
 
 - Confirm you opened the repository root, not a parent folder.
 - Confirm the component exists in the correct harness directory.
-- For Codex plugins, install from `.codex/marketplace.json` and start a new session.
+- For Codex plugins, use an appropriate release package and start a new session. A generated marketplace requires a source template under `src/harnesses/codex/`.
 - For Codex project agents, confirm `.codex/agents/*.toml` exists.
-- Run the generator if the canonical Claude source changed.
+- Generate the local adapters if the canonical `src` source changed. Harness folders are intentionally absent from a fresh clone.
 
 ## Hooks do not run
 
@@ -30,4 +30,4 @@ Check [Harness Compatibility](HARNESS-COMPATIBILITY.md). The project preserves o
 
 ## The generator overwrote a manual change
 
-Edit `.claude` when the component is canonical, then rerun the generator. The Cursor mirror and most Codex package content are generated outputs. Put harness-only files such as manifests and native configuration in their dedicated locations.
+Edit `src` when the component is canonical, then rerun the generator. The Cursor mirror and most Codex package content are generated outputs. Keep shared manifests and entry templates in `src/harnesses/`; keep generated harness folders untracked.

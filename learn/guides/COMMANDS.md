@@ -128,7 +128,7 @@ Some harnesses also expose slash-command completion. Do not depend on the slash 
 
 1. Pick a specific outcome that people repeat.
 2. Search existing commands and skills so you do not create a duplicate.
-3. Write the Claude source under `.claude/commands/`.
+3. Write the portable source under `src/commands/`.
 4. Use relative paths that belong to that harness.
 5. State what is out of scope.
 6. Add human stop conditions for secrets, destructive actions, providers, legal choices, and production changes.

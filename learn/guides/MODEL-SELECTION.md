@@ -22,7 +22,7 @@ Do not mix old benchmark data with a new model name. Do not present estimated qu
 
 ## Two matrices
 
-- [Canonical model comparison](../../.claude/model-comparison-matrix.md) covers current harness choices and pricing assumptions.
-- [Worked selection example](../../.claude/skills/ai-tools-platform-stinger/examples/model-selection-matrix.md) shows how a fictional SaaS team turns requirements into a decision.
+- [Canonical model comparison](../../src/model-comparison-matrix.md) covers current harness choices and pricing assumptions.
+- [Worked selection example](../../src/skills/ai-tools-platform-stinger/examples/model-selection-matrix.md) shows how a fictional SaaS team turns requirements into a decision.
 
 The canonical matrix is guidance, not a permanent winner list. Provider catalogs, prices, and access change.

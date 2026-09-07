@@ -11,8 +11,10 @@ The safest setup is additive. It inspects the target repository, preserves exist
 
 ## Step 1: choose a harness
 
-- **Claude Code:** Run `claude --plugin-dir <path-to-checkout>/.claude`, or install that plugin directory using your normal Claude Code plugin workflow.
-- **Codex:** Add `<path-to-checkout>/.codex/marketplace.json` as a local marketplace, install `vibe-coding-tools`, and start a new session. A direct checkout also provides native `.codex/agents` and hooks.
+This repository tracks portable source under `src/`. Installed harness folders are ignored local outputs. Generate the Cursor and Codex adapters with `python learn/scripts/generate-harnesses.py` before using those local paths, or install an appropriate versioned release package.
+
+- **Claude Code:** Install an appropriate versioned Claude release package using your normal plugin workflow.
+- **Codex:** Generate the local `.agents/skills` and `.codex/agents` adapters before opening the checkout, or install an appropriate release package. A marketplace descriptor is generated only when its source template exists under `src/harnesses/codex/`.
 - **Cursor:** Open the checkout or copy/install the `.cursor` package into the target repository.
 
 ## Step 2: initialize the target repository
@@ -71,10 +73,10 @@ Use git-stinger to explain how to recover an accidentally deleted local branch. 
 
 ## Step 5: keep the mirrors current
 
-When contributing to Vibe Coding Tools, edit `.claude` as the source and run:
+When contributing to Vibe Coding Tools, edit `src` as the source and generate local adapters when needed:
 
 ```powershell
 python learn/scripts/generate-harnesses.py
 ```
 
-Review the `.cursor` and `.codex` output. Generated does not mean automatically correct; validation still matters.
+Review the `.cursor`, `.codex`, and `.agents` output without committing those folders. Use a disposable checkout for generation tests when the working checkout must remain free of adapters. Generated does not mean automatically correct; validation still matters.
