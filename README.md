@@ -122,7 +122,7 @@ The portable source lives in [`src/`](src/). A clone contains the source assets 
 python learn/scripts/generate-harnesses.py
 ```
 
-The generator creates ignored `.cursor`, `.codex`, `.agents`, and `.zcode` output. Codex receives repository skills, native agent TOMLs, and a separate plugin skill layer. ZCode receives project agents in `.zcode/agents` and reuses the `.agents/skills` repository skills. Edit the source and regenerate when needed; local adapters are disposable.
+The generator creates ignored `.cursor`, `.codex`, `.agents`, and `.zcode` output. Codex receives repository skills, native agent TOMLs, and a separate plugin skill layer. ZCode receives project agents in `.zcode/agents` and reuses the `.agents/skills` repository skills; run `python learn/scripts/install-zcode-agents.py` after generating to copy them into `~/.zcode/agents` for use in every project. Edit the source and regenerate when needed; local adapters are disposable.
 
 Existing release archives and SHA-256 checksums are in [`learn/packages/`](learn/packages/). They are versioned snapshots and do not automatically include later source changes.
 
