@@ -11,11 +11,12 @@ The safest setup is additive. It inspects the target repository, preserves exist
 
 ## Step 1: choose a harness
 
-This repository tracks portable source under `src/`. Installed harness folders are ignored local outputs. Generate the Cursor and Codex adapters with `python learn/scripts/generate-harnesses.py` before using those local paths, or install an appropriate versioned release package.
+This repository tracks portable source under `src/`. Installed harness folders are ignored local outputs. Generate the Cursor, Codex, and ZCode adapters with `python learn/scripts/generate-harnesses.py` before using those local paths, or install an appropriate versioned release package.
 
 - **Claude Code:** Install an appropriate versioned Claude release package using your normal plugin workflow.
 - **Codex:** Generate the local `.agents/skills` and `.codex/agents` adapters before opening the checkout, or install an appropriate release package. A marketplace descriptor is generated only when its source template exists under `src/harnesses/codex/`.
 - **Cursor:** Open the checkout or copy/install the `.cursor` package into the target repository.
+- **ZCode:** Generate the local `.zcode/agents` and `.agents/skills` adapters before opening the checkout. To use the Bees in every project instead of just this checkout, symlink the generated `.agents/agents/*.md` files into `~/.zcode/agents/`.
 
 ## Step 2: initialize the target repository
 

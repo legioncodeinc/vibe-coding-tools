@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Cursor and Codex distributions from the canonical source package.
+"""Generate Cursor, Codex, and ZCode distributions from the canonical source package.
 
 Run from the repository root. The script deliberately keeps research archives
 unchanged while translating active instructions and component metadata.
@@ -25,6 +25,7 @@ CLAUDE = SOURCE
 CURSOR = ROOT / ".cursor"
 CODEX = ROOT / ".codex"
 AGENTS = ROOT / ".agents"
+ZCODE = ROOT / ".zcode"
 CODEX_PLUGIN = CODEX / "plugins" / "vibe-coding-tools"
 CODEX_COMMAND_TRANSLATIONS = {
     "the-beekeeper": "beekeeper.md",
@@ -126,6 +127,12 @@ def normalized_agent_text(path: Path, harness: str) -> str:
     )
     if harness == "cursor":
         body = body.replace(".claude/", ".cursor/")
+    elif harness == "zcode":
+        # ZCode loads project skills from the .agents/skills layer, so agent
+        # bodies point there instead of the Claude-shaped source paths.
+        body = body.replace(".claude/skills/", ".agents/skills/").replace(
+            "../skills/", ".agents/skills/"
+        )
     return f"---\n{frontmatter}\n---\n\n{body}"
 
 
@@ -185,6 +192,7 @@ def generate_agents() -> None:
     cursor_agents = CURSOR / "agents"
     codex_agents = CODEX / "agents"
     repository_agents = AGENTS / "agents"
+    zcode_agents = ZCODE / "agents"
     agents = sorted((CLAUDE / "agents").glob("*.md"))
     native_codex_agents = sorted((CLAUDE / "agents").glob("*.toml"))
 
@@ -222,6 +230,10 @@ def generate_agents() -> None:
             (target / path.name).write_text(text, encoding="utf-8")
 
     replace_generated_directory(codex_agents, populate_codex_agents)
+
+    replace_generated_directory(
+        zcode_agents, lambda target: populate_markdown_agents(target, "zcode")
+    )
 
 
 def generate_cursor() -> None:
@@ -525,7 +537,7 @@ def main() -> None:
     generate_codex_project()
     generate_codex_plugin()
     generate_catalog()
-    print("Generated Cursor mirror, Codex agents, repository skills, and plugin skills.")
+    print("Generated Cursor mirror, Codex agents, ZCode agents, repository skills, and plugin skills.")
 
 
 if __name__ == "__main__":
