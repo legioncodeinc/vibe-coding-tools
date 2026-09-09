@@ -116,13 +116,13 @@ The portable source lives in [`src/`](src/). A clone contains the source assets 
 
 **Claude Code and Claude Cowork.** Use an appropriate release package for installation. The portable agents, skills, commands, hooks, and rules live under `src`; shared entry templates live under `src/harnesses`.
 
-**Cursor and Codex.** To build the local adapters from source, run:
+**Cursor, Codex, and ZCode.** To build the local adapters from source, run:
 
 ```powershell
 python learn/scripts/generate-harnesses.py
 ```
 
-The generator creates ignored `.cursor`, `.codex`, and `.agents` output. Codex receives repository skills, native agent TOMLs, and a separate plugin skill layer. Edit the source and regenerate when needed; local adapters are disposable.
+The generator creates ignored `.cursor`, `.codex`, `.agents`, and `.zcode` output. Codex receives repository skills, native agent TOMLs, and a separate plugin skill layer. ZCode receives project agents in `.zcode/agents` and reuses the `.agents/skills` repository skills; run `python learn/scripts/install-zcode-agents.py` after generating to copy them into `~/.zcode/agents` for use in every project. Edit the source and regenerate when needed; local adapters are disposable.
 
 Existing release archives and SHA-256 checksums are in [`learn/packages/`](learn/packages/). They are versioned snapshots and do not automatically include later source changes.
 
