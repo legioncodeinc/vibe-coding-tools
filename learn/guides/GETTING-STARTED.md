@@ -16,7 +16,7 @@ This repository tracks portable source under `src/`. Installed harness folders a
 - **Claude Code:** Install an appropriate versioned Claude release package using your normal plugin workflow.
 - **Codex:** Generate the local `.agents/skills` and `.codex/agents` adapters before opening the checkout, or install an appropriate release package. A marketplace descriptor is generated only when its source template exists under `src/harnesses/codex/`.
 - **Cursor:** Open the checkout or copy/install the `.cursor` package into the target repository.
-- **ZCode:** Generate the local `.zcode/agents` and `.agents/skills` adapters before opening the checkout. To use the Bees in every project instead of just this checkout, symlink the generated `.agents/agents/*.md` files into `~/.zcode/agents/`.
+- **ZCode:** Generate the local `.zcode/agents` and `.agents/skills` adapters before opening the checkout. To use the Bees in every project instead of just this checkout, copy the generated `.agents/agents/*.md` files into `~/.zcode/agents/` (real copies; ZCode's agent scanner ignores symlinked entries) and re-copy after regenerating.
 
 ## Step 2: initialize the target repository
 

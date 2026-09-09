@@ -14,7 +14,7 @@ Vibe Coding Tools preserves each capability using the format its harness actuall
 
 ## ZCode has two scopes
 
-ZCode loads project agents from `.zcode/agents` inside the checkout and project skills from the `.agents/skills` layer, so a source checkout works after generation. ZCode also reads user-scope agents from `~/.zcode/agents`; symlink the generated `.agents/agents/*.md` files there to use the Bees in every project.
+ZCode loads project agents from `.zcode/agents` inside the checkout and project skills from the `.agents/skills` layer, so a source checkout works after generation. ZCode also reads user-scope agents from `~/.zcode/agents`; copy the generated `.agents/agents/*.md` files there to use the Bees in every project. Use real copies, not symlinks — ZCode's agent scanner only picks up regular files — and re-copy after regenerating.
 
 ## Codex has two layers
 
