@@ -1,0 +1,29 @@
+{
+  "name": "littlebird-toolkit",
+  "version": "2.0.0",
+  "description": "Thirty skills that turn your Littlebird memory into work you can act on. Find the subscriptions you pay for and never open, rebuild the pipeline living in your head, write the SOP for the thing you did last Thursday because Littlebird watched you do it, harvest every commitment from your meetings and check whether it got done, mine your calls for the content you already said well, and clone your writing voice from your own real corpus. Every finding carries a timestamped receipt, and every skill refuses to produce numbers it cannot honestly measure. Requires the Littlebird MCP on a Power or Pro plan.",
+  "author": {
+    "name": "Mario Aldayuz",
+    "email": "mario@olliebot.ai",
+    "url": "https://littlebird.ai"
+  },
+  "homepage": "https://github.com/legioncodeinc/littlebird-skills",
+  "repository": "https://github.com/legioncodeinc/littlebird-skills",
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "littlebird",
+    "ambient-memory",
+    "screen-capture",
+    "meeting-notes",
+    "routines",
+    "saas-spend",
+    "lead-generation",
+    "sop",
+    "crm",
+    "due-diligence",
+    "personal-voice",
+    "writing-style",
+    "agency",
+    "solo-founder"
+  ]
+}
