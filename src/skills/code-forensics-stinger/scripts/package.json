@@ -1,8 +1,0 @@
-{
-  "name": "ada-devpipe-forensics-scripts",
-  "version": "1.0.0",
-  "description": "Docx builders for the ADA/DevPipe forensic skill",
-  "dependencies": {
-    "docx": "^9.0.0"
-  }
-}
