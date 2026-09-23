@@ -1,0 +1,11 @@
+{
+  "name": "{hive-plugin-name}",
+  "description": "{One-line description of what this Wasp Nest plugin bundles and who it's for.}",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-or-later",
+  "author": {
+    "name": "Mario Aldayuz",
+    "email": "{author-email}",
+    "url": "{author-url}"
+  }
+}

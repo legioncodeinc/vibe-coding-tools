@@ -1,0 +1,12 @@
+{
+  "_comment": "Codex does not read this file. Convert to TOML [mcp_servers.name] blocks under [plugins].mcp_servers in config.toml for Codex, see harness-specific-reference.md. Cowork routes connectors through Anthropic's cloud, so a remote/stdio server used in Cowork must be reachable from the public internet, not just localhost.",
+  "mcpServers": {
+    "{server-name}": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/{path-to-server-executable}",
+      "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/{config-file-name}"],
+      "env": {
+        "{ENV_VAR_NAME}": "{value-or-placeholder}"
+      }
+    }
+  }
+}

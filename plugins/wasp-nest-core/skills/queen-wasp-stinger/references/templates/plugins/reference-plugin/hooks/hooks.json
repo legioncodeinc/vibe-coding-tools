@@ -1,0 +1,16 @@
+{
+  "_comment": "Cowork runs hooks only in Cowork, not in chat (grayed out there). Codex reads this file when bundled into a plugin, via its own hooks/hooks.json convention, but installing the plugin does not auto-trust the hooks; a human has to review and trust them separately. Cursor does not read this file at all; it uses its own hooks/hooks.json event names (afterFileEdit, beforeShellExecution, sessionEnd, and so on), see the Cursor section of harness-specific-reference.md.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/scripts/{example-handler-script}.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

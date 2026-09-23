@@ -1,0 +1,72 @@
+---
+description: "{One line: what this rule enforces and when the Agent should reach for it. Only read when alwaysApply is false and globs is unset.}"
+globs: "{comma-separated glob(s), e.g. src/api/**/*.ts, src/api/**/*.tsx - leave empty to make this description-driven instead of file-driven}"
+alwaysApply: false
+---
+
+# {Rule title, one concern only}
+
+{One paragraph: the single concern this rule covers. If you find yourself wanting "and" in this sentence, split the rule into two files instead.}
+
+- {First concrete, checkable instruction. Not a vibe, a rule an agent can follow or fail.}
+- {Second concrete instruction, same file only if it's the same concern.}
+- {Third, if needed. Past four or five bullets, ask whether this is really one concern.}
+
+{Optional: a short example block showing the pattern this rule wants, or the anti-pattern it's blocking.}
+
+```{language}
+{short before/after or good/bad snippet, only if code makes the rule clearer than prose}
+```
+
+Reference supporting material by path instead of pasting it in:
+
+@{path/to/reference-file}
+
+<!--
+deployment notes
+
+.cursor/rules/ placement (this file):
+  Save as .cursor/rules/{topic}.mdc. The .mdc extension is required - a plain
+  .md file dropped into .cursor/rules/ is silently ignored, since Cursor has
+  no frontmatter mechanism for .md there. Subfolders are allowed
+  (.cursor/rules/{category}/{topic}.mdc) and are purely organizational.
+  [raw/cursor--rules--cursor-docs-rules.md]
+
+Claude Code equivalent:
+  Either fold this rule's body into a section of CLAUDE.md (good for a short,
+  always-on rule), or save it as .claude/rules/{topic}.md with `paths`
+  frontmatter instead of `globs`:
+
+    ---
+    paths:
+      - "{same glob(s) as above}"
+    ---
+
+    # {Rule title}
+    - {same instructions as above}
+
+  Claude Code rules are context, not enforcement - if this rule must be a
+  hard block rather than a strong suggestion, pair it with a PreToolUse hook.
+  [raw/claude-code--rules--memory-official-docs.md, raw/claude-code--rules--hooks-official-docs.md]
+
+AGENTS.md equivalent:
+  Plain markdown section, no frontmatter, no glob scoping at the base-spec
+  level:
+
+    ## {Rule title}
+    - {same instructions as above}
+
+  Drop it into the project-root AGENTS.md (or a nested AGENTS.md if the rule
+  is specific to one directory - note that Codex's nested-AGENTS.md behavior
+  has an open conflict between closest-file-wins and root-down concatenation,
+  so don't assume every harness reading AGENTS.md resolves nesting the same
+  way). [raw/codex--rules--agents-md-standard.md, raw/codex--rules--agents-md-hierarchy-community.md]
+
+Cowork equivalent:
+  No file bridge exists. Add the same instructions to this project's Folder
+  instructions (Cowork adds these automatically when a local folder is
+  selected; you or Claude mid-session can edit them), or to Global
+  instructions under Settings > Cowork if the rule should apply to every
+  Cowork session rather than just this project.
+  [raw/cowork--agents--support-get-started-cowork.md, raw/cowork--rules--support-claude-md-and-prompts.md]
+-->
