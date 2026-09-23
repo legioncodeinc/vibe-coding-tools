@@ -1,0 +1,1 @@
+Deterministic scripts for this audit domain live in the shared `shared/scripts/` folder at the plugin root, not duplicated per Stinger. See that folder's README for the full script list and which pairs use which script.
