@@ -58,8 +58,9 @@ The three unpaired utility skills coordinate the system rather than represent a 
 | Claude Code | `.claude/agents/*.md` |
 | Cursor | `.cursor/agents/*.md` |
 | Codex | `.codex/agents/*.toml` |
+| ZCode | `.zcode/agents/*.md` |
 
-Codex TOML files contain `name`, `description`, and `developer_instructions`. They preserve the Bee's full instructions in Codex's supported project-agent format. The generator creates all 82 from the canonical `src/agents/` sources.
+Codex TOML files contain `name`, `description`, and `developer_instructions`. They preserve the Bee's full instructions in Codex's supported project-agent format. The generator creates all 82 from the canonical `src/agents/` sources. ZCode keeps the Markdown format and points agent bodies at the `.agents/skills` repository skills.
 
 ## Safe delegation
 
@@ -82,7 +83,7 @@ Do not have several agents edit the same file at once. Do not use delegation to 
 4. Add the canonical Markdown agent under `src/agents/`.
 5. Register the pair in `beekeeper-suit`.
 6. Run `python learn/scripts/generate-harnesses.py`.
-7. Verify the Claude, Cursor, and Codex versions preserve the same intent.
+7. Verify the Claude, Cursor, Codex, and ZCode versions preserve the same intent.
 8. Test a positive trigger, a negative trigger, and a boundary case.
 9. Run security, then quality.
 

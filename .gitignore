@@ -122,6 +122,7 @@ _library-private/
 .roo/
 .trae/
 .windsurf/
+.zcode/
 
 # Root harness manifests and generated entry files
 /.claude-plugin/
