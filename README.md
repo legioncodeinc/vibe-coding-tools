@@ -1,14 +1,19 @@
+<!-- Generated from the source publication template. Edit the source template, not this public copy. -->
 <div align="center">
 
-<img alt="The Hive" src=".github/assets/the-hive-hero.png" width="100%">
+<a href="assets/the-wasp-nest.png"><img alt="The Wasp Nest, a crowned wasp above a glowing honeycomb" src="assets/the-wasp-nest.jpg" width="100%"></a>
 
-# Vibe Coding Tools
+# The Wasp Nest
 
 ### Get the Git life.
 
-**82 specialist agents, 85 skills, plus commands, hooks, and rules for Claude Code, Cursor, Codex, and Cowork.**
+**139 specialist Drones, 176 Stingers, commands, hooks, and rules across 6 installable plugins.**
 
-I call it The Hive. Your coding assistant stops being one guy guessing and starts being a whole crew that already knows the job.
+Give your coding assistant the people, playbooks, and project memory it needs to build.
+
+[![Public release](https://img.shields.io/github/v/release/legioncodeinc/vibe-coding-tools?label=release)](https://github.com/legioncodeinc/vibe-coding-tools/releases)
+[![Release workflow](https://img.shields.io/github/actions/workflow/status/legioncodeinc/vibe-coding-tools/release.yml?branch=main&label=release%20build)](https://github.com/legioncodeinc/vibe-coding-tools/actions/workflows/release.yml)
+[![License](https://img.shields.io/github/license/legioncodeinc/vibe-coding-tools?branch=main)](LICENSE.md)
 
 </div>
 
@@ -26,147 +31,150 @@ I call it The Hive. Your coding assistant stops being one guy guessing and start
 
 </div>
 
----
+## Start here
+
+Install [Claude Code](https://code.claude.com/docs/en/overview) or [Codex](https://developers.openai.com/codex), then add the public marketplace. In Claude Code, enter these in the assistant's command prompt:
+
+```text
+/plugin marketplace add legioncodeinc/vibe-coding-tools
+/plugin install wasp-nest-core@wasp-nest
+```
+
+In a terminal with Codex installed, add the same marketplace and select the core in the plugin browser:
+
+```bash
+codex plugin marketplace add legioncodeinc/vibe-coding-tools
+```
+
+You should then see **The Wasp Nest** and its individually installable packs. Choose only the packs your work needs. Claude plugin skills use the plugin name as their namespace, such as `/wasp-nest-core:get-started-stinger`; Codex presents installed skills through its plugin surface. Harness capabilities differ, so consult [the compatibility guide](learn/reference/HARNESS-CAPABILITIES.md) for Cursor and Cowork too.
+
+Open the repository you want to work on and ask:
+
+```text
+Use the Get Started Stinger to inspect this repository. Explain the home instruction setup and the project Library setup, ask before changing either, and show me the resulting diff and setup report.
+```
+
+On supported local sessions, the first-session hook checks `~/.legioncodeinc.lock` and then the repository's `wasp-nest.lock`. Each missing setup is an offer, not permission to change files. An existing codebase also gets a Knowledge pass before its Library setup is marked complete. [Read the public getting-started guide](learn/guides/GETTING-STARTED.md) before accepting either offer.
 
 ## The problem this fixes
 
-Your AI assistant is smart and has no memory. Every task starts the same way. You explain the stack. You repeat your standards. You name the tools you like. You remind it to check security, then you hope it did. Ten prompts later you are still typing the context you typed yesterday.
+Your assistant can write code, but it does not arrive knowing your product, past decisions, or definition of done. You repeat the stack, the standards, and the reason a feature exists, then hope none of that context is lost on the next task.
 
-That tax never goes away on its own. You either pay it forever or you build the context once and make it permanent. The Hive is that context, built once and wired into four coding tools so it follows you around.
+The Wasp Nest puts those agreements where the work happens. Drones own bounded specialties. Their Stingers carry methods, examples, and cited research. The Library keeps project knowledge, planned features, issue fixes, and shared contracts available to the next agent. The goal is fewer confident wrong turns and work you can verify against decisions already written down.
 
-The point is not more AI output. Anybody can generate more code. The point is fewer wrong turns, fewer skipped checks, and work you can grade against something you wrote down.
+## The Library is the workbench
 
-## The whole thing in one picture
+The Library belongs to the repository you are building, not to this marketplace. It separates facts about today's system from promises about tomorrow's system. Get Started offers to create it after consent; if code already exists, Knowledge documents that code first. Human-only `library/notes/` is not agent input.
 
-```text
-  get-started      knowledge +        the-beekeeper        SHIP GATE
-   -stinger    ->   library    ->    routes work to   ->  security ->
-  (bootstrap)      -stingers        the right Bees        quality ->
-                  (build memory)          |             repo-health
-                                          |                  |
-                                    the-smoker          you approve
-                                 drives a PRD to done    the commit
+| Record | Write it when | Who helps |
+| --- | --- | --- |
+| Knowledge and ADR | You need current system truth or the reason for an architecture choice. | Knowledge or ADR Writing Stinger. |
+| PRD | You plan new behavior and need observable acceptance criteria. | Library Stinger. |
+| IRD | A tracked bug needs a bounded fix and proof, using its issue number. | Library Stinger. |
+| `CTR-###` | Two or more plans depend on the same API, event, data shape, permission, or state transition. | Contract Writing drafts; you accept the exact revision; Library pins it in each affected PRD. |
+
+Read [why the Library exists](learn/concepts/WHY-THE-LIBRARY.md) or the practical guides to [write a PRD](learn/guides/WRITE-A-PRD.md), [write an IRD](learn/guides/WRITE-AN-IRD.md), and [agree on a CTR](learn/guides/WRITE-A-CTR.md). A Draft CTR does not make dependent PRDs ready. Independent work can continue while that decision is open.
+
+## From request to reviewed code
+
+```mermaid
+flowchart TD
+    A["New request"] --> B{"What kind of work?"}
+    B -- New behavior --> P["Library writes a PRD with acceptance criteria"]
+    B -- Tracked bug --> I["Library writes an IRD"]
+    B -- Scoped task --> R["Call /pest-controller"]
+    P --> C{"Shared boundary across plans?"}
+    C -- Yes --> D["Contract Writing drafts CTR-###"]
+    D --> E{"Exact revision accepted?"}
+    E -- No --> W["Dependent work waits; unrelated work continues"]
+    E -- Yes --> PIN["Library pins the revision in each PRD"]
+    PIN --> S["Call /smoke-it"]
+    C -- No --> S
+    I --> R
+    S --> L["Acceptance ledger and dependency waves"]
+    L --> CODE["Drones read Stingers, code, and test"]
+    R --> CODE
+    CODE --> V["Verify against the PRD, IRD, or task"]
+    V --> G["Security then quality; Ship Gate on demand"]
+    G --> H["Owner authorizes commit and push"]
+    H --> PR["Pull request, CI, and review"]
 ```
 
-Two orchestrators run the show. **`the-beekeeper`** routes a single task to the right specialists. **`the-smoker`** takes a whole PRD and drives it to a shippable PR. Everything either of them touches has to pass the same gate before it commits.
+`/smoke-it` is the full PRD execution path. It selects Drones from the roster itself, so you do not need to call `/pest-controller` first. Use `/pest-controller` to route a bounded task or IRD fix. Smoke It includes security and quality close-out; `/ship-gate` is the on-demand gate for a scoped diff. Neither command grants permission to commit, push, or deploy.
 
-## Your daily flow
+For parallel PRDs, one accepted contract revision is the handoff:
 
-| Step | You run | What happens |
-|---|---|---|
-| **1. Set up the repo** | `get-started-stinger` | Inspects what exists, preserves it, lays down Library Schema v2, writes the README, gives you a setup report |
-| **2. Build the memory** | `knowledge-stinger`, then `library-stinger` | Knowledge docs capture domain truth; PRDs turn ideas into goals, non-goals, and acceptance criteria in `library/requirements/` |
-| **3. Route a task** | `/the-beekeeper` | Picks the right Bees, arms each with its Stinger, runs them in parallel or sequence, verifies the output |
-| **4. Ship a feature** | `/the-smoker on @library/requirements/backlog/prd-XXX` | Recon, execution ledger, delegates to workers, drives to a shippable PR |
-| **5. Pass the gate** | automatic close-out | `security -> quality -> repo-health`, reports written to `library/`, you approve the commit |
-
-## Start here (about two minutes)
-
-Open the repo you want to fix and give your assistant this:
-
-```text
-Use get-started-stinger to set up this repository with the Library Schema v2 structure.
-Inspect what already exists, preserve it, create only what is missing,
-and give me the final setup report.
+```mermaid
+flowchart LR
+    B[Shared boundary found] --> C[Contract Writing drafts CTR-###]
+    C --> A{Exact revision accepted?}
+    A -- No --> W[Dependent work waits]
+    A -- Yes --> P1[Library pins PRD A]
+    A -- Yes --> P2[Library pins PRD B]
+    P1 --> X[Provider work]
+    P2 --> Y[Consumer work]
+    X --> T[Checks against same CTR revision]
+    Y --> T
 ```
 
-Read the report before you accept anything. It lists what got built and what still needs a human to decide.
+A Draft or disputed contract blocks the dependent boundary. [The learning path](learn/README.md) has the document-authoring guides, worked example, and more diagrams.
 
-After that, four folders do the heavy lifting:
+## What to call
 
-| Folder | Holds | Who writes it |
-|---|---|---|
-| `library/knowledge/` | Durable facts and domain truth | `knowledge-stinger` |
-| `library/requirements/` | Planned work (PRDs) | `library-stinger` |
-| `library/issues/` | Bugs and incidents (IRDs) | agents + you |
-| `library/notes/` | Scratch notes | humans only, read-only to agents |
+| Situation | Ask for | What happens |
+| --- | --- | --- |
+| New or existing repository has no Library | `get-started-stinger` | Offers home and project setup separately, preserves existing work, and reports its changes. |
+| Planned feature | `library-stinger`, then `/smoke-it` once the PRD is ready | Defines criteria before code, then tracks implementation and verification. |
+| Shared provider and consumer behavior | `contract-writing-stinger` before dependent PRDs finish | Records a CTR, requests acceptance, and hands the revision to Library for PRD pins. |
+| Tracked defect or bounded task | `library-stinger` for an IRD if tracked, then `/pest-controller` | Routes a scoped fix to an armed Drone. |
+| Standalone pre-ship check | `/ship-gate` | Reviews the diff in order: security, quality, repository health, then your decision. |
 
-Your agent reads those folders the way a new teammate reads a wiki, except it actually does.
-
-[Read the full getting started guide](learn/guides/GETTING-STARTED.md).
+Commands above are Claude Code entry points. Where a harness has no native command surface, use its corresponding Stinger or ask for the workflow by name. None of these names authorize publishing, deployment, or a push by themselves.
 
 ## The parts, in plain English
 
-Every piece has one job. That is the whole design.
+| Piece | What it is |
+| --- | --- |
+| **Drone** | A specialist agent with a bounded responsibility. |
+| **Stinger** | The procedure and reference material a Drone reads before working. Some Stingers are standalone orchestrators. |
+| **Pest Controller** | The router that chooses and arms the right Drone. |
+| **Smoke It** | The execution workflow that drives PRD criteria to verified completion. |
+| **Rule** | A persistent operating boundary for supported harnesses. |
+| **Hook** | A lifecycle check, including the consent-based first-session setup offer. |
 
-| Piece | Plain English | What it does |
-|---|---|---|
-| **Bee** | A specialist agent | Owns one domain and makes the calls in it |
-| **Stinger** | The Bee's skill | The playbook, examples, templates, and research it reads first |
-| **Beekeeper** | The router | Picks the right Bee and hands it the matching Stinger |
-| **Smoker** | The closer | Drives a PRD through build, security, quality, and shipping |
-| **Rule** | Always on | Boundaries every worker stays inside |
-| **Hook** | The enforcer | Checks real actions before or after a tool runs |
+The Drone and Stinger pairing is enforced by the source validator. A missing pairing is not silently shipped.
 
-**The one rule that makes it work:** every Bee is paired with exactly one Stinger. A Bee without its Stinger is a smart agent with amnesia, so a Bee dispatched without loading its skill is a failed dispatch and it starts over.
+## What ships
 
-Three skills break that rule on purpose because they run the show instead of doing the work: `beekeeper-suit` routes, `queen-bee-stinger` forges new components, and `get-started-stinger` sets up repos. The full roster of all 82 pairs lives in the [Asset Catalog](learn/ASSET-CATALOG.md).
+Marketplace release **v2.0.0**. The core and add-on packs have independent manifest versions; counts and descriptions below are read from the built plugins, not maintained by hand.
 
-## Nothing ships without passing the gate
+| Plugin | Version | Stingers | Drones | What it does |
+| --- | --- | ---: | ---: | --- |
+| [wasp-nest-core](plugins/wasp-nest-core/README.md) | 2.0.0 | 119 | 115 | The Wasp Nest core: shared Drones and Stingers, orchestration commands, rules, and hooks. |
+| [content-intelligence](plugins/content-intelligence/README.md) | 0.1.0 | 2 | 0 | Research current GitHub repository trends and news, verify one story, and prepare evidence-backed social post drafts. |
+| [highlevel](plugins/highlevel/README.md) | 0.1.0 | 3 | 3 | HighLevel integration, AI Studio creation, and offline workflow-export visualization, with a dedicated Drone and Stinger for each domain. |
+| [littlebird-toolkit](plugins/littlebird-toolkit/README.md) | 2.0.0 | 30 | 0 | Thirty skills that turn your Littlebird memory into work you can act on. |
+| [webapp-capture](plugins/webapp-capture/README.md) | 1.1.0 | 1 | 1 | Capture any live web app the way users see it: demo videos with screenshots, captions, and scripts; a full UI component library with measured styles and DTCG design tokens; a Claude Design handoff zip; a shadcn/ui migration map; and visual and code inconsistency audits. |
+| [website-auditor](plugins/website-auditor/README.md) | 0.1.0 | 21 | 20 | Repeatable, harness-portable website audit tool: AEO/SEO, security, UX/funnel, accessibility, and analytics assessment for any site, with a branded XLSX scorecard and customer/auditor reports. |
 
-This is my favorite part and the part most AI setups skip.
+The [Claude catalog](.claude-plugin/marketplace.json) and [Codex catalog](.agents/plugins/marketplace.json) expose these packs individually. Runtime guides and research distillations ship with them. Raw research archives, `node_modules/`, and ingested photography models do not. The photography pack retains only its blank model template.
 
-Before any code gets committed it runs `security-stinger` first, then `quality-stinger`, then `github-repo-health-stinger`. Each pass writes a real report into `library/`. Anything rated medium or worse gets fixed, then the whole thing gets re-checked, not spot-checked. You review the reports and you approve the commit. Not the agent. You.
+The [complete plugin catalog](learn/reference/PLUGIN-CATALOG.md) lists every shipped Drone and Stinger by pack, with direct links to its instructions.
 
-Security runs before quality for a reason that took me a while to appreciate. A security fix changes the code, and changed code invalidates whatever quality just signed off on. Run them backwards and your QA report is a lie.
+## Learn and build on it
 
-## Pick your tool
+- [Getting Started](learn/guides/GETTING-STARTED.md): install, consent, and first project setup.
+- [Components](learn/guides/COMPONENTS.md): Drones, Stingers, commands, rules, and hooks.
+- [Write a PRD](learn/guides/WRITE-A-PRD.md), [IRD](learn/guides/WRITE-AN-IRD.md), or [CTR](learn/guides/WRITE-A-CTR.md), then [execute the plan](learn/guides/PRD-EXECUTION.md) with evidence.
+- [Model Selection](learn/guides/MODEL-SELECTION.md), [Security and Secrets](learn/guides/SECURITY-AND-SECRETS.md), and [Troubleshooting](learn/guides/TROUBLESHOOTING.md).
 
-The portable source lives in [`src/`](src/). A clone contains the source assets and shared project guidance. Harness folders are generated or installed locally and are not committed.
-
-**Claude Code and Claude Cowork.** Use an appropriate release package for installation. The portable agents, skills, commands, hooks, and rules live under `src`; shared entry templates live under `src/harnesses`.
-
-**Cursor and Codex.** To build the local adapters from source, run:
-
-```powershell
-python learn/scripts/generate-harnesses.py
-```
-
-The generator creates ignored `.cursor`, `.codex`, and `.agents` output. Codex receives repository skills, native agent TOMLs, and a separate plugin skill layer. Edit the source and regenerate when needed; local adapters are disposable.
-
-Existing release archives and SHA-256 checksums are in [`learn/packages/`](learn/packages/). They are versioned snapshots and do not automatically include later source changes.
-
-## Why documents, not just code
-
-Code tells you what the machine does right now. It does not tell you why anybody chose that, what it should do next, or what has to be true before you call it finished. That stuff lives in someone's head until they leave, and then it does not live anywhere.
-
-So this system treats docs as working memory instead of homework. Knowledge files hold the domain truth that would otherwise die in a Slack thread. ADRs hold the reasoning behind expensive decisions so nobody relitigates them in six months. PRDs turn a vague idea into goals, non-goals, and acceptance criteria an agent can execute against. IRDs give a bug a traceable problem, cause, fix, and proof.
-
-An agent with no context guesses well and confidently. An agent with your project knowledge and a written definition of done works like somebody who already had the meeting.
-
-## Learn the system
-
-- [Agents and Bees](learn/guides/AGENTS.md)
-- [Skills and Stingers](learn/guides/SKILLS.md)
-- [Commands](learn/guides/COMMANDS.md)
-- [Product Requirements Documents](learn/guides/PRODUCT-REQUIREMENTS-DOCUMENT.md)
-- [Library Structure](learn/guides/LIBRARY-STRUCTURE.md)
-- [Hooks](learn/guides/HOOKS.md)
-- [Rules](learn/guides/RULES.md)
-- [Model Selection](learn/guides/MODEL-SELECTION.md)
-- [Security and Secrets](learn/guides/SECURITY-AND-SECRETS.md)
-- [Harness Compatibility](learn/guides/HARNESS-COMPATIBILITY.md)
-- [Troubleshooting](learn/guides/TROUBLESHOOTING.md)
-
-## Building on it
-
-The `src/` tree is the source of truth. Change the source agent, skill, command, or hook, then generate local adapters when needed:
-
-```powershell
-python learn/scripts/generate-harnesses.py
-```
-
-That rebuilds the local Cursor mirror, Codex agents, repository skills, plugin skills, and catalog. Keep the generated harness folders untracked. To validate a change while keeping your checkout free of local adapters, run generation in a disposable checkout.
-
-Want to add your own Bee and Stinger? `queen-bee-stinger` runs the seven stage forge: Topic, Research, Distillation, References, Guides, Skill File, Register. It does real research and archives the sources, so the skill you get is grounded instead of guessed. That is the same pipeline every skill in here went through.
+This public repository is generated from the private Wasp Nest source. Please [open an issue](https://github.com/legioncodeinc/vibe-coding-tools/issues) for a correction or a new Drone, Stinger, command, hook, or pack request rather than editing generated files directly. Maintainers use the Queen Wasp forge and source CI to add and validate components before the next release.
 
 ## License and attribution
 
-Vibe Coding Tools is source-available software created by **Mario Aldayuz and [Legion Code Inc.](https://www.legioncodeinc.com)**
+The Wasp Nest is created by **Mario Aldayuz and [Legion Code Inc.](https://www.legioncodeinc.com)**. First-party material is licensed under [AGPL-3.0-or-later](LICENSE.md). Embedded third-party material retains its own rights; see [third-party notices](THIRD-PARTY-NOTICES.md) and each pack's notices. This license replaces prior repository-specific usage terms.
 
-Use it personally, at work, in your business, and as a tool inside paid services. Do not sell the Work itself, do not strip the attribution, do not pass it off as yours. Full terms in [LICENSE.md](LICENSE.md).
-
-Built for vibe coders. Go ship something.
+Built for vibe coders. Go ship something you can prove works.
 
 ---
 
@@ -175,7 +183,7 @@ Built for vibe coders. Go ship something.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/legioncodeinc/brands/main/legion-code-inc/logos/legion-symbol-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/legioncodeinc/brands/main/legion-code-inc/logos/legion-symbol-light.svg">
-  <img alt="Legion symbol" src="https://raw.githubusercontent.com/legioncodeinc/brands/main/legion-code-inc/logos/legion-symbol-light.svg" width="36">
+  <img alt="Legion Code Inc. symbol" src="https://raw.githubusercontent.com/legioncodeinc/brands/main/legion-code-inc/logos/legion-symbol-light.svg" width="36">
 </picture>
 
 <sub><strong>We are Legion. Vibe with Legion.</strong></sub>
