@@ -1,0 +1,74 @@
+{
+  "run_generated_at": "2026-08-18T20:14:03+00:00",
+  "target_url": "https://www.example.com",
+  "platform": "wordpress",
+  "rendering": "server-side rendered",
+  "max_pages": 100,
+  "pages_fetched": 4,
+  "pages": [
+    {
+      "url": "https://www.example.com/",
+      "slug": "index",
+      "html_path": "site-data/index.html",
+      "md_path": "site-data/index.md",
+      "discovered_via": "seed-root",
+      "fetch_order": 1,
+      "http_status": 200,
+      "reachable": true,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_html": 48213,
+      "fetched_at": "2026-08-18T20:12:01+00:00"
+    },
+    {
+      "url": "https://www.example.com/about",
+      "slug": "about",
+      "html_path": "site-data/about.html",
+      "md_path": "site-data/about.md",
+      "discovered_via": "link-follow",
+      "fetch_order": 2,
+      "http_status": 200,
+      "reachable": true,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_html": 21044,
+      "fetched_at": "2026-08-18T20:12:02+00:00"
+    },
+    {
+      "url": "https://www.example.com/blog/how-we-built-it",
+      "slug": "blog__how-we-built-it",
+      "html_path": "site-data/blog__how-we-built-it.html",
+      "md_path": "site-data/blog__how-we-built-it.md",
+      "discovered_via": "sitemap",
+      "fetch_order": 3,
+      "http_status": 200,
+      "reachable": true,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_html": 33590,
+      "fetched_at": "2026-08-18T20:12:04+00:00"
+    },
+    {
+      "url": "https://www.example.com/pricing",
+      "slug": "pricing",
+      "html_path": "site-data/pricing.html",
+      "md_path": "site-data/pricing.md",
+      "discovered_via": "link-follow",
+      "fetch_order": 4,
+      "http_status": 200,
+      "reachable": true,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_html": 18877,
+      "fetched_at": "2026-08-18T20:12:05+00:00"
+    }
+  ],
+  "unreachable": [
+    {
+      "url": "https://www.example.com/members/dashboard",
+      "reason": "robots-disallowed",
+      "fetch_order": null
+    },
+    {
+      "url": "https://www.example.com/legacy-catalog.php",
+      "reason": "non-html-or-non-200 (status=404, content-type=text/html; charset=UTF-8)",
+      "fetch_order": null
+    }
+  ]
+}
