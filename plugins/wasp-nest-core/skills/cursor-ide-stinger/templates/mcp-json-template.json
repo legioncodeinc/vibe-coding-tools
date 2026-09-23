@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "stdio-example": {
+      "command": "node",
+      "args": ["${workspaceFolder}/scripts/mcp-server.js"],
+      "env": {
+        "API_KEY": "${env:MY_API_KEY}",
+        "PROJECT_ROOT": "${workspaceFolder}"
+      }
+    },
+    "remote-example": {
+      "url": "https://my-mcp.example.com/sse",
+      "headers": {
+        "Authorization": "Bearer ${env:REMOTE_TOKEN}"
+      }
+    },
+    "oauth-example": {
+      "url": "https://my-oauth-mcp.example.com/sse",
+      "auth": {
+        "clientId": "${env:MCP_CLIENT_ID}",
+        "clientSecret": "${env:MCP_CLIENT_SECRET}",
+        "scopes": ["read", "write"]
+      }
+    }
+  }
+}
