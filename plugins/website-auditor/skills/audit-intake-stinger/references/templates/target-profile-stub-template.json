@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy-ready stub for _shared/target-profile.json. Written as an empty/unpopulated stub by audit-intake-wasp-drone at scaffold time; hydrated by stack-fingerprint-wasp-drone in wave W1a. Field names (platform, rendering, stack, confidence) are taken verbatim from the build plan section 3's one-line description of this file's purpose. This Drone (audit-intake) writes the stub shape only and does not populate any of these four values; doing so would be stack-fingerprint-wasp-drone's job, out of scope for this pair.",
+  "domain": "{domain}",
+  "website_url": "{website_url}",
+  "platform": null,
+  "rendering": null,
+  "stack": null,
+  "confidence": null,
+  "populated_by": "stack-fingerprint-wasp-drone",
+  "populated_at": null
+}

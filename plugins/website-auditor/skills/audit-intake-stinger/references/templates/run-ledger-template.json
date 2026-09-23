@@ -1,0 +1,24 @@
+{
+  "_comment": "Copy-ready stub for _shared/run-ledger.json. Written once at scaffold time by audit-intake-wasp-drone, then appended to (one key per Drone, never overwritten) by every subsequent Drone. Schema is this Drone's own construct: no source in references/research/raw/ or distilled-audit-intake.md describes a run-ledger schema or a resume-detection mechanism (distilled research section 6, coverage gap). Field names below follow the build plan section 3's stated purpose for this file ('per-Drone status, timestamps, artifact paths') as closely as possible; treat the exact key names as this Stinger's design choice, not a sourced fact.",
+  "engagement_ref": "{engagement_ref}",
+  "domain": "{domain}",
+  "website_url": "{website_url}",
+  "auditor_name": "{auditor_name}",
+  "contact_name": "{contact_name}",
+  "business_name": "{business_name}",
+  "scaffold_created": "{intake_timestamp_iso8601}",
+  "drones": {
+    "audit-intake-wasp-drone": {
+      "status": "complete",
+      "started": "{intake_start_timestamp_iso8601}",
+      "completed": "{intake_timestamp_iso8601}",
+      "artifacts": [
+        "README.md",
+        "00-intake/",
+        "_shared/run-ledger.json",
+        "_shared/target-profile.json",
+        "_shared/evidence-index.md"
+      ]
+    }
+  }
+}

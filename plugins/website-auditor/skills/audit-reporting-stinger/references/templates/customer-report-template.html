@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ report.client_name }} - Website Audit: Executive Summary</title>
+<!--
+  ============================================================================
+  CUSTOMER REPORT TEMPLATE (styled HTML shell)
+  audit-reporting-stinger / prd-021-audit-reporting
+
+  Template syntax: same convention as customer-report-template.md
+  (double-brace variables, percent-brace for/endfor and if/endif blocks),
+  plus one HTML-specific placeholder named `content`, which is where
+  render-report.py injects the HTML rendering of the companion .md
+  template's body (after that template's own placeholders were
+  substituted with real data). Everything else on this page - colors, fonts,
+  the two size-limited brand touchpoints - is driven by brand.json, per the
+  brand-override layering model in distilled-audit-reporting.md section 7.
+
+  STYLE PRESET: "executive" per brand.json's style_presets.customer -
+  authoritative, restrained accent use, board/C-level reading. This is this
+  Stinger's own design judgment (see references/research/distilled-audit-reporting.md
+  section 8): no source in this pair's research cluster addresses branding
+  restraint/tastefulness directly, only raw configuration mechanics for one
+  unrelated tool. The scarcity choices below (one accent rule under the
+  header, one small mark plus one credit line in the footer, nowhere else)
+  are this Stinger's interpretation of prd-001's "scarcity rule," not a
+  sourced convention.
+  ============================================================================
+-->
+<style>
+  :root {
+    --brand-primary: {{ brand.colors.primary }};
+    --brand-accent: {{ brand.colors.accent }};
+    --brand-muted: {{ brand.colors.muted }};
+    --brand-surface: {{ brand.colors.surface }};
+    --sev-critical: {{ brand.severity_colors.critical }};
+    --sev-high: {{ brand.severity_colors.high }};
+    --sev-medium: {{ brand.severity_colors.medium }};
+    --sev-low: {{ brand.severity_colors.low }};
+    --sev-info: {{ brand.severity_colors.informational }};
+    --sev-pass: {{ brand.severity_colors.pass }};
+    --font-heading: {{ brand.fonts.heading }};
+    --font-body: {{ brand.fonts.body }};
+    --font-mono: {{ brand.fonts.mono }};
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #1F2430;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 32px 32px 32px;
+  }
+  header.doc-header {
+    border-bottom: 3px solid var(--brand-primary);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+  }
+  header.doc-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin: 0 0 4px 0;
+    color: var(--brand-primary);
+  }
+  header.doc-header .meta-line {
+    color: var(--brand-muted);
+    font-size: 0.92rem;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--brand-primary);
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2.2em;
+    border-left: 3px solid var(--brand-accent);
+    padding-left: 10px;
+  }
+  h3 { font-size: 1.05rem; margin-top: 1.6em; }
+  a { color: var(--brand-accent); }
+  code, .mono {
+    font-family: var(--font-mono);
+    background: var(--brand-surface);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid #E4E7EC;
+  }
+  th {
+    background: var(--brand-surface);
+    color: var(--brand-primary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-family: var(--font-heading);
+    color: #fff;
+  }
+  .badge-critical { background: var(--sev-critical); }
+  .badge-high { background: var(--sev-high); }
+  .badge-medium { background: var(--sev-medium); }
+  .badge-low { background: var(--sev-low); }
+  .badge-informational { background: var(--sev-info); }
+  .badge-pass { background: var(--sev-pass); }
+  footer.doc-footer {
+    margin-top: 56px;
+    padding-top: 16px;
+    border-top: 1px solid #E4E7EC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--brand-muted);
+  }
+  footer.doc-footer .mark {
+    width: {{ brand.logo.width_px }}px;
+    max-width: 96px;
+    height: auto;
+    opacity: 0.85;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  footer.doc-footer .credit {
+    display: flex;
+    align-items: center;
+  }
+  footer.doc-footer a { color: var(--brand-muted); text-decoration: underline; }
+  @media print {
+    .page { max-width: none; padding: 0.5in; }
+    a { color: inherit; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <h1>{{ report.client_name }} - Website Audit: Executive Summary</h1>
+    <div class="meta-line">
+      Domain: {{ report.domain }} &middot; Audit date: {{ report.audit_date }} &middot; Prepared by {{ report.auditor_name }}, Legion Code Inc.
+    </div>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="doc-footer">
+    <div class="credit">
+      {% if brand.footer.show_mark %}
+      <img class="mark" src="{{ brand.logo.path }}" alt="{{ brand.logo.alt }}">
+      {% endif %}
+      <span>{{ brand.footer.credit_line }}{% if brand.footer.show_contact %} &middot; <a href="{{ brand.web }}">{{ brand.web }}</a>{% endif %}</span>
+    </div>
+    <div>{{ brand.footer.note }}</div>
+  </footer>
+
+</div>
+</body>
+</html>

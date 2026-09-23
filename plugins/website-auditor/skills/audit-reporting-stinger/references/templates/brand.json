@@ -1,0 +1,56 @@
+{
+  "_comment": "Example brand config for audit-reporting-stinger's HTML report templates. Shape follows the brand.json pattern documented in references/research/distilled-audit-reporting.md section 7 (source: the mcp-md-html-pdf tool's own docs) - logo, a small fixed color palette, two font stacks, a named style preset per document, and footer toggles. The exact hex values, font choices, and footer copy below are this Stinger's own design judgment, not sourced: prd-020's open question notes the real Legion Code Inc. brand CSS (brand/legion.css, brand/colors_and_type.css from the AC Direct engagement) was never vendored into this repo, so this file is a placeholder starting point, not a copy of an authoritative brand asset. Swap every value here for the real brand tokens when they are supplied.",
+
+  "name": "Legion Code Inc.",
+  "product": "Website Auditor",
+  "web": "https://legioncodeinc.com",
+  "email": "audits@legioncodeinc.com",
+
+  "logo": {
+    "path": "assets/legion-mark.svg",
+    "alt": "Legion Code Inc. mark",
+    "width_px": 96,
+    "_note": "Placeholder path. The mark is embedded small, in the footer only, per the scarcity rule in prd-001's Goals section (brand mark applied subtly, not per-section)."
+  },
+
+  "colors": {
+    "primary": "#14213D",
+    "accent": "#2F6FED",
+    "muted": "#6B7280",
+    "surface": "#F7F8FA",
+    "_scarcity_rule": "primary/accent are used only in the header rule, section anchors, and the footer credit line - never as a background fill or repeated per finding. This is the 'scarce primary-accent use' constraint named in prd-021's Goals section.",
+    "_severity_colors_are_separate": "Severity bands (critical/high/medium/low/informational/pass) use their own semantic palette below, defined separately from the brand palette so brand color never doubles as a status signal and status color never leaks into brand chrome. This is the 'severity-semantic-only color' constraint named in prd-021's Goals section."
+  },
+
+  "severity_colors": {
+    "critical": "#B3261E",
+    "high": "#C2410C",
+    "medium": "#B45309",
+    "low": "#1B7F4C",
+    "informational": "#6B7280",
+    "pass": "#1B7F4C"
+  },
+
+  "fonts": {
+    "heading": "'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
+    "body": "'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
+    "mono": "'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace",
+    "_mono_rule": "JetBrains Mono is reserved for technical strings only (URLs, header names, file paths, selectors, evidence pointers) per prd-021's Goals section, never for prose."
+  },
+
+  "style_presets": {
+    "customer": "executive",
+    "auditor": "technical",
+    "_note": "Preset names follow the pattern named in the research (distilled-audit-reporting.md section 7): 'executive' (authoritative, accent lines, for board/C-level reading) versus 'technical' (data-dense, monospace accents, for audits/API-doc-style reading). Presets change layout density and typography emphasis only, never the brand colors or fonts themselves."
+  },
+
+  "footer": {
+    "show_contact": true,
+    "show_mark": true,
+    "note": "Confidential - prepared for the addressed recipient",
+    "credit_line": "Audit tool created by Legion Code Inc.",
+    "_scarcity_rule": "Credit line, mark, and website link appear exactly once per document, in the footer only, per prd-021 AC-3 - never repeated per section or per finding."
+  },
+
+  "_override_layering": "Highest to lowest priority, per the research's brand-override layering model (distilled-audit-reporting.md section 7): (1) an inline per-run override dict passed to the renderer, (2) a path to a different brand.json for a specific client engagement, (3) an environment-variable default brand path, (4) this file as the built-in fallback. render-report.py implements only level (4) plus a simple in-memory override dict for its demo; levels (2)-(3) are noted here as the intended extension point, not yet built."
+}

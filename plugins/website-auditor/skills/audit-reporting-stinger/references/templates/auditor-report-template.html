@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ report.client_name }} - Website Audit: Auditor Report</title>
+<!--
+  ============================================================================
+  AUDITOR REPORT TEMPLATE (styled HTML shell)
+  audit-reporting-stinger / prd-021-audit-reporting
+
+  Template syntax and the `content` injection point: identical convention to
+  customer-report-template.html - read that file's header comment once.
+
+  STYLE PRESET: "technical" per brand.json's style_presets.auditor -
+  data-dense, monospace accents, for audit/API-doc-style reading
+  (distilled-audit-reporting.md section 7). Same brand palette and fonts as
+  the customer template (brand identity does not change between presets,
+  only layout density and typography emphasis per that section) - this file
+  uses tighter table padding, a persistent section nav, and heavier use of
+  var(--font-mono) for evidence pointers, IDs, and file paths, since this
+  audience is the implementer, not the budget holder.
+
+  Light theme for both audience documents per this plugin's own build-plan
+  default (both are signed client deliverables); see
+  plan/website-auditor-build-plan.md Q15.
+  ============================================================================
+-->
+<style>
+  :root {
+    --brand-primary: {{ brand.colors.primary }};
+    --brand-accent: {{ brand.colors.accent }};
+    --brand-muted: {{ brand.colors.muted }};
+    --brand-surface: {{ brand.colors.surface }};
+    --sev-critical: {{ brand.severity_colors.critical }};
+    --sev-high: {{ brand.severity_colors.high }};
+    --sev-medium: {{ brand.severity_colors.medium }};
+    --sev-low: {{ brand.severity_colors.low }};
+    --sev-info: {{ brand.severity_colors.informational }};
+    --sev-pass: {{ brand.severity_colors.pass }};
+    --font-heading: {{ brand.fonts.heading }};
+    --font-body: {{ brand.fonts.body }};
+    --font-mono: {{ brand.fonts.mono }};
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #1F2430;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 28px 28px 28px;
+  }
+  header.doc-header {
+    border-bottom: 3px solid var(--brand-primary);
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+  }
+  header.doc-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    margin: 0 0 4px 0;
+    color: var(--brand-primary);
+  }
+  header.doc-header .meta-line {
+    color: var(--brand-muted);
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--brand-primary);
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin-top: 2em;
+    border-left: 3px solid var(--brand-accent);
+    padding-left: 9px;
+  }
+  h3 {
+    font-size: 0.98rem;
+    margin-top: 1.4em;
+    font-family: var(--font-mono);
+  }
+  a { color: var(--brand-accent); }
+  code, .mono, .evidence-pointer {
+    font-family: var(--font-mono);
+    background: var(--brand-surface);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.87em;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.9em 0;
+    font-size: 0.87rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid #E4E7EC;
+    vertical-align: top;
+  }
+  th {
+    background: var(--brand-surface);
+    color: var(--brand-primary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+  td.mono, td code { font-family: var(--font-mono); }
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 9px;
+    font-size: 0.72rem;
+    font-family: var(--font-heading);
+    color: #fff;
+  }
+  .badge-critical { background: var(--sev-critical); }
+  .badge-high { background: var(--sev-high); }
+  .badge-medium { background: var(--sev-medium); }
+  .badge-low { background: var(--sev-low); }
+  .badge-informational { background: var(--sev-info); }
+  .badge-pass { background: var(--sev-pass); }
+  .finding-block {
+    border: 1px solid #E4E7EC;
+    border-left: 3px solid var(--brand-muted);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+  .finding-block dt {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    color: var(--brand-muted);
+    margin-top: 6px;
+  }
+  .finding-block dd { margin: 0 0 2px 0; }
+  footer.doc-footer {
+    margin-top: 52px;
+    padding-top: 14px;
+    border-top: 1px solid #E4E7EC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--brand-muted);
+  }
+  footer.doc-footer .mark {
+    width: {{ brand.logo.width_px }}px;
+    max-width: 96px;
+    height: auto;
+    opacity: 0.85;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  footer.doc-footer .credit {
+    display: flex;
+    align-items: center;
+  }
+  footer.doc-footer a { color: var(--brand-muted); text-decoration: underline; }
+  @media print {
+    .page { max-width: none; padding: 0.5in; }
+    a { color: inherit; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <h1>{{ report.client_name }} - Website Audit: Auditor Report</h1>
+    <div class="meta-line">
+      domain={{ report.domain }} audit_date={{ report.audit_date }} auditor={{ report.auditor_name }} ref={{ report.engagement_ref }}
+    </div>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="doc-footer">
+    <div class="credit">
+      {% if brand.footer.show_mark %}
+      <img class="mark" src="{{ brand.logo.path }}" alt="{{ brand.logo.alt }}">
+      {% endif %}
+      <span>{{ brand.footer.credit_line }}{% if brand.footer.show_contact %} &middot; <a href="{{ brand.web }}">{{ brand.web }}</a>{% endif %}</span>
+    </div>
+    <div>{{ brand.footer.note }}</div>
+  </footer>
+
+</div>
+</body>
+</html>
