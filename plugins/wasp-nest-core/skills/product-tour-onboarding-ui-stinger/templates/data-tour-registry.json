@@ -1,0 +1,10 @@
+[
+  {
+    "selector": "data-tour=\"example-element-name\"",
+    "component": "src/components/Path/To/Component.tsx",
+    "page": "/route/where/element/appears",
+    "tours": ["tour-id-v1", "another-tour-id-v1"],
+    "verified": "YYYY-MM-DD",
+    "notes": "Optional: dual-use with data-testid in Playwright; or 'third-party component, text-targeting fallback'"
+  }
+]
