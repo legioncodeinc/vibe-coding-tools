@@ -1,0 +1,66 @@
+# GitHub Actions workflow template for API docs deployment
+# Supports: Scalar (CDN), Redoc (static bundle), or raw spec
+# Place at: .github/workflows/deploy-docs.yml
+
+name: Deploy API Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'openapi.yaml'          # Update this path if your spec is elsewhere
+      - 'openapi.json'
+      - 'docs/**'
+  workflow_dispatch:             # Allow manual trigger
+
+# Required for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent concurrent deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Option A: Scalar (CDN) — just copy spec to docs/
+      - name: Prepare docs folder (Scalar CDN)
+        run: |
+          mkdir -p docs
+          cp openapi.yaml docs/openapi.yaml
+          # docs/index.html should already exist in the repo (Scalar CDN embed)
+
+      # Option B: Redoc (static bundle) — uncomment to use instead of Option A
+      # - name: Build Redoc static bundle
+      #   run: |
+      #     mkdir -p docs
+      #     npx @redocly/cli build-docs openapi.yaml \
+      #       --output docs/index.html \
+      #       --title "API Reference"
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
