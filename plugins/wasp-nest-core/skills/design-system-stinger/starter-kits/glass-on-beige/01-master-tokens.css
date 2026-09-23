@@ -1,0 +1,124 @@
+/* =============================================================================
+ * starter-kits/glass-on-beige/01-master-tokens.css
+ * ---------------------------------------------------------------------------
+ * Seed token layer for the "iOS glass on beige" aesthetic — translucent
+ * surfaces over a warm cream background with navy and gold accents.
+ *
+ * Edit this file for new products by:
+ *   1. Swapping `--color-primary` and `--color-accent` to the brand hex.
+ *   2. Adjusting `--color-background` if the "beige" direction shifts
+ *      (cream → ivory → warm white).
+ *   3. Adding product-specific tokens at the bottom (chat, progress, etc.).
+ * =========================================================================== */
+
+@theme {
+  /* Tenant-themable brand --------------------------------------------------- */
+  --color-primary:       var(--tenant-primary,        #1B2B4B);
+  --color-primary-deep:  var(--tenant-primary-deep,   #0F1D35);
+  --color-primary-light: var(--tenant-primary-light,  #2A3D5F);
+
+  --color-accent:        var(--tenant-accent,         #C5A44E);
+  --color-accent-dark:   var(--tenant-accent-dark,    #B8963E);
+  --color-accent-light:  var(--tenant-accent-light,   #D4B85C);
+  --color-accent-bg:     var(--tenant-accent-bg,      #FFF9EB);
+  --color-accent-border: var(--tenant-accent-border,  #F0E0B0);
+  --color-accent-ink:    var(--tenant-accent-ink,     #7A5F1F);
+}
+
+@theme inline {
+  /* Semantic state colors --------------------------------------------------- */
+  --color-green:       #22C55E;
+  --color-green-bg:    #ECFDF5;
+  --color-green-text:  #16A34A;
+  --color-red:         #EF4444;
+  --color-red-bg:      #FEF2F2;
+  --color-red-text:    #DC2626;
+  --color-blue:        #3B82F6;
+  --color-blue-bg:     #EFF6FF;
+  --color-blue-text:   #2563EB;
+  --color-warning:     #F59E0B;
+  --color-warning-bg:  #FFFBEB;
+  --color-warning-text:#B45309;
+
+  /* Surfaces (the stage) ---------------------------------------------------- */
+  --color-background:     #FAF8F5;
+  --color-card:           #FFFFFF;
+  --color-card-secondary: #FBFAF7;
+  --color-ink-overlay:    rgba(27, 43, 75, 0.04);
+  --color-border:         #E8E5DE;
+  --color-border-light:   #F0EEE7;
+  --color-top-edge-light: rgba(255, 255, 255, 0.9);
+
+  /* Text hierarchy ---------------------------------------------------------- */
+  --color-text-strong:  #111418;
+  --color-text-primary: #1F232B;
+  --color-text-body:    #3B4048;
+  --color-text-muted:   #6F7480;
+  --color-text-quiet:   #9AA0A8;
+  --color-text-inverse: #FFFFFF;
+
+  /* Typography -------------------------------------------------------------- */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans:    "DM Sans", system-ui, -apple-system, sans-serif;
+
+  --text-10: 0.625rem;   --text-10--line-height: 1.35;
+  --text-12: 0.75rem;    --text-12--line-height: 1.45;
+  --text-14: 0.875rem;   --text-14--line-height: 1.5;
+  --text-16: 1rem;       --text-16--line-height: 1.5;
+  --text-18: 1.125rem;   --text-18--line-height: 1.45;
+  --text-22: 1.375rem;   --text-22--line-height: 1.3;
+  --text-28: 1.75rem;    --text-28--line-height: 1.2;
+
+  /* Spacing ladder ---------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 3rem;
+  --space-paragraph: 1.125rem;
+
+  /* Radii ------------------------------------------------------------------- */
+  --radius-badge:   4px;
+  --radius-input:   10px;
+  --radius-button:  12px;
+  --radius-card:    14px;
+  --radius-card-lg: 18px;
+  --radius-tile:    20px;
+  --radius-pill:    9999px;
+
+  /* Shadow recipes (three-cue glass) --------------------------------------- */
+  --shadow-edge:       inset 0 1px 0 var(--color-top-edge-light);
+  --shadow-direct:     0 1px 2px color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --shadow-ambient:    0 6px 20px color-mix(in srgb, var(--color-primary) 8%, transparent);
+  --shadow-ambient-lg: 0 14px 40px color-mix(in srgb, var(--color-primary) 12%, transparent);
+
+  --shadow-card:     var(--shadow-edge), var(--shadow-direct), var(--shadow-ambient);
+  --shadow-elevated: var(--shadow-edge),
+                     0 2px 4px color-mix(in srgb, var(--color-primary) 12%, transparent),
+                     var(--shadow-ambient-lg);
+  --shadow-hero:     var(--shadow-edge),
+                     0 3px 6px color-mix(in srgb, var(--color-primary) 14%, transparent),
+                     0 24px 60px color-mix(in srgb, var(--color-primary) 16%, transparent);
+  --shadow-accent-glow: 0 2px 12px color-mix(in srgb, var(--color-accent) 14%, transparent);
+
+  /* Motion ----------------------------------------------------------------- */
+  --ease-out-subtle:  cubic-bezier(0.2, 0.7, 0.3, 1);
+  --ease-in-out-ui:   cubic-bezier(0.4, 0,   0.2, 1);
+  --ease-spring-soft: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-instant: 120ms;
+  --dur-fast:    180ms;
+  --dur-default: 240ms;
+  --dur-slow:    320ms;
+
+  /* Nav metrics ------------------------------------------------------------ */
+  --h-top-nav:    56px;
+  --h-bottom-nav: 76px;
+  --w-sidebar:    240px;
+  --w-sidebar-collapsed: 64px;
+}
+
+:root { color-scheme: light only; }

@@ -1,0 +1,106 @@
+/* =============================================================================
+ * starter-kits/glass-on-beige/02-glass-and-depth.css
+ * ---------------------------------------------------------------------------
+ * Utility layer seed for the "iOS glass on beige" aesthetic.
+ * Reads 01-master-tokens.css.
+ * =========================================================================== */
+
+@layer utilities {
+
+  /* Glass surfaces --------------------------------------------------------- */
+
+  .glass-surface {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    color: var(--color-text-primary);
+    background-color: color-mix(in srgb, var(--color-card) 94%, transparent);
+  }
+  .glass-surface--tinted {
+    background: var(--color-card-secondary);
+    background-color: color-mix(in srgb, var(--color-card-secondary) 94%, transparent);
+  }
+  .glass-surface--pinned {
+    background-color: color-mix(in srgb, var(--color-card) 84%, transparent);
+    -webkit-backdrop-filter: saturate(140%) blur(20px);
+            backdrop-filter: saturate(140%) blur(20px);
+  }
+
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .glass-surface,
+    .glass-surface--tinted,
+    .glass-surface--pinned {
+      background-color: var(--color-card);
+    }
+  }
+
+  /* Depth tiers ------------------------------------------------------------ */
+
+  .depth-0 { box-shadow: none; }
+  .depth-1 { box-shadow: var(--shadow-card); }
+  .depth-2 {
+    box-shadow:
+      var(--shadow-edge),
+      0 2px 4px color-mix(in srgb, var(--color-primary) 12%, transparent),
+      var(--shadow-ambient-lg);
+  }
+  .depth-3 {
+    box-shadow:
+      var(--shadow-edge),
+      0 3px 6px color-mix(in srgb, var(--color-primary) 14%, transparent),
+      0 24px 60px color-mix(in srgb, var(--color-primary) 16%, transparent);
+  }
+  .depth-accent-glow { box-shadow: var(--shadow-accent-glow); }
+
+  /* Active indicators ------------------------------------------------------ */
+
+  .nav-indicator-left,
+  .nav-indicator-bottom {
+    position: relative;
+    isolation: isolate;
+  }
+  .nav-indicator-left::before,
+  .nav-indicator-bottom::before {
+    content: "";
+    position: absolute;
+    background: var(--color-accent);
+    border-radius: 2px;
+    pointer-events: none;
+    transition: opacity var(--dur-fast) var(--ease-out-subtle);
+  }
+  .nav-indicator-left::before   { left: 0; top: 10%; bottom: 10%; width: 3px; }
+  .nav-indicator-bottom::before { bottom: 0; left: 18%; right: 18%; height: 2px; }
+
+  .nav-indicator-left:not(.is-active)::before,
+  .nav-indicator-bottom:not(.is-active)::before { opacity: 0; }
+  .nav-indicator-left.is-active::before,
+  .nav-indicator-bottom.is-active::before       { opacity: 1; }
+
+  .nav-row--active {
+    background: color-mix(in srgb, var(--color-accent) 9%, var(--color-card));
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 22%, transparent),
+      0 2px 12px color-mix(in srgb, var(--color-accent) 14%, transparent);
+    color: var(--color-primary);
+  }
+
+  /* Press/hover helpers ---------------------------------------------------- */
+
+  .press-scale {
+    transition: transform var(--dur-instant) var(--ease-out-subtle),
+                opacity   var(--dur-instant) var(--ease-out-subtle);
+  }
+  .press-scale:active { transform: scale(0.97); opacity: 0.92; }
+
+  /* Reduced motion --------------------------------------------------------- */
+
+  @media (prefers-reduced-motion: reduce) {
+    .press-scale,
+    .nav-indicator-left::before,
+    .nav-indicator-bottom::before {
+      transition-duration: 80ms;
+    }
+    .press-scale:active { transform: none; }
+  }
+}

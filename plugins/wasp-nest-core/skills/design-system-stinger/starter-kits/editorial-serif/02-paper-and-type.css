@@ -1,0 +1,107 @@
+/* =============================================================================
+ * starter-kits/editorial-serif/02-paper-and-type.css
+ * ---------------------------------------------------------------------------
+ * Utility layer for editorial-serif. Paper surfaces, type-first helpers.
+ * =========================================================================== */
+
+@layer utilities {
+
+  /* Paper surfaces --------------------------------------------------------- */
+
+  .paper {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-paper);
+    color: var(--color-text-primary);
+  }
+  .paper--muted {
+    background: var(--color-card-secondary);
+    box-shadow: none;
+  }
+  .paper--floating {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card-lg);
+    box-shadow: var(--shadow-floating);
+  }
+
+  /* Type discipline ------------------------------------------------------ */
+
+  .display-headline {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-48);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-strong);
+  }
+  .display-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-36);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--color-text-strong);
+  }
+  .display-subtitle {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: var(--text-22);
+    color: var(--color-text-body);
+  }
+  .prose-editorial {
+    max-width: var(--measure-prose);
+    font-family: var(--font-serif);
+    font-size: var(--text-16);
+    line-height: 1.65;
+    color: var(--color-text-primary);
+  }
+  .prose-editorial p + p { margin-top: var(--space-paragraph); }
+
+  /* Horizontal rules — editorial flourish ----------------------------- */
+
+  .divider-serif {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-5) 0;
+  }
+  .divider-ornament {
+    border: none;
+    text-align: center;
+    font-family: var(--font-display);
+    color: var(--color-text-quiet);
+    margin: var(--space-6) 0;
+  }
+  .divider-ornament::before { content: "\00B7    \00B7    \00B7"; letter-spacing: 0.5em; }
+
+  /* Press / hover helpers --------------------------------------------- */
+
+  .press-dim {
+    transition: opacity var(--dur-instant) var(--ease-out-subtle);
+  }
+  .press-dim:active { opacity: 0.7; }
+
+  /* Link underline discipline ----------------------------------------- */
+
+  .link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: text-decoration-color var(--dur-fast) var(--ease-out-subtle);
+  }
+  .link:hover {
+    text-decoration-color: transparent;
+  }
+
+  /* Reduced motion ---------------------------------------------------- */
+
+  @media (prefers-reduced-motion: reduce) {
+    .press-dim,
+    .link {
+      transition-duration: 80ms;
+    }
+  }
+}

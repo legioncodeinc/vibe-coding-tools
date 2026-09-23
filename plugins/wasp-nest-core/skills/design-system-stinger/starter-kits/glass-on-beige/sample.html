@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass on Beige — Starter Kit</title>
+  <style>
+    /* Inlined flat token layer + utility layer (strips @theme) */
+    :root {
+      --color-primary: #1B2B4B; --color-accent: #C5A44E; --color-accent-dark: #B8963E; --color-accent-ink: #7A5F1F;
+      --color-background: #FAF8F5; --color-card: #FFFFFF; --color-card-secondary: #FBFAF7;
+      --color-border: #E8E5DE; --color-border-light: #F0EEE7; --color-top-edge-light: rgba(255,255,255,0.9);
+      --color-text-strong: #111418; --color-text-primary: #1F232B; --color-text-body: #3B4048;
+      --color-text-muted: #6F7480; --color-text-quiet: #9AA0A8; --color-text-inverse: #FFFFFF;
+      --radius-badge: 4px; --radius-button: 12px; --radius-card: 14px; --radius-card-lg: 18px; --radius-pill: 9999px;
+      --shadow-edge: inset 0 1px 0 var(--color-top-edge-light);
+      --shadow-direct: 0 1px 2px color-mix(in srgb, var(--color-primary) 10%, transparent);
+      --shadow-ambient: 0 6px 20px color-mix(in srgb, var(--color-primary) 8%, transparent);
+      --shadow-card: var(--shadow-edge), var(--shadow-direct), var(--shadow-ambient);
+      --shadow-elevated: var(--shadow-edge), 0 2px 4px color-mix(in srgb, var(--color-primary) 12%, transparent), 0 14px 40px color-mix(in srgb, var(--color-primary) 12%, transparent);
+      --shadow-accent-glow: 0 2px 12px color-mix(in srgb, var(--color-accent) 14%, transparent);
+      --ease-out-subtle: cubic-bezier(0.2, 0.7, 0.3, 1);
+      --dur-instant: 120ms;
+      --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+      --text-10: 0.625rem; --text-12: 0.75rem; --text-14: 0.875rem; --text-22: 1.375rem; --text-28: 1.75rem;
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+    }
+    body { margin: 0; padding: var(--space-6); background: var(--color-background); font-family: var(--font-sans); color: var(--color-text-primary); }
+    .shell { max-width: 420px; margin: 0 auto; display: grid; gap: var(--space-5); }
+    .glass-surface { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--space-4); }
+    .hero { border-radius: var(--radius-card-lg); box-shadow: var(--shadow-elevated), var(--shadow-accent-glow); border: 1.5px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-border)); padding: var(--space-5); }
+    .kicker { font-size: var(--text-10); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); }
+    .big-number { font-size: var(--text-28); font-weight: 700; color: var(--color-text-strong); margin: var(--space-1) 0; }
+    .label { font-size: var(--text-12); color: var(--color-text-body); }
+    .row { display: flex; gap: var(--space-2); }
+    .btn { flex: 1; height: 44px; border-radius: var(--radius-button); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-14); cursor: pointer; transition: transform var(--dur-instant) var(--ease-out-subtle); border: 1px solid var(--color-border); }
+    .btn:active { transform: scale(0.97); }
+    .btn--secondary { background: var(--color-card); color: var(--color-text-strong); box-shadow: var(--shadow-card); }
+    .btn--primary { background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-accent-dark) 100%); color: var(--color-text-inverse); border: none; box-shadow: var(--shadow-elevated), var(--shadow-accent-glow); }
+    .badge { display: inline-flex; padding: 2px 8px; border-radius: var(--radius-badge); font-size: var(--text-10); font-weight: 600; background: var(--color-card-secondary); color: var(--color-accent-ink); border: 1px solid var(--color-border-light); }
+    .title { font-size: var(--text-22); font-weight: 700; color: var(--color-text-strong); margin: 0 0 var(--space-2); }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="glass-surface hero">
+      <div class="kicker">LEVEL 3 · POWER PARTNERS</div>
+      <div class="big-number">$0 / $250k</div>
+      <div class="label">Season progress — keep the streak alive.</div>
+    </section>
+
+    <section class="grid3">
+      <div class="glass-surface"><div class="kicker">SENT</div><div class="big-number">1</div><div class="label">this week</div></div>
+      <div class="glass-surface"><div class="kicker">RECV</div><div class="big-number">0</div><div class="label">this week</div></div>
+      <div class="glass-surface"><div class="kicker">LEVEL</div><div class="big-number">3</div><div class="label">of 6</div></div>
+    </section>
+
+    <section class="glass-surface">
+      <div class="kicker" style="color: var(--color-accent-ink);">MISSION</div>
+      <h2 class="title">Close your next referral before Friday</h2>
+      <div class="label">A specific, measurable goal beats an ambient reminder.</div>
+      <div class="row" style="margin-top: var(--space-4);">
+        <button class="btn btn--secondary">Send DM</button>
+        <button class="btn btn--primary">Send Referral</button>
+      </div>
+    </section>
+
+    <section class="glass-surface" style="display: flex; gap: var(--space-2); align-items: center;">
+      <span class="badge">TIER 3</span>
+      <span class="badge" style="background: color-mix(in srgb, var(--color-accent) 12%, var(--color-card)); color: var(--color-accent-ink); border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);">POWER PARTNER</span>
+      <span class="badge">$250k goal</span>
+    </section>
+  </main>
+</body>
+</html>

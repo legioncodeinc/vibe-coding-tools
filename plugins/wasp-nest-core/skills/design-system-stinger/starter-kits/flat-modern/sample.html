@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flat Modern — Starter Kit</title>
+  <style>
+    :root {
+      --color-primary: oklch(45% 0.18 260); --color-accent: oklch(65% 0.22 25);
+      --color-background: oklch(98% 0.005 265); --color-card: oklch(100% 0 0); --color-card-secondary: oklch(97% 0.005 265);
+      --color-border: oklch(92% 0.007 265); --color-border-light: oklch(95% 0.007 265);
+      --color-text-strong: oklch(18% 0.015 265); --color-text-primary: oklch(25% 0.015 265); --color-text-body: oklch(40% 0.012 265); --color-text-muted: oklch(55% 0.010 265); --color-text-quiet: oklch(65% 0.008 265); --color-text-inverse: oklch(100% 0 0);
+      --radius-badge: 2px; --radius-button: 6px; --radius-card: 8px; --radius-pill: 9999px;
+      --shadow-subtle: 0 1px 2px oklch(0% 0 0 / 0.06);
+      --shadow-dropdown: 0 4px 12px oklch(0% 0 0 / 0.08), 0 1px 2px oklch(0% 0 0 / 0.06);
+      --ease-out-subtle: cubic-bezier(0.2, 0.7, 0.3, 1);
+      --dur-instant: 100ms; --dur-fast: 150ms;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif; --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+      --text-11: 0.6875rem; --text-13: 0.8125rem; --text-14: 0.875rem; --text-20: 1.25rem; --text-32: 2rem;
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+    }
+    body { margin: 0; padding: var(--space-6); background: var(--color-background); font-family: var(--font-sans); color: var(--color-text-primary); }
+    .shell { max-width: 640px; margin: 0 auto; display: grid; gap: var(--space-4); }
+    .surface { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: var(--space-4); }
+    .surface--muted { background: var(--color-card-secondary); }
+    .kicker { font-size: var(--text-11); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-quiet); font-family: var(--font-mono); }
+    .title { font-size: var(--text-20); font-weight: 600; color: var(--color-text-strong); margin: var(--space-2) 0 var(--space-1); letter-spacing: -0.01em; }
+    .label { font-size: var(--text-13); color: var(--color-text-body); }
+    .row { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
+    .btn { height: 32px; padding: 0 12px; border-radius: var(--radius-button); font-family: var(--font-sans); font-weight: 500; font-size: var(--text-13); cursor: pointer; transition: background-color var(--dur-fast) var(--ease-out-subtle); border: 1px solid var(--color-border); }
+    .btn--primary { background: var(--color-primary); color: var(--color-text-inverse); border-color: var(--color-primary); }
+    .btn--secondary { background: var(--color-card); color: var(--color-text-primary); }
+    .btn:hover { background: color-mix(in srgb, var(--color-card) 94%, var(--color-primary)); }
+    .btn--primary:hover { background: color-mix(in srgb, var(--color-primary) 92%, black); }
+    .badge { display: inline-flex; padding: 2px 6px; border-radius: var(--radius-badge); font-size: var(--text-11); font-weight: 500; background: var(--color-card-secondary); color: var(--color-text-body); border: 1px solid var(--color-border); font-family: var(--font-mono); }
+    .stat { font-size: var(--text-32); font-weight: 600; color: var(--color-text-strong); letter-spacing: -0.02em; }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="surface">
+      <span class="kicker">OVERVIEW</span>
+      <h1 class="title" style="font-size: var(--text-32); margin-top: var(--space-3);">Weekly performance</h1>
+      <div class="label">12 issues shipped, 4 open, 3 in review.</div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3);">
+      <div class="surface"><span class="kicker">SHIPPED</span><div class="stat">12</div></div>
+      <div class="surface"><span class="kicker">OPEN</span><div class="stat">4</div></div>
+      <div class="surface"><span class="kicker">REVIEW</span><div class="stat">3</div></div>
+    </section>
+
+    <section class="surface surface--muted">
+      <span class="kicker">MILESTONE</span>
+      <h2 class="title">v2.4.0 — rollout</h2>
+      <div class="label">Scheduled for Friday 15:00 UTC. Check rollout checklist before merge.</div>
+      <div class="row">
+        <button class="btn btn--secondary">View checklist</button>
+        <button class="btn btn--primary">Merge & deploy</button>
+      </div>
+    </section>
+
+    <section class="surface" style="display: flex; gap: var(--space-2); align-items: center;">
+      <span class="badge">PRIORITY/0</span>
+      <span class="badge" style="background: color-mix(in srgb, var(--color-accent) 14%, var(--color-card)); border-color: color-mix(in srgb, var(--color-accent) 30%, transparent); color: var(--color-accent);">SHIPPED</span>
+      <span class="badge">#1247</span>
+    </section>
+  </main>
+</body>
+</html>
