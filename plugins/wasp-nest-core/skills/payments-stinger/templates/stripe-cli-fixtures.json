@@ -1,0 +1,76 @@
+{
+  "_comment": "payments-stinger, Stripe CLI fixture for a SaaS subscription end-to-end smoke test. Run with: stripe fixtures fixtures/sub-flow.json. See guides/08-testing-and-local-development.md.",
+  "_when_to_use": "After deploying the webhook handler to a dev environment with `stripe listen` running, this fixture creates a customer, a price (idempotent via lookup_key), a Checkout Session in subscription mode, and triggers the canonical events to verify the end-to-end flow.",
+  "fixtures": [
+    {
+      "name": "customer",
+      "path": "/v1/customers",
+      "method": "post",
+      "params": {
+        "email": "test-customer@example.com",
+        "metadata": {
+          "app_user_id": "user_test_001"
+        }
+      }
+    },
+    {
+      "name": "product",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Gold Plan (test)",
+        "metadata": {
+          "tier": "gold"
+        }
+      }
+    },
+    {
+      "name": "price_monthly",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${product:id}",
+        "currency": "usd",
+        "unit_amount": 1900,
+        "recurring": {
+          "interval": "month"
+        },
+        "lookup_key": "gold_monthly_test"
+      }
+    },
+    {
+      "name": "checkout_session",
+      "path": "/v1/checkout/sessions",
+      "method": "post",
+      "params": {
+        "mode": "subscription",
+        "customer": "${customer:id}",
+        "line_items": [
+          {
+            "price": "${price_monthly:id}",
+            "quantity": 1
+          }
+        ],
+        "success_url": "https://example.com/billing/success?session_id={CHECKOUT_SESSION_ID}",
+        "cancel_url": "https://example.com/billing/canceled",
+        "subscription_data": {
+          "metadata": {
+            "app_user_id": "user_test_001"
+          }
+        },
+        "metadata": {
+          "app_user_id": "user_test_001",
+          "lookup_key": "gold_monthly_test"
+        }
+      }
+    }
+  ],
+  "_followup": [
+    "After running this fixture, manually trigger the canonical events:",
+    "  stripe trigger checkout.session.completed",
+    "  stripe trigger customer.subscription.updated",
+    "  stripe trigger invoice.paid",
+    "  stripe trigger invoice.payment_failed",
+    "Each trigger should produce a row in processed_webhook_events with processed_at non-null."
+  ]
+}
