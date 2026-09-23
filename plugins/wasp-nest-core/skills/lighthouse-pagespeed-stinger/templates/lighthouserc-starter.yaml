@@ -1,0 +1,99 @@
+# lighthouserc-starter.yaml
+# Production-ready LHCI configuration template
+# Lighthouse 12.6.1 / LHCI 0.15.x
+# Guide: guides/01-lhci-configuration.md
+#
+# Usage:
+#   1. Copy to your repo root as lighthouserc.yaml (or lighthouserc.json)
+#   2. Replace placeholder URLs with your actual URLs
+#   3. Run `lhci autorun --no-assert` first to measure baseline
+#   4. Adjust minScore / maxNumericValue to baseline + 10-20% buffer
+#   5. Remove the --no-assert flag to enable CI gating
+
+ci:
+  collect:
+    # Number of Lighthouse runs per URL. Never use 1 — too much variance.
+    numberOfRuns: 3
+
+    # Uncomment for local/CI server (e.g., Next.js dev server):
+    # startServerCommand: "npm run build && npm start"
+    # startServerReadyPattern: "ready on"
+
+    # URLs to audit. Use full URLs for production; localhost for CI with startServerCommand.
+    url:
+      - https://your-site.com/
+      - https://your-site.com/key-page
+
+    settings:
+      # Uncomment for desktop simulation (no CPU/network throttling):
+      # preset: desktop
+
+      # Mobile (default): 4x CPU slowdown, 1.6 Mbps / 150ms RTT
+      # IMPORTANT: Always commit your form-factor choice. Never compare
+      # mobile scores to desktop scores — they use different normalization.
+
+      # Reference any custom plugins:
+      # plugins:
+      #   - lighthouse-plugin-my-checks
+
+  assert:
+    assertions:
+      # Performance score: use median-run (natural variance makes pessimistic unusable)
+      categories:performance:
+        - error
+        - minScore: 0.85         # Set to: current baseline - 0.05 (5-point buffer)
+          aggregationMethod: median-run
+
+      # Accessibility: use pessimistic (binary pass/fail, maximum strictness)
+      categories:accessibility:
+        - error
+        - minScore: 0.90
+          aggregationMethod: pessimistic
+
+      # Best Practices: use pessimistic
+      categories:best-practices:
+        - error
+        - minScore: 0.90
+          aggregationMethod: pessimistic
+
+      # SEO technical: use pessimistic
+      categories:seo:
+        - error
+        - minScore: 0.90
+          aggregationMethod: pessimistic
+
+      # LCP: Core Web Vitals "Good" threshold is 2500ms
+      largest-contentful-paint:
+        - warn              # Start as warn; promote to error once stable
+        - maxNumericValue: 2500
+          aggregationMethod: median-run
+
+      # CLS: Core Web Vitals "Good" threshold is 0.1
+      cumulative-layout-shift:
+        - warn
+        - maxNumericValue: 0.1
+          aggregationMethod: median-run
+
+      # TBT: lab proxy for INP. warn is appropriate — remember TBT != INP.
+      # High TBT does not guarantee bad INP; low TBT does not guarantee good INP.
+      total-blocking-time:
+        - warn
+        - maxNumericValue: 300
+          aggregationMethod: median-run
+
+      # Optional: bundle size budgets (via resource-summary assertions)
+      # resource-summary:script:size:
+      #   - warn
+      #   - maxNumericValue: 300000   # 300 kB of JavaScript
+
+  upload:
+    # Options:
+    # - temporary-public-storage: 7-day retention, public URL printed in CI logs
+    # - filesystem: stores JSON in .lighthouseci/ (add to .gitignore)
+    # - lhci (private LHCI server): historical trends, commit-level diffs
+    target: temporary-public-storage
+
+    # For private LHCI server (guides/04-performance-tracking.md):
+    # target: lhci
+    # serverBaseUrl: https://your-lhci-server.example.com
+    # token: $LHCI_BUILD_TOKEN
