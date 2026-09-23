@@ -1,0 +1,172 @@
+{
+  "$comment": "shadcn/ui catalog used to validate component maps. components[] holds the 54 installable registry:ui items plus doc-only guide entries listed in notInstallable. Source: references/research/raw/shadcn--*.md, fetched 2026-09-15. Refresh when shadcn/ui ships new components.",
+  "source": "https://ui.shadcn.com/docs/components",
+  "fetched": "2026-09-15",
+  "install": "npx shadcn@latest add <component> [<component> ...]",
+  "init": "npx shadcn@latest init",
+  "components": [
+    "accordion",
+    "alert",
+    "alert-dialog",
+    "aspect-ratio",
+    "avatar",
+    "badge",
+    "breadcrumb",
+    "button",
+    "button-group",
+    "calendar",
+    "card",
+    "carousel",
+    "chart",
+    "checkbox",
+    "collapsible",
+    "combobox",
+    "command",
+    "context-menu",
+    "data-table",
+    "date-picker",
+    "dialog",
+    "direction",
+    "drawer",
+    "dropdown-menu",
+    "empty",
+    "field",
+    "form",
+    "hover-card",
+    "input",
+    "input-group",
+    "input-otp",
+    "item",
+    "kbd",
+    "label",
+    "menubar",
+    "native-select",
+    "navigation-menu",
+    "pagination",
+    "popover",
+    "progress",
+    "radio-group",
+    "resizable",
+    "scroll-area",
+    "select",
+    "separator",
+    "sheet",
+    "sidebar",
+    "skeleton",
+    "slider",
+    "sonner",
+    "spinner",
+    "switch",
+    "table",
+    "tabs",
+    "textarea",
+    "toggle",
+    "toggle-group",
+    "tooltip",
+    "typography"
+  ],
+  "notInstallable": {
+    "data-table": "Guide, not a registry item (no `add data-table`): compose table with TanStack Table. Install table.",
+    "date-picker": "Guide composed of popover and calendar. Install popover and calendar.",
+    "typography": "Style guide for headings, paragraphs, and lists, not a component. Use classes.",
+    "form": "Documented in the Forms guide (React Hook Form and Zod wrappers) rather than as a standalone component page; field is the related building block."
+  },
+  "deprecated": {
+    "toast": "Deprecated in favor of sonner."
+  },
+  "conversationPrimitives": [
+    "attachment",
+    "bubble",
+    "marker",
+    "message",
+    "message-scroller",
+    "questionnaire"
+  ],
+  "variants": {
+    "button": {
+      "variant": [
+        "default",
+        "outline",
+        "secondary",
+        "ghost",
+        "destructive",
+        "link"
+      ],
+      "size": [
+        "default",
+        "xs",
+        "sm",
+        "lg",
+        "icon",
+        "icon-xs",
+        "icon-sm",
+        "icon-lg"
+      ]
+    },
+    "badge": {
+      "variant": [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link"
+      ]
+    },
+    "alert": {
+      "variant": [
+        "default",
+        "destructive"
+      ]
+    }
+  },
+  "themeTokens": [
+    "background",
+    "foreground",
+    "card",
+    "card-foreground",
+    "popover",
+    "popover-foreground",
+    "primary",
+    "primary-foreground",
+    "secondary",
+    "secondary-foreground",
+    "muted",
+    "muted-foreground",
+    "accent",
+    "accent-foreground",
+    "destructive",
+    "border",
+    "input",
+    "ring",
+    "chart-1",
+    "chart-2",
+    "chart-3",
+    "chart-4",
+    "chart-5",
+    "sidebar",
+    "sidebar-foreground",
+    "sidebar-primary",
+    "sidebar-primary-foreground",
+    "sidebar-accent",
+    "sidebar-accent-foreground",
+    "sidebar-border",
+    "sidebar-ring",
+    "radius"
+  ],
+  "themeColorFormat": "oklch",
+  "radiusScale": {
+    "radius-sm": "calc(var(--radius) * 0.6)",
+    "radius-md": "calc(var(--radius) * 0.8)",
+    "radius-lg": "var(--radius)",
+    "radius-xl": "calc(var(--radius) * 1.4)",
+    "radius-2xl": "calc(var(--radius) * 1.8)",
+    "radius-3xl": "calc(var(--radius) * 2.2)",
+    "radius-4xl": "calc(var(--radius) * 2.6)"
+  },
+  "customTokens": "Add under :root and .dark, then expose with @theme inline (for example --warning and --warning-foreground).",
+  "svelte": {
+    "project": "shadcn-svelte (Bits UI based)",
+    "api": "Namespace imports with dot notation, for example Select.Root, Select.Trigger, Select.Content, Select.Item, where shadcn/ui React uses flat exports (Select, SelectTrigger, SelectContent, SelectItem)."
+  }
+}

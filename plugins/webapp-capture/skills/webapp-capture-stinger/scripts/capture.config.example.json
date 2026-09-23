@@ -1,0 +1,101 @@
+{
+  "$comment": "webapp-capture-stinger config. Copy to the target repo (for example library/design/capture.config.json) and edit. Paths are relative to the config file unless absolute.",
+  "app": {
+    "name": "Example App",
+    "origin": "http://localhost:3000",
+    "context": "One sentence describing what the app is and who uses it. Fed to the describe and merge prompts.",
+    "loginPath": "/login"
+  },
+  "auth": {
+    "storageState": ".capture/auth.json",
+    "$comment": "A human logs in once in a visible window (scripts/save-session.mjs). The agent never types credentials."
+  },
+  "onboarding": {
+    "$comment": "Optional explicitly approved local or seeded onboarding preflight. Screenshots each step before executing its declared actions. Disabled by default.",
+    "enabled": false,
+    "approved": false,
+    "environment": "local",
+    "path": "/onboarding",
+    "skipWhenApiHasItems": null,
+    "outputSubdir": "_onboarding",
+    "denyPattern": null,
+    "timeoutMs": 120000,
+    "whenVisible": { "role": "heading", "name": "Welcome" },
+    "completeWhenVisible": { "role": "heading", "name": "Dashboard" },
+    "steps": []
+  },
+  "browser": {
+    "executablePath": null,
+    "viewport": {
+      "width": 1600,
+      "height": 1013
+    },
+    "deviceScaleFactor": 3,
+    "colorScheme": "dark",
+    "reducedMotion": "reduce",
+    "shards": 6
+  },
+  "theme": {
+    "$comment": "Optional: force a theme the app stores client-side. Leave localStorage null if prefers-color-scheme is enough. verifySelector must match when the theme is active, or capture refuses to run.",
+    "localStorage": {
+      "key": null,
+      "value": null
+    },
+    "verify": {
+      "htmlClassIncludes": "dark"
+    }
+  },
+  "routes": {
+    "$comment": "discover: nav-links | crawl-links | list. crawl-links recursively follows same-origin anchors up to maxRoutes.",
+    "discover": "nav-links",
+    "startPath": "/",
+    "maxRoutes": 200,
+    "includePattern": null,
+    "list": [],
+    "exclude": [
+      "/logout",
+      "/docs"
+    ],
+    "maxShots": 30
+  },
+  "tabs": {
+    "selector": "[role=\"tab\"]",
+    "noTabsOnRoutes": [],
+    "noTabsOnRoutePattern": null,
+    "notATabLabel": "^(light|dark|system|\\d+\\s*(h|d|days?)|all time)$",
+    "$comment": "Tabs that change settings or only filter data are not tabs. Add their routes to noTabsOnRoutes after the first dry run."
+  },
+  "icons": {
+    "classPattern": "material-(symbols|icons)",
+    "fontName": "Material Symbols Outlined"
+  },
+  "redact": {
+    "$comment": "Applied to captured text and HTML before anything is written. Seeded from GitHub secret scanning pattern families and the OWASP Logging Cheat Sheet never-log list (research: code section). Extend per app.",
+    "patterns": [
+      "-----BEGIN [A-Z ]*PRIVATE KEY-----[\\s\\S]*?-----END [A-Z ]*PRIVATE KEY-----",
+      "\\b(?:postgres(?:ql)?|mysql|mongodb(?:\\+srv)?|redis|amqp)://[^\\s\"'<>]+",
+      "\\bAKIA[0-9A-Z]{16}\\b",
+      "\\bxox[baprs]-[A-Za-z0-9-]{10,}",
+      "\\bgh[pousr]_[A-Za-z0-9]{36,}\\b",
+      "\\bgithub_pat_[A-Za-z0-9_]{22,}\\b",
+      "\\bsk-(?:proj-|ant-)?[A-Za-z0-9_-]{20,}",
+      "\\beyJ[A-Za-z0-9_-]{10,}\\.[A-Za-z0-9_-]{10,}\\.[A-Za-z0-9_-]{10,}",
+      "\\b(sk|pk|rk|key|tok)[-_][A-Za-z0-9_-]{8,}",
+      "\\bBearer\\s+[A-Za-z0-9._-]+",
+      "\\b[A-Za-z0-9_-]{32,}\\b",
+      "\\b[\\w.+-]+@[\\w-]+\\.[\\w.]+\\b"
+    ]
+  },
+  "output": {
+    "screenshots": "library/design/screenshots",
+    "inventory": "library/design",
+    "demo": "library/design/demo",
+    "audit": "library/requirements/reports"
+  },
+  "ai": {
+    "describeBatchSize": 10,
+    "describeModel": "sonnet",
+    "mergeModel": "sonnet",
+    "maxConcurrentAgents": 18
+  }
+}

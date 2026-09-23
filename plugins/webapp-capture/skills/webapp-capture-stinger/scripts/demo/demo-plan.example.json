@@ -1,0 +1,36 @@
+{
+  "title": "Connect your first provider",
+  "summary": "A 60 to 90 second walkthrough for new users: from the dashboard home to a connected provider and a test request.",
+  "audience": "New users evaluating the product",
+  "approved": false,
+  "video": { "width": 1920, "height": 1080 },
+  "narration": { "wordsPerMinute": 140 },
+  "safety": {
+    "$comment": "Clicks and typing on targets whose text matches denyPattern abort the recording. The plan must be approved by a human before recording.",
+    "denyPattern": "(delete|remove|destroy|drop|reset|revoke|shutdown|restart|log ?out|sign ?out|pay|purchase|transfer)"
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "title": "One endpoint for every model",
+      "route": "/home",
+      "narration": "Every AI provider, one endpoint. Here is the dashboard you land on after signing in.",
+      "actions": [
+        { "type": "wait", "ms": 800, "screenshot": "home-overview" },
+        { "type": "scroll", "dy": 500 },
+        { "type": "wait", "ms": 1200 }
+      ]
+    },
+    {
+      "id": "providers",
+      "title": "Pick a provider",
+      "route": "/dashboard/providers",
+      "narration": "Open Providers to see every supported service and its connection status at a glance.",
+      "actions": [
+        { "type": "hover", "selector": "input[type=search]", "ms": 900 },
+        { "type": "type", "selector": "input[type=search]", "text": "claude", "screenshot": "providers-search" },
+        { "type": "wait", "ms": 1500 }
+      ]
+    }
+  ]
+}
