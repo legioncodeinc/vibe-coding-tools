@@ -1,0 +1,63 @@
+schema_version: "{{schema_version}}"
+release_candidate: "{{version_or_commit}}"
+generated_at: "{{ISO_8601_UTC}}"
+external_effects_authorized: {{true_or_false}}
+authorization_reference: "{{reference_or_NONE}}"
+
+source:
+  repository: "{{repository}}"
+  commit: "{{commit_sha}}"
+  dirty: {{true_or_false}}
+  lockfile_sha256: "{{sha256}}"
+  toolchain: "{{rustc_and_cargo_versions}}"
+  msrv_status: "{{PROVEN_UNDECIDED_NOT_CLAIMED}}"
+
+artifacts:
+  - target: "{{rust_target_triple}}"
+    path: "{{artifact_path}}"
+    sha256: "{{sha256}}"
+    build_command: "{{exact_command}}"
+    build_result: "{{PASS_FAIL_BLOCKED}}"
+    runtime_smoke: "{{evidence}}"
+    install_transcript: "{{path_or_NOT_RUN}}"
+    uninstall_transcript: "{{path_or_NOT_RUN}}"
+
+verification:
+  formatting: "{{command_and_result}}"
+  clippy: "{{command_and_result}}"
+  unit_contract_integration: "{{command_and_result}}"
+  doctests: "{{command_and_result}}"
+  property_model_concurrency: "{{command_and_result}}"
+  migrations_crash_recovery: "{{command_and_result}}"
+  benchmarks: "{{command_and_result}}"
+  soak: "{{command_result_thresholds_or_BLOCKED}}"
+
+supply_chain:
+  sbom:
+    path: "{{path_or_NOT_GENERATED}}"
+    tool_version: "{{version}}"
+    sha256: "{{sha256}}"
+  advisories:
+    database_updated_at: "{{ISO_8601_UTC}}"
+    command: "{{exact_command}}"
+    result: "{{PASS_FAIL_REVIEW_REQUIRED}}"
+  dependency_license_source_scan: "{{path_command_and_result}}"
+  embedded_audit_metadata: "{{evidence_or_NOT_ENABLED}}"
+
+provenance:
+  signing_status: "{{UNAUTHORIZED_NOT_RUN_GENERATED_VERIFIED}}"
+  attestation_status: "{{UNAUTHORIZED_NOT_RUN_GENERATED_VERIFIED}}"
+  signer_identity: "{{identity_or_NONE}}"
+  verification_transcript: "{{path_or_NONE}}"
+
+peer_handoffs:
+  security: "{{owner_status_report}}"
+  dependency_license: "{{owner_status_report}}"
+  release_devops: "{{owner_status_report}}"
+  quality: "{{owner_status_report_after_security}}"
+
+open_gates:
+  - id: "{{gate_id}}"
+    owner: "{{owner}}"
+    blocker: "{{missing_decision_or_evidence}}"
+    next_action: "{{first_authorized_action}}"
