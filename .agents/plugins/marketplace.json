@@ -1,0 +1,80 @@
+{
+  "name": "wasp-nest",
+  "interface": {
+    "displayName": "The Wasp Nest"
+  },
+  "plugins": [
+    {
+      "name": "wasp-nest-core",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wasp-nest-core"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "content-intelligence",
+      "source": {
+        "source": "local",
+        "path": "./plugins/content-intelligence"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "highlevel",
+      "source": {
+        "source": "local",
+        "path": "./plugins/highlevel"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "littlebird-toolkit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/littlebird-toolkit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "webapp-capture",
+      "source": {
+        "source": "local",
+        "path": "./plugins/webapp-capture"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "website-auditor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/website-auditor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

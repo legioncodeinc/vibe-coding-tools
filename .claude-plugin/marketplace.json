@@ -1,0 +1,42 @@
+{
+  "name": "wasp-nest",
+  "owner": {
+    "name": "Mario Aldayuz"
+  },
+  "metadata": {
+    "description": "The Wasp Nest: core plus add-on packs.",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "wasp-nest-core",
+      "source": "./plugins/wasp-nest-core",
+      "description": "The Wasp Nest core. Install first."
+    },
+    {
+      "name": "content-intelligence",
+      "source": "./plugins/content-intelligence",
+      "description": "Research current GitHub repository trends and news, verify one story, and prepare evidence-backed social post drafts. Requires the user's own voice skill and ledger."
+    },
+    {
+      "name": "highlevel",
+      "source": "./plugins/highlevel",
+      "description": "HighLevel integration, AI Studio creation, and offline workflow-export visualization, with a dedicated Drone and Stinger for each domain."
+    },
+    {
+      "name": "littlebird-toolkit",
+      "source": "./plugins/littlebird-toolkit",
+      "description": "Thirty skills that turn your Littlebird memory into work you can act on. Find the subscriptions you pay for and never open, rebuild the pipeline living in your head, write the SOP for the thing you did last Thursday because Littlebird watched you do it, harvest every commitment from your meetings and check whether it got done, mine your calls for the content you already said well, and clone your writing voice from your own real corpus. Every finding carries a timestamped receipt, and every skill refuses to produce numbers it cannot honestly measure. Requires the Littlebird MCP on a Power or Pro plan."
+    },
+    {
+      "name": "webapp-capture",
+      "source": "./plugins/webapp-capture",
+      "description": "Capture any live web app the way users see it: demo videos with screenshots, captions, and scripts; a full UI component library with measured styles and DTCG design tokens; a Claude Design handoff zip; a shadcn/ui migration map; and visual and code inconsistency audits. Designed and built by Legion Code Inc."
+    },
+    {
+      "name": "website-auditor",
+      "source": "./plugins/website-auditor",
+      "description": "Repeatable, harness-portable website audit tool: AEO/SEO, security, UX/funnel, accessibility, and analytics assessment for any site, with a branded XLSX scorecard and customer/auditor reports."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+name: Release public Wasp Nest marketplace
+
+on:
+  pull_request:
+    branches: [staging, main]
+  push:
+    branches: [staging, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-wasp-nest-release
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/validate_publication.py
+      - run: python3 tools/check_markdown_links.py README.md learn
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Read version and check for an existing release
+        id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="$(cat VERSION)"
+          echo "tag=v${version}" >> "$GITHUB_OUTPUT"
+          if gh release view "v${version}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Public release v${version} already exists; leaving it unchanged."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            if git ls-remote --exit-code --tags origin "refs/tags/v${version}" >/dev/null 2>&1; then
+              echo "Tag v${version} exists without a release; inspect it before retrying." >&2
+              exit 1
+            fi
+          fi
+      - name: Package marketplace and plugins
+        if: steps.version.outputs.exists == 'false'
+        run: python3 tools/pack_public_release.py --out release-assets
+      - name: Write release notes
+        if: steps.version.outputs.exists == 'false'
+        run: |
+          source_sha="$(python3 -c 'import json; print(json.load(open("PUBLICATION-MANIFEST.json"))["source_sha"])')"
+          printf 'The Wasp Nest public marketplace v%s.\n\nPromoted from staging to main. Source commit: `%s`. Includes marketplace and per-plugin archives with SHA-256 checksums.\n' "$(cat VERSION)" "$source_sha" > release-notes.md
+      - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
+        if: steps.version.outputs.exists == 'false'
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: The Wasp Nest ${{ steps.version.outputs.tag }}
+          body_path: release-notes.md
+          files: release-assets/*
