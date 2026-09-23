@@ -1,0 +1,87 @@
+name: CI
+
+# Lint, typecheck, and test on every push and pull request against {default_branch}.
+# Grounded in least-privilege GITHUB_TOKEN guidance:
+# raw/get-started--ci-security--actions-secure-use-official-docs.md
+# raw/get-started--ci-security--secure-pipelines-cheat-sheet.md
+
+on:
+  push:
+    branches: [{default_branch}]
+  pull_request:
+    branches: [{default_branch}]
+
+# Default every job to read-only. Jobs that need more must grant it themselves.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      # Pin third-party actions to a full commit SHA, not a tag, and keep the
+      # version comment for readability. Resolve the SHA for your installed
+      # major version with: gh api repos/actions/checkout/git/ref/tags/v4.x.x --jq '.object.sha'
+      - name: Checkout
+        uses: actions/checkout@{actions_checkout_sha} # v4.x.x
+
+      - name: Set up Node
+        uses: actions/setup-node@{actions_setup_node_sha} # v4.x.x
+        with:
+          node-version-file: ".nvmrc"
+          cache: "{package_manager}"
+
+      - name: Install dependencies
+        run: {install_command}
+
+      - name: Lint
+        run: {lint_command}
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@{actions_checkout_sha} # v4.x.x
+
+      - name: Set up Node
+        uses: actions/setup-node@{actions_setup_node_sha} # v4.x.x
+        with:
+          node-version-file: ".nvmrc"
+          cache: "{package_manager}"
+
+      - name: Install dependencies
+        run: {install_command}
+
+      - name: Typecheck
+        run: {typecheck_command}
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@{actions_checkout_sha} # v4.x.x
+
+      - name: Set up Node
+        uses: actions/setup-node@{actions_setup_node_sha} # v4.x.x
+        with:
+          node-version-file: ".nvmrc"
+          cache: "{package_manager}"
+
+      - name: Install dependencies
+        run: {install_command}
+
+      - name: Test
+        run: {test_command}

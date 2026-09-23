@@ -1,0 +1,72 @@
+# TypeScript / Node baseline. Grounded in:
+# raw/get-started--gitignore--github-gitignore-node-template.md
+# Extend the "Project-specific" section at the bottom; don't edit the rest
+# unless your stack genuinely differs from Node/TypeScript.
+
+# ---- Environment / secrets ----
+# Never commit real .env files. .env.example is the one exception, since it
+# documents required variables without holding real values.
+.env
+.env.*
+!.env.example
+
+# ---- Dependencies ----
+node_modules/
+jspm_packages/
+
+# ---- Build output ----
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# ---- Coverage / test artifacts ----
+coverage/
+*.lcov
+.nyc_output/
+
+# ---- Logs ----
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---- Caches ----
+.npm
+.eslintcache
+.stylelintcache
+.cache/
+.parcel-cache/
+
+# ---- Yarn v2+ ----
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ---- Framework build dirs ----
+.next/
+.nuxt/
+.svelte-kit/
+.vercel/
+.turbo/
+.serverless/
+
+# ---- Editor / IDE ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# ---- OS cruft ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- Project-specific ----
+# {Add repo-specific ignores below this line.}
