@@ -1,0 +1,9 @@
+# Hand an accepted contract to Library
+
+1. Tell `library-wasp-drone` the accepted `CTR` path and revision, the provider and consumers, and which PRD indexes or sub-PRDs depend on it. The Drone owns the contract record; Library owns PRD files and lifecycle moves.
+2. Library adds `## Contract dependencies` to each affected PRD or sub-PRD and records `CTR-<###> revision <n>` with a relative link to the stable record. It also states the affected feature and any planned provider or consumer verification. The contract's `## PRD dependencies` table links back to the PRDs when their files exist.
+3. Pin one accepted revision per consuming PRD. The record's file path stays fixed when a PRD folder moves; Library repairs relative links during lifecycle moves. Run the read-only validator after links or moves change.
+4. Share a parallel PRD authoring brief with the orchestrator: each PRD author's file ownership, the accepted revision, the boundary terms to reference, and the later integration check. Authors may complete their PRDs independently against those terms. If a shared rule is Draft or disputed, mark affected PRD completion blocked and name the missing decision. [../references/research/raw/pact-contract-testing.md](../references/research/raw/pact-contract-testing.md)
+5. When implementation arrives, have the responsible engineering owner run provider and consumer verification. Update evidence state only from actual check output. A planning contract does not substitute for an executable check. [../references/research/raw/pact-contract-testing.md](../references/research/raw/pact-contract-testing.md)
+
+The `CTR` and PRD linking protocol is a Wasp Nest workflow convention. It is designed to keep one agreement stable across PRD lifecycle moves. [../references/research/distilled-contract-writing.md](../references/research/distilled-contract-writing.md)
