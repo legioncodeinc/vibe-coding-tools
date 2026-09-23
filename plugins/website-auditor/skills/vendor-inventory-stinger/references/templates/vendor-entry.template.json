@@ -1,0 +1,17 @@
+{
+  "_comment": "Copy-ready shape for one row of shared/scripts/vendor-census.py's output. Not a file written to the shared workspace on its own, the workspace contract only calls for 01-recon/vendor-inventory.md; this schema is the intermediate machine-readable shape a Drone should keep in memory/scratch while assembling that markdown report, and the shape returned by vendor-census.py's `vendors` array. Delete this _comment key before use, JSON has no native comment syntax.",
+  "vendor": "<vendor display name, e.g. 'Google Tag Manager'>",
+  "category": "<one of: analytics | tag-manager | chat | payments | cro-testing | seo-injection | ads | consent-cmp | other>",
+  "grounded": "<researched | judgment-call>",
+  "source": "<raw source path if grounded=researched, else null>",
+  "confidence": "<high | medium | low>",
+  "evidence": [
+    {
+      "channel": "<request-or-script-src | html-pattern | js-global-expected-not-confirmed-by-this-script>",
+      "signal": "<the matched substring, regex, or global name>",
+      "matched": "<the exact URL or DOM node text that matched, when applicable>"
+    }
+  ],
+  "flag_as": "<present only for content-injection/metadata-manipulation tools, e.g. 'content-injection'>",
+  "verification_status": "<present only alongside flag_as: 'candidate, needs manual confirmation'>"
+}
