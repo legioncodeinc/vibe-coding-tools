@@ -1,0 +1,40 @@
+{
+  "_comment": "Copy-ready template for _shared/target-profile.json. Written once per audit run by stack-fingerprint-wasp-drone (wave W1a) and read read-only by every later Drone, per the PRD-003 shared-workspace contract. Produced by shared/scripts/fingerprint.py's build_profile(); this file documents the shape for a human author and for any Drone that needs to hand-write or validate one. Replace every <angle-bracket> placeholder; delete this _comment key before writing the real file, JSON has no native comment syntax.",
+  "schema_version": "1.0",
+  "generated_at": "<ISO 8601 UTC timestamp, e.g. 2026-08-18T14:32:00Z>",
+  "generated_by": "stack-fingerprint-wasp-drone",
+  "target_url": "<the audited landing page URL from 00-intake/>",
+  "reachable": "<true | false. If false, every field below except target_url/generated_at/reachable is meaningless, stop and report the fetch failure instead of guessing>",
+
+  "stack": "<one of: react-vite-postgres | nextjs-postgres | sveltekit-postgres | wordpress-php-mysql | shopify | magento-php-mysql | unknown. Never a value outside this enum, per PRD-003 goals>",
+  "platform": "<human-readable label matching stack, e.g. 'WordPress', 'Next.js', 'Shopify'. 'unknown' if stack is unknown>",
+  "platform_guide": "<repo-relative path to the build-plan-section-6 platform guide site-crawler-wasp-drone should load next, e.g. shared/platform-guides/platform-cms-wordpress.md. null when stack is unknown>",
+
+  "rendering": "<one of: ssr | csr | hybrid | other | unknown-requires-headless-load. Must be derived from response body plus one real headless-browser load per PRD-003, never guessed from documentation or framework reputation>",
+
+  "confidence": {
+    "stack": "<high | medium | low>",
+    "rendering": "<high | medium | low>"
+  },
+
+  "grounded": "<researched | judgment-call. Whether the winning stack signature traces to this Stinger's research archive or is an explicit judgment call per the distillation's gap note. See references/fingerprint-signature-table.md>",
+  "evidence": [
+    {
+      "channel": "<html | header | cookie | meta_generator>",
+      "signal": "<the exact matched string or header name>"
+    }
+  ],
+  "hosting_hints": [
+    "<optional CDN/hosting labels inferred from headers, e.g. 'Cloudflare', 'Vercel'. Informational only, never used to set `stack`>"
+  ],
+  "other_candidates": [
+    "<any other stack ids that also matched at lower confidence, for audit-trail purposes only>"
+  ],
+
+  "raw_signals": {
+    "_comment": "Present ONLY when stack is 'unknown'. Never force an unrecognized site into the nearest known category, per PRD-003 AC-2, non-goal 2. Attach exactly what was collected so a human can classify it later.",
+    "html_length": "<int>",
+    "header_names": ["<lowercased header names seen>"],
+    "cookie_names": ["<lowercased cookie names seen>"]
+  }
+}

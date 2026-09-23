@@ -1,0 +1,21 @@
+# Guide 02: Collect public-profile data
+
+## What this guide covers
+
+Everything this Drone can and should collect without any authentication, for every found platform (active or dormant), regardless of whether the user later opts into the authenticated flow in guide 03.
+
+## Procedure
+
+1. Confirm what "public" actually means on each platform before assuming a field is visible: open the profile in a plain, unauthenticated browser view. The practical test named in the research is a private/incognito browser window; whatever renders there is public data [raw/www-getphyllo-com-post-social-media-public-data.md]. This Drone's own harness-browser session should default to an unauthenticated context for this step.
+2. Collect the platform-specific fixed or owner-controlled field set:
+   - **Instagram:** name, username, profile picture, bio, links, follower/following counts, avatar, Threads username, and created channels are ALWAYS public, on both public and private Instagram accounts, and cannot be hidden by the owner, per Meta's own Help Center [raw/www-facebook-com-help-347751748650214.md]. There is no "this field might be private" case to check for on Instagram; if it's one of these fields, it's visible.
+   - **LinkedIn:** photo, headline, summary, experience, skills, and articles/activity are individually toggled by the profile owner; LinkedIn's own Help Center describes the logged-out public profile as "a simplified version" of the full profile and states plainly that seeing the full profile may require logging in [raw/www-linkedin-com-help-linkedin-answer-a518980.md]. Expect a variable subset per account, not a fixed list, and expect the same variability for a Company Page (an inference from the personal-profile mechanics, no Company-Page-specific source was found).
+   - **Facebook:** no official-docs source in this Stinger's archive states a fixed always-public field list for Facebook Pages the way Meta's own docs do for Instagram (distilled research section 8, gap). Collect what the unauthenticated view actually shows, without assuming a guaranteed floor.
+3. Collect visible post-history data: caption, hashtags, media type, media URL, permalink, timestamp, and public like/comment counts, confirmed structurally public for Instagram [raw/www-getphyllo-com-post-social-media-public-data.md]. Do not attempt to compute a precise engagement RATE from this alone; rate requires reach, a number that sits behind the account holder's own login on every platform this Drone covers [raw/www-getphyllo-com-post-social-media-public-data.md].
+4. Run the 7-day content sweep (per build plan's roster description of this pair: "profile discovery, 7-day content sweep, voice consistency, cadence") against the visible post history: posting frequency against general platform benchmarks, content-mix by visible category, and pinned-post relevance and staleness (3-month threshold) [raw/posteverywhere-ai-blog-social-media-audit-checklist.md].
+5. Do not reach for an official platform API as a shortcut to "no-login" data. Even Meta's own Business Discovery API surface, the only official route to another account's public data programmatically, requires the AUDITOR to hold an authenticated Instagram Business account, and the TARGET must itself be a Professional account; personal target accounts return nothing through it. Meta's Hashtag Search surface likewise requires an authenticated Business/Creator account and App Review [raw/www-getphyllo-com-post-social-media-public-data.md]. A genuinely unauthenticated collection is a plain browser visit to the public profile page, not an API call.
+6. Write results into `references/templates/platform-profile-checklist.md`, one block per platform, with an evidence pointer (captured page text or screenshot) for every field checked.
+
+## Why this step runs regardless of the authentication decision in guide 03
+
+Everything in this guide is reachable without login and should be scored normally no matter what the user decides about the authenticated flow. Conflating "declined authentication" with "no public data collected" would over-penalize a platform the user simply didn't want to log into, which is exactly the outcome PRD-017's conduct rule forbids.

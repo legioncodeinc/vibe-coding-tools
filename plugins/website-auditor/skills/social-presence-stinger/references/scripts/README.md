@@ -1,0 +1,3 @@
+Deterministic scripts for this audit domain live in the shared `shared/scripts/` folder at the plugin root, not duplicated per Stinger. See that folder's README for the full script list and which pairs use which script.
+
+This pair has no entry in the shared script list and no local script of its own. Its work (per-platform browser navigation, an explicit per-platform authentication prompt, and reading whatever the harness's own browser tool returns) is inherently interactive and harness-dependent, not a deterministic, harness-portable transform the way `visual-capture.py` or `seo-technical.py` are for their pairs. See `guides/03-opt-in-auth-with-silent-no-op-on-decline.md` for the procedure this Drone follows instead of a script.
