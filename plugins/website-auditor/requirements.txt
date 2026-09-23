@@ -1,0 +1,9 @@
+# Python dependencies for this repo's validation and generation scripts
+# (scripts/*.py, skills/*/references/scripts/*.py, shared/scripts/*.py).
+# This plugin ships no runtime service; these are dev/CI-time tools only.
+# Tracked so Dependabot's github-actions/pip watcher (.github/dependabot.yml)
+# has something real to bump, and so CI installs the exact versions this
+# repo was built and verified against.
+
+openpyxl>=3.1.5
+PyYAML>=6.0.3
