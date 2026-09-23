@@ -1,0 +1,27 @@
+{
+  "name": "webapp-capture",
+  "displayName": "Audit My App with Claude",
+  "version": "1.1.0",
+  "description": "Capture any live web app the way users see it: demo videos with screenshots, captions, and scripts; a full UI component library with measured styles and DTCG design tokens; a Claude Design handoff zip; a shadcn/ui migration map; and visual and code inconsistency audits. Designed and built by Legion Code Inc.",
+  "author": {
+    "name": "Legion Code Inc.",
+    "url": "https://www.legioncodeinc.com"
+  },
+  "homepage": "https://github.com/legioncodeinc/app-auditor-plugin-claude#readme",
+  "repository": "https://github.com/legioncodeinc/app-auditor-plugin-claude",
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "accessibility",
+    "claude-design",
+    "component-library",
+    "demo-video",
+    "design-system",
+    "design-tokens",
+    "dtcg",
+    "legion-code",
+    "playwright",
+    "screenshots",
+    "shadcn",
+    "ui-audit"
+  ]
+}

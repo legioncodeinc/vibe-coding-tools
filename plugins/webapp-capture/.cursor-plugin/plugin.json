@@ -1,0 +1,17 @@
+{
+  "name": "webapp-capture",
+  "version": "1.1.0",
+  "description": "Capture any live web app the way users see it: demo videos with screenshots, captions, and scripts; a full UI component library with measured styles and DTCG design tokens; a Claude Design handoff zip; a shadcn/ui migration map; and visual and code inconsistency audits. Designed and built by Legion Code Inc.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Legion Code Inc.",
+  "skills": [
+    "./skills/webapp-capture-stinger"
+  ],
+  "agents": [
+    "./cursor-agents/webapp-capture-wasp-drone.md"
+  ],
+  "commands": [
+    "./commands/webapp-capture.md"
+  ],
+  "rules": []
+}
