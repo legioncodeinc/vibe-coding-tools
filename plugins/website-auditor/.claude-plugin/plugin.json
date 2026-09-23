@@ -1,0 +1,18 @@
+{
+  "name": "website-auditor-by-legion-code-inc",
+  "version": "0.1.0",
+  "description": "Repeatable, harness-portable website audit tool: AEO/SEO, security, UX/funnel, accessibility, and analytics assessment for any site, with a branded XLSX scorecard and customer/auditor reports.",
+  "author": {
+    "name": "Legion Code Inc"
+  },
+  "repository": "https://github.com/legioncodeinc/website-audit-toolset",
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "website-audit",
+    "seo",
+    "aeo",
+    "security",
+    "accessibility",
+    "legion-code-inc"
+  ]
+}

@@ -1,0 +1,60 @@
+name: CodeQL
+
+# Advanced-setup CodeQL scan, portable as a committed workflow file.
+# GitHub's own recommendation is native "default setup" (Settings > Advanced
+# Security > CodeQL analysis > Set up > Default), which needs no workflow file
+# at all. Use this template when the project wants scanning defined as code,
+# or when default setup isn't available for the plan/visibility in use.
+# Grounded in: raw/get-started--codeql--configuring-default-setup-official-docs.md
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly scan of the default branch, catches newly disclosed query rules
+    # against unchanged code. Adjust the cron to your own quiet hours.
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # List every CodeQL-supported language actually present in the repo.
+        # Common pair for a TS/Node project: javascript-typescript
+        language: [python]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+        with:
+          languages: ${{ matrix.language }}
+          # default is precision-tuned; security-extended adds queries at
+          # some precision cost. See the distilled research for the tradeoff.
+          queries: security-extended
+
+      # For compiled languages needing a manual build step, replace this with
+      # your real build command and drop the autobuild action. JS/TS, Python,
+      # Ruby, Go, and Kotlin need no special build configuration.
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+        with:
+          category: "/language:${{ matrix.language }}"

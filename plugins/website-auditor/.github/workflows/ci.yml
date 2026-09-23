@@ -1,0 +1,59 @@
+name: CI
+
+# Validate this Wasp Nest plugin's structure and content on every push and pull
+# request against main. This repo ships markdown Drones/Stingers, Python
+# reference scripts, and one generated XLSX deliverable; there is no
+# Node.js/npm project here, so the checks below are Python- and
+# script-based rather than a typical JS lint/typecheck/test split.
+# Grounded in least-privilege GITHUB_TOKEN guidance:
+# raw/get-started--ci-security--actions-secure-use-official-docs.md
+# raw/get-started--ci-security--secure-pipelines-cheat-sheet.md
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Default every job to read-only. Jobs that need more must grant it themselves.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate plugin structure
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --break-system-packages -r requirements.txt
+
+      - name: Harness manifest sync check
+        run: python3 scripts/sync-harnesses.py --check
+
+      - name: Dash-guard scan (no em/en dashes in authored content)
+        run: python3 scripts/dash-guard.py
+
+      - name: YAML frontmatter check (SKILL.md and agent.md files)
+        run: python3 scripts/frontmatter-check.py
+
+      - name: Python syntax check on every script in the repo
+        run: |
+          find . -name "*.py" -not -path "./.git/*" -not -path "*/__pycache__/*" \
+            -print0 | xargs -0 -n1 python3 -m py_compile
+
+      - name: XLSX deliverable round-trip check
+        run: python3 scripts/verify-xlsx-template.py

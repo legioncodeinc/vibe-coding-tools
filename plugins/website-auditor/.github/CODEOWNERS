@@ -1,0 +1,28 @@
+# CODEOWNERS
+# Reference: raw/get-started--codeowners--about-code-owners-official-docs.md
+#
+# Rules:
+# - Owners MUST have write access to this repository (or be a visible team
+#   with write access).
+# - Last matching pattern wins, same as .gitignore, EXCEPT: \# escaping,
+#   ! negation, and [ ] character ranges do NOT work here even though they
+#   look like gitignore syntax.
+# - Multiple owners for one pattern must be listed on the same line, or only
+#   the last-listed owner is applied.
+# - Enable "Require review from Code Owners" on branch protection / a
+#   ruleset for this file to actually gate merges (see guide 06).
+
+# Default owner for everything not matched below.
+*       @legioncodeinc
+
+# Lock down changes to repository governance and CI/CD itself.
+/.github/                @legioncodeinc
+/.github/CODEOWNERS      @legioncodeinc
+/.github/workflows/      @legioncodeinc
+
+# Example per-area ownership. Replace with your project's real structure,
+# or delete the lines that don't apply.
+# /src/api/               @legioncodeinc
+# /src/ui/                @legioncodeinc
+# /docs/                  @legioncodeinc
+# *.md                    @legioncodeinc

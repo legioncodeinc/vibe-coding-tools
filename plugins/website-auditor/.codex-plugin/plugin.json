@@ -1,0 +1,31 @@
+{
+  "name": "website-auditor-by-legion-code-inc",
+  "version": "0.1.0",
+  "description": "Repeatable, harness-portable website audit tool: AEO/SEO, security, UX/funnel, accessibility, and analytics assessment for any site, with a branded XLSX scorecard and customer/auditor reports.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Legion Code Inc",
+  "skills": [
+    "./skills/accessibility-audit-stinger",
+    "./skills/aeo-audit-stinger",
+    "./skills/analytics-stack-stinger",
+    "./skills/audit-intake-stinger",
+    "./skills/audit-reporting-stinger",
+    "./skills/audit-scoring-stinger",
+    "./skills/blog-content-stinger",
+    "./skills/content-semantics-stinger",
+    "./skills/ecommerce-catalog-stinger",
+    "./skills/icp-positioning-stinger",
+    "./skills/internal-linking-stinger",
+    "./skills/keyword-intelligence-stinger",
+    "./skills/master-website-auditor",
+    "./skills/performance-cwv-stinger",
+    "./skills/site-crawler-stinger",
+    "./skills/social-presence-stinger",
+    "./skills/stack-fingerprint-stinger",
+    "./skills/technical-seo-stinger",
+    "./skills/vendor-inventory-stinger",
+    "./skills/visual-funnel-stinger",
+    "./skills/web-security-posture-stinger"
+  ],
+  "_note": "Codex has no plugin-agent format; drones ship to ~/.codex/agents as TOML via install.sh"
+}

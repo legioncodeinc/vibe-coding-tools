@@ -1,0 +1,38 @@
+# Dependabot version updates. Zero-config baseline: no external app install,
+# GitHub-native, wired to GitHub Advisories for security PRs automatically.
+# For monorepos, multi-Git-platform needs, or >30 ecosystems, see guide
+# 05-commit-and-release-hygiene.md for the Renovate swap-in.
+# Grounded in: raw/get-started--dependency-updates--dependabot-vs-renovate-jsonic.md
+
+version: 2
+updates:
+  # Application dependencies. Set to "pip" anticipating the Python sync script
+  # (Step 5 of the build sequence). Remove this block if the repo ships with
+  # no requirements.txt/pyproject.toml, Dependabot no-ops harmlessly either way.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      # Bundle low-risk dev-dependency bumps into one PR instead of one per package.
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+
+  # Keep GitHub Actions themselves current, including SHA-pinned actions.
+  # Dependabot understands SHA pins and updates the SHA plus the version
+  # comment in the same PR. See raw/get-started--ci-security--secure-pipelines-cheat-sheet.md
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "ci"
