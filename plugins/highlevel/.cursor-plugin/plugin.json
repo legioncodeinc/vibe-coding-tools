@@ -1,0 +1,19 @@
+{
+  "name": "highlevel",
+  "version": "0.1.0",
+  "description": "HighLevel integration, AI Studio creation, and offline workflow-export visualization, with a dedicated Drone and Stinger for each domain.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Legion Code Inc.",
+  "skills": [
+    "./skills/ghl-to-mermaid-stinger",
+    "./skills/gohighlevel-stinger",
+    "./skills/highlevel-ai-studio-stinger"
+  ],
+  "agents": [
+    "./cursor-agents/ghl-to-mermaid-wasp-drone.md",
+    "./cursor-agents/gohighlevel-wasp-drone.md",
+    "./cursor-agents/highlevel-ai-studio-wasp-drone.md"
+  ],
+  "commands": [],
+  "rules": []
+}

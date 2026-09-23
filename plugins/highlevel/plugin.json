@@ -1,0 +1,11 @@
+{
+  "name": "highlevel",
+  "version": "0.1.0",
+  "description": "HighLevel integration, AI Studio creation, and offline workflow-export visualization, with a dedicated Drone and Stinger for each domain.",
+  "license": "AGPL-3.0-or-later",
+  "skills": [
+    "./skills/ghl-to-mermaid-stinger",
+    "./skills/gohighlevel-stinger",
+    "./skills/highlevel-ai-studio-stinger"
+  ]
+}
