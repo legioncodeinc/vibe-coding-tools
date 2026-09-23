@@ -1,0 +1,111 @@
+// templates/agent-context-config.prisma
+//
+// Canonical AgentContextConfig shape. The thread-scope policy table for
+// each agent type, per-tenant or platform-wide.
+//
+// Source-of-truth: library/knowledge-base/ai/agent-orchestration.md §3
+// Code: lib/context-packet.ts (getThreadScope, getDefaultScope)
+
+model AgentContextConfig {
+  id                    String   @id @default(cuid())
+  agentType             String   @map("agent_type")           // "main_community", "level_1", "module_goals", etc.
+  tenantId              String?  @map("tenant_id")            // null = platform default
+  threadScope           String   @default("cross_session") @map("thread_scope")
+  isEnabled             Boolean  @default(true) @map("is_enabled")
+  updatedBySuperAdminId String?  @map("updated_by_super_admin_id")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  @@unique([agentType, tenantId])
+  @@map("agent_context_configs")
+}
+
+// =============================================================================
+// Scope values (validate at app layer; enum not used to allow future extension)
+// =============================================================================
+//
+//   "thread_scoped"   — current conversation thread only
+//   "cross_thread"    — multiple sessions of same agent type
+//   "cross_session"   — all sessions, all agent types
+//
+// Default scope by agent type (in getDefaultScope()):
+//
+//   "onboarding" || "offer_doc"   → "thread_scoped"
+//   starts with "module_"          → "cross_thread"
+//   everything else                → "cross_session"
+//
+// If isEnabled === false, scope defaults to "cross_session" (disabled = unrestricted).
+//
+// =============================================================================
+//
+// IMPORTANT: scope is NOT a security boundary.
+// Security is enforced by tenant_id and user_id filters on every Qdrant query,
+// always present regardless of scope.
+//
+// =============================================================================
+
+// =============================================================================
+// Seed data — platform defaults
+// =============================================================================
+//
+// On first deploy or new-tenant setup, seed these rows (tenantId = null):
+//
+//   [
+//     { agentType: "main_community",          tenantId: null, threadScope: "cross_session", isEnabled: true },
+//     { agentType: "onboarding",              tenantId: null, threadScope: "thread_scoped", isEnabled: true },
+//     { agentType: "level_1",                 tenantId: null, threadScope: "cross_session", isEnabled: true },
+//     { agentType: "level_2",                 tenantId: null, threadScope: "cross_session", isEnabled: true },
+//     { agentType: "level_3",                 tenantId: null, threadScope: "cross_session", isEnabled: true },
+//     { agentType: "offer_doc",               tenantId: null, threadScope: "thread_scoped", isEnabled: true },
+//     { agentType: "special_gift_strategist", tenantId: null, threadScope: "cross_session", isEnabled: true },
+//     { agentType: "module_goals",            tenantId: null, threadScope: "cross_thread",  isEnabled: true },
+//     { agentType: "module_ideal_client",     tenantId: null, threadScope: "cross_thread",  isEnabled: true },
+//     { agentType: "module_offer",            tenantId: null, threadScope: "cross_thread",  isEnabled: true },
+//     { agentType: "module_positioning",      tenantId: null, threadScope: "cross_thread",  isEnabled: true },
+//     { agentType: "module_referral_strategy",tenantId: null, threadScope: "cross_thread",  isEnabled: true },
+//   ]
+//
+// Per-tenant overrides written by SA from /super-admin/ai-config:
+//
+//   { agentType, tenantId, threadScope, isEnabled, updatedBySuperAdminId }
+//
+// =============================================================================
+
+// =============================================================================
+// getThreadScope() pseudocode (in context-packet.ts)
+// =============================================================================
+//
+// async function getThreadScope(agentType: string, tenantId: string): Promise<string> {
+//   // Try tenant-specific first
+//   const tenantConfig = await prisma.agentContextConfig.findUnique({
+//     where: { agentType_tenantId: { agentType, tenantId } },
+//   });
+//   if (tenantConfig) {
+//     if (!tenantConfig.isEnabled) return "cross_session";  // disabled = unrestricted
+//     return tenantConfig.threadScope;
+//   }
+//   // Platform default
+//   const platformConfig = await prisma.agentContextConfig.findUnique({
+//     where: { agentType_tenantId: { agentType, tenantId: null } },
+//   });
+//   if (platformConfig && platformConfig.isEnabled) return platformConfig.threadScope;
+//   // Hardcoded fallback
+//   return getDefaultScope(agentType);
+// }
+//
+// =============================================================================
+
+// =============================================================================
+// Common findings
+// =============================================================================
+//
+// must-fix:
+// - threadScope edited in code (silently) instead of through SA route
+// - getThreadScope() returning a value not in {"thread_scoped","cross_thread","cross_session"}
+// - threadScope used as a security boundary
+// - Adding a new agentType without seeding a default row
+//
+// should-refactor:
+// - updatedBySuperAdminId nullable but consistently null in production (audit gap)
+// - No CHECK constraint on threadScope value (rely on app-layer validation)
+//
+// =============================================================================
