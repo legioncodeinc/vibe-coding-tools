@@ -1,0 +1,54 @@
+# Philosophy of Pest-Controller-Suit
+
+Pest-Controller-Suit is the smallest part of the colony and the most important. It does no work; it only routes. That constraint is load-bearing.
+
+---
+
+## Why routing matters more than generalization
+
+The primary orchestrator in any agentic system has a choice: try to be a polymath, or delegate to specialists. Polymath agents are confident, fast, and wrong often. Specialists are slower to invoke but produce outputs their authors can actually trust.
+
+The colony is built on the second bet. Every Drone has a single, narrow domain; every Stinger is forged specifically for that domain; and Pest-Controller-Suit exists so the orchestrator never has to guess which specialist owns which problem.
+
+---
+
+## The two rules
+
+1. **The right Drone for the right job.** Never generalize work a specialist owns. If the user's request touches security, `security-wasp-drone` is not a nice-to-have; it is the answer.
+2. **Every Drone wields a Stinger.** Invoking a Drone without its Stinger is invoking an unarmed persona. Always pass the Stinger path when delegating.
+
+---
+
+## The ritual
+
+When [`queen-wasp-stinger`](../../queen-wasp-stinger/) forges a new Drone and Stinger pair, registration with Pest-Controller-Suit is the final step. Unregistered Drones are invisible. The pipeline is:
+
+1. Topic.
+2. Research.
+3. Distillation.
+4. References.
+5. Guides.
+6. Skill File.
+7. Register the Drone, its Stinger, its routing guide, and every generated harness copy.
+
+Each phase produces an auditable artifact. Each phase is rerunnable. The whole pipeline is designed so that a Drone can be traced from idea to deployment without anyone opening a terminal log.
+
+---
+
+## Why guides, not a manifest
+
+Pest-Controller-Suit could be a one-page manifest: here's the roster, here are the routing rules, go. The guides exist because routing is judgment work. Knowing when a recall concern is actually an embeddings concern (invoke `embeddings-runtime-wasp-drone`, not `retrieval-wasp-drone`), or when a documentation task is actually a QA task (invoke `quality-wasp-drone`, not `library-wasp-drone`), requires context the manifest can't carry. That context lives in the guides.
+
+A manifest tells the orchestrator what exists. A guide tells it what each Drone actually does, when it should be used, and what to do when someone routes it incorrectly. The second is what produces good delegations.
+
+---
+
+## The cost of getting routing wrong
+
+Misrouting is worse than not routing at all. A wrong specialist will:
+
+1. Do work the request didn't call for.
+2. Produce an output in the wrong format, which the user then has to reconcile.
+3. Exhaust the user's patience with the agentic system as a whole.
+
+The cost of reading a guide before delegating is seconds. The cost of a misroute is a wasted turn plus a trust debit. Always read the guide.
