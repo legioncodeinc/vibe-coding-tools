@@ -1,43 +1,9 @@
-# Security and Secrets
+# Security and secrets
 
-## A fake secret can still cause a real problem
+Install plugins from the [public marketplace](../../README.md#start-here), then inspect their manifests and instructions before enabling the capabilities you need. Installing a plugin does not itself authorize a home instruction merge, repository initialization, push, deployment, purchase, or message. The [Getting Started guide](GETTING-STARTED.md) describes the separate consent checks and lock files.
 
-Secret scanners look for shapes, prefixes, lengths, and character patterns. They cannot read the author's mind. A made-up token that looks exactly like a provider token can block a push, trigger an alert, or train someone to paste unsafe examples.
+Do not put API keys, access tokens, database URLs, private customer data, or production credentials into Stinger examples, research captures, PRDs, CTRs, or bug reports. Use explicit placeholders. The source publisher validates common credential patterns and excludes raw research, dependency trees, and ingested photography models from the public distribution. Automated checks are useful defenses, not proof that every possible secret has been found.
 
-Use unmistakable placeholders:
+A Stinger can describe a change but cannot approve it for you. The task's authority still controls external effects such as publishing, deployment, messages, purchases, and pushing a branch. When you choose to run the [Ship Gate workflow](../../plugins/wasp-nest-core/commands/ship-gate.md), it orders security review before quality review so a security fix does not invalidate an earlier quality result.
 
-```text
-<DOPPLER_SERVICE_TOKEN>
-<STRIPE_TEST_KEY>
-<GHL_ACCESS_TOKEN>
-<WORKOS_API_KEY>
-```
-
-Avoid a real provider prefix followed by a realistic random body.
-
-## If a scanner finds something
-
-1. Stop copying the value into more files or mirrors.
-2. Identify every occurrence and every reachable commit.
-3. Decide whether the value is definitely synthetic.
-4. If provenance is uncertain, treat it as real and revoke or rotate it first.
-5. Replace the source example with an invalid placeholder.
-6. Regenerate mirrors and packages.
-7. Scan the working tree, commit range, and extracted package.
-8. If the flagged commit was never pushed, rebuild the unpushed history so the bad shape is not sent to the remote.
-9. Record evidence without recording the secret.
-
-Deleting a secret in a later commit does not remove it from earlier commits. GitHub push protection can inspect the whole range being pushed.
-
-## Repository rules
-
-- Never commit `.env` files or credentials.
-- Never print credential values into logs or reports.
-- Use test accounts and least-privilege tokens for provider validation.
-- Keep security review before independent quality review.
-- If quality changes code, rerun both gates.
-- Distinguish local proof from external provider proof.
-
-## Package audit
-
-Before release, confirm the archive contains no `.git`, `.env`, absolute paths, parent traversal, or credential-shaped examples. Scan the extracted archive, not only the source directory.
+If you believe a published file exposes a secret or private data, do not paste it into an issue. Contact the repository maintainers through a private channel and rotate the affected credential with its provider.

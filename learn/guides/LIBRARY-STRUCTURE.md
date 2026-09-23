@@ -1,40 +1,45 @@
-# Library Structure
+# The Library: a repository's working memory
 
-The `library/` is a project memory system. It keeps stable facts, planned changes, reactive fixes, reports, and temporary notes from becoming one confusing pile.
+The Library is a folder in the repository you are working on, not a second copy of this marketplace's documentation. It keeps facts about the current system, plans for new behavior, issue fixes, shared contracts, and human notes from becoming one undifferentiated pile. [Get Started](GETTING-STARTED.md) offers to initialize it only after you consent.
 
-## The four rooms
+## Four rooms, four jobs
 
-Imagine a school with four rooms:
+| Folder | What belongs there | Primary owner |
+| --- | --- | --- |
+| `library/knowledge/` | Current facts, domain explanations, standards, architecture decisions, and accepted `CTR-###` contract records. | Knowledge and Contract Writing Stingers, with human acceptance where required. |
+| `library/requirements/` | PRDs for intentional product changes, their lifecycle, and evidence tied to those plans. | Library Stinger for structure; the feature owner for decisions. |
+| `library/issues/` | IRDs for tracked bugs and incidents, linked to their issue numbers and verification. | Library Stinger for structure; the issue owner for decisions. |
+| `library/notes/` | Temporary human scratch notes. | Humans only; Wasp Nest agents do not read or write this folder. |
 
-| Folder | Room analogy | What belongs there |
-|---|---|---|
-| `knowledge/` | Library | Durable facts, guides, standards, ADRs, architecture |
-| `requirements/` | Planning room | PRDs for intentional product work |
-| `issues/` | Repair room | IRDs for bugs, incidents, and reactive corrections |
-| `notes/` | Personal notebook | Temporary human scratch notes |
+`knowledge/public/` holds material intended for public readers; `knowledge/private/` holds internal product and engineering knowledge. Private does **not** mean credentials belong in Git. Use the approved secret manager for secrets. Accepted contracts live under `knowledge/private/contracts/`; an architectural decision record belongs under `knowledge/private/architecture/`.
 
-### Knowledge
+## Move a plan instead of copying it
 
-`knowledge/public/` is safe for customers or the public. `knowledge/private/` contains internal engineering, operations, security, and business material. Private does not mean secrets belong in Git. Credentials still belong in a secret manager.
+A PRD or IRD folder moves from `backlog/` to `in-work/` to `completed/`. Its number and linked evidence stay with it. Copying the folder would create two apparent current versions that could disagree. The folder location is a useful signal, but code existing is not enough to mark a plan complete: its acceptance criteria still need verification.
 
-### Requirements
+```text
+library/
+  knowledge/
+    public/
+    private/
+      architecture/
+      contracts/
+  requirements/
+    backlog/
+    in-work/
+    completed/
+    reports/
+  issues/
+    backlog/
+    in-work/
+    completed/
+  notes/
+```
 
-Each PRD moves through `backlog`, `in-work`, and `completed`. The folder moves; it is not copied. Reports that span several requirements belong in `requirements/reports/`.
+For example, `library/requirements/backlog/prd-007-user-export/` holds a planned export feature. If two sub-PRDs depend on the same status response, an accepted `CTR-004` records that boundary and both PRDs pin its revision. A reported stale-cache bug, by contrast, belongs in an `IRD` folder whose number matches its GitHub issue. [Why the Library exists](../concepts/WHY-THE-LIBRARY.md) shows these relationships as Mermaid diagrams.
 
-### Issues
+## Templates are examples, not your live plan
 
-IRDs describe reactive work. They use the same lifecycle so a defect has a visible state and evidence.
+The core plugin includes [Library setup templates](../../plugins/wasp-nest-core/skills/get-started-stinger/templates/library/) and [Library examples](../../plugins/wasp-nest-core/skills/library-stinger/examples/). They show shapes to adapt, not facts about your product. Do not file new project PRDs in this marketplace. Run Get Started inside the target repository, inspect what already exists, then create only the missing baseline.
 
-### Notes
-
-Notes are human-owned scratch space. Agents may read them when authorized but should not treat an unverified note as durable truth.
-
-## Why lifecycle folders matter
-
-The folder answers a simple question without opening the document: are we considering this, doing it, or finished? Completion still requires evidence inside the document.
-
-## Example versus live library
-
-[`learn/examples/library/`](../examples/library/) teaches the shape. It is not the active planning system for Vibe Coding Tools and should not receive new project knowledge. Run `get-started-stinger` in a consumer repository to create that repository's live `library/`.
-
-The full standard is in the example at [`documentation-framework.md`](../examples/library/knowledge/private/standards/documentation-framework.md).
+Choose the next document by intent: [write a PRD](WRITE-A-PRD.md) for planned behavior, [write an IRD](WRITE-AN-IRD.md) for a tracked defect, [agree on a CTR](WRITE-A-CTR.md) for a shared boundary, or update knowledge when documenting what the system does now. A task list is useful for execution, but it does not replace any of those agreements.

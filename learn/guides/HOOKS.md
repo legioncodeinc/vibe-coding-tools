@@ -1,58 +1,24 @@
-# Hooks: automatic checkpoints
+# Hooks: checks at lifecycle events
 
-A hook is a small program that runs when a specific event happens. A smoke detector is a useful analogy. You do not need to remember to check for smoke every minute. The detector watches the event and responds automatically.
+A hook is a small program invoked when a supported harness event happens. It can provide context at session start, block a specific unsafe edit, or report a validation result after a tool runs. A hook is not a substitute for a user's decision: seeing a prompt is not consent to modify files or contact an external system.
 
-AI coding hooks can run before or after a tool action, when a session starts, or when a prompt is submitted. They are best for important checks that should not depend on memory.
+## The four source hooks
 
-## The two hooks in this project
+| Hook | Event in supported local installs | What it does |
+| --- | --- | --- |
+| [`onboarding-session.mjs`](../../plugins/wasp-nest-core/hooks/onboarding-session.mjs) | Session start | Reads `~/.legioncodeinc.lock`, then the repository's `wasp-nest.lock`, and asks the assistant to offer the missing setup step. It makes no file changes. |
+| [`session-start-cadence.mjs`](../../plugins/wasp-nest-core/hooks/session-start-cadence.mjs) | Session start where configured | Adds the local work-cadence reminder. |
+| [`dash-guard.mjs`](../../plugins/wasp-nest-core/hooks/dash-guard.mjs) | Before a supported edit or write | Checks new prose for em and en dashes and rejects that edit when the rule applies. |
+| [`component-validate.mjs`](../../plugins/wasp-nest-core/hooks/component-validate.mjs) | After a supported edit or write | Reports Wasp Nest component validation findings. It is advisory because an edit may be one step in an unfinished series. |
 
-### Dash guard
+The set actually active in a plugin can differ from a full local installation. Inspect the installed plugin's [hook manifest](../../plugins/wasp-nest-core/hooks/hooks.json) and the [harness reference](../reference/HARNESS-CAPABILITIES.md) instead of assuming that copying a JavaScript file makes the event work everywhere. Event names, input shapes, output JSON, path resolution, timeouts, and hook trust differ by host. Cowork cannot write into your local home through the onboarding hook.
 
-The dash guard runs before a write or edit. It inspects new prose in Markdown, MDX, MDC, and text files. If the edit adds an em dash or en dash, the hook blocks the tool call and explains how to replace it. Raw research archives are exempt because they preserve source material.
+## Blocking versus advisory
 
-The same policy is translated for three input formats:
+Use a blocking hook only for a narrow condition that can be checked reliably and corrected without damage. A dash guard can reject one proposed edit and tell the writer what to replace. A component validator often runs after a file changes, so it should report findings rather than undo the file. Onboarding reads lock state and adds context; the Get Started Stinger performs writes only after separate user consent.
 
-- Claude provides a file path and changed text.
-- Codex provides an `apply_patch` command, so the adapter extracts paths and added lines.
-- Cursor provides its own event and response fields.
+For example, an absent home lock produces an invitation to review global instruction templates. It does **not** create `AGENTS.md`, `CLAUDE.md`, or the lock. If the user declines, the assistant continues the original task. [Getting Started](GETTING-STARTED.md) describes the two-step flow.
 
-The outcome is the same even though the message format differs.
+## Check a hook before relying on it
 
-### Component validator
-
-The component validator runs after a Bee or Stinger edit. It calls the repository validator and sends problems back to the assistant. It is advisory because a file may be temporarily incomplete during a series of edits.
-
-## Locations
-
-| Harness | Manifest | Scripts |
-|---|---|---|
-| Claude project | `.claude/settings.json` | `.claude/hooks/` |
-| Claude plugin | `.claude/hooks/hooks.json` | `.claude/hooks/` |
-| Codex project | `.codex/hooks.json` | `.codex/hooks/` |
-| Codex plugin | plugin `hooks/hooks.json` | plugin `hooks/` |
-| Cursor project/plugin | `.cursor/hooks.json` | `.cursor/hooks/` |
-
-Codex requires review and trust for changed local hooks. Use `/hooks` to inspect the exact definitions before enabling them.
-
-## Blocking versus advisory hooks
-
-A blocking hook prevents an unsafe action. Use it only when the policy can be checked reliably and a false block is easy to fix.
-
-An advisory hook adds context after an action. Use it for validation findings, reminders, and information that needs judgment.
-
-If a hook can delete data, publish externally, rotate credentials, or change production, it must not run without a clear authorization boundary.
-
-## Testing a hook
-
-Test both the event and the response:
-
-1. Ordinary ASCII prose is allowed.
-2. Each forbidden dash character is blocked in each prose extension.
-3. Raw research is exempt.
-4. Code and binary files do not trigger false blocks.
-5. Codex patch parsing finds each affected file.
-6. Cursor receives Cursor-shaped JSON.
-7. Claude and Codex receive their supported hook output.
-8. Component errors are visible but do not damage the edited file.
-
-Never call a hook portable merely because its JavaScript file was copied. Portability includes manifest, event input, output schema, path resolution, trust, and a passing fixture.
+Inspect the enabled manifest and run a safe fixture through the hook. Confirm that ordinary input is allowed, the intended unsafe input gets a clear response, irrelevant file types do not false-block, and an error fails open where appropriate. For onboarding, test both lock states and verify that no files were written by the hook itself. Never describe a hook as portable solely because its script exists in multiple packs.

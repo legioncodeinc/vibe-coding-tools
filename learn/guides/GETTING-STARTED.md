@@ -1,82 +1,42 @@
-# Getting Started
+# Get started with The Wasp Nest
 
-## What you are setting up
+This is the public marketplace installation path. You do not need access to the private source repository or its `install.sh` script. Installation adds plugin components; home instruction files and a project Library are separate, consent-based steps.
 
-Vibe Coding Tools has two jobs:
+## Install core
 
-1. Give your AI assistant specialist agents and playbooks.
-2. Help your project store durable knowledge and requirements in a predictable `library/`.
-
-The safest setup is additive. It inspects the target repository, preserves existing work, and creates only missing files.
-
-## Step 1: choose a harness
-
-This repository tracks portable source under `src/`. Installed harness folders are ignored local outputs. Generate the Cursor and Codex adapters with `python learn/scripts/generate-harnesses.py` before using those local paths, or install an appropriate versioned release package.
-
-- **Claude Code:** Install an appropriate versioned Claude release package using your normal plugin workflow.
-- **Codex:** Generate the local `.agents/skills` and `.codex/agents` adapters before opening the checkout, or install an appropriate release package. A marketplace descriptor is generated only when its source template exists under `src/harnesses/codex/`.
-- **Cursor:** Open the checkout or copy/install the `.cursor` package into the target repository.
-
-## Step 2: initialize the target repository
-
-Open the repository you want to improve and ask:
+In Claude Code, add the marketplace and install core:
 
 ```text
-Use get-started-stinger to initialize Library Schema v2 here. Inspect existing documentation and harness files first. Preserve existing content, create only missing pieces, and produce a setup report with created, unchanged, assumed, and human-decision sections.
+/plugin marketplace add legioncodeinc/vibe-coding-tools
+/plugin install wasp-nest-core@wasp-nest
 ```
 
-The skill should create a live structure like:
+In a terminal with Codex installed, add the marketplace, then select **The Wasp Nest core** in the plugin browser:
+
+```bash
+codex plugin marketplace add legioncodeinc/vibe-coding-tools
+```
+
+The [public README](../../README.md#what-ships) lists optional packs. Install the `highlevel` pack only when you need HighLevel API, AI Studio, or workflow-export work, for example. A pack contains its own Stingers and, where applicable, Drones. [Harness Capabilities](../reference/HARNESS-CAPABILITIES.md) explains why a Claude command may appear as a Stinger workflow in Codex or another harness.
+
+## Decide whether to set up your home
+
+On a supported local first session, the onboarding hook looks for `~/.legioncodeinc.lock`. If it is missing, the hook explains the global `AGENTS.md` and `CLAUDE.md` templates and asks whether you want personalized instructions. On consent, setup backs up existing instruction files, merges a clearly marked Wasp Nest section, personalizes the user and organization, and writes the lock last. A decline leaves those files alone.
+
+The public [AGENTS template](../../AGENTS_template.md) and [CLAUDE template](../../CLAUDE_template.md) show what would be merged. They are global instructions, not project-specific Library files. Cowork does not have access to your local home through this hook. If a hook is unavailable in your harness, ask the installed Get Started Stinger to explain the same setup and request consent before writing anything.
+
+## Decide whether to set up this repository
+
+After the home check, the local hook checks the current repository for `wasp-nest.lock`. If it is missing, it offers the [Get Started Stinger](../../plugins/wasp-nest-core/skills/get-started-stinger/SKILL.md). That playbook inventories existing files, preserves them, and creates missing Library structure only after you consent. If application code already exists, it also calls for the [Knowledge Stinger](../../plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) to document what exists before setup is marked complete.
+
+Ask for the same process directly at any time:
 
 ```text
-library/
-  knowledge/
-    public/
-    private/
-  requirements/
-    backlog/
-    in-work/
-    completed/
-    reports/
-  issues/
-    backlog/
-    in-work/
-    completed/
-  notes/
+Use the Get Started Stinger for this repository. Explain the home and project setup separately, ask for consent, preserve what exists, and show me the setup report and diff.
 ```
 
-## Step 3: review before committing
+The Library separates current knowledge, planned features, issue fixes, shared contract records, and human-only notes. Read [the Library structure](LIBRARY-STRUCTURE.md) and [why it exists](../concepts/WHY-THE-LIBRARY.md) before your first PRD. The `notes/` folder is for people and must not be read or written by agents.
 
-Check the setup report and `git diff`. Confirm:
+## Verify the result
 
-- No existing document was silently overwritten.
-- Product facts were not invented.
-- Live files are under the target repository's `library/`, not this repository's example folder.
-- Harness instructions point to paths that exist.
-- Secret examples use obvious placeholders.
-- Security ran before quality for a release-sized change.
-
-## Step 4: try one real task
-
-Good first tasks include:
-
-```text
-Use the-beekeeper to route a README rewrite. Explain the chosen Bee and Stinger.
-```
-
-```text
-Use product requirements guidance to draft a backlog PRD for passwordless sign-in. Make every acceptance criterion observable.
-```
-
-```text
-Use git-stinger to explain how to recover an accidentally deleted local branch. Show the recovery path before any destructive command.
-```
-
-## Step 5: keep the mirrors current
-
-When contributing to Vibe Coding Tools, edit `src` as the source and generate local adapters when needed:
-
-```powershell
-python learn/scripts/generate-harnesses.py
-```
-
-Review the `.cursor`, `.codex`, and `.agents` output without committing those folders. Use a disposable checkout for generation tests when the working checkout must remain free of adapters. Generated does not mean automatically correct; validation still matters.
+Review the setup report and diff. Confirm that existing files were preserved, placeholders were resolved or reported, and no product fact was invented. Check that `~/.legioncodeinc.lock` appears only after home setup succeeds and `wasp-nest.lock` only after repository setup succeeds. If a hook or skill is missing, use [Troubleshooting](TROUBLESHOOTING.md) and verify that the relevant plugin is installed and enabled.

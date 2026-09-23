@@ -1,19 +1,19 @@
 # Glossary
 
-| Term | Plain-language meaning |
-|---|---|
-| Acceptance criterion | One observable promise a change must satisfy |
-| Acceptance ledger | Table that records each criterion, status, evidence, and remaining work |
-| ADR | Architecture Decision Record explaining an important technical choice |
-| Agent or Bee | Focused AI specialist with a narrow responsibility |
-| Canonical source | The copy contributors edit before regenerating mirrors |
-| Command | Named workflow that coordinates a repeatable job |
-| Harness | The AI environment that loads assets, such as Claude Code, Codex, or Cursor |
-| Hook | Program that runs automatically around a tool or session event |
-| IRD | Issue Requirements Document for a bug, incident, or reactive correction |
-| Library Schema v2 | Folder standard for knowledge, requirements, issues, and notes |
-| Plugin | Installable bundle of skills and other supported capabilities |
-| PRD | Product Requirements Document defining a product change and its proof |
-| Rule | Guidance that stays active while work is performed |
-| Skill or Stinger | Reusable playbook with instructions and supporting resources |
-| WIFM | "What's in it for me?" The benefit a reader receives |
+| Term | Meaning |
+| --- | --- |
+| Drone | A specialist agent responsible for a bounded domain. Former Hive guides called this a Bee. |
+| Stinger | A skill with the procedure, references, examples, and templates for a domain. Specialist Stingers pair with Drones; explicitly standalone skills run directly. |
+| Pest Controller | The router that selects and arms Drones for a request. It replaces the old Beekeeper name. |
+| Smoke It | The command that drives PRD acceptance criteria through implementation and verification. It replaces the old Smoker name. |
+| Queen Wasp | The orchestrator-level Stinger that creates and validates Wasp Nest components. |
+| Pack | An independently installable plugin containing related components. |
+| Library | A repository's durable home for knowledge, requirements, issues, contracts, and human-only notes. |
+| PRD | Product Requirements Document for planned product behavior. |
+| IRD | Issue Requirements Document for a tracked bug or incident. Its number matches the GitHub issue. |
+| CTR-### | A stable shared contract record, accepted at an exact revision and pinned by dependent PRDs. |
+| ADR | Architecture Decision Record explaining an important choice and its consequences. |
+| Ship Gate | The repository's ordered close-out checks before a user-approved commit or push. |
+| Distillation | A cited summary retained in plugin distributions when raw research archives stay in source. |
+
+For document paths and examples, see [Why the Library exists](../concepts/WHY-THE-LIBRARY.md). For current installable names and counts, see the [README catalog](../../README.md#what-ships).

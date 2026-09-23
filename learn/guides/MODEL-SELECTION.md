@@ -1,28 +1,14 @@
-# Model Selection
+# Choosing a model for a Drone
 
-Choosing a model is like choosing a vehicle. A bicycle, car, and moving truck can all travel down a road, but they have different speed, cost, and capacity. The biggest model is not automatically the best choice.
+The model choice follows the work. A task that needs deep architecture reasoning, broad context, or difficult debugging should not be assigned solely by lowest cost. A narrow extraction or formatting job does not need the most expensive option by default.
 
-## Start with the job
+The canonical [model comparison matrix](../../plugins/wasp-nest-core/model-comparison-matrix.md) records the current routing rubric. The [Smoke It command](../../plugins/wasp-nest-core/commands/smoke-it.md) requires a one-line model justification beside each Drone in its wave plan. Read the matrix at dispatch time because model availability, capabilities, and prices can change.
 
-Ask:
+| Task signal | What matters most |
+| --- | --- |
+| Several interacting boundaries or ambiguous requirements | Reasoning depth and context handling |
+| Bounded implementation with clear acceptance criteria | Code quality and tool use |
+| Repetitive classification or formatting | Speed and cost, with sample-based verification |
+| Sensitive or irreversible external action | Verification and human authority, regardless of model |
 
-1. How difficult is the reasoning?
-2. How much context must the model read?
-3. Will it edit important code or only classify text?
-4. How quickly must it respond?
-5. What is the cost limit?
-6. Does the provider and region meet policy?
-7. What evidence will prove the result?
-
-## Use a scorecard
-
-Give each requirement a weight, score each candidate using the same evidence, and show the calculation. Keep price assumptions explicit, including input, cached input, output, batch discounts, and expected volume.
-
-Do not mix old benchmark data with a new model name. Do not present estimated quality as measured fact. Revalidate availability and pricing at least quarterly and before a high-cost commitment.
-
-## Two matrices
-
-- [Canonical model comparison](../../src/model-comparison-matrix.md) covers current harness choices and pricing assumptions.
-- [Worked selection example](../../src/skills/ai-tools-platform-stinger/examples/model-selection-matrix.md) shows how a fictional SaaS team turns requirements into a decision.
-
-The canonical matrix is guidance, not a permanent winner list. Provider catalogs, prices, and access change.
+Choosing a stronger model does not grant broader permission. Each Drone still owns a bounded task, reads its Stinger, and returns evidence for independent review. When the same task is rerun after failure, change the brief or the relevant conditions rather than assuming a model swap alone resolves the cause.
