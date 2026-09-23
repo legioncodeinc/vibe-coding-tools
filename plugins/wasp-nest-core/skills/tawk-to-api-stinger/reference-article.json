@@ -1,0 +1,212 @@
+{
+  "_comment": "Reference knowledge-base.article.create body for tawk.to. Exercises every verified block type (header, paragraph with inline HTML, unordered + ordered lists, blockquote, image, code, divider, table, video). VERIFIED by a live create+update on 2026-06-05. Replace PROPERTY_ID, AUTHOR_AGENT_ID, CATEGORY_ID, RELATED_ARTICLE_ID and the hosted image URLs. POST to https://api.tawk.to/v1/knowledge-base.article.create with Authorization: Basic base64(apiKey + ':').",
+  "_gotchas": "1) Do NOT send article.content.metadata on CREATE - both {banner,description} and {description} returned validation_error 'article.content.metadata'. Omit it (set description/banner via a later update once the accepted shape is known). 2) video.content.options is REQUIRED, and startTime/endTime are NUMBERS (seconds), not strings as the public docs claim. For source 'youtube' the full flag set is required: startTime, endTime, autoplay, mobile, mute, controls, loop, branding, privacy. 3) categories/relatedArticles must reference real ids or be []; placeholder ids fail. 4) meta.categories[] entries must be {id, primary} ONLY - including a 'name' field returns validation_error 'article.meta.categories[].name' on create AND update.",
+  "propertyId": "PROPERTY_ID",
+  "article": {
+    "content": {
+      "siteId": "primary",
+      "title": "Install the Sight pixel",
+      "status": "draft",
+      "subtitle": "Add the tracking snippet to your site in under five minutes",
+      "author": "AUTHOR_AGENT_ID",
+      "slug": "install-the-sight-pixel",
+      "contents": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<p><b>Who this is for:</b> Owners and admins setting up a new site. <i>Takes about five minutes.</i></p>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "header",
+          "content": {
+            "text": "<p>What this does</p>",
+            "heading": "h2",
+            "color": "#000000"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<p>The Sight pixel is a small script that identifies the companies and people visiting your site. Once it is firing, your visitor feeds start to populate. You can read the full reference in <a href=\"https://docs.legionsight.ai/pixel\" target=\"_blank\">the pixel docs</a>.</p>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "header",
+          "content": {
+            "text": "<p>Before you start</p>",
+            "heading": "h2",
+            "color": "#000000"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<ul><li>You are an <b>Owner</b> or <b>Admin</b> on the account.</li><li>You can edit your site's HTML, or you use a tag manager.</li><li>Your consent banner is configured (or you are exempt).</li></ul>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "header",
+          "content": {
+            "text": "<p>Steps</p>",
+            "heading": "h2",
+            "color": "#000000"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<ol><li>Open <b>Settings &gt; Install the script</b> in the portal.</li><li>Copy your unique snippet (it includes your site key).</li><li>Paste it into the <code>&lt;head&gt;</code> of every page, just before the closing <code>&lt;/head&gt;</code> tag.</li><li>Publish your site and reload it once.</li></ol>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<p>Your snippet looks like this (replace <code>YOUR_SITE_KEY</code> with the value from the portal):</p>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "code",
+          "content": {
+            "text": "<!-- Sight by Legion -->\n<script>\n  (function (s, i, g, h, t) {\n    s[t] = s[t] || function () { (s[t].q = s[t].q || []).push(arguments); };\n    var a = i.createElement(g), m = i.getElementsByTagName(g)[0];\n    a.async = 1; a.src = h; m.parentNode.insertBefore(a, m);\n  })(window, document, 'script', 'https://pixel.legionsight.ai/s.js', 'sight');\n  sight('init', 'YOUR_SITE_KEY');\n</script>",
+            "mime": "text/html"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<p>If you use Google Tag Manager instead, add it as a <b>Custom HTML</b> tag firing on <i>All Pages</i>.</p>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "image",
+          "content": {
+            "url": "https://cdn.legionsight.ai/kb/install-the-sight-pixel/script-snippet-panel.png",
+            "alignment": "center"
+          }
+        },
+        {
+          "type": "divider",
+          "content": {
+            "type": "line-full",
+            "color": "#DDDDDD"
+          }
+        },
+        {
+          "type": "header",
+          "content": {
+            "text": "<p>Verify it is working</p>",
+            "heading": "h2",
+            "color": "#000000"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<p>Use the table below to read the install status shown on the <b>Install the script</b> page.</p>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "table",
+          "content": {
+            "rows": 3,
+            "columns": 2,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF",
+            "head": {
+              "cells": [
+                { "value": "Status" },
+                { "value": "What it means" }
+              ]
+            },
+            "body": [
+              {
+                "cells": [
+                  { "value": "Detected" },
+                  { "value": "The pixel fired on your domain. You are done." }
+                ]
+              },
+              {
+                "cells": [
+                  { "value": "Not detected" },
+                  { "value": "No event received yet. Reload your site, then re-check." }
+                ]
+              },
+              {
+                "cells": [
+                  { "value": "Blocked" },
+                  { "value": "A consent or ad blocker stopped the script. Check your consent banner." }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "<blockquote>Tip: it can take a minute for the first event to land. If status stays Not detected after a reload, confirm the snippet is in the &lt;head&gt; and that your site published.</blockquote>",
+            "size": 18,
+            "color": "#000000",
+            "backgroundColor": "#FFFFFF"
+          }
+        },
+        {
+          "type": "header",
+          "content": {
+            "text": "<p>Watch the 90-second walkthrough</p>",
+            "heading": "h2",
+            "color": "#000000"
+          }
+        },
+        {
+          "type": "video",
+          "content": {
+            "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "source": "youtube",
+            "options": {
+              "startTime": 0,
+              "endTime": 60,
+              "autoplay": false,
+              "mobile": true,
+              "mute": false,
+              "controls": true,
+              "loop": false,
+              "branding": false,
+              "privacy": false
+            }
+          }
+        }
+      ]
+    },
+    "meta": {
+      "visibility": "public",
+      "categories": [
+        { "id": "CATEGORY_ID", "primary": true }
+      ],
+      "relatedArticles": [
+        { "id": "RELATED_ARTICLE_ID", "title": "Verify the script is working" }
+      ]
+    }
+  }
+}

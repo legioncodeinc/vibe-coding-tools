@@ -1,0 +1,57 @@
+schema_version: 1
+application:
+  name: ""
+  version: ""
+  source_revision: ""
+  build_date_utc: ""
+tauri:
+  observation_date: ""
+  cargo_core_version: ""
+  npm_api_version: ""
+  cli_identity: ""
+  cli_version: ""
+  plugin_pairs: []
+targets:
+  - os: ""
+    architecture: ""
+    runner: ""
+    package_type: ""
+    artifact_path: ""
+    sha256: ""
+    code_signature_verified: false
+    notarization_verified: false
+    install_smoke_verified: false
+    launch_smoke_verified: false
+    uninstall_smoke_verified: false
+sidecars: []
+updater:
+  enabled: false
+  artifact_paths: []
+  metadata_path: ""
+  updater_signatures_verified: false
+  valid_update_verified: false
+  invalid_signature_rejected: false
+  no_update_verified: false
+  offline_behavior_verified: false
+  rollback_policy_verified: false
+mobile:
+  android_physical_device_verified: false
+  ios_physical_device_verified: false
+  store_submission_status: "not_applicable"
+tests:
+  frontend: ""
+  rust: ""
+  ipc: ""
+  native_e2e: ""
+security:
+  report_path: ""
+  medium_or_above_open: 0
+quality:
+  report_path: ""
+  medium_or_above_open: 0
+repository_health:
+  report_path: ""
+user_approval:
+  approved_to_commit: false
+  approved_to_push: false
+known_limitations: []
