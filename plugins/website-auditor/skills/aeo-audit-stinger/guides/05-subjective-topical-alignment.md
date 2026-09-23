@@ -1,0 +1,22 @@
+# 05. Subjective topical alignment [subjective]
+
+> **Read this before running any part of this guide.** Everything here is a content-shape judgment, explicitly separated from Part A's objective technical checks per PRD-009 AC-2 and conduct rule 3. Every finding produced here is labelled `[subjective]` in the register, the scorecard, and the section report - never merged with the llms.txt/AI-crawler-access/schema findings.
+
+## What this checkpoint does
+
+Assesses semantic and subjective alignment between the crawled content in `site-data/` and the AEO-relevant topics implied by `content-targets/questions.md`, per PRD-009's Overview and Goals. Use `references/templates/subjective-alignment-worksheet.md` to work it, one row per question mapped to its best-matching page.
+
+## The four content-shape signals this archive documents
+
+- **Definitional first paragraph.** Ranki.io: 30-90 words directly answering the page topic in plain English. The AEO Report: a narrower 40-60 word general target, with a per-engine breakdown from a 300-page internal test (March-May 2026): ChatGPT extracts roughly the first 50-60 words as its default citation snippet, Perplexity 40-50, Claude 60-80, Gemini the first 40 (truncating mid-sentence if grammar does not break cleanly). Present both ranges rather than picking one as definitive; The AEO Report's per-engine breakdown is more actionable when the audit is specifically about a named engine's likely citation behavior. [raw/ranki-io-blog-aeo-checklist-2026-complete-guide.md] [raw/theaeoreport-com-answer-engine-optimization-checklist.md]
+- **Answer-style H2/H3 headings.** Ranki.io signal #7 of 15: phrased as the literal question a user would type. The AEO Report's cited statistic (34% higher Perplexity citation rate for pages with proper H2/H3 nesting vs. flat-HTML bolded-text pages, from a single internal 200-page test, May 2026) is a single-source, self-reported number with no independent corroboration in this archive - cite it as attributed, never restate it as an established rate. Per-engine display behavior differs: Perplexity renders H2 text in citation preview cards, Claude extracts H2s as section anchors, ChatGPT and Gemini do not visibly show headings in citations but use them for parsing segmentation. [raw/ranki-io-blog-aeo-checklist-2026-complete-guide.md] [raw/theaeoreport-com-answer-engine-optimization-checklist.md]
+- **Structured tables for comparisons/specs.** Ranki.io signal #8 of 15, content-shape tier. [raw/ranki-io-blog-aeo-checklist-2026-complete-guide.md]
+- **Author byline.** Ranki.io signal #6 of 15 (author microdata or `rel="author"`). The AEO Report treats author as a required Article-schema sub-field rather than a standalone item - a framing difference, not a factual disagreement; cross-check against `references/templates/schema-signals-checklist.md`'s Article row rather than double-counting the same signal in both sections. [raw/ranki-io-blog-aeo-checklist-2026-complete-guide.md] [raw/theaeoreport-com-answer-engine-optimization-checklist.md]
+
+## Boundary with technical-seo-stinger's long-tail semantic guide
+
+Both Stingers read `content-targets/questions.md` against `site-data/`, but ask different questions: technical-seo-stinger's guide 08 asks "does this page's content answer the question at all" (a traditional-search relevance read, feeding the Search presence category's technical-SEO leaf). This guide asks "is this page's content shaped to be extractable and citable by a specific AI answer engine" (feeding the technical-AEO/subjective-copy leaf). A page can pass one and fail the other - report them separately, do not merge into one finding even when they're about the same page and the same question ID. See [technical-seo-stinger's guides/08-long-tail-semantic-analysis.md](../../technical-seo-stinger/guides/08-long-tail-semantic-analysis.md) for that Stinger's own boundary note.
+
+## What NOT to claim
+
+Do not assert a citation-rate outcome as a prediction for this specific site. Every citation-rate-adjacent number in this archive is a single vendor's self-reported test result, not a controlled or reproducible study (distillation Section 5, Section 7). Report the content-shape observation as fact ("this page's first paragraph is 140 words, above every cited target range") and the citation-rate implication as attributed, hedged commentary, never as a guaranteed outcome for the audited site.
