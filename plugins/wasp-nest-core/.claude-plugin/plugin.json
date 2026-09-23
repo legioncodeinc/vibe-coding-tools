@@ -1,0 +1,9 @@
+{
+  "name": "wasp-nest-core",
+  "version": "2.0.0",
+  "description": "The Wasp Nest core: shared Drones and Stingers, orchestration commands, rules, and hooks. Install this first; specialist packs are add-ons.",
+  "author": {
+    "name": "Mario Aldayuz"
+  },
+  "license": "AGPL-3.0-or-later"
+}
