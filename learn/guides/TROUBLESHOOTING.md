@@ -1,33 +1,21 @@
-# Troubleshooting
+# Troubleshooting a public Wasp Nest install
 
-## My assistant cannot find a Bee or Stinger
+## A pack or Drone is missing
 
-- Confirm you opened the repository root, not a parent folder.
-- Confirm the component exists in the correct harness directory.
-- For Codex plugins, use an appropriate release package and start a new session. A generated marketplace requires a source template under `src/harnesses/codex/`.
-- For Codex project agents, confirm `.codex/agents/*.toml` exists.
-- Generate the local adapters if the canonical `src` source changed. Harness folders are intentionally absent from a fresh clone.
+Check the current [pack catalog](../../README.md#what-ships) and confirm the relevant plugin is installed and enabled. Core can recognize an optional HighLevel task even when the `highlevel` pack is not installed. Install that pack before dispatching its Drone. If an older user-level agent has the same name as a plugin agent, compare them before deciding which one to disable or remove.
 
-## Hooks do not run
+## A command is missing
 
-- Claude project hooks use `.claude/settings.json`; plugin hooks use `hooks/hooks.json`.
-- Codex hooks must be reviewed and trusted with `/hooks` after changes.
-- Cursor uses `.cursor/hooks.json` and Cursor-shaped event names.
-- Run the script manually with a fixture to separate manifest problems from script problems.
-- Confirm `node` and `python` are available on `PATH`.
+Claude Code exposes plugin commands. Codex receives corresponding Stinger wrappers rather than a Claude-style commands directory. Invoke the wrapper skill or ask for the workflow by name. The [core command files](../../plugins/wasp-nest-core/commands/) are the readable reference, and [Harness Capabilities](../reference/HARNESS-CAPABILITIES.md) lists the limits for each host.
 
-## A push is blocked by secret scanning
+## Onboarding did not prompt
 
-Follow [Security and Secrets](SECURITY-AND-SECRETS.md). Scan the entire outgoing commit range. A later deletion does not clean an earlier outgoing commit.
+Check whether `~/.legioncodeinc.lock` already marks home setup and whether `wasp-nest.lock` exists in the repository. The [onboarding hook](../../plugins/wasp-nest-core/hooks/onboarding-session.mjs) checks them in that order and prompts only on supported local session surfaces. Cowork cannot write to your local home through this hook. Codex may require trusting its installed hook once through `/hooks`. You can still ask the Get Started Stinger to explain and run the consent-based process manually.
 
-## Links broke after moving files
+## The public README looks stale
 
-Markdown links are relative to the file containing them. Update the source link, regenerate mirrors, and run the local link audit. Do not repair only one generated copy.
+The public README's pack table is generated from the built plugins on every source CI run, then checked in the CI preview. It reaches this public repository only through the owner's manual source release and the reviewed staging-to-main PRs. It does not rewrite public `main` after each CI run. Compare the [current public release](https://github.com/legioncodeinc/vibe-coding-tools/releases) with the version shown in [the README](../../README.md) before reporting drift.
 
-## Claude, Codex, and Cursor behave differently
+## A PRD is blocked by a contract
 
-Check [Harness Compatibility](HARNESS-COMPATIBILITY.md). The project preserves outcomes, not unsupported file layouts. Commands become Codex skills, agents become Codex TOML, and each hook uses the harness's real schema.
-
-## The generator overwrote a manual change
-
-Edit `src` when the component is canonical, then rerun the generator. The Cursor mirror and most Codex package content are generated outputs. Keep shared manifests and entry templates in `src/harnesses/`; keep generated harness folders untracked.
+Read its `## Contract dependencies` section and the pinned `CTR-###` revision. A Draft or disputed term cannot be treated as accepted. [Execute a PRD](PRD-EXECUTION.md) explains how to route the decision to Contract Writing and keep unrelated work moving.

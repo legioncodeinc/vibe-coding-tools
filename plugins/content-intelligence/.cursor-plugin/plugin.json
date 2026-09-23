@@ -1,0 +1,14 @@
+{
+  "name": "content-intelligence",
+  "version": "0.1.0",
+  "description": "Research current GitHub repository trends and news, verify one story, and prepare evidence-backed social post drafts. Requires the user's own voice skill and ledger.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Mario Aldayuz",
+  "skills": [
+    "./skills/repo-radar-stinger",
+    "./skills/viral-news-stinger"
+  ],
+  "agents": [],
+  "commands": [],
+  "rules": []
+}
