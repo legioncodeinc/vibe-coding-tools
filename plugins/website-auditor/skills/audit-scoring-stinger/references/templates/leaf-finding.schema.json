@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://legioncodeinc.com/schemas/website-auditor/leaf-finding.schema.json",
+  "title": "Website Auditor leaf finding",
+  "description": "The intermediate findings format every upstream Wave-5/W6 Drone (technical-seo, aeo-audit, content-semantics, internal-linking, visual-funnel, accessibility-audit, web-security-posture, analytics-stack, performance-cwv, social-presence, blog-content, ecommerce-catalog) must write for each 0-6 leaf checkpoint it evaluates. audit-scoring-wasp-drone (wave W7) reads only files that validate against this schema; a leaf finding that is missing a required field is REJECTED back to the originating Drone per prd-020 AC-5, never scored anyway. Field names and mandatory-ness are sourced from build plan section 4.1 ('Every score carries three mandatory fields: the numeric value, the evidence pointer, and a one-line justification'); the surrounding envelope fields (category_key, subaudit_key, originating_bee, etc.) are this Stinger's own engineering design, needed to route a finding to the right cell in the Scorecard sheet and to route a rejection back to the right Drone.",
+  "type": "object",
+  "required": [
+    "leaf_id",
+    "category_key",
+    "subaudit_key",
+    "description",
+    "score",
+    "evidence_pointer",
+    "justification",
+    "originating_bee"
+  ],
+  "properties": {
+    "leaf_id": {
+      "type": "string",
+      "description": "Stable identifier for this leaf checkpoint, unique within its sub-audit. Convention: '<CATEGORY_KEY>-<SUBAUDIT_KEY>-<NN>' matching the Scorecard sheet's own leaf_id column, e.g. 'SECURITY-HEADERS-01'.",
+      "pattern": "^[A-Z0-9_]+-[A-Z0-9_]+-[0-9]{2,}$"
+    },
+    "category_key": {
+      "type": "string",
+      "description": "Which of the 8 categories this leaf rolls up into. Must match one of the 8 category keys in the Rubric sheet's named ranges (see guides/02-retuning-weights.md).",
+      "enum": [
+        "security",
+        "revenue",
+        "mission",
+        "analytics",
+        "technical",
+        "foundational",
+        "search",
+        "content"
+      ]
+    },
+    "subaudit_key": {
+      "type": "string",
+      "description": "Which named sub-audit within category_key this leaf belongs to. Must be one of the sub-audit keys defined for that category on the Rubric sheet (e.g. 'headers', 'tls', 'cookies' under category_key='security')."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-line human-readable description of what this checkpoint tests, e.g. 'Strict-Transport-Security header present with max-age >= 6 months'.",
+      "minLength": 1
+    },
+    "score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6,
+      "description": "The 0-6 leaf score per build plan section 4.1: 0=N/A (excluded from rollup, not a failure), 1=F/Critical through 6=A/None. Boolean checkpoints resolve only to 1 or 6, never a value between."
+    },
+    "is_boolean_checkpoint": {
+      "type": "boolean",
+      "default": false,
+      "description": "True when this checkpoint is a strict present/absent test that must resolve only to 1 or 6 (build plan section 4.1). audit-scoring-wasp-drone rejects a boolean checkpoint scored 2-5."
+    },
+    "evidence_pointer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Mandatory. File path, URL, HTTP header name/value, or screenshot path inside the shared audit workspace proving this score. Never a reconstruction from memory; captured at the moment of finding per the conduct rules (build plan section 7)."
+    },
+    "justification": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Mandatory. One-line justification connecting the evidence to the score. audit-scoring-wasp-drone rejects a leaf missing this field rather than scoring it (prd-020 AC-5, Non-Goals)."
+    },
+    "page_url": {
+      "type": ["string", "null"],
+      "description": "The specific crawled page this finding applies to, when applicable (site-wide findings, e.g. a security header, may be null)."
+    },
+    "subjective": {
+      "type": "boolean",
+      "default": false,
+      "description": "True when this finding is a [subjective] judgement per the conduct rules (build plan section 7), kept separate from quantified findings in both the rubric and the reports."
+    },
+    "originating_bee": {
+      "type": "string",
+      "description": "The Wave-5/W6 Drone that produced this finding, e.g. 'web-security-posture-wasp-drone'. Used to route a rejection back to the correct Drone.",
+      "enum": [
+        "technical-seo-wasp-drone",
+        "aeo-audit-wasp-drone",
+        "content-semantics-wasp-drone",
+        "internal-linking-wasp-drone",
+        "visual-funnel-wasp-drone",
+        "accessibility-audit-wasp-drone",
+        "web-security-posture-wasp-drone",
+        "analytics-stack-wasp-drone",
+        "performance-cwv-wasp-drone",
+        "social-presence-wasp-drone",
+        "blog-content-wasp-drone",
+        "ecommerce-catalog-wasp-drone"
+      ]
+    },
+    "severity": {
+      "type": ["string", "null"],
+      "enum": ["critical", "high", "medium", "low", "informational", null],
+      "description": "Optional severity label for the Findings Register (distinct from the 0-6 score; a score of 1 with severity 'critical' is what feeds the Security override, see guides/02-critical-security-override.md)."
+    },
+    "remediation": {
+      "type": ["string", "null"],
+      "description": "Optional one-line remediation suggestion for the Findings Register."
+    },
+    "effort_hours_band": {
+      "type": ["string", "null"],
+      "enum": ["<1", "1-4", "4-8", "8-16", "16+", null],
+      "description": "Optional effort-to-remediate band for the Findings Register (per prd-020's open question default: effort in hours, three-plus bands)."
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of when the evidence was captured, per the 'evidence at the moment of finding' conduct rule."
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "leaf_id": "SECURITY-HEADERS-01",
+      "category_key": "security",
+      "subaudit_key": "headers",
+      "description": "Strict-Transport-Security header present with max-age >= 6 months",
+      "score": 1,
+      "is_boolean_checkpoint": true,
+      "evidence_pointer": "07-security/headers-scan.md#L14",
+      "justification": "curl -I response shows no Strict-Transport-Security header on the landing page or any of the 12 sampled internal pages.",
+      "page_url": "https://example.com/",
+      "subjective": false,
+      "originating_bee": "web-security-posture-wasp-drone",
+      "severity": "critical",
+      "remediation": "Add 'Strict-Transport-Security: max-age=31536000; includeSubDomains' at the edge/CDN or app server.",
+      "effort_hours_band": "<1",
+      "captured_at": "2026-08-18T14:02:00Z"
+    }
+  ]
+}
