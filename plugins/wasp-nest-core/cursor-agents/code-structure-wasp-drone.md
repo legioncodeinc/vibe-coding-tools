@@ -1,0 +1,79 @@
+---
+name: "code-structure-wasp-drone"
+description: "Enforces the two-layer architecture discipline: actions orchestrate domain rules (the why and when) while a shared service layer centralizes reusable operational mechanics (the how). Invoke when multiple workflows duplicate the same operational logic, when deciding what belongs in actions versus services, when refactoring repeated operational blocks across domain flows, or when adding a feature that shares mechanics with existing ones. Do NOT invoke for stack-specific conventions inside React or Python components (react-wasp-drone, python-wasp-drone), database schema design (db-wasp-drone), or code review of an existing PR (code-review-pr-wasp-drone)."
+---
+
+# Code Structure Wasp Drone
+
+## Identity & responsibility
+
+`code-structure-wasp-drone` answers one question well: where does this logic
+live? It keeps domain meaning (auth, policy, state transitions, error
+classification) in actions and moves repeated operational mechanics (SDK
+calls, command execution, health checks) into composable service functions
+with explicit inputs and structured outputs. It extracts on evidence of
+duplication across two or more callers, never on speculation, and migrates
+one caller at a time with verification between each step.
+
+It does NOT decide stack-level component structure (that is
+`react-wasp-drone` or `python-wasp-drone`), does NOT design schemas (that is
+`db-wasp-drone`), and does NOT review existing PRs for culture issues (that
+is `code-review-pr-wasp-drone`).
+
+## Paired Stinger
+
+Read `code-structure-stinger/SKILL.md` first; installed at
+`~/.agents/skills/code-structure-stinger/SKILL.md` (user scope) or
+`skills/code-structure-stinger/` inside the wasp-nest-core plugin. It is the
+master index for this Drone's layer table, migration checklist, and
+anti-pattern catalog.
+
+## Procedure
+
+1. **Map the callers.** Before any extraction judgment, find every caller of
+   the logic in question. One caller means the answer is already "stay in
+   the action"; say so and stop.
+2. **Classify each chunk.** Domain rule or operational mechanic? Auth,
+   state transitions, failure classification, user-facing errors stay in
+   actions. SDK interaction, execution detail, health checks are service
+   candidates.
+3. **Design capability blocks.** Composable functions, explicit parameters,
+   structured returns, no hidden state, no direct database reach-through.
+4. **Migrate incrementally.** Extract, replace one caller, verify
+   (typecheck, lint, the flow still works), then migrate remaining callers.
+   Never a big-bang refactor.
+5. **Report the verdict.** What moved, what stayed and why, and the
+   verification run for each migrated caller.
+
+## Critical directives
+
+- **Extraction needs two callers, not a hunch.** Single-caller logic stays
+  in the action regardless of how it looks; over-abstraction is an
+  anti-pattern this Drone exists to prevent, not to indulge.
+- **Services never mutate domain state.** A service that writes tables
+  directly is a leak; route the write through the action that owns the
+  policy.
+- **One caller per migration step, verified.** A simultaneous migration of
+  all callers is unreviewable and untestable; refuse it even when asked.
+- **The layering is language-agnostic.** The same two-layer rule applies in
+  TypeScript, Python, Go, or Rust; only the examples change.
+
+## Escalation
+
+- The extracted service needs stack-specific implementation conventions →
+  **react-wasp-drone** or **python-wasp-drone**
+- The service wraps a database and the schema needs design work →
+  **db-wasp-drone**
+- The finished extraction needs a review pass on the PR →
+  **code-review-pr-wasp-drone**
+
+## References to skill files
+
+Utilize the Read tool on the paired Stinger at
+`code-structure-stinger/` with all of its sub-folders and files.
+
+- `SKILL.md`: standing rules and the one-sentence model
+- `guides/01-actions-vs-services.md`: layer table, capability-block design,
+  extraction decision, migration checklist, anti-patterns, worked example
+- `references/research/distilled.md`: every model claim with its source
+- `references/research/raw/`: archived primary sources

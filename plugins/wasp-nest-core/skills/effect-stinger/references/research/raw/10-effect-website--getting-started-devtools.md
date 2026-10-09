@@ -1,0 +1,416 @@
+# Source: effect.website v4 docs - getting-started/devtools
+- URL: https://effect.website/docs/v4/getting-started/devtools
+- Fetched: 2026-10-07
+- Source type: official documentation (Effect v4, effect.website)
+
+---
+
+# Devtools
+
+Effect provides powerful development tools to enhance your coding experience and help you write safer, more maintainable code. These tools integrate directly into your editor, providing real-time feedback to you and your agents, intelligent refactors, and helpful diagnostics.
+
+## Effect LSP (`@effect/tsgo`)
+
+The Effect Language Service extends your editor with Effect-specific features. It analyzes your Effect code and provides intelligent assistance through diagnostics, quick info, completions, and automated refactors.
+
+The language service ships as `@effect/tsgo`: a build of [TypeScript-Go](https://github.com/microsoft/TypeScript-Go) (the new Go-based TypeScript compiler) with the Effect diagnostics layer built in. `@effect/tsgo` acts as a CLI to perform the installation of the modified TypeScript-Go.
+
+It works in editors that support the standard TypeScript LSP, such as Code, Cursor, Zed, NVim, etc.
+
+### Installation
+
+The quickest way to set up `@effect/tsgo` in your project is the interactive CLI:
+
+```sh
+npx @effect/tsgo setup
+```
+
+This guides you through adding the dependency, configuring your `tsconfig.json`, adjusting plugin options, and any editor configuration needed to activate the LSP.
+
+You can also ask your LLM agents to directly perform the install by pointing them to the CLI setup and install readme:
+
+```sh
+Install and enable https://github.com/Effect-TS/tsgo in this project using npx @effect/tsgo setup --help
+```
+
+To set it up manually instead:
+
+1. Install the package as a development dependency:
+
+   For monorepos, we suggest installing it at the root level. For single-package projects, install it in the package directory.
+
+   **npm**
+
+   ```sh
+   npm install @effect/tsgo --save-dev
+   ```
+
+   **pnpm**
+
+   ```sh
+   pnpm add -D @effect/tsgo
+   ```
+
+   **Yarn**
+
+   ```sh
+   yarn add --dev @effect/tsgo
+   ```
+
+   **Bun**
+
+   ```sh
+   bun add --dev @effect/tsgo
+   ```
+
+   `@effect/tsgo` also requires a native TypeScript 7 installation: `typescript` version 7 or newer, such as `typescript@latest` or `typescript@next`, or an alias such as `@typescript/native`.
+
+2. Add the plugin to your `tsconfig.json` (the plugin's `name` stays `@effect/language-service` even though the package is `@effect/tsgo`):
+
+   ```json
+   {
+     "compilerOptions": {
+       "plugins": [
+         {
+           "name": "@effect/language-service"
+         }
+       ]
+     }
+   }
+   ```
+
+3. Add the following script to your `package.json` to ensure that the modified TypeScript version is installed upon restarts:
+
+   ```json
+   {
+     "scripts": {
+       "prepare": "effect-tsgo patch"
+     }
+   }
+   ```
+
+   and then run your package manager install command
+
+   **npm**
+
+   ```sh
+   npm install
+   ```
+
+   **pnpm**
+
+   ```sh
+   pnpm install
+   ```
+
+   **Yarn**
+
+   ```sh
+   yarn install
+   ```
+
+   **Bun**
+
+   ```sh
+   bun install
+   ```
+
+4. Ensure your editor uses the workspace TypeScript version:
+
+   This step is critical for the language service to function properly. The plugin must run on the TypeScript version installed in your project, not the one bundled with your editor.
+
+   > **Tip**
+   >
+   > In VS Code or Cursor, you can select the workspace TypeScript version by
+   > opening a TypeScript file, clicking on the TypeScript version number in the
+   > status bar, and selecting "Use Workspace Version".
+
+5. You're ready to play!
+
+   Writing the following code in a file.ts inside your project, should result in an error diagnostic appearing, saying that Effect's must be yielded or assigned to a variable:
+
+   ```ts
+   import { Effect } from "effect"
+
+   Effect.log("Hello world!")
+   // ^- should be run or assigned to a variable!
+   ```
+
+### Features
+
+The Effect Language Service provides a comprehensive set of features to enhance your development workflow:
+
+#### Intelligent Quick Info
+
+Hover over Effect values to see extended type information and detailed insights:
+
+- **Effect Types**: See comprehensive type information for Effect values
+- **Generator Parameters**: When hovering over `yield*` in `Effect.gen`, view detailed information about the yielded value
+- **Layer Composition**: Visualize layer dependencies with interactive graphs showing how layers compose together
+- **Service Dependencies**: Understand service requirements and their relationships at a glance
+
+#### Real-time Diagnostics
+
+Catch common mistakes and potential issues as you write code:
+
+- **Floating Effects**: Detect Effect values that aren't assigned or yielded, preventing silent bugs
+- **Layer Issues**: Catch layer requirement leaks and scope violations before runtime
+- **Unnecessary Code**: Identify redundant `Effect.gen` or `pipe()` calls
+- **Error Handling**: Detect misuse of catch functions on Effects that cannot fail
+- **Version Conflicts**: Detect when multiple Effect versions are present in your project
+
+#### Smart Completions
+
+Speed up your coding with context-aware suggestions:
+
+- **Generator Boilerplate**: Quickly scaffold `Effect.gen` functions
+- **Scaffolds**: For `Context.Service`, `Data.TaggedError` and friends.
+- **Self Parameters**: Auto-complete for `Self` parameters in service declarations
+
+#### Powerful Refactors
+
+Transform your code with intelligent automated refactors:
+
+- **Async to Effect**: Convert async functions to Effect using `gen` or `fn` syntax
+- **Error Generation**: Generate tagged errors from promise-based code
+- **Service Accessors**: Automatically implement service accessor functions
+- **Pipe Conversion**: Transform function calls to pipe syntax
+- **Pipe Styles**: Toggle between different pipe style formats
+- **Layer Magic**: Automatically compose layers with correct dependencies
+
+### Configuration
+
+The Effect LSP provides also lots of configuration options such as changing severity or disabling diagnostic messages.
+
+To see the full list of options and features, please visit the [README from the tsgo repository](https://github.com/Effect-TS/tsgo).
+
+### Build-Time Diagnostics
+
+While LSPs only activate during editing sessions, you may want to catch diagnostics during your build process.
+
+Once installing `@effect/tsgo`, the Effect diagnostics will be treated as they were regular TypeScript diagnostics, so they can be accessed and read by your LLM agents with ease.
+
+## Oxlint
+
+Be sure to have installed both Oxlint and the Effect TypeScript-Go integration. The following commands will install the latest versions of both:
+
+   **npm**
+
+   ```sh
+   npm install @effect/tsgo oxlint oxlint-tsgolint --save-dev
+   ```
+
+   **pnpm**
+
+   ```sh
+   pnpm add -D @effect/tsgo oxlint oxlint-tsgolint
+   ```
+
+   **Yarn**
+
+   ```sh
+   yarn add --dev @effect/tsgo oxlint oxlint-tsgolint
+   ```
+
+   **Bun**
+
+   ```sh
+   bun add --dev @effect/tsgo oxlint oxlint-tsgolint
+   ```
+
+Update the scripts section of your `package.json` to include the following:
+
+```json
+{
+  "scripts": {
+    "prepare": "effect-tsgo patch --oxlint"
+  }
+}
+```
+
+This will patch Oxlint to use the Effect TypeScript-Go integration after any package installation. To avoid patching TypeScript, you can use the `--no-typescript` flag: `effect-tsgo patch --no-typescript --oxlint`. This will patch Oxlint to use the Effect TypeScript-Go integration without patching TypeScript.
+
+When you have the Effect LSP enabled as well, we recommend setting `diagnostics` to `false` in the LSP plugin settings so that Effect diagnostics are reported only by Oxlint and do not appear twice:
+
+```json
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": false
+      }
+    ]
+  }
+}
+```
+
+Run your package manager's install command to install the dependencies and execute the prepare script that patches Oxlint.
+
+**npm**
+
+```sh
+npm install
+```
+
+**pnpm**
+
+```sh
+pnpm install
+```
+
+**Yarn**
+
+```sh
+yarn install
+```
+
+**Bun**
+
+```sh
+bun install
+```
+
+Effect rules require Oxlint's type-aware mode and the `effecttsgo` plugin. The recommended preset enables both and configures the recommended Effect rules. Use the schema shipped with `@effect/tsgo` for validation and completions:
+
+```json
+{
+  "$schema": "./node_modules/@effect/tsgo/oxlint-schema.json",
+  "extends": ["./node_modules/@effect/tsgo/oxlint-presets/recommended.json"]
+}
+```
+
+Rules can also be enabled via a .ts Oxlint/Vite Plus config, the presets are available through:
+
+```ts
+import { recommended } from "@effect/tsgo/oxlint-presets"
+import { defineConfig } from "oxlint"
+
+export default defineConfig({
+  extends: [recommended],
+})
+```
+
+## Vite Plus
+
+Vite Plus provides an internally bundled version of Oxlint and Oxlint-TSGoLint.
+
+Be sure to have installed the Effect TypeScript-Go integration:
+
+   **npm**
+
+   ```sh
+   npm install @effect/tsgo --save-dev
+   ```
+
+   **pnpm**
+
+   ```sh
+   pnpm add -D @effect/tsgo
+   ```
+
+   **Yarn**
+
+   ```sh
+   yarn add --dev @effect/tsgo
+   ```
+
+   **Bun**
+
+   ```sh
+   bun add --dev @effect/tsgo
+   ```
+
+Update the scripts section of your `package.json` to include the following:
+
+```json
+{
+  "scripts": {
+    "prepare": "effect-tsgo patch --oxlint"
+  }
+}
+```
+
+This will patch Vite Plus bundled Oxlint to use the Effect TypeScript-Go integration after any package installation. To avoid patching TypeScript, you can use the `--no-typescript` flag: `effect-tsgo patch --no-typescript --oxlint`. This will patch Vite Plus's Oxlint to use the Effect TypeScript-Go integration without patching TypeScript.
+
+When you have the Effect LSP enabled as well, we recommend setting `diagnostics` to `false` in the LSP plugin settings so that Effect diagnostics are reported only by Vite Plus's Oxlint and do not appear twice:
+
+```json
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": false
+      }
+    ]
+  }
+}
+```
+
+Run your package manager's install command to install the dependencies and execute the prepare script that patches Oxlint.
+
+**npm**
+
+```sh
+npm install
+```
+
+**pnpm**
+
+```sh
+pnpm install
+```
+
+**Yarn**
+
+```sh
+yarn install
+```
+
+**Bun**
+
+```sh
+bun install
+```
+
+You can now enable Effect's rule in your Vite Plus config file by extending the recommended preset for example.
+
+```ts
+import { defineConfig } from "vite-plus"
+import { recommended } from "@effect/tsgo/oxlint-presets" // <- add import to recommended settings
+
+export default defineConfig({
+  lint: {
+    extends: [recommended], // <- add extends recommended ones
+    // ...
+  },
+  // ...
+})
+```
+
+## VS Code / Cursor Extension
+
+> **Caution**
+>
+> The editor extension does not include the Effect LSP! Installation of that
+> should be performed per-project, this allows fine grained control on when to
+> load it, for which projects and with a version pinned with your repository
+> lockfile.
+
+The editor extension provides utilities in helping you debug your Effect applications.
+
+At the moment only Code and Code forks like Cursor are supported.
+
+### Installation
+
+The extension can be installed by searching directly in your editor extension page or from the [Code Marketplace](https://marketplace.visualstudio.com/items?itemName=effectful-tech.effect-vscode) or the [Open VSX Marketplace](https://open-vsx.org/extension/effectful-tech/effect-vscode).
+
+### Debugger Features
+
+With the Effect Extension, you'll find couple of new sections inside the Debug section of your editor that, once you pause execution, will .
+
+- **Context**: Allows you to inspect the context of the currently paused Effect Fiber.
+- **Span Stack**: Shows you the stack of telemetry spans that lead you into the execution of the currently paused Effect.
+- **Fibers**: List all the Effect Fibers running in your application, allows you to inspect informations such as interrupt-ability and allows to request interruption of them.
+- **Breakpoints**: Enables "pause on defect", letting your debugger pause when an Effect fiber fails with a defect.

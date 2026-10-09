@@ -260,6 +260,7 @@ A TypeScript/Node task run through this skill is done when: the project type was
 - Additional related skills can be found here:
   - [vercel-stinger](../vercel-stinger) - Vercel deploy/build specifics, Node version selection on Vercel, ISR/caching. Consult for anything beyond the `engines.node` field this skill owns.
   - [neon-drizzle-stinger](../neon-drizzle-stinger) - Drizzle schema design, migrations, connection pooling, RLS. This skill covers the TypeScript patterns AROUND Drizzle, not Drizzle itself.
+  - [effect-stinger](../effect-stinger) - Effect-TS v4 implementation, migration, and review. This skill covers the TypeScript fundamentals underpinning Effect code, not the Effect library API itself.
   - [svelte-stinger](../svelte-stinger) - Svelte 5 runes and component authoring. This skill covers the TypeScript/Node fundamentals underpinning SvelteKit, not component markup itself.
   - [doppler-stinger](../doppler-stinger) - secrets/env handling mechanics. Consult for the Doppler side of the env-typing guidance in this skill.
   - [security-stinger](../security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below.

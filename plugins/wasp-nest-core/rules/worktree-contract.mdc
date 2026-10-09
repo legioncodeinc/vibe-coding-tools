@@ -1,0 +1,24 @@
+---
+description: One session, one checkout: parallel agents work in separate git worktrees with unique branch names and retire them when done
+alwaysApply: true
+---
+
+# Worktree contract
+
+One session, one checkout, one branch. Parallel work on a shared repository
+happens in separate git worktrees, never in one shared checkout, and never
+directly on main. This rule binds every agent session in every harness; plan
+templates are not the only trigger.
+
+1. Preflight: run `git worktree list` before editing in any repository where
+   another session may be active. Those are your siblings' claims.
+2. Claim: `git worktree add -b feature/<slug>-<shortid> ../<slug>-<shortid> main`.
+   Unique suffix always; if the path or branch is taken, pick another.
+3. Stay inside your worktree; a shared checkout on main is read-only
+   reference, not a workspace.
+4. Managed worktrees win: if the harness placed you in a worktree (T3 Code
+   thread handoff, worker checkout), use it as-is. Never nest your own.
+5. Respect siblings: never modify, delete, or prune another session's
+   worktree, branch, or files. Report strays, leave them.
+6. Retire: merge or explicitly abandon, then `git worktree remove` and
+   delete unmerged branches you created. No orphans from your session.

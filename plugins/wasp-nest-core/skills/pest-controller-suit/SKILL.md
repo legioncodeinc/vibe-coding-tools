@@ -32,7 +32,7 @@ Core has three orchestrator skills without paired Drones. Skill-only capabilitie
 
 ## Roster
 
-119 Drones registered across core and the optional HighLevel and Webapp Capture packs, sorted into domain groups. The Domain column is a one-line summary of the Drone's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+126 Drones registered across core and the optional HighLevel and Webapp Capture packs, sorted into domain groups. The Domain column is a one-line summary of the Drone's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -45,6 +45,7 @@ Core has three orchestrator skills without paired Drones. Skill-only capabilitie
 | `preact-wasp-drone` | Preact 11: signals API, preact/compat migration from React, embed widgets, Astro islands, Fresh 2.x | "Preact vs React", "migrate a React codebase to Preact", "embed a widget on third-party pages", "Astro island" | `preact-stinger` |
 | `react-wasp-drone` | React 18/19 architecture: bulletproof-react patterns, Server Components, Suspense, Actions, Compiler, state layering | "review React architecture", "state management decision", "Server Components boundary", "React 19 patterns" | `react-stinger` |
 | `typescript-node-wasp-drone` | TypeScript/Node code review and conventions: strict config, module resolution, test suites, boundary validation (body still cites a legacy package's specifics; see PAIRING-AUDIT.md) | "review this TypeScript code", "audit this Node code", "write a Vitest suite", "tighten the tsconfig" | `typescript-node-stinger` |
+| `effect-wasp-drone` | Effect-TS v4 implementation and migration: Effect.gen composition, Context.Service DI, Layer construction, Schema validation, typed errors, the v3-to-v4 migration | "implement this in Effect", "migrate this Effect project to v4", "review this Effect codebase" | `effect-stinger` |
 | `python-wasp-drone` | Python architecture: Django + Django Ninja + FastAPI + Celery + Channels + pytest + uv, ORM discipline, migrations, typed adoption | "review this Django code", "audit ORM patterns", "migrate DRF to Django Ninja", "set up Celery" | `python-stinger` |
 | `rust-wasp-drone` | Rust implementation and code review for production Cargo workspaces, Tokio/Axum/Tower services, SQLx/SQLite state, Clap/Ratatui clients, Rust tests, and local packaging evidence | "implement this in Rust", "review this Cargo workspace", "fix this Tokio or SQLx service", "audit this SQLx transaction", "build the approved Rust PRD slice" | `rust-stinger` |
 | `tauri-wasp-drone` | Tauri 2 application boundary: update reviews, v1 migration, typed IPC, capabilities, plugins, sidecars, updater behavior, and desktop/mobile AI integration | "build a Tauri 2 desktop app", "what changed in Tauri 2", "migrate Tauri v1 to v2", "bundle a local model sidecar" | `tauri-stinger` |
@@ -148,6 +149,8 @@ The `gohighlevel`, `highlevel-ai-studio`, and `ghl-to-mermaid` pairs above live 
 | `github-repo-health-wasp-drone` | Repository hygiene audit: branching strategy, branch protection, PR culture, commit quality, CI density, CODEOWNERS, repo settings | "audit this repo", "repo health check", "check branch protection", "CODEOWNERS audit" | `github-repo-health-stinger` |
 | `ci-release-wasp-drone` | CI pipeline, build, and package-release discipline: workflow architecture, version sync, quality gates, publish-time secret hygiene (body still describes a legacy build target; see PAIRING-AUDIT.md) | "review our build", "design our CI", "audit our workflows", "cut a release" | `ci-release-stinger` |
 | `changelog-release-notes-wasp-drone` | Public changelogs and release notes: tool selection, impact-first copy, honest scope, multi-channel distribution | "write my changelog entry", "set up a changelog tool", "we just shipped X" | `changelog-release-notes-stinger` |
+| `production-release-build-wasp-drone` | Audits a project's CI-to-deploy posture and builds the right tier of release flow, from simple git-push deploys up to the staging/freeze/dispatch/verified-smoke model; installs tier-appropriate workflows and recommends upgrades as the project grows | "set up production releases", "build a release pipeline", "we need CI to production", "install a release flow" | `production-release-build-stinger` |
+| `production-release-wasp-drone` | Executes the complete production release for any project at its tier: staging/main tree sync, freeze (branch locks plus release variables), dispatch parameters from live state, wait-for-required-green, workflow dispatch, deploy watch through post-deploy verification, and thaw | "production-release", "ship to production", "deploy to live", "promote and release" | `production-release-stinger` |
 | `app-store-submission-wasp-drone` | App store publication for iOS and Android: ASO, privacy compliance, rejection diagnosis, age ratings, IAP configuration | "submit my app", "App Store rejection", "ASO strategy", "set up IAP" | `app-store-submission-stinger` |
 
 ### Platform and harness
@@ -204,6 +207,7 @@ The `gohighlevel`, `highlevel-ai-studio`, and `ghl-to-mermaid` pairs above live 
 | `readme-writing-wasp-drone` | Authors and audits README files as a conversion surface: canonical section order, badge discipline, OSS vs internal register | "write a README", "audit my README", "README-driven development" | `readme-writing-stinger` |
 | `runbook-writing-wasp-drone` | Operational runbook authorship: canonical templates, no-implied-context audit, exact-command discipline, escalation paths, rollback standards | "write a runbook", "audit this runbook", "we need a runbook for this alert" | `runbook-writing-stinger` |
 | `technical-writing-craft-wasp-drone` | Documentation writing quality: Diataxis framework, inverted-pyramid prose, code-example discipline, voice and tone consistency | "review this document", "is this doc well-written", "apply Diataxis" | `technical-writing-craft-stinger` |
+| `unslop-wasp-drone` | Cuts AI tells from human-facing prose and adds human voice via a 31-pattern catalog: scan, rewrite, add soul, self-audit | "unslop this", "make this sound human", "remove AI tells", "this reads like AI" | `unslop-stinger` |
 | `wiki-wasp-drone` | Extracts code entities and architectural concepts into atomic, backlinked wiki pages; infers ADRs from commit messages | "extract entities from a file or directory", "document this module's exports", "add this to the knowledge graph" | `wiki-stinger` |
 | `knowledge-base-help-center-wasp-drone` | Customer-facing knowledge base specialist — platform selection (Intercom Articles, Help Scout Docs, ReadMe.com, Document360, HelpJuice, Zendesk Guide), search-first architecture, AI deflection (chat-with-your-docs,... | "pick a KB platform", "set up a help center", "migrate Zendesk Guide", "add AI deflection to our docs" | `knowledge-base-help-center-stinger` |
 
@@ -214,7 +218,10 @@ The `gohighlevel`, `highlevel-ai-studio`, and `ghl-to-mermaid` pairs above live 
 |---|---|---|---|
 | `agile-scrum-wasp-drone` | Scrum methodology: audits whether teams actually practice Scrum, coaches ceremonies, writes Definition of Done, diagnoses anti-patterns | "audit our Scrum process", "is this Scrum", "write our DoD", "our retros don't produce anything" | `agile-scrum-stinger` |
 | `branching-strategy-wasp-drone` | Branching strategy advisor: model selection, release/hotfix patterns, merge-vs-rebase, feature-flag vs feature-branch decision | "which branching model should we use", "GitFlow or trunk-based", "merge or rebase" | `branching-strategy-stinger` |
+| `before-after-wasp-drone` | PR-ready before and after screenshot comparisons via the @vercel/before-and-after CLI: capture, upload, PR append, deployment-protection handling | "take before and after", "visual diff", "PR screenshots", "compare old and new" | `before-after-stinger` |
 | `code-review-pr-wasp-drone` | Code review culture and PR lifecycle: PR description audits, review checklists, PR-size evaluation, rubber-stamp diagnosis | "audit our PR culture", "write a PR description", "create a review checklist" | `code-review-pr-stinger` |
+| `code-structure-wasp-drone` | Two-layer architecture discipline: actions orchestrate domain rules while shared services centralize operational mechanics; extraction rulings and incremental migration | "what belongs in actions vs services", "extract a shared service", "refactor repeated operational blocks" | `code-structure-stinger` |
+| `evidence-testing-wasp-drone` | Records verifiable proof a change works: annotated live-session recordings, headless screenshot and probe sequences, measured before and after numbers, posted to PR and tracker | "prove this works", "record evidence of this fix", "measured before and after" | `evidence-testing-stinger` |
 | `estimation-wasp-drone` | Software estimation and forecasting: relative-sizing frameworks, the NoEstimates movement, planning-fallacy literature, probabilistic forecasting | "our story points mean nothing", "should we use NoEstimates", "we need a 90% confidence delivery date" | `estimation-stinger` |
 | `kanban-flow-wasp-drone` | Kanban method: WIP limit design, flow-metric calculation, Little's Law diagnostics, visual-board design, class-of-service policies | "set up WIP limits", "calculate cycle time", "apply Little's Law" | `kanban-flow-stinger` |
 | `quality-wasp-drone` | Quality-assurance reviewer that audits a completed implementation against its source plan document and produces findings | "QA this", "audit the implementation", "check the plan against the code" | `quality-stinger` |
@@ -288,7 +295,7 @@ Real sequences for this stack. Every sequence below closes with the Ship Gate; i
 
 ### Plan execution loop
 
-1. `pest-controller-suit` selects the narrowest implementation Drone for the approved plan. Use `rust-wasp-drone` for Rust and Cargo work, `tauri-wasp-drone` for the Tauri application boundary, `impeccable-wasp-drone` for frontend design implementation, or the matching domain Drone for other work.
+1. `pest-controller-suit` selects the narrowest implementation Drone for the approved plan. Use `rust-wasp-drone` for Rust and Cargo work, `tauri-wasp-drone` for the Tauri application boundary, `effect-wasp-drone` for Effect-TS work, `impeccable-wasp-drone` for frontend design implementation, or the matching domain Drone for other work.
 2. The implementation Drone completes the bounded scope and records fresh verification evidence.
 3. `security-wasp-drone` audits the completed change first and every medium-or-higher finding is resolved.
 4. The implementation owner reruns every affected check after security fixes.
@@ -354,7 +361,7 @@ Don't hand-roll a new Drone. Walk [`../queen-wasp-stinger/guides/pest-controller
 
 ---
 
-**119 Drones registered: 115 core, 3 in `highlevel`, and 1 in `webapp-capture`.** Installed Drones have a paired Stinger. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the last full pairing audit; the source validator checks the current routed roster against the filesystem.
+**126 Drones registered: 122 core, 3 in `highlevel`, and 1 in `webapp-capture`.** Installed Drones have a paired Stinger. See [`PAIRING-AUDIT.md`](./PAIRING-AUDIT.md) for the last full pairing audit; the source validator checks the current routed roster against the filesystem.
 
 ---
 

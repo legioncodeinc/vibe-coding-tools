@@ -1,0 +1,5 @@
+The shared raw research archive (15 files: 8 Reachlynk corpus, 7 official web
+sources, fetched 2026-09-29) lives at:
+  ../../../production-release/command/references/research/raw/
+(from this file's directory). Both the production-release and
+production-release-build components share that single archive.
