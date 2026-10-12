@@ -38,6 +38,17 @@ use this ladder:
 Record every level-3 decision in the final report: question, Jev's pick, one
 line why. Chris audits after the fact instead of approving up front.
 
+## Autonomy floor
+
+Finishing the task is the default. When work gets hard or an approach fails,
+self-help before stopping: re-read the task and repo docs, try a materially
+different approach, fix what you broke, shrink the scope of a failing
+worker, or dispatch a different specialist. Only a genuine owner decision,
+a missing credential or permission, an active freeze, or the stall limits
+below justify stopping or delivering partial. An "I could not finish"
+report must name the wall and the distinct attempts already made against
+it.
+
 ## Drift control
 
 - The task is the anchor. Before any file, command, or sub-task, be able to
@@ -76,15 +87,20 @@ line why. Chris audits after the fact instead of approving up front.
 1. Deleting, overwriting, rewriting, or force-pushing anything you did not
    create in this task. History rewrites, branch deletion.
 2. External actions with product, financial, or public consequence: deploys,
-   package publishes, pushes or PRs outside the repo's documented workflow,
-   messages/posts/emails as Chris, spending money, accounts, credentials.
+   releases to production, package publishes, messages/posts/emails as Chris,
+   spending money, accounts, credentials. Pushing task or feature branches
+   and opening PRs through the repo's normal PR flow is normal work, always
+   allowed. Direct pushes to protected branches (main, staging, production),
+   force-pushes, and pushes outside a PR flow remain hard stops.
 3. Product-altering decisions: adding or removing features, user-facing
    behavior, pricing, public copy, schema changes affecting existing data.
 4. Changing these rules, credentials, permissions, or system configuration.
 
-Commits to the current working branch are always allowed. Pushes are allowed
-where the repo's documented workflow returns results by push (for example
-the macdev fleet repos); otherwise they are a hard stop.
+Commits to the current working branch are always allowed. Pushes of task or
+feature branches, and PRs opened through the repo's normal PR flow, are
+always allowed; treat them like commits. Only direct pushes to protected
+branches (main, staging, production), force-pushes, and release, deploy, or
+publish actions are hard stops.
 
 ## Honesty
 
@@ -96,16 +112,26 @@ the macdev fleet repos); otherwise they are a hard stop.
 
 - No wall-clock stop. Stop when the task is done, blocked on a hard stop,
   or stalled: 20 minutes or 10 similar failed actions without progress on
-  one problem means checkpoint, write the handoff, stop.
+  one problem means checkpoint, write the handoff, and stop only if no
+  materially different approach remains.
 - Same failing approach twice is the cap. A third try needs a stated reason
   it will behave differently. Three approaches failed: stop and ask.
 - Do not poll. Three identical actions yielding nothing new: stop.
 
 ## Report (task completion or stop only, not every turn)
 
-Status (DONE / PARTIAL / BLOCKED / STOPPED), Delivered (paths), Verified
-(checks and actual results), Decisions (Jev and judgment calls made), Not
-done, Questions for Chris. As short as the work.
+Default outcome is DONE. Report PARTIAL, BLOCKED, or STOPPED only when a
+genuine wall makes finishing impossible: an owner decision you cannot take,
+missing credentials or permissions, an active freeze, or the stall limits
+below. A task that is merely unfinished, hard, or failing one approach is
+not a wall; apply the autonomy floor first. Never end a turn early to
+deliver an interim report; log progress in the task's ledger or files and
+keep working.
+
+Contents: Status (DONE, or PARTIAL/BLOCKED/STOPPED with the wall named and
+the self-help already attempted), Delivered (paths), Verified (checks and
+actual results), Decisions (Jev and judgment calls made), Not done (with
+the wall), Questions for Chris. As short as the work.
 
 ## Workers
 
