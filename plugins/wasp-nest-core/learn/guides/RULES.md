@@ -2,7 +2,7 @@
 
 A rule records an operating boundary that should not depend on someone remembering to invoke a Stinger. It answers **what must remain true while work is done?** A hook may enforce a narrow mechanical part of a rule, but many rules require human judgment and cannot be reduced to a file-edit detector.
 
-## The four core rule families
+## The five core rule families
 
 | Rule | Practical meaning |
 | --- | --- |
@@ -10,6 +10,7 @@ A rule records an operating boundary that should not depend on someone rememberi
 | [Plan construction protocol](../../rules/plan-construction-protocol.md) | When a plan is requested, name its branch, task ownership, model choices, verification, and close-out. It is not permission to create a branch or dispatch agents without task authority. |
 | [PR conflict check](../../rules/pr-conflict-check.md) | Compare proposed work with the current target branch before declaring a PR ready. Resolve conflicts deliberately instead of discovering them after handoff. |
 | [Respect agent work boundaries](../../rules/respect-agent-work-boundaries.md) | Do not edit, move, or delete another active worker's files merely because they look unfamiliar or unfinished. |
+| [Use the frontend-design skill](../../rules/use-frontend-design-skill.md) | Load the frontend-design skill before designing or building a website, landing page, dashboard, or app screen, and follow its plan-then-critique process so pages do not read as generated. |
 
 The core carries equivalent forms where a harness requires a different rule format. [Harness capabilities](../reference/HARNESS-CAPABILITIES.md) explains the difference. The exact installed rule is the operational authority for that harness; this page teaches the intent, not a replacement rule set.
 
