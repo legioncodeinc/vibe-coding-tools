@@ -40,7 +40,8 @@
     "./rules/no-em-dashes.mdc",
     "./rules/plan-construction-protocol.mdc",
     "./rules/pr-conflict-check.mdc",
-    "./rules/respect-agent-work-boundaries.mdc"
+    "./rules/respect-agent-work-boundaries.mdc",
+    "./rules/use-frontend-design-skill.mdc"
   ],
   "hooks": "./hooks/cursor-hooks.json"
 }
