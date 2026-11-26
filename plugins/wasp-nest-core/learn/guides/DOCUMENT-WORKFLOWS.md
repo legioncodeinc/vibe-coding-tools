@@ -12,7 +12,7 @@ Keep Core enabled. Check [harness capabilities](../reference/HARNESS-CAPABILITIE
 
 ## App Primer Zero: prepare the build
 
-Use [App Primer Zero](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/app-primer-zero/skills/app-primer-zero-stinger/SKILL.md) when a repository needs a foundation before developers or agents start a larger build. Its [command procedure](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/app-primer-zero/commands/app-primer-zero.md) composes Core methods for setup, Knowledge, Library and contracts.
+Use [App Primer Zero](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/app-primer-zero/skills/app-primer-zero-stinger/SKILL.md) when a repository needs a foundation before developers or agents start a larger build. Its [command procedure](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/app-primer-zero/commands/app-primer-zero.md) composes Core methods for setup, Knowledge, Library and contracts.
 
 Supply the repository or accessible source archive, known stack decisions, existing approvals and available agent capacity. It reads the actual repository, records current state, drafts the foundation PRD, contracts and schema, checks reuse boundaries, and writes a dependency-ordered handoff with exclusive file ownership.
 
@@ -26,7 +26,7 @@ Draft contracts remain Draft until you accept their exact terms. A valid plannin
 
 ## KB Refresh: bring repository knowledge current
 
-Use [KB Refresh](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/kb-refresh-stinger/SKILL.md) for a repository-wide documentation refresh. Its [command procedure](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/commands/kb-refresh.md) begins with scope and inventory, then runs writers, independent citation checks and ordered security and quality reviews.
+Use [KB Refresh](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/kb-refresh-stinger/SKILL.md) for a repository-wide documentation refresh. Its [command procedure](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/commands/kb-refresh.md) begins with scope and inventory, then runs writers, independent citation checks and ordered security and quality reviews.
 
 Supply the repository, base branch or commit, allowed documentation paths, frozen files and who owns merges. Before a writer fleet runs, review the units, available capacity and projected cost. Each behavioral claim must point to code reopened on the pinned commit. Code issues go into `SUSPECTS.md`; the refresh does not fix them.
 
@@ -42,7 +42,7 @@ One document needing a change belongs to [Knowledge Stinger](../../skills/knowle
 
 ## Library Packets: share what the sources support
 
-Use [Library Packets](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) when a library already has enough material to explain a product or system. Its [command procedure](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/commands/library-packets.md) asks only unresolved intake questions, reads the sources and selects supported documents from its catalogue.
+Use [Library Packets](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) when a library already has enough material to explain a product or system. Its [command procedure](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/commands/library-packets.md) asks only unresolved intake questions, reads the sources and selects supported documents from its catalogue.
 
 Supply an accessible library, subject, readers, decisions the documents should help, public exclusions, research scope, brand assets and output folder. The library need not follow Wasp Nest conventions. It can produce founder, investor, public, sales, service, account or engineering material when the evidence supports it.
 
@@ -54,4 +54,4 @@ Claude command: `/documentation-tools:library-packets`.
 
 General explanations target eighth-grade reading; engineering keeps the detail needed to use it. Missing evidence causes a question or deferral, not invented claims. Each final page must be inspected for cutoffs, whitespace, tables, figures and the real Legion Code Inc. icon-plus-word-mark footer. A conversion succeeding is not a review pass.
 
-Claude Code desktop, Cowork and Codex desktop can use the skill through their available tools. Plain ChatGPT uses the [packaged starter](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/references/chatgpt-starter.md) with accessible files and document tools. Missing tools or formats remain explicit gaps. Source changes, publication and sending documents are separate actions.
+Claude Code desktop, Cowork and Codex desktop can use the skill through their available tools. Plain ChatGPT uses the [packaged starter](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/references/chatgpt-starter.md) with accessible files and document tools. Missing tools or formats remain explicit gaps. Source changes, publication and sending documents are separate actions.

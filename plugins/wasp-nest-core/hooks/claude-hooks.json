@@ -1,5 +1,5 @@
 {
-  "description": "Wasp Nest prose safety and component validation hooks",
+  "description": "Wasp Nest prose safety, component validation and TARS compaction recovery hooks",
   "hooks": {
     "SessionStart": [
       {
@@ -12,6 +12,27 @@
           {
             "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/onboarding-session.mjs\" claude",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/tars-compaction.mjs\" SessionStart plugin",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/tars-compaction.mjs\" PreCompact plugin",
             "timeout": 10
           }
         ]
