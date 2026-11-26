@@ -2,7 +2,7 @@
 
 > Version: 3.0 | Date: October 2026 | Status: Active
 
-This catalog explains all seven shared hook files: five JavaScript handlers and two Python helpers. It describes what the builder configures. The installed host must support and enable an event before its handler can run.
+This catalog explains all eight shared hook files: six JavaScript handlers and two Python helpers. It describes what the builder configures. The installed host must support and enable an event before its handler can run.
 
 ## Find a handler
 
@@ -13,6 +13,7 @@ This catalog explains all seven shared hook files: five JavaScript handlers and 
 | [onboarding-session.mjs](../../plugins/wasp-nest-core/hooks/onboarding-session.mjs) | Offer missing home or repository setup | Reads setup locks and supplies context; asks for consent before setup |
 | [session-start-cadence.mjs](../../plugins/wasp-nest-core/hooks/session-start-cadence.mjs) | Supply the operating cadence at session start | Reads a context file and adds it to model context |
 | [lifecycle-beacon.mjs](../../plugins/wasp-nest-core/hooks/lifecycle-beacon.mjs) | Record event times, turn duration, and progress signals | Writes private local state and logs; supplies stamps and pending alerts on suitable events |
+| [tars-compaction.mjs](../../plugins/wasp-nest-core/hooks/tars-compaction.mjs) | Bring the TARS operating rules back after a context compaction | Appends a restart line to a registered session's ledger and supplies recovery context; other sessions get nothing |
 
 ## Python helpers
 
@@ -25,22 +26,34 @@ The registrar can be called directly on SessionStart. The resolver has no indepe
 
 ## Configured carriers
 
-The authoring build configures each carrier separately. The shipped [Core hook configuration](../../plugins/wasp-nest-core/hooks/) records native plugin bindings. Optional plugins do not repeat them.
+The authoring build configures each carrier separately. The shipped [Core hook configuration](../../plugins/wasp-nest-core/hooks/) records native plugin bindings. Optional plugins do not repeat them. One optional plugin, Interstellar Coding, ships a separate hook of its own; see [Pack-owned hooks](#pack-owned-hooks).
 
 | Carrier | Configuration | Configured calls |
 | --- | --- | --- |
-| Claude home | `~/.claude/settings.json` | `SessionStart`: cadence and onboarding; `PreToolUse` matched to `Edit|Write`: dash guard; `PostToolUse` matched to `Edit|Write`: component validator; beacon on its Claude event list |
+| Claude home | `~/.claude/settings.json` | `SessionStart`: cadence and onboarding; `PreToolUse` matched to `Edit|Write`: dash guard; `PostToolUse` matched to `Edit|Write`: component validator; beacon on its Claude event list; `PreCompact` and `SessionStart` matched to `compact`: TARS compaction recovery |
 | Codex home | `~/.codex/hooks.json` | The same named start/edit bindings, plus beacon on its Codex event list; event support depends on the installed client |
 | ZCode home | Merged `~/.zcode/cli/config.json`, under `hooks.enabled` and `hooks.events` | The same start/edit bindings, plus beacon on its ZCode event list. The home build input is `cli-config.json`; ZCode does not use a root `~/.zcode/hooks.json` for this configuration |
 | Cursor home | `~/.cursor/hooks.json` | `sessionStart`: cadence and onboarding; `preToolUse`: dash guard; `postToolUse`: component validator; no beacon binding |
-| Core Claude plugin | `hooks/claude-hooks.json` | `SessionStart`: registrar attempt and onboarding; pre/post `Edit|Write` events: dash guard and component validator; no cadence or beacon binding |
+| Core Claude plugin | `hooks/claude-hooks.json` | `SessionStart`: registrar attempt and onboarding; pre/post `Edit|Write` events: dash guard and component validator; `PreCompact` and `SessionStart` matched to `compact`: TARS compaction recovery; no cadence or beacon binding |
 | Core OpenAI plugin | `hooks/openai-hooks.json` | `SessionStart`: registrar after the host trusts the hook; no JavaScript handler binding |
 | Core Cursor plugin | `hooks/cursor-hooks.json` | `sessionStart`: onboarding only |
-| Cowork Core variant | Claude-shaped plugin configuration | Removes Claude `SessionStart`; retains configured pre/post edit checks. Retained files do not prove Cowork runs them |
+| Cowork Core variant | Claude-shaped plugin configuration | Removes Claude `SessionStart` and `PreCompact`; retains configured pre/post edit checks. Retained files do not prove Cowork runs them |
 
-The home build copies all seven files into each local hook directory. Core also carries them. Copying a file does not register an event. The shared `.agents` skill tree supplies skills, not another hook engine.
+The home build copies all eight files into each local hook directory. Core also carries them. Copying a file does not register an event. The shared `.agents` skill tree supplies skills, not another hook engine.
 
 Review the selected configuration and host trust prompt before enabling hooks. Home installation merges configured settings; native marketplace installation is a different route. JavaScript handlers need Node. Registration, resolution, and component validation need Python 3. Payload shape, shell expansion, event support, and access depend on the host.
+
+## Pack-owned hooks
+
+The eight files above are shared and belong to Core. Interstellar Coding carries one more handler, in its own package, for its own roles. It is not copied into home hook directories.
+
+| File | Purpose | Effect |
+| --- | --- | --- |
+| [crew-hook.mjs](../../plugins/interstellar-coding/hooks/crew-hook.mjs) | Record which crew role a session holds; bring that role's skill back at session start and after compaction; keep the crew ledger append-only | Supplies context on `SessionStart`, `UserPromptSubmit`, `UserPromptExpansion` and `SubagentStart`; prints summary guidance on `PreCompact`; denies `Edit` and `Write` calls on the ledger record through the host's permission response |
+
+Its binding is [hooks/hooks.json](../../plugins/interstellar-coding/hooks/hooks.json) inside the plugin. The publication validator refuses hooks in every other optional plugin. Claude Code loads the file from an installed plugin by convention; Codex runs plugin hooks only after you trust them. Cursor and home installations are not wired, so the fallback there is saying "re-ingest" followed by the role command.
+
+A session claims a role when its crew command is typed. The claim is one private file per session under `~/.wasp-nest/interstellar-coding/sessions/` (or `INTERSTELLAR_CREW_DIR`), holding the role, a time, the working directory and optionally the effort folder. It holds no prompt text. Sessions without a claim receive nothing. Apart from the ledger deny, the handler never blocks. Live delivery in an installed client has not been observed.
 
 ## Start and edit behavior
 
@@ -51,6 +64,12 @@ The component validator finds Queen's installed `per-type-validation.py`. It rec
 Onboarding checks `~/.legioncodeinc.lock` before the current repository's `wasp-nest.lock`. It offers global setup before repository setup and suppresses offers for background agents, forks, and compaction. It creates no instructions, library, or lock. Get Started performs setup only after consent and checks. Existing code requires a Knowledge pass before setup is marked complete.
 
 Cadence reads the first available `time-blocked-turns/hooks/session-start-context.md` under these home skill roots, in order: `.claude`, `.agents`, `.zcode`, `.cursor`, `.codex`. It emits Cursor-shaped context for Cursor and `SessionStart` context for the other flavors. Missing or unreadable context returns `{}`. It does not start a timer or enforce a deadline.
+
+## TARS compaction recovery
+
+`tars-compaction.mjs` is for the TARS manager session in Claude Code Desktop. Claude Code binds it from two places: the Core plugin that a marketplace installation provides, and the Claude home configuration that `install.sh` writes. On a machine with both, the plugin copy stands down for any event that the home `settings.json` already binds, so each compaction is recorded once. It checks `settings.json` under `CLAUDE_CONFIG_DIR` or `~/.claude` and requires the home handler file; if it cannot read them, it runs. The Codex, ZCode and Cursor carriers and the locally built Cowork Core variant get no binding. A marketplace Core install carries the Claude binding wherever it is loaded, and unregistered sessions get nothing. Where recovery does not run, the fallback is the owner saying "re-ingest /tars". Live delivery in an installed client has not been observed.
+
+It acts only on a session that TARS registered with `tars-registry.mjs`, recorded in `~/.wasp-nest/tars/active.json` (or under `WASP_TARS_DIR`). On `PreCompact` it appends one restart-point line to that session's existing `ledger.md`. On `SessionStart` after a compaction it adds context telling the model to reload `/tars`, reread the guides, read the ledger and owner profile, re-arm missing timers and reconcile linked sessions. Every other session receives nothing. It never blocks and always exits 0. It is a reminder, not enforcement.
 
 ## Beacon behavior
 

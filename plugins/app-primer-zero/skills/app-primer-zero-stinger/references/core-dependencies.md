@@ -4,13 +4,13 @@ App Primer Zero is an optional composition layer over Wasp Nest core. It does no
 
 | Required method | Responsibility | Canonical source |
 |---|---|---|
-| pest-controller-suit | Route specialist tasks before dispatch | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md) |
-| get-started-stinger | Repository setup within scope and CI preference | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/get-started-stinger/SKILL.md) |
-| knowledge-stinger | Private narrative and actual current state | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) |
-| library-stinger | Foundation PRD and Library lifecycle | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger/SKILL.md) |
-| contract-writing-stinger | Draft, exact acceptance, revision and pinning | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/contract-writing-stinger/SKILL.md) |
-| security-stinger, quality-stinger | Ordered review of actual changes | [core source skills](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills) |
-| github-repo-health-stinger | Final coordinator review with explicit coverage | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger/SKILL.md) |
+| pest-controller-suit | Route specialist tasks before dispatch | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md) |
+| get-started-stinger | Repository setup within scope and CI preference | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/get-started-stinger/SKILL.md) |
+| knowledge-stinger | Private narrative and actual current state | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) |
+| library-stinger | Foundation PRD and Library lifecycle | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger/SKILL.md) |
+| contract-writing-stinger | Draft, exact acceptance, revision and pinning | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/contract-writing-stinger/SKILL.md) |
+| security-stinger, quality-stinger | Ordered review of actual changes | [core source skills](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills) |
+| github-repo-health-stinger | Final coordinator review with explicit coverage | [source](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger/SKILL.md) |
 
 Resolve the core prerequisite from the active harness registry or the explicit installed-plugin registry `~/.wasp-nest/installed-plugins.json`. Core's implemented `hooks/resolve-component.py` checks canonical ownership, installed identity, exact catalog version, prerequisites and the component path. `WASP_NEST_PLUGIN_REGISTRY` overrides the default registry; `--registry` selects an explicit file. Use resolved registered roots rather than an arbitrary cache/version. Resolver behavior must be checked against the selected distribution and registry; source inspection alone is not an installed-host result.
 
