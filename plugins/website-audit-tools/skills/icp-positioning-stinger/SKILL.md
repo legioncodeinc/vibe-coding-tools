@@ -59,12 +59,12 @@ Determine the audited site's niche, ideal customer profile, primary business goa
 ## Related drones and stingers
 
 - [icp-positioning-wasp-drone](../../agents/icp-positioning-wasp-drone.md) - this Stinger's paired Drone.
-- [icp-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/icp-research-stinger) - a core Stinger, paired with `icp-research-wasp-drone`, for standalone, domain-seeded ICP research outside an audit engagement; use it when an ICP is needed without the audit workspace and hard gate.
+- [icp-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/icp-research-stinger) - a core Stinger, paired with `icp-research-wasp-drone`, for standalone, domain-seeded ICP research outside an audit engagement; use it when an ICP is needed without the audit workspace and hard gate.
 - [audit-intake-stinger](../audit-intake-stinger) - upstream, wave W0; scaffolds the workspace this Stinger writes `02-positioning/` into.
 - [stack-fingerprint-stinger](../stack-fingerprint-stinger) - upstream, wave W1a; this Stinger reads its `01-recon/stack-fingerprint.md` output.
 - [vendor-inventory-stinger](../vendor-inventory-stinger) - upstream, wave W1b; this Stinger reads its `01-recon/vendor-inventory.md` output.
 - [keyword-intelligence-stinger](../keyword-intelligence-stinger) - downstream, wave W3; reads this Stinger's `02-positioning/` output and must not re-derive niche or ICP itself (PRD-005 AC-3).
-- [seo-aeo-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/seo-aeo-stinger) - a related, non-paired Stinger from the existing Wasp Nest roster; consult where a keyword-relevance or content-targeting question overlaps with this pair's ICP output, per the build plan's note that new pairs cite existing Stingers as related skills rather than duplicating their catalogs.
+- [seo-aeo-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/seo-aeo-stinger) - a related, non-paired Stinger from the existing Wasp Nest roster; consult where a keyword-relevance or content-targeting question overlaps with this pair's ICP output, per the build plan's note that new pairs cite existing Stingers as related skills rather than duplicating their catalogs.
 
 ## Critical Directive
 

@@ -56,7 +56,7 @@ The 1440x900 and 390x844 viewport dimensions are a binding product decision from
 ## Related drones and stingers
 
 - [visual-funnel-wasp-drone](../../agents/visual-funnel-wasp-drone.md) - this Stinger's paired Drone
-- [lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - consult for Core Web Vitals measurement discipline during the walk; does not own this pair's screenshot/UX scoring
+- [lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - consult for Core Web Vitals measurement discipline during the walk; does not own this pair's screenshot/UX scoring
 - [performance-cwv-stinger](../performance-cwv-stinger) - owns Core Web Vitals field-data scoring for this plugin specifically; this Stinger only notes load feel as checkpoint context
 - [icp-positioning-stinger](../icp-positioning-stinger) - produces the funnel definition this Stinger consumes from `02-positioning/`
 - [audit-scoring-stinger](../audit-scoring-stinger) - consumes this Stinger's scored, evidenced `05-funnel/funnel-report.md`
@@ -67,7 +67,7 @@ The 1440x900 and 390x844 viewport dimensions are a binding product decision from
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [visual-funnel-wasp-drone](../../agents/visual-funnel-wasp-drone.md) - this Stinger's paired Drone.
-  - [lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - consult for CWV methodology context during the visual walk, does not own this pair's screenshot/UX scoring
+  - [lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - consult for CWV methodology context during the visual walk, does not own this pair's screenshot/UX scoring
 
 ## Ship Gate decision
 
