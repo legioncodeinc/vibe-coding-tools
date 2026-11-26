@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "software-economics-tools",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Model supplied software economics and costs with explicit scenarios and evidence.",
   "author": {
     "name": "Legion Code Inc."
