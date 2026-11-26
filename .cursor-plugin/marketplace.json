@@ -57,6 +57,10 @@
       "source": "./plugins/infrastructure-decision-tools"
     },
     {
+      "name": "interstellar-coding",
+      "source": "./plugins/interstellar-coding"
+    },
+    {
       "name": "littlebird-toolkit",
       "source": "./plugins/littlebird-toolkit"
     },

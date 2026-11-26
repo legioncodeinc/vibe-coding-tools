@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "The Wasp Nest: core plus add-on packs.",
-    "version": "3.0.1"
+    "version": "3.1.0"
   },
   "plugins": [
     {
@@ -112,6 +112,11 @@
       "name": "product-studio",
       "source": "./plugins/product-studio",
       "description": "Turn an idea into a buildable plan: product strategy, Claude-Design-grade UX, a PRD map, a wave plan and a Definition of Done."
+    },
+    {
+      "name": "interstellar-coding",
+      "source": "./plugins/interstellar-coding",
+      "description": "A development team of agent roles led by TARS: orchestration, product and library, dissent, investigation, efficiency, documentation with an append-only ledger, building and gating."
     }
   ]
 }
