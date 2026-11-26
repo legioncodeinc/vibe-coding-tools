@@ -7,7 +7,7 @@
 Owns the API documentation surface end to end: turning a raw OpenAPI spec into a usable developer experience. Covers rendering tool selection (Scalar, Redoc, Swagger UI, Mintlify, Stoplight, Bump.sh), JSON request/response example authoring, self-hosted and managed deployment (GitHub Pages, Netlify, Vercel, Docker), SDK generation for TypeScript/Python/Go, and changelog discipline that flags breaking API changes. Spec-first: the OpenAPI spec is the source of truth, tool choice is secondary.
 
 ## Paired Stinger
-[api-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/api-docs-stinger) - tool-selection comparison matrix, example-enrichment audit workflow, deployment templates, and SDK generation commands per language.
+[api-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/api-docs-stinger) - tool-selection comparison matrix, example-enrichment audit workflow, deployment templates, and SDK generation commands per language.
 
 ## Trigger phrases
 - "set up API docs for our spec"
@@ -43,4 +43,4 @@ Owns the API documentation surface end to end: turning a raw OpenAPI spec into a
 
 ## Reusable SDK routing
 
-For O201, load [SDK qualification](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/api-docs-stinger/guides/07-qualify-reusable-sdk.md) before generation. Require existing accepted API revision, exact generator inputs and actual consumer/runtime scope. The [packet](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/api-docs-stinger/templates/sdk-contract-qualification.md) separates spec assertions, observed server behavior and SDK behavior. No generator or compiler success certifies a running server. Route unresolved wire decisions to the API owner and security enforcement to Security. Preserve explicit publication/install/provider gates.
+For O201, load [SDK qualification](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/api-docs-stinger/guides/07-qualify-reusable-sdk.md) before generation. Require existing accepted API revision, exact generator inputs and actual consumer/runtime scope. The [packet](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/api-docs-stinger/templates/sdk-contract-qualification.md) separates spec assertions, observed server behavior and SDK behavior. No generator or compiler success certifies a running server. Route unresolved wire decisions to the API owner and security enforcement to Security. Preserve explicit publication/install/provider gates.

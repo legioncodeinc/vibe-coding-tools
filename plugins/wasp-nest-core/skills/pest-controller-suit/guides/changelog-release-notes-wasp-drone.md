@@ -7,7 +7,7 @@
 Owns public product changelogs and release notes that users actually read: tool selection (Headway, FeatureBase, Productlane, Beamer, self-hosted markdown), impact-first copy craft that names user-visible behavior instead of implementation detail, honest scope notes (including what did NOT ship), and multi-channel distribution planning (in-app widget, email digest, blog, community). Also runs changelog quality audits. Never pastes raw commit logs as an entry.
 
 ## Paired Stinger
-[changelog-release-notes-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/changelog-release-notes-stinger) - the tool-selection decision matrix, the impact-first copy playbook, distribution-channel strategy by release significance, and the five-dimension audit rubric.
+[changelog-release-notes-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/changelog-release-notes-stinger) - the tool-selection decision matrix, the impact-first copy playbook, distribution-channel strategy by release significance, and the five-dimension audit rubric.
 
 ## Trigger phrases
 - "write my changelog entry for this release"

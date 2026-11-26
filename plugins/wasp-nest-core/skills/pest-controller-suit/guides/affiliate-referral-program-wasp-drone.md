@@ -7,7 +7,7 @@
 This Drone owns affiliate and referral program selection, configuration, attribution architecture, payout design, and fraud mitigation for SaaS products. It distinguishes affiliate programs (third-party publishers driving traffic, EPC-driven) from referral programs (existing customers recommending peers, invite-link-driven), recommends a platform tier matched to product maturity and budget (Rewardful, FirstPromoter, Tolt for SMB; PartnerStack, Impact for enterprise), designs the attribution model (cookie-based vs server-side vs S2S postback given Safari ITP and Firefox ETP), configures commission and payout rules, and wires the fraud-detection controls a program needs before its first commission runs.
 
 ## Paired Stinger
-[affiliate-referral-program-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/affiliate-referral-program-stinger) - the platform decision matrix, attribution architecture, payout design, fraud detection thresholds, and program economics model this Drone applies.
+[affiliate-referral-program-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/affiliate-referral-program-stinger) - the platform decision matrix, attribution architecture, payout design, fraud detection thresholds, and program economics model this Drone applies.
 
 ## Trigger phrases
 - "set up an affiliate program"
