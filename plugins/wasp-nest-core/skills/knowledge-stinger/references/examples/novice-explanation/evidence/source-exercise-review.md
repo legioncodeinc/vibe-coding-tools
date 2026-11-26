@@ -4,7 +4,7 @@ These reviews compare actual source files and rendered Markdown, not a list of p
 
 ## Draft PRD: preserve the permission and sending sequence
 
-Source: [invoice-note PRD](../fixtures/prd/PRD-001-invoice-notes.md). Reader manuscript: [plain PRD explanation](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/examples/plain-invoice-prd.md).
+Source: [invoice-note PRD](../fixtures/prd/PRD-001-invoice-notes.md). Reader manuscript: [plain PRD explanation](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/examples/plain-invoice-prd.md).
 
 The source gives owners exclusive approval authority in their own workspace, orders review before approval before an explicit send request, and explicitly separates approval from sending. The rendered second paragraph retains all of those requirements. The third paragraph keeps members' narrower read-only authority. The opening retains Draft status; the fourth paragraph leaves automated reminders in future work and retention unresolved. Review: Pass for source fidelity. Human understanding: Pending.
 

@@ -1,5 +1,5 @@
 {
-  "version": "3.0.1",
+  "version": "3.1.0",
   "immutable_core": [
     "get-started-stinger",
     "library-stinger",
@@ -3615,6 +3615,192 @@
           "kind": "command",
           "name": "plan-product",
           "source": "packs/product-studio/commands/plan-product.md"
+        }
+      ]
+    },
+    {
+      "name": "interstellar-coding",
+      "display_name": "Interstellar Coding",
+      "description": "A development team of agent roles led by TARS: orchestration, product and library, dissent, investigation, efficiency, documentation with an append-only ledger, building and gating.",
+      "why": "One accountable crew: TARS leads, each role owns one job, every update lands in an append-only ledger, and a role reloads its skill after any restart or compaction.",
+      "skills": [
+        "crew-case-stinger",
+        "crew-coop-stinger",
+        "crew-kipp-stinger",
+        "crew-lady-stinger",
+        "crew-moon-stinger",
+        "crew-murph-stinger",
+        "crew-owel-stinger",
+        "crew-protocol",
+        "crew-tars-stinger"
+      ],
+      "agents": [
+        "crew-case-wasp-drone",
+        "crew-coop-wasp-drone",
+        "crew-kipp-wasp-drone",
+        "crew-lady-wasp-drone",
+        "crew-moon-wasp-drone",
+        "crew-murph-wasp-drone",
+        "crew-owel-wasp-drone",
+        "crew-tars-wasp-drone"
+      ],
+      "commands": [
+        "case",
+        "coop",
+        "interstellar",
+        "kipp",
+        "lady",
+        "moon",
+        "murph",
+        "owel"
+      ],
+      "requires": [
+        "wasp-nest-core",
+        "data-and-ai-tools",
+        "code-audit-tools"
+      ],
+      "optional_workflow_requirements": {
+        "plan-the-product-before-the-crew-builds": [
+          "product-studio"
+        ],
+        "specialist-drones-for-build-chips": [
+          "web-development-tools",
+          "backend-and-desktop-tools",
+          "platform-and-release-tools"
+        ]
+      },
+      "mandatory": false,
+      "counts": {
+        "skill": 9,
+        "agent": 8,
+        "command": 8
+      },
+      "source_root": "packs/interstellar-coding",
+      "components": [
+        {
+          "kind": "skill",
+          "name": "crew-case-stinger",
+          "source": "packs/interstellar-coding/skills/crew-case-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-case-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-case-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-coop-stinger",
+          "source": "packs/interstellar-coding/skills/crew-coop-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-coop-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-coop-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-kipp-stinger",
+          "source": "packs/interstellar-coding/skills/crew-kipp-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-kipp-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-kipp-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-lady-stinger",
+          "source": "packs/interstellar-coding/skills/crew-lady-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-lady-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-lady-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-moon-stinger",
+          "source": "packs/interstellar-coding/skills/crew-moon-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-moon-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-moon-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-murph-stinger",
+          "source": "packs/interstellar-coding/skills/crew-murph-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-murph-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-murph-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-owel-stinger",
+          "source": "packs/interstellar-coding/skills/crew-owel-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-owel-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-owel-wasp-drone.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-protocol",
+          "source": "packs/interstellar-coding/skills/crew-protocol/SKILL.md"
+        },
+        {
+          "kind": "skill",
+          "name": "crew-tars-stinger",
+          "source": "packs/interstellar-coding/skills/crew-tars-stinger/SKILL.md"
+        },
+        {
+          "kind": "agent",
+          "name": "crew-tars-wasp-drone",
+          "source": "packs/interstellar-coding/agents/crew-tars-wasp-drone.md"
+        },
+        {
+          "kind": "command",
+          "name": "case",
+          "source": "packs/interstellar-coding/commands/case.md"
+        },
+        {
+          "kind": "command",
+          "name": "coop",
+          "source": "packs/interstellar-coding/commands/coop.md"
+        },
+        {
+          "kind": "command",
+          "name": "interstellar",
+          "source": "packs/interstellar-coding/commands/interstellar.md"
+        },
+        {
+          "kind": "command",
+          "name": "kipp",
+          "source": "packs/interstellar-coding/commands/kipp.md"
+        },
+        {
+          "kind": "command",
+          "name": "lady",
+          "source": "packs/interstellar-coding/commands/lady.md"
+        },
+        {
+          "kind": "command",
+          "name": "moon",
+          "source": "packs/interstellar-coding/commands/moon.md"
+        },
+        {
+          "kind": "command",
+          "name": "murph",
+          "source": "packs/interstellar-coding/commands/murph.md"
+        },
+        {
+          "kind": "command",
+          "name": "owel",
+          "source": "packs/interstellar-coding/commands/owel.md"
         }
       ]
     }
