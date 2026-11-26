@@ -1,0 +1,37 @@
+{
+  "name": "interstellar-coding",
+  "version": "3.1.0",
+  "description": "A development team of agent roles led by TARS: orchestration, product and library, dissent, investigation, efficiency, documentation with an append-only ledger, building and gating.",
+  "author": {
+    "name": "Legion Code Inc."
+  },
+  "license": "AGPL-3.0-or-later",
+  "skills": [
+    "./skills/"
+  ],
+  "agents": [
+    "./agents/crew-case-wasp-drone.md",
+    "./agents/crew-coop-wasp-drone.md",
+    "./agents/crew-kipp-wasp-drone.md",
+    "./agents/crew-lady-wasp-drone.md",
+    "./agents/crew-moon-wasp-drone.md",
+    "./agents/crew-murph-wasp-drone.md",
+    "./agents/crew-owel-wasp-drone.md",
+    "./agents/crew-tars-wasp-drone.md"
+  ],
+  "commands": [
+    "./commands/case.md",
+    "./commands/coop.md",
+    "./commands/interstellar.md",
+    "./commands/kipp.md",
+    "./commands/lady.md",
+    "./commands/moon.md",
+    "./commands/murph.md",
+    "./commands/owel.md"
+  ],
+  "dependencies": [
+    "wasp-nest-core",
+    "data-and-ai-tools",
+    "code-audit-tools"
+  ]
+}
