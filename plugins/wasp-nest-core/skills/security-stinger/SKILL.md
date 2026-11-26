@@ -72,11 +72,11 @@ A security-stinger pass is done when: the relevant guides were read in order (no
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [swarm-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/code-audit-tools/skills/swarm-audit-stinger) - Workflow-fleet audit of a whole repository: every branch, state of the union, delivery failures, next steps; observes, heals, and never leaves a product unreviewed.
+  - [swarm-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/code-audit-tools/skills/swarm-audit-stinger) - Workflow-fleet audit of a whole repository: every branch, state of the union, delivery failures, next steps; observes, heals, and never leaves a product unreviewed.
   - [quality-stinger](../quality-stinger) - Quality assurance pass, second gate of the Ship Gate, always after security.
   - [github-repo-health-stinger](../github-repo-health-stinger) - Repository hygiene audit, final orchestrator-level gate before commit and push.
-  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS AuthKit depth: sealed sessions, JWKS verification, RBAC, SSO. Consult when a WorkOS finding needs implementation-level detail beyond this skill's session-security coverage.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations. Consult for the tenant-scoped tables this skill's RLS guidance applies to.
+  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS AuthKit depth: sealed sessions, JWKS verification, RBAC, SSO. Consult when a WorkOS finding needs implementation-level detail beyond this skill's session-security coverage.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations. Consult for the tenant-scoped tables this skill's RLS guidance applies to.
   - [dependency-audit-stinger](../dependency-audit-stinger) - Deeper dependency-audit workflows. Consult when a supply-chain finding needs a full audit beyond this skill's lockfile-injection and `npm ci` checks.
 
 ## Ship Gate

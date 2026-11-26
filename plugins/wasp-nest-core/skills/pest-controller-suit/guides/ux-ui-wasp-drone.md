@@ -9,7 +9,7 @@ This Drone is the steady-state design-system owner and enforcer for the deployin
 If the design-system folder does not yet cover a question, this Drone updates the folder first, then answers, so the system stays the source of truth rather than drifting from what actually gets enforced.
 
 ## Paired Stinger
-[ux-ui-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/ux-ui-stinger) - the enforcement procedure, token and utility rules, motion rules, and per-library integration guides for shadcn/ui, Mantine, Lucide-react, and Framer Motion.
+[ux-ui-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/ux-ui-stinger) - the enforcement procedure, token and utility rules, motion rules, and per-library integration guides for shadcn/ui, Mantine, Lucide-react, and Framer Motion.
 
 ## Trigger phrases
 - "review this UI"

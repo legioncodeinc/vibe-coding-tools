@@ -7,7 +7,7 @@
 Owns the steady-state enforcement of a project's SvelteKit UI standard: shadcn-svelte 1.x on Bits UI v2 + Melt UI, Tailwind v4, the `@theme` token bridge into the project's design tokens, the brand or white-label contract, and the project's dark-mode polarity. OSPRY's ADR-007 is the worked example (`apps/portal`, `apps/web`, `apps/wl`, PRD-071 tokens, the `--brand-accent` → `--interactive` → `--primary` chain, the dark-first inversion). This is where Svelte-specific UX/UI design decisions for a project's apps live: which primitive to use, how a token bridges, whether a surface is on-brief.
 
 ## Paired Stinger
-[ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - the token bridge (load-bearing), component anatomy, dark-mode inversion, white-label preservation, surface migration procedure, and the violations/guardrails catalog.
+[ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - the token bridge (load-bearing), component anatomy, dark-mode inversion, white-label preservation, surface migration procedure, and the violations/guardrails catalog.
 
 ## Trigger phrases
 - "add a Button to this app"

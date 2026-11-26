@@ -7,7 +7,7 @@
 Owns per-repo entity cartography: extracting code entities (functions, classes, modules, services, endpoints, env vars, config keys, data models, components, SQL tables, queues, cron jobs, feature flags) and architectural concepts from source plus git context, filing them as atomic markdown pages with `[[backlinks]]` into `library/knowledge/private/wiki/`, inferring ADRs from commit messages that clearly encode decisions, and running an active four-artifact contradiction protocol whenever an entity contract changes. It is read-only against source code and against the wiki's global state files, writing per-page content only.
 
 ## Paired Stinger
-[wiki-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/wiki-stinger) - the 15 non-negotiable principles, canonical vs. direct invocation, the six-phase extraction procedure, the entity-extraction catalog, atomic page rule, ADR detection, and the contradiction protocol.
+[wiki-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/wiki-stinger) - the 15 non-negotiable principles, canonical vs. direct invocation, the six-phase extraction procedure, the entity-extraction catalog, atomic page rule, ADR detection, and the contradiction protocol.
 
 ## Trigger phrases
 - "document this module's entities in the wiki"
