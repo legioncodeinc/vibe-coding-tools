@@ -23,21 +23,31 @@ function targetSearchText(target = {}) {
 }
 
 async function locatorSearchText(locator) {
-  return locator.evaluate((element) => [
-    element.textContent,
-    element.getAttribute("type"),
-    element.getAttribute("name"),
-    element.getAttribute("id"),
-    element.getAttribute("autocomplete"),
-    element.getAttribute("aria-label"),
-    element.getAttribute("placeholder"),
-    element.getAttribute("title"),
-    element.getAttribute("autocomplete") === "username" ? "credential" : "",
-    element.hasAttribute("data-secret") ? "secret" : "",
-    ...(element.labels ? [...element.labels].map((label) => label.textContent) : []),
-    ...(element.getAttribute("aria-labelledby") || "").split(/\s+/).map((id) => element.ownerDocument.getElementById(id)?.textContent),
-    element.closest("label")?.textContent,
-  ].filter(Boolean).join(" "));
+  return locator.evaluate((element) => {
+    const controls = 'button,a[href],summary,label,[role="button"],[role="link"],[role="menuitem"]';
+    const read = (node) => [
+      node.textContent,
+      node.getAttribute("type"),
+      node.getAttribute("name"),
+      node.getAttribute("id"),
+      node.getAttribute("autocomplete"),
+      node.getAttribute("aria-label"),
+      node.getAttribute("placeholder"),
+      node.getAttribute("title"),
+      node.getAttribute("alt"),
+      // The visible label of a button-like input is its value. Typed field values are never read.
+      node.tagName === "INPUT" && /^(?:submit|button|reset|image)$/i.test(node.type) ? node.value : "",
+      // Icon-only controls carry their name on a child image or icon.
+      ...(node.matches(controls) ? [...node.querySelectorAll("[alt],[aria-label],[title]")].flatMap((child) => ["alt", "aria-label", "title"].map((name) => child.getAttribute(name))) : []),
+      node.getAttribute("autocomplete") === "username" ? "credential" : "",
+      node.hasAttribute("data-secret") ? "secret" : "",
+      ...(node.labels ? [...node.labels].map((label) => label.textContent) : []),
+      ...(node.getAttribute("aria-labelledby") || "").split(/\s+/).map((id) => node.ownerDocument.getElementById(id)?.textContent),
+      node.closest("label")?.textContent,
+    ];
+    // A selector can name an icon or span: also read the control that receives the click.
+    return [...new Set([element, element.closest(controls)])].filter(Boolean).flatMap(read).filter(Boolean).join(" ");
+  });
 }
 
 export function demoDenyPattern(customPattern) {

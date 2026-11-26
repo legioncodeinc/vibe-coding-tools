@@ -324,22 +324,20 @@ test("actual demo DOM credentials and destructive labels are refused before inte
 
 test("generated video assembly produces private files and refuses linked or existing targets and scene inputs", async (t) => {
   try { execFileSync("ffmpeg", ["-version"], { stdio: "ignore" }); } catch { t.skip("installed ffmpeg unavailable"); return; }
-  const source = fs.readFileSync(new URL("../demo/record-demo.mjs", import.meta.url), "utf8");
-  const begin = source.indexOf('writePrivateCapture(path.join(OUT, "make-video.sh"), `');
-  const literalStart = source.indexOf("`", begin), literalEnd = source.indexOf("`);", literalStart);
-  const script = vm.runInNewContext(source.slice(literalStart, literalEnd + 1));
+  // record-demo.mjs copies this template into every take folder.
+  const script = fs.readFileSync(new URL("../demo/make-video.sh", import.meta.url), "utf8");
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "capture-assembly-proof-"));
   const prepare = (name) => {
     const out = path.join(dir, name); ensurePrivateOutputDir(out); ensurePrivateOutputDir(path.join(out, "scenes"));
-    writePrivateCapture(path.join(out, "make-video.sh"), script); writePrivateCapture(path.join(out, "concat.txt"), "file 'scenes/01-fixture.mp4'\n"); writePrivateCapture(path.join(out, "captions.vtt"), "WEBVTT\n\n00:00:00.000 --> 00:00:00.200\nFixture\n");
+    writePrivateCapture(path.join(out, "make-video.sh"), script); writePrivateCapture(path.join(out, "segments.tsv"), "scenes/01-fixture.webm\t0\t200\tfixture\n"); writePrivateCapture(path.join(out, "assembly.conf"), "end_hold_seconds=0\n"); writePrivateCapture(path.join(out, "captions.vtt"), "WEBVTT\n\n00:00:00.000 --> 00:00:00.200\nFixture\n");
     execFileSync("ffmpeg", ["-v", "error", "-n", "-f", "lavfi", "-i", "color=black:s=320x240:d=0.2", "-c:v", "libvpx-vp9", path.join(out, "scenes/01-fixture.webm")]); fs.chmodSync(path.join(out, "scenes/01-fixture.webm"), 0o600);
     return out;
   };
   try {
     const valid = prepare("valid"); execFileSync("bash", ["make-video.sh"], { cwd: valid, stdio: "pipe" });
-    for (const file of ["scenes/01-fixture.mp4", "demo-silent.mp4", "demo.mp4"]) assert.equal(fs.statSync(path.join(valid, file)).mode & 0o777, 0o600);
+    for (const file of ["segments/001.mp4", "demo-silent.mp4", "demo.mp4"]) assert.equal(fs.statSync(path.join(valid, file)).mode & 0o777, 0o600);
     const unsafe = prepare("linked-output"), sentinel = path.join(dir, "sentinel.mp4"); fs.writeFileSync(sentinel, "unchanged outside sentinel", { mode: 0o600 }); fs.symlinkSync(sentinel, path.join(unsafe, "demo.mp4"));
-    assert.throws(() => execFileSync("bash", ["make-video.sh"], { cwd: unsafe, stdio: "pipe" }), /assembly refused/); assert.equal(fs.readFileSync(sentinel, "utf8"), "unchanged outside sentinel"); assert.equal(fs.existsSync(path.join(unsafe, "scenes/01-fixture.mp4")), false);
+    assert.throws(() => execFileSync("bash", ["make-video.sh"], { cwd: unsafe, stdio: "pipe" }), /assembly refused/); assert.equal(fs.readFileSync(sentinel, "utf8"), "unchanged outside sentinel"); assert.equal(fs.existsSync(path.join(unsafe, "segments/001.mp4")), false);
     const linkedInput = prepare("linked-input"); const original = path.join(linkedInput, "scenes/01-fixture.webm"); fs.renameSync(original, path.join(dir, "outside.webm")); fs.symlinkSync(path.join(dir, "outside.webm"), original);
     assert.throws(() => execFileSync("bash", ["make-video.sh"], { cwd: linkedInput, stdio: "pipe" }), /assembly refused/);
     assert.throws(() => execFileSync("bash", ["make-video.sh"], { cwd: valid, stdio: "pipe" }), /assembly refused/);
