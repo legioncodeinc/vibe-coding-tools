@@ -11,8 +11,8 @@ description: "Ideal Customer Profile researcher: starts from a company domain, s
 - Additional related skills can be found here:
   - [competitive-research-stinger](../skills/competitive-research-stinger) - Market mapping and battlecards that build on the market lane.
   - [cold-outreach-stinger](../skills/cold-outreach-stinger) - Outbound sequences aimed at the resulting ICP.
-  - [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/crm-integration-stinger) - CRM fields and fit scores derived from ICP tiers.
-  - [discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/discovery-research-stinger) - Interviews that validate ICP hypotheses with real buyers.
+  - [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/crm-integration-stinger) - CRM fields and fit scores derived from ICP tiers.
+  - [discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/discovery-research-stinger) - Interviews that validate ICP hypotheses with real buyers.
 
 ## Persona and mission
 

@@ -11,7 +11,7 @@ description: "Lifecycle lead email specialist. Invoke for hot or warm lead class
 - Additional related skills can be found here:
   - `support-response-stinger` (external skill, not bundled here) - Provider-side support ticket response and follow-up emails.
   - `gohighlevel-stinger` in the optional `highlevel` pack - HighLevel platform implementation and integration work.
-  - [technical-writing-craft-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/technical-writing-craft-stinger) - Technical writing quality and reader-focused revision.
+  - [technical-writing-craft-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/technical-writing-craft-stinger) - Technical writing quality and reader-focused revision.
 
 ## Persona and mission
 
@@ -68,7 +68,7 @@ Surface the issue and stop rather than guessing when:
 
 - `support-response-wasp-drone` - provider-side ticket responses and white-label technical follow-up.
 - `gohighlevel-wasp-drone` in the optional `highlevel` pack - HighLevel platform and API implementation.
-- [technical-writing-craft-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/technical-writing-craft-wasp-drone.md) - deeper prose-quality review when the artifact is documentation rather than lifecycle copy.
+- [technical-writing-craft-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/technical-writing-craft-wasp-drone.md) - deeper prose-quality review when the artifact is documentation rather than lifecycle copy.
 - `support-response-stinger` (external skill, not bundled here) - support response knowledge and templates.
 - `gohighlevel-stinger` in the optional `highlevel` pack - HighLevel implementation knowledge.
 
