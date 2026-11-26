@@ -7,7 +7,7 @@
 Owns Tailwind CSS v4 the framework itself, for any codebase: CSS-first configuration, `@theme` mechanics and namespace-to-utility generation, the full directive/function set (`@utility`, `@variant`, `@custom-variant`, `@apply`, `@reference`, `@source`), the `@tailwindcss/vite` plugin, v3-to-v4 migration, dark mode variants, container queries, arbitrary values, class ordering, and Oxide-engine performance. It explains how `@theme` works as a mechanism; it does not decide what any specific product's tokens should be.
 
 ## Paired Stinger
-[tailwind-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/tailwind-stinger) - theme/token guide, the upgrade-tool-first migration procedure, Vite/SvelteKit setup, dark mode, container queries, class ordering, and anti-patterns/performance.
+[tailwind-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/tailwind-stinger) - theme/token guide, the upgrade-tool-first migration procedure, Vite/SvelteKit setup, dark mode, container queries, class ordering, and anti-patterns/performance.
 
 ## Trigger phrases
 - "should this app use Tailwind and shadcn"

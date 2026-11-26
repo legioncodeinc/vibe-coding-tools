@@ -7,7 +7,7 @@
 Owns the full Slack app developer surface built on the Bolt SDK (JS/Python/Java): slash commands, Block Kit UI composition, modal open/push/update lifecycle, the Events API subscription and HMAC verification model, OAuth 2.0 multi-workspace installation, and App Directory/Marketplace submission including the December 2024 policy constraints (LLM training prohibition, Socket Mode Marketplace block). It does not cover the Deno Slack SDK or the next-gen Workflow Builder platform.
 
 ## Paired Stinger
-[slack-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/slack-app-stinger) - Bolt SDK setup, HTTP vs Socket Mode decision tree, Block Kit/modal/Events API/OAuth guides, and the App Directory submission checklist.
+[slack-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/slack-app-stinger) - Bolt SDK setup, HTTP vs Socket Mode decision tree, Block Kit/modal/Events API/OAuth guides, and the App Directory submission checklist.
 
 ## Trigger phrases
 - "build a Slack app"

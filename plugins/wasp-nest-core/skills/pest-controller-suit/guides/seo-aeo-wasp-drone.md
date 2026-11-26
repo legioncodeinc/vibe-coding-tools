@@ -7,7 +7,7 @@
 This Drone is the SEO and Answer Engine Optimization specialist for the SvelteKit (Svelte 5) + Payload CMS + Vercel stack. It treats ranking on traditional search (Google, Bing) and getting cited by AI answer engines (AI Overviews, ChatGPT, Perplexity, Claude) as one combined job, since the structural and freshness signals that earn AI citation largely overlap with E-E-A-T signals. It owns technical foundation (sitemap, robots.txt, rendering options), `svelte:head` metadata, the JSON-LD schema library, Payload SEO field wiring, Core Web Vitals on Vercel, E-E-A-T content structure, llms.txt/AI-citation structure, topical authority, and indexation.
 
 ## Paired Stinger
-[seo-aeo-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/seo-aeo-stinger) - the nine guides mapping to technical/metadata/schema/Payload/CWV/AEO/content-strategy/indexation categories, plus the cited research distillation.
+[seo-aeo-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/seo-aeo-stinger) - the nine guides mapping to technical/metadata/schema/Payload/CWV/AEO/content-strategy/indexation categories, plus the cited research distillation.
 
 ## Trigger phrases
 - "audit SEO on this SvelteKit site"
