@@ -10,8 +10,8 @@ description: "Rust implementation and code-review specialist for production `*.r
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [tauri-stinger](../skills/tauri-stinger) - Tauri 2 application shell, IPC, capabilities, sidecars, plugins, updating, and distribution.
-  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Rust dependency, advisory, license, and supply-chain decisions.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Independent security audit and remediation.
+  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Rust dependency, advisory, license, and supply-chain decisions.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Independent security audit and remediation.
 
 # Rust Wasp Drone
 
@@ -98,8 +98,8 @@ Stop at the smallest safe, compilable/testable checkpoint when a missing decisio
 
 - [tauri-wasp-drone](../agents/tauri-wasp-drone.md) - Tauri 2 application integration, update review, and AI desktop/mobile shell work.
 - [tauri-stinger](../skills/tauri-stinger) - Tauri-specific procedures and examples that layer on this Rust foundation.
-- [dependency-audit-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/dependency-audit-wasp-drone.md) - dependency, advisory, license, and SBOM disposition.
-- [security-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/security-wasp-drone.md) - security findings and acceptance.
+- [dependency-audit-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/dependency-audit-wasp-drone.md) - dependency, advisory, license, and SBOM disposition.
+- [security-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/security-wasp-drone.md) - security findings and acceptance.
 
 ## Reporting expectations
 

@@ -1,6 +1,6 @@
 # 25 - Drizzle ORM type inference patterns
 
-**Primary context: SvelteKit app on Vercel with Neon Postgres.** This guide covers the TypeScript patterns AROUND Drizzle - how its inference model plays with the rest of the app's type discipline. Drizzle's own schema design, migrations, connection pooling, and SvelteKit/Vercel wiring belong to [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) - hand off there for anything beyond the inference mechanics below. Do not duplicate that skill's schema/migration guidance here.
+**Primary context: SvelteKit app on Vercel with Neon Postgres.** This guide covers the TypeScript patterns AROUND Drizzle - how its inference model plays with the rest of the app's type discipline. Drizzle's own schema design, migrations, connection pooling, and SvelteKit/Vercel wiring belong to [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) - hand off there for anything beyond the inference mechanics below. Do not duplicate that skill's schema/migration guidance here.
 
 ## `$inferSelect` / `$inferInsert`: one schema, two derived types
 
@@ -74,4 +74,4 @@ This guide covers: `$inferSelect`/`$inferInsert` usage, the relational-query cal
 - `references/research/raw/drizzle--type-inference--infer-select-insert-goodies.md` (source-repository research, not shipped)
 - `references/research/raw/drizzle--relational-query-builder--db-query-types.md` (source-repository research, not shipped)
 - `references/research/distilled-typescript-node.md` section 3
-- [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) for everything this guide explicitly does not cover
+- [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) for everything this guide explicitly does not cover

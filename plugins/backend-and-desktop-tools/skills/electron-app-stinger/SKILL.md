@@ -47,7 +47,7 @@ Guide secure Electron application work from main process through preload and ren
 
 - [electron-app-wasp-drone](../../agents/electron-app-wasp-drone.md) - paired implementation specialist.
 - [tauri-stinger](../tauri-stinger) - alternative desktop application boundary.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - independent security acceptance.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - independent security acceptance.
 
 ## Critical Directive
 
@@ -55,7 +55,7 @@ Guide secure Electron application work from main process through preload and ren
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [tauri-stinger](../tauri-stinger) - Tauri-specific application work.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - audit the assembled desktop trust boundary.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - audit the assembled desktop trust boundary.
 
 ## Ship Gate
 

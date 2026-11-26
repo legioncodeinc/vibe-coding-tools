@@ -258,14 +258,14 @@ A TypeScript/Node task run through this skill is done when: the project type was
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/vercel-stinger) - Vercel deploy/build specifics, Node version selection on Vercel, ISR/caching. Consult for anything beyond the `engines.node` field this skill owns.
-  - [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) - Drizzle schema design, migrations, connection pooling, RLS. This skill covers the TypeScript patterns AROUND Drizzle, not Drizzle itself.
-  - [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/svelte-stinger) - Svelte 5 runes and component authoring. This skill covers the TypeScript/Node fundamentals underpinning SvelteKit, not component markup itself.
-  - [doppler-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/doppler-stinger) - secrets/env handling mechanics. Consult for the Doppler side of the env-typing guidance in this skill.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Post-implementation QA pass, second gate of the Ship Gate pipeline below.
-  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Repo hygiene audit, orchestrator-level final Ship Gate step below.
-  - [tanstack-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/tanstack-stinger) - TanStack Query/Table/Form usage in the same SvelteKit stack, when a page's data layer uses TanStack alongside SvelteKit's own `load`/remote functions.
+  - [vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/vercel-stinger) - Vercel deploy/build specifics, Node version selection on Vercel, ISR/caching. Consult for anything beyond the `engines.node` field this skill owns.
+  - [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) - Drizzle schema design, migrations, connection pooling, RLS. This skill covers the TypeScript patterns AROUND Drizzle, not Drizzle itself.
+  - [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/svelte-stinger) - Svelte 5 runes and component authoring. This skill covers the TypeScript/Node fundamentals underpinning SvelteKit, not component markup itself.
+  - [doppler-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/doppler-stinger) - secrets/env handling mechanics. Consult for the Doppler side of the env-typing guidance in this skill.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Post-implementation QA pass, second gate of the Ship Gate pipeline below.
+  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Repo hygiene audit, orchestrator-level final Ship Gate step below.
+  - [tanstack-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/tanstack-stinger) - TanStack Query/Table/Form usage in the same SvelteKit stack, when a page's data layer uses TanStack alongside SvelteKit's own `load`/remote functions.
 
 ## Ship Gate
 

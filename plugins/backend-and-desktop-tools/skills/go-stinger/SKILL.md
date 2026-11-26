@@ -54,15 +54,15 @@ Keep this section a map. The guides and references carry the content; this file 
 ## Related drones and stingers
 
 - [go-wasp-drone](../../agents/go-wasp-drone.md), the paired agent for Go implementation work; hand off bounded Go coding tasks here
-- [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/devops-stinger) - deployment and infrastructure; hand off CI/CD and cloud concerns beyond the Go build itself
+- [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/devops-stinger) - deployment and infrastructure; hand off CI/CD and cloud concerns beyond the Go build itself
 
 ## Critical Directive
 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/devops-stinger) - CI/CD, containers, and cloud deployment; hand off pipeline and infrastructure questions here.
-  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/git-stinger) - git mechanics including the partial-clone commands used in fork freezes.
+  - [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/devops-stinger) - CI/CD, containers, and cloud deployment; hand off pipeline and infrastructure questions here.
+  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/git-stinger) - git mechanics including the partial-clone commands used in fork freezes.
 
 ## Ship Gate
 

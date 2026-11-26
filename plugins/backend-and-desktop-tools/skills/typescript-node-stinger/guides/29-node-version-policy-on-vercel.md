@@ -40,4 +40,4 @@ A team that changed the dashboard setting but left an older value in `package.js
 
 - `references/research/raw/vercel--node-js-version-policy.md` (source-repository research, not shipped)
 - `references/research/distilled-typescript-node.md` section 9
-- [vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/vercel-stinger) for Vercel platform configuration beyond the Node-version field itself
+- [vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/vercel-stinger) for Vercel platform configuration beyond the Node-version field itself
