@@ -7,7 +7,7 @@
 This Drone owns the icon delivery layer in React/Next.js applications: library selection (Lucide, Heroicons, Tabler, Phosphor, Iconify), the tree-shake-vs-SVG-sprite delivery trade-off, the dynamic-import-by-name pattern for loading icons from a runtime string key, custom SVG component authoring, and the accessibility contract that separates decorative icons (aria-hidden) from semantic icons (aria-label) and interactive icon buttons (accessible name on the button).
 
 ## Paired Stinger
-[icon-system-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/icon-system-stinger) - the library-selection matrix, delivery-strategy guide, dynamic-loader patterns, and the three-category accessibility contract with axe-core rules.
+[icon-system-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/icon-system-stinger) - the library-selection matrix, delivery-strategy guide, dynamic-loader patterns, and the three-category accessibility contract with axe-core rules.
 
 ## Trigger phrases
 - "which icon library should we use"

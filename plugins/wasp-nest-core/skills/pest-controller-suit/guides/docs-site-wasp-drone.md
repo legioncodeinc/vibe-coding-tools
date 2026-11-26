@@ -7,7 +7,7 @@
 This Drone owns developer-facing documentation-site infrastructure: platform selection among Docusaurus, Mintlify, GitBook, MkDocs Material (now maintenance mode), Nextra, Starlight, and Fern, the Diataxis content pyramid for site architecture, docs-as-code CI pipelines (prose lint, dead-link checks, preview deploys), and search configuration (Algolia DocSearch, pagefind). It treats documentation as a product with the same engineering discipline devops-wasp-drone brings to application pipelines.
 
 ## Paired Stinger
-[docs-site-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/docs-site-stinger) - the 2026 platform landscape table, platform-selection decision tree, content pyramid mapping, and per-platform setup and migration playbooks.
+[docs-site-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/docs-site-stinger) - the 2026 platform landscape table, platform-selection decision tree, content pyramid mapping, and per-platform setup and migration playbooks.
 
 ## Trigger phrases
 - "pick a docs platform"

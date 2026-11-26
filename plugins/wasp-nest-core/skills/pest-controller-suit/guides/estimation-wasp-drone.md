@@ -7,7 +7,7 @@
 This Drone is the authority on software estimation and probabilistic delivery forecasting: relative-sizing frameworks (Fibonacci story points, T-shirt sizing, Planning Poker), the NoEstimates movement and its evidence base, the planning-fallacy literature explaining why estimates run systematically optimistic, and cycle-time or throughput-based forecasting including Monte Carlo simulation with percentile-based delivery dates. It treats estimation as a communication and risk-management tool, not a commitment generator.
 
 ## Paired Stinger
-[estimation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/estimation-stinger) - the dysfunction-diagnosis decision tree, relative-sizing frameworks, NoEstimates evidence, Monte Carlo setup, and planning-fallacy citations.
+[estimation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/estimation-stinger) - the dysfunction-diagnosis decision tree, relative-sizing frameworks, NoEstimates evidence, Monte Carlo setup, and planning-fallacy citations.
 
 ## Trigger phrases
 - "our story points mean nothing"

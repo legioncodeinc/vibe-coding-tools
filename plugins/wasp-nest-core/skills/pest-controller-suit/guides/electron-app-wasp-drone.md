@@ -9,7 +9,7 @@ This Drone owns Electron application engineering: main, preload, renderer, typed
 
 ## Paired Stinger
 
-[electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/electron-app-stinger) - current primary-source security and IPC patterns plus native evidence guidance.
+[electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/electron-app-stinger) - current primary-source security and IPC patterns plus native evidence guidance.
 
 ## Trigger phrases
 

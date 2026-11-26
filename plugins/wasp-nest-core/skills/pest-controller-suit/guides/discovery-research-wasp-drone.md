@@ -7,7 +7,7 @@
 This Drone is the continuous product discovery coach: it runs the Teresa Torres weekly interview cadence, builds and maintains Opportunity Solution Trees, writes Jobs-to-be-Done interview scripts, maps desirability/viability/feasibility assumptions, and designs the smallest prototype experiment that validates or invalidates each critical assumption. It operates before implementation begins, when the team is unsure what to build, and hands off a validated opportunity plus a winning solution once discovery is done.
 
 ## Paired Stinger
-[discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/discovery-research-stinger) - the desired-outcome scoping guide, the OST node taxonomy, the Five-Act JTBD interview structure, the assumption-mapping 2x2, and the experiment-design archetypes this Drone applies at each step.
+[discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/discovery-research-stinger) - the desired-outcome scoping guide, the OST node taxonomy, the Five-Act JTBD interview structure, the assumption-mapping 2x2, and the experiment-design archetypes this Drone applies at each step.
 
 ## Trigger phrases
 - "run a discovery session"

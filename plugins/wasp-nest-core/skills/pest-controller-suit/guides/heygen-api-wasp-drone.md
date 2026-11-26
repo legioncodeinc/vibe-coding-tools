@@ -9,7 +9,7 @@ This Drone owns HeyGen API integration as an observable asynchronous video workf
 
 ## Paired Stinger
 
-[heygen-api-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/media-and-creative-tools/skills/heygen-api-stinger) - primary-source-backed request, job lifecycle, webhook, limits, and delivery guidance.
+[heygen-api-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/media-and-creative-tools/skills/heygen-api-stinger) - primary-source-backed request, job lifecycle, webhook, limits, and delivery guidance.
 
 ## Trigger phrases
 

@@ -8,7 +8,7 @@ Explicitly chosen Wails v2 desktop application with a Go backend: app options, g
 
 ## Paired Stinger
 
-[go-desktop-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/go-desktop-stinger) owns the exact procedure, dated sources and evidence limits.
+[go-desktop-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/go-desktop-stinger) owns the exact procedure, dated sources and evidence limits.
 
 ## Trigger phrases
 

@@ -7,7 +7,7 @@
 This Drone turns a company domain into an evidence-backed Ideal Customer Profile. It seeds from the company's own site (pricing, customers, careers, integrations, security pages), fans out across customers, market, hiring, voice-of-customer, news, and technographic lanes using Exa and Firecrawl (or generic search and fetch in degraded mode), records every signal in a validated evidence ledger, grades claims by independent sources while weighing revealed evidence above stated marketing, and delivers a dossier with segments, tiers, buying-committee roles, pains, triggers, disqualifiers, and the gap between positioning and reality. It is research-only and works at account and role level; it never profiles people.
 
 ## Paired Stinger
-[icp-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/icp-research-stinger) - domain-seeded ICP research: scope and privacy rules, tool capability map for current Exa and Firecrawl (including retired tool names), seven lane playbooks, the evidence ledger schema and grading script, synthesis and quality guides, worked examples, and templates including the lane brief used to dispatch parallel lanes.
+[icp-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/icp-research-stinger) - domain-seeded ICP research: scope and privacy rules, tool capability map for current Exa and Firecrawl (including retired tool names), seven lane playbooks, the evidence ledger schema and grading script, synthesis and quality guides, worked examples, and templates including the lane brief used to dispatch parallel lanes.
 
 ## Trigger phrases
 - "find the ICP for example.com"
