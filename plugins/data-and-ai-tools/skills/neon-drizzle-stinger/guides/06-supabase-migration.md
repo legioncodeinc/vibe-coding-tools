@@ -70,4 +70,4 @@ Do not assume a Neon migration guide silently covers these, it does not, and no 
 
 - `references/supabase-to-neon-translation-table.md`, full concept mapping and the gotchas checklist
 - `guides/07-authorization-without-rls.md`, deciding whether RLS is even needed post-migration
-- [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/auth-stinger) and [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/workos-stinger), deeper WorkOS/AuthKit guidance beyond the database-migration scope of this guide
+- [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/auth-stinger) and [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/workos-stinger), deeper WorkOS/AuthKit guidance beyond the database-migration scope of this guide

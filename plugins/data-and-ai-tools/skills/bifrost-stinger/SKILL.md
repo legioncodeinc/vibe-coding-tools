@@ -55,16 +55,16 @@ Give any agent working on a Bifrost deployment or fork a grounded map: which lay
 ## Related drones and stingers
 
 - [bifrost-wasp-drone](../../agents/bifrost-wasp-drone.md), the paired agent for Bifrost implementation tasks
-- [go-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/agents/go-wasp-drone.md) / [[go-stinger]], owns Go module mechanics and the plugin ABI constraints this skill relies on
+- [go-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/agents/go-wasp-drone.md) / [[go-stinger]], owns Go module mechanics and the plugin ABI constraints this skill relies on
 
 ## Critical Directive
 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [go-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/go-stinger) - Go modules, toolchains, vendoring, and .so plugin ABI constraints.
-  - [react-to-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/react-to-svelte-stinger) - porting the Bifrost React dashboard to Svelte against the frozen API contract.
-  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS identity plane used in front of the gateway.
+  - [go-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/go-stinger) - Go modules, toolchains, vendoring, and .so plugin ABI constraints.
+  - [react-to-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/react-to-svelte-stinger) - porting the Bifrost React dashboard to Svelte against the frozen API contract.
+  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS identity plane used in front of the gateway.
 
 ## Ship Gate
 
