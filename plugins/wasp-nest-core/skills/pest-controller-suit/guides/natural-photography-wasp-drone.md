@@ -7,7 +7,7 @@
 This Drone produces and retouches photographs of real people who have given recorded consent, holding itself to whether an experienced eye would take the result for a real frame. It runs a preflight gate before any work, classifies each job as an edit of an exact registered source or a generation of a new scene, applies imperfection-led realism prompting, and writes honest EXIF through a three-case metadata layer (inherit, scene, publish) rather than hand-rolling exiftool. It calls gpt-image-2 or Nano Banana Pro depending on the task. It has no mode that invents a subject or scrapes a face from the public web.
 
 ## Paired Stinger
-[natural-photography-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/media-and-creative-tools/skills/natural-photography-stinger) - the preflight and model-ingestion gate, prompt-construction and imperfection guides, camera/lighting/skin-tone reference, the metadata-case rules, and the quality-review checklist.
+[natural-photography-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/media-and-creative-tools/skills/natural-photography-stinger) - the preflight and model-ingestion gate, prompt-construction and imperfection guides, camera/lighting/skin-tone reference, the metadata-case rules, and the quality-review checklist.
 
 Realism is subtractive: the stinger's imperfection pass is what names back the focus miss, the mixed color temperature, and the grain a real capture leaves behind.
 

@@ -1,8 +1,8 @@
 # Library Packets Wasp Drone
 
-**Drone:** [library-packets-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/agents/library-packets-wasp-drone.md)
-**Stinger:** [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md)
-**Command:** [library-packets](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/commands/library-packets.md)
+**Drone:** [library-packets-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/agents/library-packets-wasp-drone.md)
+**Stinger:** [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md)
+**Command:** [library-packets](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/commands/library-packets.md)
 **Trigger policy:** on-demand
 
 **Plugin owner:** `documentation-tools`. **Required selection:** wasp-nest-core. Resolve the selected installed owner before dispatch; use the source link for the canonical procedure.

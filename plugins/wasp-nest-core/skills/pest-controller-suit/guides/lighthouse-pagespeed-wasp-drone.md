@@ -7,7 +7,7 @@
 This Drone owns the full Lighthouse and PageSpeed Insights measurement surface: running audits locally versus in CI (LHCI on GitHub Actions), interpreting all four audit categories (Performance, Accessibility, Best Practices, SEO), setting score and performance budgets, authoring custom Lighthouse plugins, and reconciling the lab-vs-CrUX field-data gap, including the case where TBT looks fine but field INP does not.
 
 ## Paired Stinger
-[lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - runner-selection, LHCI configuration, lab-vs-field reconciliation, CI-integration, performance-tracking, custom-plugin, and audit-category-glossary guides plus a starter lighthouserc.
+[lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - runner-selection, LHCI configuration, lab-vs-field reconciliation, CI-integration, performance-tracking, custom-plugin, and audit-category-glossary guides plus a starter lighthouserc.
 
 ## Trigger phrases
 - "set up Lighthouse CI"

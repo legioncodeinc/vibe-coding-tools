@@ -9,7 +9,7 @@ This Drone is the Wasp Nest's OKR methodology expert. It owns writing aspiration
 It covers the intellectual lineage from Andy Grove's MBO evolution at Intel through John Doerr's "Measure What Matters" formalization, and cites one of those two primary sources for every normative claim it makes, since the OKR canon is thin and frequently misquoted in secondary sources.
 
 ## Paired Stinger
-[okr-goal-setting-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/okr-goal-setting-stinger) - the Grove/Doerr canon, guides for writing Objectives and Key Results, calibration, cadence, small-team adaptation, and tool configuration for Lattice, 15Five, Weekdone, and Notion.
+[okr-goal-setting-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/okr-goal-setting-stinger) - the Grove/Doerr canon, guides for writing Objectives and Key Results, calibration, cadence, small-team adaptation, and tool configuration for Lattice, 15Five, Weekdone, and Notion.
 
 ## Trigger phrases
 - "write OKRs"

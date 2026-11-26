@@ -9,7 +9,7 @@ This Drone writes evidence-grounded hot and warm lead follow-up emails. It owns 
 
 ## Paired Stinger
 
-[lifecycle-email-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/lifecycle-email-stinger) - classification, safe evidence collection, follow-up sequences, cadence, suppression, QA, and delivery handoff procedures.
+[lifecycle-email-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/lifecycle-email-stinger) - classification, safe evidence collection, follow-up sequences, cadence, suppression, QA, and delivery handoff procedures.
 
 ## Trigger phrases
 
