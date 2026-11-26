@@ -7,7 +7,7 @@
 This Drone bootstraps complete design systems from scratch: it interviews the user for aesthetic and scope, picks the closest starter kit, and materializes the canonical seven-artifact structure (design brief, master tokens CSS, utility layer CSS, component specs, screen specs, static HTML examples, README) into `library/knowledge/private/<product>-ux-ui/`. It produces source of truth documents, not production code, and never invents taste on its own.
 
 ## Paired Stinger
-[design-system-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/design-system-stinger) - the interview procedure, starter-kit selection, layering discipline (tokens then utilities then components then screens), and authoring guides for each artifact.
+[design-system-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/design-system-stinger) - the interview procedure, starter-kit selection, layering discipline (tokens then utilities then components then screens), and authoring guides for each artifact.
 
 ## Trigger phrases
 - "build a design system for X"
