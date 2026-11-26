@@ -46,7 +46,7 @@ Guide testable Playwright and Puppeteer automation without conflating their APIs
 
 - [browser-automation-wasp-drone](../../agents/browser-automation-wasp-drone.md) - paired implementation specialist.
 - [chrome-chromium-stinger](../chrome-chromium-stinger) - CDP and Chromium engineering.
-- [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) - CI architecture beyond the browser-specific job.
+- [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) - CI architecture beyond the browser-specific job.
 
 ## Critical Directive
 
@@ -54,7 +54,7 @@ Guide testable Playwright and Puppeteer automation without conflating their APIs
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [chrome-chromium-stinger](../chrome-chromium-stinger) - protocol and browser-engine ownership.
-  - [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) - workflow design.
+  - [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) - workflow design.
 
 ## Ship Gate
 

@@ -53,12 +53,13 @@ Ask everything you cannot infer, in a single AskUserQuestion call where possible
 
 - **App origin** and **environment** (local, staging, seeded account, or production).
 - **Theme(s)** to capture (light, dark, both as separate runs) and how the app switches theme (system preference, class on `<html>`, stored preference).
+- **Landing page**: the real page the app opens right after sign-in (for example `/schedule`, not a guessed `/dashboard`). Set `routes.startPath` to it; main-navigation discovery and the first demo scene start there.
 - **Route discovery**: every link in the main navigation (default) or an explicit route list.
 - **Output location** in the current repository. Defaults: `library/design/` for library and demo, `library/requirements/reports/` for audits.
 - **Sensitive regions** to mask (customer names, emails, keys, billing).
 - **Onboarding setup**, when the local or seeded app is empty: the exact fields, values, and buttons required. Show the complete action plan and get explicit approval before setting `onboarding.approved: true`. Never run onboarding against production.
 - Route specifics:
-  - demo: audience, goal, target length (60 to 90 seconds by default), must-show flows, narration wanted (text only, or synthesized audio with the user's own TTS key).
+  - demo: audience, goal, target length (60 to 90 seconds by default), must-show flows, narration wanted (text only, or synthesized audio with the user's own TTS key), and every data change the demo needs (each becomes an approved entry in `writes[]`, plus an exact `safety.requests` grant on a local or seeded environment).
   - audit: path to the app's source code, if available.
   - library: whether to pilot on a few pages first (recommended for new apps).
   - shadcn: React shadcn/ui (default) or shadcn-svelte, and whether the target app already uses shadcn/ui.
@@ -133,12 +134,16 @@ Browser stages run through `SKILL_DIR/scripts/parallel.mjs`, which caps shards b
 
 ### demo (follow guide 01)
 
-1. Draft the narration script (hook, aha moment, walkthrough, social proof, call to action; about 140 words per minute) and a plan JSON from `scripts/demo/demo-plan.example.json`.
-2. Show both to the user. Only after explicit approval, set `"approved": true` in the plan. Never set it yourself on assumption.
-3. `PLAN=<plan> CAPTURE_CONFIG=<config> node SKILL_DIR/scripts/demo/record-demo.mjs`. It refuses unapproved plans and destructive or secret-looking targets.
-4. Run `make-video.sh` in the demo folder (ffmpeg required). Confirm `demo.mp4` exists and has a video and a subtitle stream (`ffprobe`).
-5. Read the key screenshots. Check for sensitive data.
-6. Narration audio only with the user's own TTS key from their secret manager; never ask them to paste a key into chat.
+1. Draft the narration script (hook, aha moment, walkthrough, social proof, call to action; about 140 words per minute) and a plan JSON from `scripts/demo/demo-plan.example.json`. Start the first scene on the real post-login landing page.
+2. Declare every scene that can change data in `writes[]` (id, scene, description, expected effect), give each write scene read-only `verify` checks, and add the exact local or seeded `safety.requests` grants those writes send. Pick free slots from live state with `waitFor` and use `scrollElement` with `intoView` for time-based grids, instead of hardcoded times.
+3. Show the script, the plan, and the writes to the user. Only after explicit approval, set `"approved": true` on the plan and on each approved write. Never set either yourself on assumption.
+4. `PLAN=<plan> CAPTURE_CONFIG=<config> node SKILL_DIR/scripts/demo/record-demo.mjs`. It refuses unapproved plans and writes, destructive or credential-looking targets, and reruns that would repeat earlier writes.
+5. Read `writes-report.json` and `<output.demo>/findings.md`. Every write must be `verified`; report each mismatch, failure, or skipped write to the user. A retake goes to `<slug>-take-N` and needs `--retake` only after the user agrees the listed writes may repeat (or the data was reset).
+6. `DEMO_DIR=<demo folder> CAPTURE_CONFIG=<config> node SKILL_DIR/scripts/demo/review-demo.mjs`. Read `review/REVIEW.md` and every contact sheet; the user decides whether any personal data on screen is acceptable.
+7. If `narration/fit.md` reports overruns or the cut needs trimming, edit `segments.tsv`, then rerun `SKILL_DIR/scripts/demo/build-cues.mjs` with the same `DEMO_DIR`.
+8. Run `make-video.sh` in the demo folder (ffmpeg required). Confirm `demo.mp4` exists and has a video and a subtitle stream (`ffprobe`).
+9. Read the key screenshots. Check for sensitive data.
+10. Narration audio only with the user's own TTS key from their secret manager; never ask them to paste a key into chat. Use the one-clip-per-cue texts in `narration/tts/`.
 
 ### all
 
