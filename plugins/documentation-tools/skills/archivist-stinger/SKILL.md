@@ -54,11 +54,11 @@ Hard rules that hold in every phase: third-party notices are preserved, never ed
 
 ## Related drones and stingers
 
-- [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger) - The format, taxonomy, and analysis workflow every fleet writer follows; the archivist's brief inherits its header and rules.
-- [knowledge-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/knowledge-wasp-drone.md) - The writer the orchestrator dispatches in phase 4, one or two per domain.
-- [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger) - Library Schema v2, the folder contract the merge and the knowledge base land in.
-- [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/git-stinger) - History rewriting mechanics when the acquirer approves a rewrite.
-- [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - SBOM and provenance tooling for the third-party inventory on large or polyglot repositories.
+- [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger) - The format, taxonomy, and analysis workflow every fleet writer follows; the archivist's brief inherits its header and rules.
+- [knowledge-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/knowledge-wasp-drone.md) - The writer the orchestrator dispatches in phase 4, one or two per domain.
+- [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger) - Library Schema v2, the folder contract the merge and the knowledge base land in.
+- [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/git-stinger) - History rewriting mechanics when the acquirer approves a rewrite.
+- [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - SBOM and provenance tooling for the third-party inventory on large or polyglot repositories.
 - [archivist-wasp-drone](../../agents/archivist-wasp-drone.md) - The paired Drone; the orchestrator delegates phases 1, 2, 3, 5, and 6 to it and runs phase 4 itself.
 
 ## Critical Directive
@@ -66,12 +66,12 @@ Hard rules that hold in every phase: third-party notices are preserved, never ed
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger) - Narrative knowledge documentation format and workflow; used by every fleet writer.
-  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger) - Library Schema v2 folder contract and documentation lifecycle.
-  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/git-stinger) - Interactive rebase, filter-repo, mailmap, and recovery for approved history rewrites.
-  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Dependency inventory, SBOM, and provenance verification.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - First gate of the Ship Gate.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Second gate of the Ship Gate.
+  - [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger) - Narrative knowledge documentation format and workflow; used by every fleet writer.
+  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger) - Library Schema v2 folder contract and documentation lifecycle.
+  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/git-stinger) - Interactive rebase, filter-repo, mailmap, and recovery for approved history rewrites.
+  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Dependency inventory, SBOM, and provenance verification.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - First gate of the Ship Gate.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Second gate of the Ship Gate.
 
 ## Ship Gate
 
