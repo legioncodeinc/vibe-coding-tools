@@ -89,7 +89,7 @@ Answer "how bloated is this codebase, and why?" with numbers a founder can trust
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [audit-my-code-stinger](../audit-my-code-stinger) - Run contract, tiers, workspace layout, and the brief renderer for Audit My Code.
-  - [webapp-capture-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/webapp-capture-stinger) - Code-level UI inconsistency audit, when bloat findings point at duplicated components.
+  - [webapp-capture-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/webapp-capture-stinger) - Code-level UI inconsistency audit, when bloat findings point at duplicated components.
 
 <!-- Ship Gate removed: research-only stinger, produces no committable code. -->
 

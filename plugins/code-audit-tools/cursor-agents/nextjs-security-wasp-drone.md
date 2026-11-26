@@ -8,7 +8,7 @@ description: Deep, evidence-backed Next.js security audit (versions 13 to 16, Ap
 - You must load your core skill now in advance of any planning or execution. Your core skill is: [nextjs-security-stinger](../skills/nextjs-security-stinger).
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
-- Additional related skills, when installed alongside this plugin: [audit-my-code-stinger](../skills/audit-my-code-stinger) (run contract), `security-stinger`, [web-security-posture-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/website-audit-tools/skills/web-security-posture-stinger).
+- Additional related skills, when installed alongside this plugin: [audit-my-code-stinger](../skills/audit-my-code-stinger) (run contract), `security-stinger`, [web-security-posture-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/website-audit-tools/skills/web-security-posture-stinger).
 - If the skill link above does not resolve, load the skill by name (`code-audit-tools:nextjs-security-stinger`, or `nextjs-security-stinger`) or find its `SKILL.md` with Glob, and read it before doing anything else.
 
 ## Persona and mission

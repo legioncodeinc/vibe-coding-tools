@@ -58,9 +58,9 @@ Answers a broad question about a repository (every branch local and remote, the 
 
 ## Related drones and stingers
 
-- [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - plan-versus-implementation QA of one change; the swarm audit's critic borrows its evidence-over-opinion rule.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - security pass of one change; a swarm audit's security lens is a survey, not a substitute for this gate.
-- [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger) - repository hygiene audit; the swarm's branch and governance lens overlaps it and hands hygiene fixes to it.
+- [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - plan-versus-implementation QA of one change; the swarm audit's critic borrows its evidence-over-opinion rule.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - security pass of one change; a swarm audit's security lens is a survey, not a substitute for this gate.
+- [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger) - repository hygiene audit; the swarm's branch and governance lens overlaps it and hands hygiene fixes to it.
 - [swarm-audit-wasp-drone](../../agents/swarm-audit-wasp-drone.md) - the paired Drone: scouts and briefs the fleet, runs each check-in, and assembles the master; the orchestrator launches the Workflow at top level.
 
 ## Critical Directive
@@ -68,9 +68,9 @@ Answers a broad question about a repository (every branch local and remote, the 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - plan-versus-implementation QA with severity-classified findings.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - security audit and remediation, first gate of the Ship Gate.
-  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger) - branching, protection, CI density, and repository settings audit.
-  - [time-blocked-turns](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/time-blocked-turns) - the owner's operating protocol that governs the orchestrator and every worker during a run.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - plan-versus-implementation QA with severity-classified findings.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - security audit and remediation, first gate of the Ship Gate.
+  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger) - branching, protection, CI density, and repository settings audit.
+  - [time-blocked-turns](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/time-blocked-turns) - the owner's operating protocol that governs the orchestrator and every worker during a run.
 
 Ship Gate removed: research-only stinger, produces reports and no committable code.
