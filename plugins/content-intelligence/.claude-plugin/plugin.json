@@ -1,6 +1,6 @@
 {
   "name": "content-intelligence",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Find and verify current repository/news topics and prepare voice-matched drafts.",
   "author": {
     "name": "Mario Aldayuz"

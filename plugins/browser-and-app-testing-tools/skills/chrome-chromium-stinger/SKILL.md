@@ -27,7 +27,7 @@ Guide Chrome developer tooling and Chromium engineering: isolated browser profil
 
 - Playwright or Puppeteer test authoring, use [browser-automation-stinger](../browser-automation-stinger).
 - Browser extension product design or web application UI work without protocol or engine concerns.
-- Electron application process and IPC work, use [electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/electron-app-stinger).
+- Electron application process and IPC work, use [electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/electron-app-stinger).
 
 ## Procedure
 
@@ -48,7 +48,7 @@ Guide Chrome developer tooling and Chromium engineering: isolated browser profil
 
 - [chrome-chromium-wasp-drone](../../agents/chrome-chromium-wasp-drone.md) - paired implementation specialist.
 - [browser-automation-stinger](../browser-automation-stinger) - Playwright and Puppeteer owner.
-- [electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/electron-app-stinger) - Electron app boundary owner.
+- [electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/electron-app-stinger) - Electron app boundary owner.
 
 ## Critical Directive
 
@@ -56,7 +56,7 @@ Guide Chrome developer tooling and Chromium engineering: isolated browser profil
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [browser-automation-stinger](../browser-automation-stinger) - browser automation clients.
-  - [electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/electron-app-stinger) - Electron-specific integration.
+  - [electron-app-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/electron-app-stinger) - Electron-specific integration.
 
 ## Ship Gate
 

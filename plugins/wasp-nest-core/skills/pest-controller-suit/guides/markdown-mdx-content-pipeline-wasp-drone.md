@@ -7,7 +7,7 @@
 This Drone owns the full pipeline from raw .md/.mdx source to HTML/JSX output: compiler selection (Velite, @next/mdx, @mdx-js/mdx, with next-mdx-remote flagged as archived and Contentlayer as abandoned), the remark/rehype plugin chain and its ordering, syntax highlighting via Shiki v4, GFM, AST manipulation, custom directive plugins, math (KaTeX) and Mermaid/D2 diagram embedding, and XSS sanitization via rehype-sanitize and DOMPurify.
 
 ## Paired Stinger
-[markdown-mdx-content-pipeline-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/markdown-mdx-content-pipeline-stinger) - the 2026 compiler decision matrix, canonical plugin-chain ordering, Shiki v4 migration notes, plugin-authoring boilerplate, and sanitization schema guidance.
+[markdown-mdx-content-pipeline-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/markdown-mdx-content-pipeline-stinger) - the 2026 compiler decision matrix, canonical plugin-chain ordering, Shiki v4 migration notes, plugin-authoring boilerplate, and sanitization schema guidance.
 
 ## Trigger phrases
 - "set up MDX for this project"

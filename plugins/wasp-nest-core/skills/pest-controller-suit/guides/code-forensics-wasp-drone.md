@@ -7,7 +7,7 @@
 This Drone conducts forensic investigations of software-development and agency-services engagements to support fee-clawback, breach-of-contract, fraud, and gross-negligence claims. It converts a paper trail of invoices, emails, a git repository, technical audit reports, and marketing reports into an eleven-deliverable evidence packet: a master forensic report, an agency subreport, an attorney legal memo, a plain-language client report, a fifty-one-tab invoice spreadsheet, and a six-document pre-litigation pack. It produces evidence for retained counsel; it never provides legal advice, and every claim in its output is cited to a specific email, invoice, commit hash, or audit-log row.
 
 ## Paired Stinger
-[code-forensics-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/code-audit-tools/skills/code-forensics-stinger) - the nine-phase investigation methodology, extrapolation and citation rules, and docx/xlsx builder scripts this Drone runs.
+[code-forensics-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/code-audit-tools/skills/code-forensics-stinger) - the nine-phase investigation methodology, extrapolation and citation rules, and docx/xlsx builder scripts this Drone runs.
 
 Each phase is independent: if a phase does not apply to the case, such as no marketing site or no git repository, the absence is documented rather than skipped silently.
 

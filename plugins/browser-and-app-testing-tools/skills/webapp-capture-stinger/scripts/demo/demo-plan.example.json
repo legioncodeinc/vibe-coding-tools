@@ -1,64 +1,140 @@
 {
-  "title": "Connect your first provider",
-  "summary": "A 60 to 90 second walkthrough for new users: from the dashboard home to a connected provider and a test request.",
+  "title": "Book your first job",
+  "summary": "A 60 to 90 second walkthrough for new users: from the schedule you land on after signing in to a booked, assigned appointment.",
   "audience": "New users evaluating the product",
   "approved": false,
   "video": {
     "width": 1920,
     "height": 1080,
+    "cursor": true,
+    "parkAt": {
+      "x": 1880,
+      "y": 1040
+    },
+    "endHoldMs": 1500,
     "fps": 5
   },
   "narration": {
-    "wordsPerMinute": 140
+    "wordsPerMinute": 140,
+    "tts": {
+      "style": "warm",
+      "voice": null,
+      "model": null
+    }
   },
   "safety": {
-    "$comment": "Approval covers the exact scene plan, not unbounded writes. Built-in destructive and DOM credential guards cannot be disabled. Declared local/seeded mutation requests require exact method, path, byte SHA256 and approved true.",
+    "$comment": "Approval covers the exact scene plan, not unbounded writes. Built-in destructive and DOM credential guards cannot be disabled. Declared local/seeded mutation requests require exact method, path, byte SHA256 and approved true. Every write scene must also be declared in writes[] with approved true and a read-only verify.",
     "denyPattern": "(delete|remove|destroy|drop|reset|revoke|shutdown|restart|log ?out|sign ?out|pay|purchase|transfer)",
     "environment": "local",
     "requests": []
   },
+  "writes": [
+    {
+      "id": "book-tuesday-slot",
+      "scene": "book",
+      "description": "Creates one non-recurring Lawn care appointment in the first free Tuesday morning slot and assigns Sam to it.",
+      "effect": "The Tuesday column shows one Lawn care card assigned to Sam, and nothing repeats on later weeks.",
+      "approved": false
+    }
+  ],
   "scenes": [
     {
       "id": "hook",
-      "title": "One endpoint for every model",
-      "route": "/home",
-      "narration": "Every AI provider, one endpoint. Here is the dashboard you land on after signing in.",
+      "title": "Your week at a glance",
+      "route": "/schedule",
+      "narration": "Here is the schedule you land on after signing in. [short pause] Every job and every crew member, in one place.",
       "actions": [
+        {
+          "type": "waitFor",
+          "selector": "[data-testid=calendar-grid]"
+        },
+        {
+          "type": "scrollElement",
+          "selector": "[data-testid=calendar-grid]",
+          "intoView": "[data-time='08:00']",
+          "block": "start"
+        },
         {
           "type": "wait",
           "ms": 800,
-          "screenshot": "home-overview"
-        },
+          "screenshot": "schedule-overview"
+        }
+      ],
+      "verify": [
         {
-          "type": "scroll",
-          "dy": 500
-        },
-        {
-          "type": "wait",
-          "ms": 1200
+          "type": "visible",
+          "selector": "[data-testid=calendar-grid]"
         }
       ]
     },
     {
-      "id": "providers",
-      "title": "Pick a provider",
-      "route": "/dashboard/providers",
-      "narration": "Open Providers to see every supported service and its connection status at a glance.",
+      "id": "book",
+      "title": "Book a job in a free slot",
+      "route": "/schedule",
+      "narration": "Drag a service onto a free slot, pick the details, and confirm. [pause] Then drop a crew member on the job to assign it.",
       "actions": [
         {
-          "type": "hover",
-          "selector": "input[type=search]",
-          "ms": 900
+          "type": "waitFor",
+          "selector": "[data-day=tue] [data-slot][data-free=true]"
         },
         {
-          "type": "type",
-          "selector": "input[type=search]",
-          "text": "claude",
-          "screenshot": "providers-search"
+          "type": "scrollElement",
+          "selector": "[data-testid=calendar-grid]",
+          "intoView": "[data-day=tue] [data-slot][data-free=true]"
+        },
+        {
+          "type": "drag",
+          "from": "[data-testid=service-palette] [data-service='lawn-care']",
+          "to": "[data-day=tue] [data-slot][data-free=true]",
+          "steps": 30
+        },
+        {
+          "type": "select",
+          "selector": "select[name=service]",
+          "label": "Lawn care"
+        },
+        {
+          "type": "uncheck",
+          "selector": "input[name=repeats]"
+        },
+        {
+          "type": "click",
+          "selector": "button[type=submit]"
+        },
+        {
+          "type": "confirmDialog",
+          "expect": "Book Lawn care on Tuesday",
+          "button": "Book appointment"
+        },
+        {
+          "type": "waitFor",
+          "selector": "[data-day=tue] [data-appointment]:has-text('Lawn care')"
+        },
+        {
+          "type": "dragTo",
+          "selector": "[data-testid=crew] [data-member='sam']",
+          "target": "[data-day=tue] [data-appointment]:has-text('Lawn care')"
         },
         {
           "type": "wait",
-          "ms": 1500
+          "ms": 1200,
+          "screenshot": "booked-and-assigned"
+        }
+      ],
+      "verify": [
+        {
+          "type": "count",
+          "selector": "[data-day=tue] [data-appointment]:has-text('Lawn care')",
+          "equals": 1
+        },
+        {
+          "type": "text",
+          "selector": "[data-day=tue] [data-appointment]:has-text('Lawn care')",
+          "expect": "Sam"
+        },
+        {
+          "type": "hidden",
+          "selector": "[data-appointment] [data-recurring=true]"
         }
       ]
     }

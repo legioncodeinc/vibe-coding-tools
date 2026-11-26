@@ -79,9 +79,9 @@ A PostHog task run through this skill is done when: the relevant guide(s) were r
 - Additional related skills can be found here:
   - [sentry-stinger](../sentry-stinger) - Error and exception tracking, performance tracing, and error-context session replay. PostHog owns product analytics, feature flags, experiments, and product-behavior session replay; Sentry owns crashes, unhandled exceptions, and performance traces. Both ship a replay feature: PostHog's is for understanding product usage, Sentry's is for reproducing a bug. Do not conflate the two.
   - [devops-stinger](../devops-stinger) - Vercel reverse proxy rewrites, CI/CD, and general deployment pipeline concerns. Consult when the reverse proxy setup needs to be wired into the app's broader deployment/CI configuration, not just PostHog's own `vercel.json` block.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below.
   - [auth-stinger](../auth-stinger) - Provider-agnostic authentication implementation. Consult when `identify()`/`alias()` timing needs to line up with the app's actual login/session flow, since PostHog's identity model assumes a stable ID sourced from auth.
-  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement. Consult when building a custom survey UI, a feature-flag-gated UI variant, or reasoning about where `afterNavigate` pageview-tracking code belongs in the component tree.
+  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement. Consult when building a custom survey UI, a feature-flag-gated UI variant, or reasoning about where `afterNavigate` pageview-tracking code belongs in the component tree.
 
 ## Ship Gate
 

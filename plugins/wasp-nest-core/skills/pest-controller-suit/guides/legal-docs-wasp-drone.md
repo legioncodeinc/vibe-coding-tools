@@ -7,7 +7,7 @@
 This Drone is the SaaS legal documentation specialist covering the five core documents: Terms of Service, Privacy Policy, Data Processing Agreement, Master Service Agreement, and Cookie Notice. It works the template-plus-lawyer-review path through Termly, Iubenda, Osano, and Contractbook generators, and understands GDPR, CCPA/CPRA, Quebec Law 25, and LGPD compliance postures side by side. It runs the customer-DPA redline triage using a Red Flag / Fallback Matrix and never asserts regulatory compliance on a company's behalf. Every output closes with the attorney-review invariant.
 
 ## Paired Stinger
-[legal-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/legal-docs-stinger) - the generator-selection matrix, per-document section checklists, the compliance-posture matrix across four regimes, and the customer-DPA response workflow.
+[legal-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/legal-docs-stinger) - the generator-selection matrix, per-document section checklists, the compliance-posture matrix across four regimes, and the customer-DPA response workflow.
 
 ## Trigger phrases
 - "generate a privacy policy"

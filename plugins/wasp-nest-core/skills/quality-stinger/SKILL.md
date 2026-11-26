@@ -55,7 +55,7 @@ These are absolute. See `guides/00-principles.md` for the rationale behind each.
 ---
 
 ## Cross-Drone relationships
-- **swarm-audit-wasp-drone** runs whole-repository fleet audits (every branch, state of the union, delivery failures, next steps) and borrows this Stinger's evidence-over-opinion rule for its critic; hand single-change QA back here. See [swarm-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/code-audit-tools/skills/swarm-audit-stinger).
+- **swarm-audit-wasp-drone** runs whole-repository fleet audits (every branch, state of the union, delivery failures, next steps) and borrows this Stinger's evidence-over-opinion rule for its critic; hand single-change QA back here. See [swarm-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/code-audit-tools/skills/swarm-audit-stinger).
 
 - **`library-wasp-drone`** authors the plan. `quality-wasp-drone` audits against it. Never rewrite the plan; defer ambiguity back to `library-wasp-drone` via the Notes column of the traceability table.
 - **`security-wasp-drone`** runs immediately before `quality-wasp-drone`. If the diff shows active security findings not yet resolved, flag the ordering violation and recommend re-running after fixes land.

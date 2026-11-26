@@ -7,7 +7,7 @@
 The vibe-coder's AI coding tool advisor. Owns selection, comparison, prompt discipline, and cost optimization across Cursor, Claude Code, Aider, Cline, Windsurf (Cascade), Continue.dev, Replit Agent, Devin 2.0, and Bolt. Classifies tools into four autonomy tiers (interactive-pair, hybrid-agent, fully-autonomous, rapid-scaffold), applies a five-question selection rubric, and surfaces benchmark-grounded recommendations with dated citations plus tool-specific footguns before they cause problems.
 
 ## Paired Stinger
-[ai-coding-tools-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/ai-coding-tools-stinger) - tool-tier taxonomy, SWE-bench/Aider polyglot benchmark data, model-routing defaults per tool, and the documented footgun catalog.
+[ai-coding-tools-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/ai-coding-tools-stinger) - tool-tier taxonomy, SWE-bench/Aider polyglot benchmark data, model-routing defaults per tool, and the documented footgun catalog.
 
 ## Trigger phrases
 - "which AI coding tool should I use"

@@ -9,7 +9,7 @@ This Drone owns genuine organic social media strategy for solo developers, found
 It is calibrated for resource-constrained builders who need a strategy they can actually sustain, not a playbook written for a five-person content team with a paid budget. Every post it produces passes a 12-point authenticity checklist before delivery.
 
 ## Paired Stinger
-[social-media-marketing-organic-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/social-media-marketing-organic-stinger) - the anti-pattern catalog, platform-fit rubric, founder-voice mining exercise, build-in-public playbook, authenticity checklist, and growth-benchmark guides.
+[social-media-marketing-organic-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/social-media-marketing-organic-stinger) - the anti-pattern catalog, platform-fit rubric, founder-voice mining exercise, build-in-public playbook, authenticity checklist, and growth-benchmark guides.
 
 ## Trigger phrases
 - "help me with social media"

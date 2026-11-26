@@ -146,7 +146,7 @@ This is asset/source verification only; final DOCX/PDF footer fit and legibility
 
 ## Actual Queen format matrix comparison
 
-Authority for format facts is the source repository's [Queen support matrix](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/queen-wasp-stinger/guides/harness-support-matrix.md), [per-harness field guide](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/queen-wasp-stinger/guides/per-type-per-harness-specific-guide.md) and current templates, not remembered harness behaviour.
+Authority for format facts is the source repository's [Queen support matrix](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/queen-wasp-stinger/guides/harness-support-matrix.md), [per-harness field guide](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/queen-wasp-stinger/guides/per-type-per-harness-specific-guide.md) and current templates, not remembered harness behaviour.
 
 | Target | Format evidence and current result | Boundary retained |
 | --- | --- | --- |

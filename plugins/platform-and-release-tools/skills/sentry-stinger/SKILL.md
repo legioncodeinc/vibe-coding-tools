@@ -72,9 +72,9 @@ A Sentry task run through this skill is done when: the relevant guide(s) were re
 - Additional related skills can be found here:
   - [posthog-stinger](../posthog-stinger) - Product analytics, feature flags, experiments, and product-behavior session replay. Sentry owns crashes, unhandled exceptions, and performance traces; both ship a replay feature, but Sentry's is for reproducing a bug and PostHog's is for understanding product usage. Do not conflate the two.
   - [devops-stinger](../devops-stinger) - Vercel build pipeline and CI/CD architecture. Consult for the general build/deploy pipeline this skill's Vite plugin step and source-map upload plug into.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below, and the authority on PII-scrubbing policy questions this skill's `beforeSend` guidance surfaces but does not decide unilaterally.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Quality assurance pass, second gate of the Ship Gate pipeline below.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations. Consult when a Sentry-surfaced error traces back to a query or schema issue in the Neon database.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline below, and the authority on PII-scrubbing policy questions this skill's `beforeSend` guidance surfaces but does not decide unilaterally.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Quality assurance pass, second gate of the Ship Gate pipeline below.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations. Consult when a Sentry-surfaced error traces back to a query or schema issue in the Neon database.
 
 ## Ship Gate
 

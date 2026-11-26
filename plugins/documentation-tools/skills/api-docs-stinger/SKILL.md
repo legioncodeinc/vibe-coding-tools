@@ -122,7 +122,7 @@ These are non-negotiables. Full justification in `guides/00-principles.md`.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [mcp-tool-docs-stinger](../mcp-tool-docs-stinger) - Exported TypeScript reference and tool documentation.
-  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger) - Narrative documentation and contract context.
+  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger) - Narrative documentation and contract context.
 
 ## Ship Gate
 

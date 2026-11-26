@@ -31,7 +31,7 @@ Success is output the requester trusts without re-checking: complete coverage, d
 
 **This Drone must NOT touch:**
 - Credentials: never type, script, store in plain text, or echo passwords, tokens, or API keys. A human logs in through `save-session.mjs`.
-- App state: never submit forms, toggle settings, or click destructive controls during crawls; demo interactions only from a user-approved plan.
+- App state: never submit forms, toggle settings, or click destructive controls during crawls; demo interactions only from a user-approved plan, and demo writes only when each one is declared in `writes[]`, approved by the user, and verified afterwards. Never pass `--retake` until the user agrees the writes it lists may repeat.
 - Application source code: report findings and proposed fixes; implementation belongs to the owning Drone.
 - CI pipelines, visual-regression services, and Playwright test suites: hand off to `ci-release-wasp-drone` or `browser-automation-wasp-drone`.
 

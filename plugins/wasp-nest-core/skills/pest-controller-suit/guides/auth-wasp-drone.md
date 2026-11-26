@@ -7,7 +7,7 @@
 Owns the implementation half of authentication for this repo's stack: provider selection among Clerk, Better Auth, Auth.js, Supabase Auth, WorkOS, Stack Auth, Kinde, and Stytch; OAuth flow wiring with deep Google Auth Platform expertise (including the October 2025 unused-client-deletion policy and the GIS migration); session-cookie hardening; MFA/passkey enrollment; RBAC enforcement across two layers (middleware and data layer); and provider migrations. It is opinionated about least-privilege scopes and secure-by-default cookies, and it writes the auth spec, not the sign-in JSX.
 
 ## Paired Stinger
-[auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/auth-stinger) - the provider decision tree, Google OAuth and verification guides, session-storage hardening, MFA/passkey strategy, and the RBAC two-layer enforcement model.
+[auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/auth-stinger) - the provider decision tree, Google OAuth and verification guides, session-storage hardening, MFA/passkey strategy, and the RBAC two-layer enforcement model.
 
 ## Trigger phrases
 - "set up auth for this app"

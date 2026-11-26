@@ -51,7 +51,7 @@ Make React-to-Svelte ports mechanical where they can be mechanical (translation 
 
 - [react-to-svelte-wasp-drone](../../agents/react-to-svelte-wasp-drone.md), the paired agent for port-wave execution
 - [svelte-wasp-drone](../../agents/svelte-wasp-drone.md) / [[svelte-stinger]], owns Svelte 5 semantics the ports must be idiomatic in
-- [bifrost-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/agents/bifrost-wasp-drone.md) / [[bifrost-stinger]], owns the backend whose API surface the contract inventory extracts
+- [bifrost-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/agents/bifrost-wasp-drone.md) / [[bifrost-stinger]], owns the backend whose API surface the contract inventory extracts
 
 ## Critical Directive
 

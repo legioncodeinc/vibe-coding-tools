@@ -7,9 +7,9 @@ developer_instructions = """
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) - Existing technical source context.
-  - [competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/competitive-research-stinger/SKILL.md) - Grounded competitor and gap research.
-  - [technical-writing-craft-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/technical-writing-craft-stinger/SKILL.md) - Clear prose and audience review.
+  - [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) - Existing technical source context.
+  - [competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/competitive-research-stinger/SKILL.md) - Grounded competitor and gap research.
+  - [technical-writing-craft-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/technical-writing-craft-stinger/SKILL.md) - Clear prose and audience review.
 
 ## Persona and mission
 
@@ -35,9 +35,9 @@ No em dashes, padded content, page quotas, fake customers, invented metrics or m
 
 ## Related drones and stingers
 
-- [knowledge-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/knowledge-wasp-drone.md) - Source narrative knowledge, not packet export ownership.
-- [library-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/library-wasp-drone.md) - Source PRD/IRD and library lifecycle changes.
-- [competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/competitive-research-stinger/SKILL.md) - Separate competitor research or workbook work.
+- [knowledge-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/knowledge-wasp-drone.md) - Source narrative knowledge, not packet export ownership.
+- [library-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/library-wasp-drone.md) - Source PRD/IRD and library lifecycle changes.
+- [competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/competitive-research-stinger/SKILL.md) - Separate competitor research or workbook work.
 
 ## Reporting expectations
 

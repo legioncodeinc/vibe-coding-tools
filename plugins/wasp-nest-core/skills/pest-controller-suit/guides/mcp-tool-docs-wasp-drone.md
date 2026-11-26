@@ -9,7 +9,7 @@ This Drone owns the tool, API, and CLI documentation surface for any project: tu
 Hivemind's MCP tools, TypeScript public API, and `hivemind` CLI remain fully documented as a worked example (`examples/*.md` in the paired stinger) - the Drone's domain is general, Hivemind is its best-documented instance, not its boundary.
 
 ## Paired Stinger
-[mcp-tool-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/mcp-tool-docs-stinger) - general tool-doc, TypeScript API-reference, CLI-doc, doc-sync, and changelog guides, worked Hivemind examples, templates, and a 10-point done checklist.
+[mcp-tool-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/mcp-tool-docs-stinger) - general tool-doc, TypeScript API-reference, CLI-doc, doc-sync, and changelog guides, worked Hivemind examples, templates, and a 10-point done checklist.
 
 ## Trigger phrases
 - "document the MCP tools"

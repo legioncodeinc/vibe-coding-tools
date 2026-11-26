@@ -161,6 +161,18 @@
       "category": "Productivity"
     },
     {
+      "name": "interstellar-coding",
+      "source": {
+        "source": "local",
+        "path": "./plugins/interstellar-coding"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
       "name": "littlebird-toolkit",
       "source": {
         "source": "local",

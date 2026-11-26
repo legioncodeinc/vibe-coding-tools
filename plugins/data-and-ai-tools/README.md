@@ -23,7 +23,7 @@ This pack contains 12 skills, 12 agents and 3 source commands. The table explain
 | [mind-stinger](skills/mind-stinger/SKILL.md) | Reviews, audits, and extends the AI cognitive layer: coach routing, prompt cascade, RAG, three-tier memory, observability, evaluation. Use when reviewing AI code or tuning retrieval. |
 | [neon-drizzle-stinger](skills/neon-drizzle-stinger/SKILL.md) | Neon Postgres and Drizzle ORM on SvelteKit/Vercel: connections, schema, migrations, branching, query patterns, pgvector, RLS, and migrating off Supabase. Use for any Neon or Drizzle task. |
 | [retrieval-stinger](skills/retrieval-stinger/SKILL.md) | Designs and audits retrieval: full-text search, pgvector recall, hybrid RRF fusion, reranking, chunking, recall quality eval. Use when tuning recall or a search query misses. |
-| [tars-stinger](skills/tars-stinger/SKILL.md) | Manage Claude Code Desktop sessions. TARS coordinates, CASE advises and breaks scoped ties, and KIPP runs feature intake. |
+| [tars-stinger](skills/tars-stinger/SKILL.md) | Manage Claude Code Desktop sessions. TARS spawns chips through /smoke-it or pest-controller, CASE advises and watches systems, KIPP writes PRDs. |
 | [vector-store-stinger](skills/vector-store-stinger/SKILL.md) | Design vector storage. Use for pgvector schemas, HNSW/IVFFlat, hybrid indexes, migrations, or storage choice. |
 
 ## Start one task
@@ -55,7 +55,7 @@ Claude Code plugin command names:
 | --- | --- |
 | `/data-and-ai-tools:build-rag-feature` ([procedure](commands/build-rag-feature.md)) | Build a bounded RAG feature against an accepted corpus, access contract, and measured retrieval and answer evaluation. |
 | `/data-and-ai-tools:design-data` ([procedure](commands/design-data.md)) | Design a source-grounded data model, access boundaries, indexes and a migration proposal without executing database changes. |
-| `/data-and-ai-tools:tars` ([procedure](commands/tars.md)) | Make this Claude Code desktop session TARS, the manager. Spawns chips for what you ask, manages every session to done, fields their questions, uses CASE for proportion and scoped decisions, and KIPP as the Feature Desk, runs a real 10-minute tick and a 1-minute CI watch. |
+| `/data-and-ai-tools:tars` ([procedure](commands/tars.md)) | Make this Claude Code desktop session TARS, the manager. Spawns chips for what you ask, each run through /smoke-it or the pest-controller command, manages every session to done, fields their questions, uses CASE as adviser and read-only systems and CI watcher, and KIPP as the idea factory and PRD writer, runs a real 10-minute tick and a 1-minute CI watch. |
 
 ## Agent responsibilities
 
@@ -71,7 +71,7 @@ Claude Code plugin command names:
 | [mind-wasp-drone](agents/mind-wasp-drone.md) | Cognitive-layer specialist for the deploying product, covering coach/agent routing, prompt cascade, RAG/GraphRAG, three-tier memory, observability, evaluation, multimodal pipeline, orchestration, matching, and onboarding as stack-neutral architecture, plus SvelteKit +server.ts streaming LLM responses on Vercel. | [mind-stinger](skills/mind-stinger/SKILL.md) |
 | [neon-drizzle-wasp-drone](agents/neon-drizzle-wasp-drone.md) | Neon Postgres + Drizzle ORM specialist for the SvelteKit/Vercel stack migrating off Supabase. | [neon-drizzle-stinger](skills/neon-drizzle-stinger/SKILL.md) |
 | [retrieval-wasp-drone](agents/retrieval-wasp-drone.md) | Retrieval specialist for an app - owns Postgres full-text search (tsvector, websearch_to_tsquery, ts_rank), pgvector semantic recall, Reciprocal Rank Fusion hybrid search, optional cross-encoder reranking, chunking strategy, and recall/precision evaluation with golden query sets. | [retrieval-stinger](skills/retrieval-stinger/SKILL.md) |
-| [tars-wasp-drone](agents/tars-wasp-drone.md) | TARS, the session manager for the Claude Code desktop app: turns the owner's asks into chips, manages every session to merged and deployed, fields their questions, makes manager-level decisions, uses CASE for proportion and scoped decisions, and KIPP as the Feature Desk, runs a real 10-minute tick and a 1-minute CI poller with a watchdog. | [tars-stinger](skills/tars-stinger/SKILL.md) |
+| [tars-wasp-drone](agents/tars-wasp-drone.md) | TARS, the session manager for the Claude Code desktop app: turns the owner's asks into chips, manages every session to merged and deployed, fields their questions, makes manager-level decisions, launches every chip through /smoke-it or the pest-controller command, uses CASE as adviser and read-only systems and CI watcher, and KIPP as the idea factory and PRD writer, runs a real 10-minute tick and a 1-minute CI poller with a watchdog. | [tars-stinger](skills/tars-stinger/SKILL.md) |
 | [vector-store-wasp-drone](agents/vector-store-wasp-drone.md) | Vector and embedding storage specialist - schema and column design, index selection (HNSW vs IVFFlat, distance operators), hybrid lexical+vector search at the storage layer, migrations, and dataset versioning. | [vector-store-stinger](skills/vector-store-stinger/SKILL.md) |
 
 Codex can use the named skill or its generated `source-command-<name>` wrapper where a source command exists. Home installations may expose flat commands. Use the actual selector offered by the host. A pack with no paired agents runs its standalone skills directly; a skill name does not prove that a native agent was launched.
@@ -81,7 +81,7 @@ Codex can use the named skill or its generated `source-command-<name>` wrapper w
 - `implement provider/backend adapters` also needs `backend-and-desktop-tools`.
 - `feature-margin-economics` also needs `software-economics-tools`.
 
-TARS, CASE and KIPP require Claude Code Desktop. They have no Codex, Cursor or Cowork fallback; those clients cannot start the manager team by loading its files.
+The `/tars` manager team (TARS, CASE and KIPP) requires Claude Code Desktop. It has no Codex, Cursor or Cowork fallback; those clients cannot start the manager team by loading its files.
 
 Core supplies shared routing and review methods. Native Codex role registration requires the explicit installed-plugin registry and trusted Core hook; a marketplace selection alone is not proof of registration. Read the linked skill before work. Missing source, browser, connector, renderer or account access is a reported gap. Installation does not authorize sending, publishing, paid work or live settings changes.
 <!-- wasp-pack-guide:end -->

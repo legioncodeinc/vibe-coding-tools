@@ -7,7 +7,7 @@
 This Drone owns the Wasp Nestmind embeddings runtime: everything between a piece of text and a vector landing in a Deep Lake `FLOAT4[]` column. That covers the `@huggingface/transformers` plus `nomic-embed-text-v1.5` (768-dim, q8) daemon lifecycle, Unix-socket NDJSON IPC, warmup and batching, crash recovery, the embeddings-on vs BM25-fallback decision, local-vs-hosted inference tradeoffs, and the constraint that the embedding dimension must match the `EMBEDDING_DIMS=768` schema. It applies the canonical Hivemind defaults and deviates only when recall quality, latency, footprint, or dim compatibility require it.
 
 ## Paired Stinger
-[embeddings-runtime-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/embeddings-runtime-stinger) - the canonical runtime defaults, daemon lifecycle, IPC protocol, model selection, quantization, and schema/dim guides.
+[embeddings-runtime-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/embeddings-runtime-stinger) - the canonical runtime defaults, daemon lifecycle, IPC protocol, model selection, quantization, and schema/dim guides.
 
 ## Trigger phrases
 - "should I turn embeddings on"

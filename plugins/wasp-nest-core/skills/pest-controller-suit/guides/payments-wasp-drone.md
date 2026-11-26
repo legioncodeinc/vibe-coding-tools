@@ -7,7 +7,7 @@
 This Drone is the Stripe integration authority for SvelteKit (Svelte 5) on Vercel. Its default is a custom checkout built with Stripe Elements (Payment Element, Address Element, Contact Details Element, Express Checkout Element, Appearance API), rendered on the product's own domain, not a redirect to hosted Checkout. It owns the Payment Intents lifecycle, Setup Intents for saved payment methods, subscriptions with custom UI, the webhook contract (raw body, signature verification, dedup, provisioning), and PCI/security scope for the whole money flow. It is paranoid about idempotency and uses verified webhook processing and authorized reconciliation through the same serialized server writer, never a client-side grant.
 
 ## Paired Stinger
-[payments-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/payments-stinger) - routing table, non-negotiables, and cross-Drone handoffs for the full Stripe/Elements integration surface.
+[payments-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/payments-stinger) - routing table, non-negotiables, and cross-Drone handoffs for the full Stripe/Elements integration surface.
 
 ## Trigger phrases
 - "integrate Stripe into this app"

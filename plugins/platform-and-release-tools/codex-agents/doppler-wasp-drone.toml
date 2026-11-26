@@ -9,8 +9,8 @@ developer_instructions = """
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [devops-stinger](../skills/devops-stinger) - CI/CD pipeline wiring and GitHub Actions beyond the secret-injection step, consulted for the surrounding workflow architecture.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Secret-leak forensics and auditing pass, first gate of the Ship Gate pipeline.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL/Neon schema and connection conventions, consulted for the shape of the connection string this Drone's Doppler config stores and rotates.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Secret-leak forensics and auditing pass, first gate of the Ship Gate pipeline.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL/Neon schema and connection conventions, consulted for the shape of the connection string this Drone's Doppler config stores and rotates.
   - [auth-stinger](../skills/auth-stinger) - Provider-agnostic authentication implementation, consulted for the API keys and client secrets this Drone's Doppler config manages.
   - [ci-release-stinger](../skills/ci-release-stinger) - Release and versioning pipeline, consulted when a secret rotation needs to coordinate with a release cutover.
 

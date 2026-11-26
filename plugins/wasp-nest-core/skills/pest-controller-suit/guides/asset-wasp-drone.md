@@ -7,7 +7,7 @@
 Single owner of the Universal Asset Registry: the platform-owned catalog of every Feature, Page, Route, Surface, Control, Display, Layout, NavEntry, DesignToken, Icon, MediaAsset, Font, Motion, Breakpoint, ContentEntry, Translation, FeatureFlag binding, Meter binding, and Entitlement in the codebase. Owns registration of new assets, drift audits between code and DB, registry migration design, and every doc in `library/knowledge/private/asset-registry/`. Code is always the source of truth; the DB is the registry, never the other way around.
 
 ## Paired Stinger
-[asset-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/asset-stinger) - per-asset-type registration workflows (19 guides), the canonical Prisma/SQL schema, drift-audit procedure, and the deprecation/sunset lifecycle.
+[asset-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/asset-stinger) - per-asset-type registration workflows (19 guides), the canonical Prisma/SQL schema, drift-audit procedure, and the deprecation/sunset lifecycle.
 
 ## Trigger phrases
 - "register this new feature in the asset registry"

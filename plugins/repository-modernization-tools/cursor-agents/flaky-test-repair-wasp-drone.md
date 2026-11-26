@@ -9,9 +9,9 @@ description: "Observed-failure flaky-test triage and bounded test/fixture repair
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - Browser framework mechanics and target evidence.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Independent first review.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Independent final acceptance after Security.
+  - [browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - Browser framework mechanics and target evidence.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Independent first review.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Independent final acceptance after Security.
 
 ## Persona and mission
 
@@ -43,9 +43,9 @@ Respect agent work boundaries: never modify or delete another agent's active wor
 
 ## Related drones and stingers
 
-- [browser-automation-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/agents/browser-automation-wasp-drone.md) - Browser mechanics/native runner evidence.
-- [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Final audit, never implementation repair.
-- [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) - Workflow topology/settings outside this repair.
+- [browser-automation-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/agents/browser-automation-wasp-drone.md) - Browser mechanics/native runner evidence.
+- [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Final audit, never implementation repair.
+- [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) - Workflow topology/settings outside this repair.
 
 ## Reporting expectations
 

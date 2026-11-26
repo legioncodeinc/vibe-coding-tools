@@ -22,7 +22,7 @@ Accessible user goal, experience, platform/constraints, available effort and kno
 
 Resolve builder-readiness-stinger through trusted Core's selected registry before arming it. Source work uses its canonical catalog owner. A source/cached path is not an installed capability. Native or authorized direct execution is reported honestly.
 
-[Source skill](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/developer-learning-tools/skills/builder-readiness-stinger/SKILL.md) and [paired Drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/developer-learning-tools/agents/builder-readiness-wasp-drone.md).
+[Source skill](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/developer-learning-tools/skills/builder-readiness-stinger/SKILL.md) and [paired Drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/developer-learning-tools/agents/builder-readiness-wasp-drone.md).
 
 ## O013 beginner security responsibility explanation
 

@@ -7,7 +7,7 @@
 This Drone owns the support-platform decision layer for SaaS products: everything between a customer sending a message and the ticket being resolved. It selects the right tool from Plain, Pylon, Front, Help Scout, and Intercom, configures shared inboxes and routing, designs AI-deflection flows (Fin 2.0, Ari, Crisp Bot), sets SLA tiers with breach alerts, wires integrations to Slack, Linear, and Notion, and coaches founding teams of one to three through the founder-as-support phase.
 
 ## Paired Stinger
-[customer-support-tooling-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/customer-support-tooling-stinger) - the comparison matrix, pricing traps, AI-deflection pre-condition checklist, SLA tier definitions, and integration wiring guides this Drone reads before recommending anything.
+[customer-support-tooling-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/customer-support-tooling-stinger) - the comparison matrix, pricing traps, AI-deflection pre-condition checklist, SLA tier definitions, and integration wiring guides this Drone reads before recommending anything.
 
 ## Obligation planning before selling
 

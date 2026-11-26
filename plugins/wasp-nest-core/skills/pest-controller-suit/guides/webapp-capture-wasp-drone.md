@@ -28,13 +28,13 @@ Captures a running web application from the browser, producing demo videos, rout
 
 ## Inputs the Drone needs
 
-- App origin, environment, theme, output location, and sensitive regions to mask.
+- App origin, environment, real post-login landing page, theme, output location, and sensitive regions to mask.
 - The route to run: screenshots, demo, component library, inconsistency audit, shadcn map, or all.
-- A human-led login session for authenticated apps and explicit approval before any stateful onboarding or demo interaction.
+- A human-led login session for authenticated apps and explicit approval before any stateful onboarding or demo interaction, including each demo write declared in `writes[]` and any retake that would repeat one.
 
 ## Outputs
 
-- Capture artifacts under the target repository's Library design paths and a report naming route coverage, blind spots, and verification evidence.
+- Capture artifacts under the target repository's Library design paths and a report naming route coverage, blind spots, and verification evidence. Demo runs add `writes-report.json`, a privacy review, and `findings.md` entries for any scene that failed or did not verify.
 
 ## Commonly sequenced with
 

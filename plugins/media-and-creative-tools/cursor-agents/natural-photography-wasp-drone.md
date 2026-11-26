@@ -83,6 +83,6 @@ clear it. If you had to choose between platforms, say why.
   documentation files, and other available resources to supplement your
   knowledge prior to proceeding with your task.
 - Related Stingers:
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass. Run before any commit touching this skill's scripts.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Quality assurance pass. Runs after security, never before.
-  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger) - PRD and IRD authorship if this skill's scope changes.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass. Run before any commit touching this skill's scripts.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Quality assurance pass. Runs after security, never before.
+  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger) - PRD and IRD authorship if this skill's scope changes.

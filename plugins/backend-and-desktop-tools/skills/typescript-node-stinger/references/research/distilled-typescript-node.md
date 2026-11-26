@@ -33,7 +33,7 @@ Research window: 2026-08-14 single sweep (this pass), plus the original 2026-06-
 
 ## 3. Drizzle ORM type inference (guidance around Drizzle, not a duplicate of neon-drizzle-stinger)
 
-This skill covers TypeScript patterns that play well with Drizzle's inference model. Drizzle's own schema design, migrations, connection pooling, and SvelteKit/Vercel wiring are owned by [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) - consult it, don't duplicate it.
+This skill covers TypeScript patterns that play well with Drizzle's inference model. Drizzle's own schema design, migrations, connection pooling, and SvelteKit/Vercel wiring are owned by [neon-drizzle-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/neon-drizzle-stinger) - consult it, don't duplicate it.
 
 | Fact | Detail | Source |
 |---|---|---|

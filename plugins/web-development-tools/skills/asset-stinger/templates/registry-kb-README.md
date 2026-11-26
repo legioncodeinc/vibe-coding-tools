@@ -35,10 +35,10 @@ Drift reports do **not** live here. See:
 
 This folder is owned by [`asset-wasp-drone`](../../../agents/asset-wasp-drone.md). For cross-cutting concerns:
 
-- **Documentation lifecycle** (numbering, invariants, cross-linking): [`library-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/library-wasp-drone.md)
+- **Documentation lifecycle** (numbering, invariants, cross-linking): [`library-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/library-wasp-drone.md)
 - **UX/UI semantic token meaning**: [`ux-ui-svelte-wasp-drone`](../../../agents/ux-ui-svelte-wasp-drone.md)
-- **QA of registry-shaped implementations**: [`quality-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/quality-wasp-drone.md)
-- **Security review of registry feature PRDs**: [`security-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/security-wasp-drone.md)
+- **QA of registry-shaped implementations**: [`quality-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/quality-wasp-drone.md)
+- **Security review of registry feature PRDs**: [`security-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/security-wasp-drone.md)
 
 ## Governing principles
 

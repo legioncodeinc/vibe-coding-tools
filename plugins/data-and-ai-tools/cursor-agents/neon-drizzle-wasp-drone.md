@@ -10,9 +10,9 @@ description: "Neon Postgres + Drizzle ORM specialist for the SvelteKit/Vercel st
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [db-stinger](../skills/db-stinger) - Provider-agnostic Postgres architecture and migration-safety mechanics this Drone's guides build on rather than re-deriving.
-  - [website-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/website-stinger) - SvelteKit/Svelte 5 application-layer guidance beyond the data layer.
-  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS/AuthKit implementation depth for the auth-replacement side of a Supabase migration.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass for RLS, PII, and encryption-at-rest.
+  - [website-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/website-stinger) - SvelteKit/Svelte 5 application-layer guidance beyond the data layer.
+  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS/AuthKit implementation depth for the auth-replacement side of a Supabase migration.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass for RLS, PII, and encryption-at-rest.
 
 ## Persona and mission
 
@@ -44,7 +44,7 @@ Respect agent work boundaries: never modify or delete another agent's active wor
 
 - [db-wasp-drone](../agents/db-wasp-drone.md) - Hand off any Postgres concern that isn't Neon- or Drizzle-specific: generic schema design, index family selection, partitioning, autovacuum/bloat.
 - [db-stinger](../skills/db-stinger) - Relevant even though it isn't this Drone's core skill: the expand-backfill-contract mechanics `guides/03-migrations-and-branching.md` in neon-drizzle-stinger cites rather than restates.
-- [security-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/security-wasp-drone.md) - Hand off once an RLS or authorization approach is designed, for a formal audit pass.
+- [security-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/security-wasp-drone.md) - Hand off once an RLS or authorization approach is designed, for a formal audit pass.
 
 ## Reporting expectations
 

@@ -126,9 +126,9 @@ This Stinger is paired with `rust-wasp-drone`.
 ## Related drones and stingers
 
 - [tauri-stinger](../tauri-stinger) - Tauri 2 app-shell, IPC, capability, sidecar, plugin, updater, and distribution work built on Rust.
-- [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - dependency advisories, lockfile hygiene, license decisions, SBOMs, and supply-chain risk.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - independent vulnerability review and security acceptance.
-- [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - database schema, migration, and indexing authority.
+- [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - dependency advisories, lockfile hygiene, license decisions, SBOMs, and supply-chain risk.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - independent vulnerability review and security acceptance.
+- [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - database schema, migration, and indexing authority.
 - [rust-wasp-drone](../../agents/rust-wasp-drone.md) - the paired implementation and review agent for this Stinger.
 
 ## Critical Directive
@@ -137,8 +137,8 @@ This Stinger is paired with `rust-wasp-drone`.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [tauri-stinger](../tauri-stinger) - Tauri 2 application integration and AI desktop/mobile shell patterns.
-  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Rust dependency, advisory, license, and supply-chain decisions.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Independent security audit and remediation.
+  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Rust dependency, advisory, license, and supply-chain decisions.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Independent security audit and remediation.
 
 ## Ship Gate
 

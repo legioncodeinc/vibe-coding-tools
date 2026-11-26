@@ -81,7 +81,7 @@ Run the Next.js-specific part of the security dimension of an `/audit-my-code` r
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - `security-stinger` (core Wasp Nest, when installed) - Generic security audit pass that runs alongside this one in the security dimension.
-  - [web-security-posture-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/website-audit-tools/skills/web-security-posture-stinger) - Passive external posture checks of a deployed site.
+  - [web-security-posture-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/website-audit-tools/skills/web-security-posture-stinger) - Passive external posture checks of a deployed site.
 
 <!-- Ship Gate removed: research-only stinger, produces no committable code. -->
 

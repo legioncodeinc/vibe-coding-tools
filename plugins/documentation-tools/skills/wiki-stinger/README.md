@@ -134,7 +134,7 @@ All templates use Obsidian-flavored YAML frontmatter and `[[wikilinks]]` - both 
 
 ## Sibling boundaries
 
-- `library-wasp-drone` writes module narratives under `library/knowledge/private/<domain>/*.md`. wiki-wasp-drone does not touch that prose. See [`.claude/skills/library-stinger/README.md`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger/README.md).
+- `library-wasp-drone` writes module narratives under `library/knowledge/private/<domain>/*.md`. wiki-wasp-drone does not touch that prose. See [`.claude/skills/library-stinger/README.md`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger/README.md).
 - `quality-wasp-drone` writes QA reports under `library/requirements/reports/` and feature/issue `reports/` folders. wiki-wasp-drone does not touch these.
 - Hivemind's graph driver (`src/graph/`) owns `index.md`, `<type>/_index.md`, `log.md`, `hot.md`, `.hivemind/file-hashes.json` inside the knowledge area. wiki-wasp-drone writes per-page content only.
 

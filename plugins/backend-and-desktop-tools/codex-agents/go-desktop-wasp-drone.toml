@@ -8,8 +8,8 @@ developer_instructions = """
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [go-stinger](../skills/go-stinger) - General Go implementation and module/toolchain mechanics.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Independent application trust-boundary review.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Final acceptance after Security.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Independent application trust-boundary review.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Final acceptance after Security.
 
 ## Persona and mission
 
@@ -42,7 +42,7 @@ Respect agent work boundaries: never modify or delete another agent's active wor
 
 - [go-wasp-drone](../agents/go-wasp-drone.md) - General Go internals beneath the accepted bridge.
 - [tauri-wasp-drone](../agents/tauri-wasp-drone.md), [electron-app-wasp-drone](../agents/electron-app-wasp-drone.md) - Their shell/Go sidecar boundaries.
-- [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/devops-stinger) - CI and release infrastructure.
+- [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/devops-stinger) - CI and release infrastructure.
 
 ## Reporting expectations
 

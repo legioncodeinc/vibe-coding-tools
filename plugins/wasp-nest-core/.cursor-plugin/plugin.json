@@ -1,6 +1,6 @@
 {
   "name": "wasp-nest-core",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "The Wasp Nest core: shared Drones and Stingers, orchestration commands, rules, and hooks. Install this first; specialist packs are add-ons.",
   "author": {
     "name": "Legion Code Inc."

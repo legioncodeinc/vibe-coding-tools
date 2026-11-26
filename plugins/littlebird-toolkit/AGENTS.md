@@ -25,7 +25,7 @@ Thirty skills live under `skills/`, in six groups:
 - **Voice.** combined-voice-creator, littlebird-voice-creator, facebook-voice-creator.
   These predate the current structure and do not carry a research archive.
 
-The source pack is `packs/littlebird-toolkit/`. Its manifests identify `littlebird-toolkit`; the root [catalog](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/plugin-catalog.json) owns marketplace membership and the [layout guide](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/learn/reference/PLUGIN-LAYOUT.md) describes installed prerequisites. Core remains required. Do not create a separate pack marketplace or edit shared catalog/build/install files without coordination.
+The source pack is `packs/littlebird-toolkit/`. Its manifests identify `littlebird-toolkit`; the root [catalog](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/plugin-catalog.json) owns marketplace membership and the [layout guide](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/learn/reference/PLUGIN-LAYOUT.md) describes installed prerequisites. Core remains required. Do not create a separate pack marketplace or edit shared catalog/build/install files without coordination.
 
 **One plugin, deliberately.** Installed plugins are copied to a cache directory and
 cannot reference files outside themselves, so splitting into several plugins would break

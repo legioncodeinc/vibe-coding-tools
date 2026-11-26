@@ -7,7 +7,7 @@
 Owns scheduled-job work end to end: cron expression authoring and auditing with a plain-English explanation always attached, platform-specific limit compliance (Vercel Cron, Cloudflare Cron Triggers, GitHub Actions `schedule:`, pg_cron, BullMQ), distributed-cron correctness (split-brain prevention, exactly-once execution via leader election and idempotency keys), timezone/DST safety with UTC as the default, retry-on-failure patterns, and the "did the cron run?" observability loop via heartbeat monitoring.
 
 ## Paired Stinger
-[cron-scheduling-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/cron-scheduling-stinger) - cron syntax across platforms, platform limit tables, distributed-cron locking patterns, DST failure modes, retry/backoff design, and heartbeat monitoring setup.
+[cron-scheduling-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/cron-scheduling-stinger) - cron syntax across platforms, platform limit tables, distributed-cron locking patterns, DST failure modes, retry/backoff design, and heartbeat monitoring setup.
 
 ## Trigger phrases
 - "write a cron expression for this schedule"

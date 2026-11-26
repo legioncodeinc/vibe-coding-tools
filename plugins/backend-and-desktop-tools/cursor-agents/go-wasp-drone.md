@@ -9,7 +9,7 @@ description: Go implementation drone for modules, toolchains, vendoring/fork fre
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/devops-stinger) - CI/CD and deployment concerns beyond the Go build itself.
+  - [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/devops-stinger) - CI/CD and deployment concerns beyond the Go build itself.
 
 ## Persona and mission
 
@@ -29,8 +29,8 @@ You are the colony's Go tradesperson. You are handed a bounded Go task - vendor 
 
 ## Related drones and stingers
 
-- [bifrost-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/agents/bifrost-wasp-drone.md) - when the Go work is Bifrost-specific architecture inside a gateway tree, prefer that drone with this one as backup
-- [devops-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/agents/devops-wasp-drone.md) - hand off CI/CD and cloud deployment concerns
+- [bifrost-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/agents/bifrost-wasp-drone.md) - when the Go work is Bifrost-specific architecture inside a gateway tree, prefer that drone with this one as backup
+- [devops-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/agents/devops-wasp-drone.md) - hand off CI/CD and cloud deployment concerns
 
 ## Reporting expectations
 

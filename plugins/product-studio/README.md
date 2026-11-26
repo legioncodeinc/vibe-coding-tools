@@ -2,7 +2,7 @@
 
 Turn an idea into a buildable plan: product strategy, Claude-Design-grade UX, a PRD map, a wave plan and a Definition of Done. Run `/product-studio:plan-product` to go through strategy, design and planning in order, approving each stage. New feature ideas that arrive mid-build go to KIPP in the TARS desk instead.
 
-Requires `wasp-nest-core`. Running the build afterwards with `/tars` also needs `data-and-ai-tools` and Claude Code Desktop (see the prerequisites below); without them, use `/smoke-it` from Core once the PRDs and contracts exist. See the [How We Build](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/learn/guides/HOW-WE-BUILD.md) guide in `wasp-nest-core` for where this fits in the full workflow.
+Requires `wasp-nest-core`. Running the build afterwards with `/tars` also needs `data-and-ai-tools` and Claude Code Desktop (see the prerequisites below); without them, use `/smoke-it` from Core once the PRDs and contracts exist. See the [How We Build](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/learn/guides/HOW-WE-BUILD.md) guide in `wasp-nest-core` for where this fits in the full workflow.
 
 <!-- wasp-pack-guide:start -->
 ## Choose a capability

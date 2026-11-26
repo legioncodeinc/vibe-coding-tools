@@ -65,7 +65,7 @@ Collect exactly four answers (auditor name, audited-party contact name, audited-
 - [vendor-inventory-stinger](../vendor-inventory-stinger) - runs in parallel with stack-fingerprint (wave W1b), also downstream of this workspace scaffold.
 - [audit-scoring-stinger](../audit-scoring-stinger) - owns the `scoring/audit-scorecard.xlsx` template whose cover-sheet fields this Stinger hydrates at scaffold time.
 - [audit-reporting-stinger](../audit-reporting-stinger) - owns the `reports/` templates whose headers this Stinger hydrates at scaffold time.
-- [get-started-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/get-started-stinger) - general repo-scaffolding conventions; consult if the workspace-scaffolding pattern here needs to be reconciled against this plugin repo's own bootstrap conventions (a different concern: that skill scaffolds this repo, this skill scaffolds an external customer's audit workspace).
+- [get-started-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/get-started-stinger) - general repo-scaffolding conventions; consult if the workspace-scaffolding pattern here needs to be reconciled against this plugin repo's own bootstrap conventions (a different concern: that skill scaffolds this repo, this skill scaffolds an external customer's audit workspace).
 
 ## Critical Directive
 

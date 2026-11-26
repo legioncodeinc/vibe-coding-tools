@@ -66,10 +66,10 @@ A TanStack task run through this skill is done when: the library's Svelte 5 supp
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/vercel-stinger) - Vercel deployment for the same SvelteKit stack. Consult when a TanStack Query prefetch or SSR pattern interacts with Vercel's caching/ISR behavior.
+  - [vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/vercel-stinger) - Vercel deployment for the same SvelteKit stack. Consult when a TanStack Query prefetch or SSR pattern interacts with Vercel's caching/ISR behavior.
   - [ux-ui-svelte-stinger](../ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement. Consult for the surrounding component/markup patterns TanStack Table and Form render into.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema and migrations. Consult for the data source behind TanStack Query's query functions and TanStack Table's row data.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema and migrations. Consult for the data source behind TanStack Query's query functions and TanStack Table's row data.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
 
 ## Ship Gate
 

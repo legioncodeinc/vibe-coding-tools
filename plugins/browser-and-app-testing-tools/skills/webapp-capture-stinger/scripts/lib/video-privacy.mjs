@@ -14,6 +14,8 @@ function refuseLinkedPath(file) {
     const parent = path.dirname(current); if (parent === current) break; current = parent;
   }
 }
+const NAVIGATING = /context was destroyed|capture context changed during the image|frame (?:was|has been) detached|cannot find context|attempting a navigation|navigation interrupted|unable to capture screenshot/i;
+const MAX_GAP_MS = 15000;
 export async function startMaskedVideo(cfg, page, directory, { fps = 5 } = {}) {
   if (!Number.isInteger(fps) || fps < 1 || fps > 15) throw new Error("masked video fps must be an integer from 1 to 15");
   const frames = path.join(directory, "masked-frames");
@@ -38,16 +40,28 @@ export async function startMaskedVideo(cfg, page, directory, { fps = 5 } = {}) {
     lastBytes = bytes;
   };
   await capture();
+  // A navigation replaces the document mid-capture, and captureScreenshot then returns no
+  // bytes. Drop that frame and try again; the next good capture fills the gap with the last
+  // masked frame. Any other error, or a page that stays uncapturable, still fails closed.
+  let lastGood = Date.now();
+  const captureUnlessNavigating = async () => {
+    try { await capture(); lastGood = Date.now(); return true; }
+    catch (error) {
+      if (!NAVIGATING.test(error.message) || Date.now() - lastGood > MAX_GAP_MS) throw error;
+      return false;
+    }
+  };
+  const pause = () => new Promise((resolve) => setTimeout(resolve, 1000 / fps));
   const loop = (async () => {
     while (!stopped) {
-      await new Promise((resolve) => setTimeout(resolve, 1000 / fps));
-      if (!stopped) try { await capture(); } catch (error) { failure = error; stopped = true; }
+      await pause();
+      if (!stopped) try { await captureUnlessNavigating(); } catch (error) { failure = error; stopped = true; }
     }
   })();
   return { frames, stop: async (output) => {
     stopped = true; await loop;
     if (failure) throw failure;
-    await capture();
+    while (!(await captureUnlessNavigating())) await pause();
     // Feed a private exclusive output descriptor instead of ffmpeg overwriting a path.
     refuseLinkedPath(output);
     const descriptor = fs.openSync(output, "wx", 0o600);

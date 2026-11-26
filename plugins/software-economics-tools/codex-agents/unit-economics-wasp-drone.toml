@@ -7,7 +7,7 @@ developer_instructions = """
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [pest-controller-suit](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md) - Source roster. For installed work resolve its trusted Core owner.
+  - [pest-controller-suit](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md) - Source roster. For installed work resolve its trusted Core owner.
   - Payments, Estimation and platform specialists - Resolve the named skill through Core's selected-owner resolver before loading an optional sibling.
 
 ## Persona and mission

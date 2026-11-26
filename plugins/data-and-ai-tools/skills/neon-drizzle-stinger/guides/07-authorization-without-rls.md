@@ -53,4 +53,4 @@ export const notes = pgTable('notes', { /* ... */ }, (table) => [
 
 - `guides/05-sveltekit-vercel-integration.md`, the server-only client boundary this guide's default posture depends on
 - `references/supabase-to-neon-translation-table.md`, RLS policy translation if migrating existing Supabase policies
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger), broader authorization/audit guidance beyond this stinger's Neon/Drizzle-specific scope
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger), broader authorization/audit guidance beyond this stinger's Neon/Drizzle-specific scope

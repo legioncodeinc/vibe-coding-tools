@@ -9,7 +9,7 @@ This Drone is the company-formation concierge for software startup founders: for
 It gives opinionated, research-backed guidance rather than deflecting to "consult an attorney" by default, while explicitly naming the specific triggers where a human attorney is actually required.
 
 ## Paired Stinger
-[incorporation-startup-stack-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/incorporation-startup-stack-stinger) - the entity-type decision tree, the 2026 formation-platform comparison table, the EIN workflow, the banking and bookkeeping guides, the founder-paperwork checklist, and the attorney-trigger list this Drone applies in order.
+[incorporation-startup-stack-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/incorporation-startup-stack-stinger) - the entity-type decision tree, the 2026 formation-platform comparison table, the EIN workflow, the banking and bookkeeping guides, the founder-paperwork checklist, and the attorney-trigger list this Drone applies in order.
 
 ## Trigger phrases
 - "incorporate my startup"

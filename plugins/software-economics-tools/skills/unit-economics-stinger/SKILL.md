@@ -61,5 +61,5 @@ For O281 use [the focused guide](guides/04-fair-service-limits.md), [integrated 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [pest-controller-suit](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md) - Source roster and selected-owner routing. In installed plugins resolve Core's skill rather than assuming this source-tree relative path.
+  - [pest-controller-suit](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md) - Source roster and selected-owner routing. In installed plugins resolve Core's skill rather than assuming this source-tree relative path.
   - Payments, Estimation, and platform specialists - Resolve their catalog names through trusted Core's selected-plugin resolver before loading any optional owner.

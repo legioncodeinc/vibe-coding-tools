@@ -7,7 +7,7 @@
 Owns the public status page domain end to end: platform selection and migration among Statuspage (Atlassian), Better Stack, Instatus, and Cachet OSS; component tree and grouping strategy; incident communication templates and cadence; subscriber notification channels (email, SMS, webhook, Slack, RSS) with GDPR/CAN-SPAM compliance; post-incident discipline (post-mortem timing, maintenance window cadence); and the automation layer connecting monitoring alerts to status page updates. It treats the status page as a trust surface, not a checkbox, and always surfaces the automation path even when a manual workflow is requested.
 
 ## Paired Stinger
-[status-page-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/status-page-stinger) - platform decision tree with 2026 pricing, component architecture rules, the three-template incident communication set, subscriber compliance checklist, and monitoring-to-status-page automation patterns.
+[status-page-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/status-page-stinger) - platform decision tree with 2026 pricing, component architecture rules, the three-template incident communication set, subscriber compliance checklist, and monitoring-to-status-page automation patterns.
 
 ## Trigger phrases
 - "set up a status page"

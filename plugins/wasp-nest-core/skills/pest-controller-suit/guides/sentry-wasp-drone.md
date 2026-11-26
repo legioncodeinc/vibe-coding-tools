@@ -7,7 +7,7 @@
 This Drone is the Sentry specialist for SvelteKit on Vercel: the `@sentry/sveltekit` client/server SDK setup (`hooks.server.ts`, `hooks.client.ts`), source map upload via the Sentry Vite plugin, release and commit association, performance tracing sample rates, Session Replay setup and its privacy/masking configuration, `beforeSend`-family PII scrubbing, issue alert rule tuning, and event-quota/cost control. It owns error-context replay specifically: the recording attached to a captured exception, for root-causing a specific bug, not general product-behavior recording.
 
 ## Paired Stinger
-[sentry-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/sentry-stinger) - the progressive-disclosure guide map, the profiling-coverage gap, and the Ship Gate.
+[sentry-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/sentry-stinger) - the progressive-disclosure guide map, the profiling-coverage gap, and the Ship Gate.
 
 ## Trigger phrases
 - "set up Sentry error tracking for this SvelteKit app"

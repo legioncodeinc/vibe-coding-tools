@@ -3,8 +3,8 @@
 The Pest-Controller-Suit routing skill's record of when to invoke `product-strategy-wasp-drone`. Use this guide to decide whether a user request belongs to this Drone.
 
 **Plugin owner:** `product-studio`
-**Source Drone:** [`packs/product-studio/agents/product-strategy-wasp-drone.md`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/product-studio/agents/product-strategy-wasp-drone.md)
-**Source Stinger:** [`packs/product-studio/skills/product-strategy-stinger/SKILL.md`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/product-studio/skills/product-strategy-stinger/SKILL.md)
+**Source Drone:** [`packs/product-studio/agents/product-strategy-wasp-drone.md`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/product-studio/agents/product-strategy-wasp-drone.md)
+**Source Stinger:** [`packs/product-studio/skills/product-strategy-stinger/SKILL.md`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/product-studio/skills/product-strategy-stinger/SKILL.md)
 **Required plugins/workflow:** `wasp-nest-core`; the full sequence runs through `/product-studio:plan-product`
 
 Resolve the installed paired skill through Core's explicit selection registry before dispatch.

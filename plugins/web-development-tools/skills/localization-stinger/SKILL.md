@@ -46,6 +46,6 @@ Prior to committing any code to the repository you must utilize in order the sec
 - Additional related skills can be found here:
   - [impeccable-stinger](../impeccable-stinger) - Preserve UI context and design direction.
   - [typography-font-stinger](../typography-font-stinger) - Technical font/glyph/loading ownership.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - First formal gate and resource/rendering risk.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Second formal gate.
-  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Orchestrator final gate.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - First formal gate and resource/rendering risk.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Second formal gate.
+  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Orchestrator final gate.

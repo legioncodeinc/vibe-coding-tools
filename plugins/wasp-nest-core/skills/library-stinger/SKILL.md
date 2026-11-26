@@ -57,7 +57,7 @@ See `guides/07-wiki-sync.md` for wiki synchronization rules.
 
 ## Audience document packets
 
-Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) to turn existing sources into role-specific Markdown, Word, branded PDF and citation packets. Source authoring remains with this skill.
+Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) to turn existing sources into role-specific Markdown, Word, branded PDF and citation packets. Source authoring remains with this skill.
 
 ## Reusable templates from real workflows
 

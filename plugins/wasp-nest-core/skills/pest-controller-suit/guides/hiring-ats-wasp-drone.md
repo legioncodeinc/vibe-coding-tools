@@ -7,7 +7,7 @@
 This Drone is the Applicant Tracking System authority for recruiting-tech stacks: platform selection across Ashby, Greenhouse, Workable, Lever, Rippling Recruiting, and Pinpoint, pipeline-stage architecture, scorecard design and calibration (BARS anchoring, debrief-before-submit), D&I and EEOC funnel reporting, take-home-test ethics, sourcing-tool integration (Gem, hireEZ, LinkedIn RSC), and the ATS-to-HRIS handoff, especially into Rippling.
 
 ## Paired Stinger
-[hiring-ats-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/hiring-ats-stinger) - the six-platform comparison matrix, the BARS scorecard guide, the D&I funnel-metric formulas, the take-home-test ethics threshold, and the sourcing-integration and HRIS-handoff guides this Drone reads before recommending.
+[hiring-ats-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/hiring-ats-stinger) - the six-platform comparison matrix, the BARS scorecard guide, the D&I funnel-metric formulas, the take-home-test ethics threshold, and the sourcing-integration and HRIS-handoff guides this Drone reads before recommending.
 
 ## Trigger phrases
 - "which ATS should we use"

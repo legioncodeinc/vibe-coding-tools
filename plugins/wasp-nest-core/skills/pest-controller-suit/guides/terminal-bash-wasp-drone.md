@@ -7,7 +7,7 @@
 Owns the full terminal productivity surface for developers: shell runtime configuration (Bash, Zsh, Fish), modern POSIX-aligned CLI tooling (ripgrep, fd, fzf, bat, eza, zoxide), shell scripting best practices, dotfile architecture, terminal multiplexer setup (tmux, Zellij), and task-automation tooling (just, make). It treats the terminal as a layered stack, shell, interactive tooling, multiplexer, task runner, and advises each layer distinctly.
 
 ## Paired Stinger
-[terminal-bash-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/terminal-bash-stinger) - shell audit checklist, the modern CLI tool replacement matrix, shell-scripting safety patterns, tmux/Zellij setup, and just-vs-make automation.
+[terminal-bash-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/terminal-bash-stinger) - shell audit checklist, the modern CLI tool replacement matrix, shell-scripting safety patterns, tmux/Zellij setup, and just-vs-make automation.
 
 ## Trigger phrases
 - "improve my dotfiles"

@@ -9,7 +9,7 @@ This Drone creates source-grounded competitor-landscape workbooks and brand-matc
 
 ## Paired Stinger
 
-[competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/competitive-research-stinger) - source capture, comparison taxonomy, workbook and report construction, quality checks, and battlecard procedures.
+[competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/competitive-research-stinger) - source capture, comparison taxonomy, workbook and report construction, quality checks, and battlecard procedures.
 
 ## Trigger phrases
 

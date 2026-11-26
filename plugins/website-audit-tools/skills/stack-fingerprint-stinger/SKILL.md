@@ -84,7 +84,7 @@ into an unstated guess. See `references/research/distilled-stack-fingerprint.md`
   `target-profile.json` to select its platform-specific crawl strategy without re-detecting anything
 - [audit-intake-stinger](../audit-intake-stinger) - wave W0, scaffolds the workspace this Stinger
   reads `00-intake/` from
-- [seo-aeo-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/seo-aeo-stinger) - internal-repo SEO/AEO reference; consult for standard
+- [seo-aeo-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/seo-aeo-stinger) - internal-repo SEO/AEO reference; consult for standard
   definitions this external audit's technical-seo pair also relies on
 
 ## Critical Directive

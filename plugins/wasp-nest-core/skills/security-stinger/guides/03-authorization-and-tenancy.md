@@ -36,7 +36,7 @@ The `true` argument scopes the write to the transaction so it clears automatical
 CREATE POLICY tenant_isolation_select ON invoices FOR SELECT
   USING (tenant_id = current_setting('app.tenant_id', true)::uuid);
 ```
-The `true` second argument makes a missing setting return NULL, per PostgreSQL settings functions. A present empty or malformed string can still raise an error on the UUID cast; a cast error is not zero rows. Fail closed and test the actual missing, empty, invalid and pooled-reuse cases without disclosing data. See [current DB boundary design](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger/guides/12-tenant-data-boundaries.md) and [response boundary review](12-response-and-tenant-boundaries.md).
+The `true` second argument makes a missing setting return NULL, per PostgreSQL settings functions. A present empty or malformed string can still raise an error on the UUID cast; a cast error is not zero rows. Fail closed and test the actual missing, empty, invalid and pooled-reuse cases without disclosing data. See [current DB boundary design](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger/guides/12-tenant-data-boundaries.md) and [response boundary review](12-response-and-tenant-boundaries.md).
 
 4. **Index the tenant column.** The policy predicate runs on every query against that table; an unindexed policy column means every query on that table is a sequential scan.
 

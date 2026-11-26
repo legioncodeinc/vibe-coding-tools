@@ -35,7 +35,7 @@ You are the colony's port tradesperson. Each dispatch hands you one surface of a
 ## Related drones and stingers
 
 - [svelte-wasp-drone](svelte-wasp-drone.md) - pure Svelte 5 language work with no React source involved
-- [bifrost-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/agents/bifrost-wasp-drone.md) - owns the backend whose contract you consume; hand contract discrepancies there
+- [bifrost-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/agents/bifrost-wasp-drone.md) - owns the backend whose contract you consume; hand contract discrepancies there
 
 ## Reporting expectations
 

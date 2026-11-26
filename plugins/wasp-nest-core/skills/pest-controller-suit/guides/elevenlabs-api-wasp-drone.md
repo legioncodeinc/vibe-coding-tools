@@ -9,7 +9,7 @@ This Drone owns ElevenLabs API integration for speech and media generation, stre
 
 ## Paired Stinger
 
-[elevenlabs-api-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/media-and-creative-tools/skills/elevenlabs-api-stinger) - primary-source-backed integration boundary, cost and request metadata, and verification guidance.
+[elevenlabs-api-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/media-and-creative-tools/skills/elevenlabs-api-stinger) - primary-source-backed integration boundary, cost and request metadata, and verification guidance.
 
 ## Trigger phrases
 

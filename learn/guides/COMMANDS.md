@@ -4,7 +4,7 @@ A command gives a repeatable job a short name. It answers **what whole workflow 
 
 ## Choose the right command
 
-The catalog defines seventy-seven source commands: nine in Core and sixty-eight in optional plugins. The tables below list the main entry points; `plugin-catalog.json` has the complete list per plugin. The Core commands below are shown by short name; native Claude uses the `wasp-nest-core:` prefix. Local home installations also expose flat commands.
+The catalog defines eighty-five source commands: nine in Core and seventy-six in optional plugins. The tables below list the main entry points; `plugin-catalog.json` has the complete list per plugin. The Core commands below are shown by short name; native Claude uses the `wasp-nest-core:` prefix. Local home installations also expose flat commands.
 
 | Command | Use it when | Expected result |
 | --- | --- | --- |
@@ -28,10 +28,11 @@ Install the owning plugin and its prerequisites before choosing an optional work
 | `code-audit-tools` | `/code-audit-tools:audit-my-code` | Source and app audits, evidence and remediation planning. |
 | `documentation-tools` | `/documentation-tools:library-packets` | Source-grounded audience documents and exports. |
 | `documentation-tools` | `/documentation-tools:kb-refresh` | Repository knowledge refresh; full discovery also needs Code Audit. |
-| `data-and-ai-tools` | `/data-and-ai-tools:tars` | TARS manages sessions with CASE as advocate/tie-breaker and KIPP as Feature Desk. Claude Code Desktop only. |
+| `data-and-ai-tools` | `/data-and-ai-tools:tars` | TARS manages sessions with CASE as adviser and read-only systems and CI watcher, and KIPP as idea factory and PRD writer. Claude Code Desktop only. |
 | `browser-and-app-testing-tools` | `/browser-and-app-testing-tools:webapp-capture` | Scoped live-app capture and visual inventory. |
 | `app-primer-zero` | `/app-primer-zero:app-primer-zero` | App preparation and dependency-ordered handoff before implementation. |
 | `product-studio` | `/product-studio:plan-product` | Strategy, UX design and the build plan (PRD map, wave plan, Definition of Done), approved stage by stage before PRDs are written. |
+| `interstellar-coding` | `/interstellar-coding:interstellar` | Stand up the crew: TARS leads KIPP, CASE, LADY, MOON, OWEL, COOP and MURPH, each with its own command (`/kipp`, `/case`, `/lady`, `/moon`, `/owel`, `/coop`, `/murph`). Needs `data-and-ai-tools` and `code-audit-tools`. |
 
 Codex exposes each owner's generated `source-command-<name>` skill. Use the exact installed selector shown by the client. A wrapper reads the existing command procedure; it does not duplicate that procedure or expand its authority.
 
@@ -69,4 +70,4 @@ A useful command names its trigger, desired outcome, inputs, sequence, owner of 
 
 Claude Code exposes the plugin's native slash commands. Codex uses generated `source-command-*` Stinger wrappers for the same workflows; other harnesses have their own support. [Harness capabilities](../reference/HARNESS-CAPABILITIES.md) is the place to check the real surface. When no command UI exists, ask for the workflow by name and point at its Stinger or readable command file.
 
-TARS, CASE and KIPP require Claude Code Desktop. An installed TARS skill or command wrapper in another client does not provide those session tools.
+The `/tars` manager team (TARS, CASE and KIPP) requires Claude Code Desktop. An installed TARS skill or command wrapper in another client does not provide those session tools.

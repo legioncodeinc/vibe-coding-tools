@@ -7,7 +7,7 @@
 Owns the full Telegram Bot development surface for 2026: the Bot API up to 10.0 (including guest mode and Managed Bots), grammY (TypeScript, the recommended framework) and aiogram 3.x (Python, async-native), webhook-vs-long-polling architecture with quantitative thresholds, Telegram Mini Apps `initData` validation (HMAC-SHA256 and Ed25519 paths), Telegram Stars payments (mandatory for digital goods), inline mode, and MTProto escalation via Telethon/TDLib when Bot API limits are exhausted.
 
 ## Paired Stinger
-[telegram-bot-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/telegram-bot-stinger) - framework selection, webhook setup, bot features, Mini Apps initData validation, Stars payments, and the MTProto escalation guide.
+[telegram-bot-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/telegram-bot-stinger) - framework selection, webhook setup, bot features, Mini Apps initData validation, Stars payments, and the MTProto escalation guide.
 
 ## Trigger phrases
 - "build a Telegram bot"

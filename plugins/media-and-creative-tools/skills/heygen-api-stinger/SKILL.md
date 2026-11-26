@@ -25,7 +25,7 @@ Guide HeyGen API integrations that create, track, and deliver AI video without c
 ## When not to use
 
 - Creating a person-like image or video without confirmed consent and the required rights. Stop and obtain appropriate authorization.
-- Generic webhook security review, use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger).
+- Generic webhook security review, use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger).
 
 ## Procedure
 
@@ -45,7 +45,7 @@ Guide HeyGen API integrations that create, track, and deliver AI video without c
 ## Related drones and stingers
 
 - [heygen-api-wasp-drone](../../agents/heygen-api-wasp-drone.md) - paired implementation specialist.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - webhook and secret audit.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - webhook and secret audit.
 - [natural-photography-stinger](../natural-photography-stinger) - consented photographic work, when available in the consumer environment.
 
 ## Critical Directive
@@ -53,7 +53,7 @@ Guide HeyGen API integrations that create, track, and deliver AI video without c
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - final secret and webhook review.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - final secret and webhook review.
 
 ## Ship Gate
 

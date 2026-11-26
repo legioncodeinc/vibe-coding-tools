@@ -7,7 +7,7 @@
 This Drone owns the accessible overlay surface in React applications: alert dialogs, confirmation dialogs, drawers/sheets, toasts, and command menus, plus the shared focus, scroll-lock, and ARIA contract underneath all of them. It selects the right primitive (Radix Dialog, AlertDialog, Vaul Drawer, Sonner toast, cmdk command menu, Headless UI), wires it correctly (portal, focus trap, keyboard), and validates the result against a six-point accessible-modal contract and a four-tier toast-vs-notification taxonomy.
 
 ## Paired Stinger
-[modal-toast-dialog-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/modal-toast-dialog-stinger) - the primitive-selection matrix, the six-point accessible-modal contract, the toast-notification taxonomy, stacking/layering rules, and per-primitive Vaul and cmdk pattern guides.
+[modal-toast-dialog-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/modal-toast-dialog-stinger) - the primitive-selection matrix, the six-point accessible-modal contract, the toast-notification taxonomy, stacking/layering rules, and per-primitive Vaul and cmdk pattern guides.
 
 ## Trigger phrases
 - "which overlay primitive should I use here"

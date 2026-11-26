@@ -9,7 +9,7 @@ This Drone prepares an acquired repository for archival as a research object. It
 
 ## Paired Stinger
 
-[archivist-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/archivist-stinger) - intake, attribution and PII handling, third-party notice preservation, documentation consolidation, knowledge-brief coordination, verification, and archival reporting.
+[archivist-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/archivist-stinger) - intake, attribution and PII handling, third-party notice preservation, documentation consolidation, knowledge-brief coordination, verification, and archival reporting.
 
 ## Trigger phrases
 

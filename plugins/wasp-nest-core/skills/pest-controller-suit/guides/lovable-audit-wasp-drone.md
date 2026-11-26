@@ -9,7 +9,7 @@ This Drone is the empirical security auditor for Lovable-built, Supabase-backed 
 It treats a success-shaped response as an assertion, not proof of effect, until the state change is independently observed, and it marks a claim it cannot ground as an unknown rather than guess at it.
 
 ## Paired Stinger
-[lovable-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/code-audit-tools/skills/lovable-audit-stinger) - the six-verb audit procedure (bundle forensics, auth posture, differential visibility, write-denial discrimination, RPC and function enumeration, reporting), the probe tables, and the operator risk taxonomy.
+[lovable-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/code-audit-tools/skills/lovable-audit-stinger) - the six-verb audit procedure (bundle forensics, auth posture, differential visibility, write-denial discrimination, RPC and function enumeration, reporting), the probe tables, and the operator risk taxonomy.
 
 This is a research-only pairing: the stinger produces reports and transcripts, never committable code, so it carries no Ship Gate step.
 

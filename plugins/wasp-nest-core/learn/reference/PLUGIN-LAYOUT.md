@@ -2,7 +2,7 @@
 
 > Category: Plugins | Version: 3.1 | Date: October 2026 | Status: Active
 
-For users choosing plugins and maintainers updating source, the approved layout has one required Core and twenty optional plugins. The canonical [catalog](../../plugin-catalog.json) records every skill, agent, command and prerequisite. The [source inventory](https://github.com/legioncodeinc/vibe-coding-tools#what-ships) lists their contents.
+For users choosing plugins and maintainers updating source, the approved layout has one required Core and twenty-one optional plugins. The canonical [catalog](../../plugin-catalog.json) records every skill, agent, command and prerequisite. The [source inventory](https://github.com/legioncodeinc/vibe-coding-tools#what-ships) lists their contents.
 
 **Related:**
 
@@ -13,11 +13,11 @@ For users choosing plugins and maintainers updating source, the approved layout 
 
 ---
 
-Core retains eighteen skills, fourteen agents and nine commands. Its permanent foundation includes Get Started, Library, Knowledge, Quality, Security and GitHub repository health. Across all twenty-one plugins, there are 223 canonical skills, 184 agents and seventy-seven source commands. Generated command-wrapper skills are adapters for those commands, not extra source capabilities.
+Core retains eighteen skills, fourteen agents and nine commands. Its permanent foundation includes Get Started, Library, Knowledge, Quality, Security and GitHub repository health. Across all twenty-two plugins, there are 232 canonical skills, 192 agents and eighty-five source commands. Generated command-wrapper skills are adapters for those commands, not extra source capabilities.
 
 ## Why each capability has one owner
 
-The old Core carried most specialists, while Audit Tools mixed public website work, repository inspection, documentation refresh and authenticated app capture. Those jobs have different inputs and access boundaries. The twenty-one-plugin layout groups related work and keeps shared gates in Core.
+The old Core carried most specialists, while Audit Tools mixed public website work, repository inspection, documentation refresh and authenticated app capture. Those jobs have different inputs and access boundaries. The twenty-two-plugin layout groups related work and keeps shared gates in Core.
 
 A specialist's agent and skill remain together. Supporting guides, templates, scripts, references and notices travel with that owner. The catalog names the canonical source location; generated copies adapt it to a host without becoming a second authoring source.
 
@@ -27,23 +27,24 @@ A specialist's agent and skill remain together. Supporting guides, templates, sc
 | `website-audit-tools` | 21 | 20 | 1 | `packs/website-audit-tools` |
 | `code-audit-tools` | 12 | 11 | 1 | `packs/code-audit-tools` |
 | `documentation-tools` | 8 | 8 | 3 | `packs/documentation-tools` |
-| `web-development-tools` | 23 | 23 | 6 | `packs/web-development-tools` |
-| `backend-and-desktop-tools` | 9 | 9 | 4 | `packs/backend-and-desktop-tools` |
+| `web-development-tools` | 30 | 30 | 12 | `packs/web-development-tools` |
+| `backend-and-desktop-tools` | 10 | 10 | 4 | `packs/backend-and-desktop-tools` |
 | `data-and-ai-tools` | 12 | 12 | 3 | `packs/data-and-ai-tools` |
-| `platform-and-release-tools` | 19 | 19 | 6 | `packs/platform-and-release-tools` |
-| `growth-and-customer-tools` | 14 | 14 | 1 | `packs/growth-and-customer-tools` |
-| `business-and-product-tools` | 12 | 12 | 5 | `packs/business-and-product-tools` |
-| `media-and-creative-tools` | 3 | 3 | 1 | `packs/media-and-creative-tools` |
+| `platform-and-release-tools` | 20 | 20 | 7 | `packs/platform-and-release-tools` |
+| `growth-and-customer-tools` | 15 | 15 | 2 | `packs/growth-and-customer-tools` |
+| `business-and-product-tools` | 15 | 15 | 7 | `packs/business-and-product-tools` |
+| `media-and-creative-tools` | 4 | 4 | 1 | `packs/media-and-creative-tools` |
 | `browser-and-app-testing-tools` | 4 | 4 | 1 | `packs/browser-and-app-testing-tools` |
 | `highlevel` | 3 | 3 | 1 | `packs/highlevel` |
 | `littlebird-toolkit` | 30 | 0 | 1 | `packs/littlebird-toolkit` |
 | `content-intelligence` | 2 | 0 | 1 | `packs/content-intelligence` |
 | `app-primer-zero` | 1 | 0 | 1 | `packs/app-primer-zero` |
-| `developer-learning-tools` | 2 | 2 | 2 | `packs/developer-learning-tools` |
+| `developer-learning-tools` | 4 | 4 | 5 | `packs/developer-learning-tools` |
 | `software-economics-tools` | 4 | 4 | 4 | `packs/software-economics-tools` |
-| `infrastructure-decision-tools` | 2 | 2 | 2 | `packs/infrastructure-decision-tools` |
-| `repository-modernization-tools` | 0 | 0 | 5 | `packs/repository-modernization-tools` |
+| `infrastructure-decision-tools` | 6 | 6 | 6 | `packs/infrastructure-decision-tools` |
+| `repository-modernization-tools` | 1 | 1 | 6 | `packs/repository-modernization-tools` |
 | `product-studio` | 3 | 3 | 1 | `packs/product-studio` |
+| `interstellar-coding` | 9 | 8 | 8 | `packs/interstellar-coding` |
 
 The immutable Core set is Get Started, Library, Knowledge, Quality, Security and GitHub repository health. The approved additions keep routing, creation, Git, dependency review, contracts, decisions, writing and harness integration available to every workflow.
 
@@ -72,7 +73,7 @@ Purge the previous Wasp Nest installation before using this layout. There are no
 - `--core-only` selects Core.
 - `--packs website-audit-tools` selects Core, Browser and App Testing, then Website Audit.
 - `--profile refresh-repository-knowledge` selects Core, Documentation and Code Audit.
-- The default selects all twenty-one plugins.
+- The default selects all twenty-two plugins.
 
 The builder validates the selection before writing output. The installer copies each selected plugin's commands, command wrappers, skills and agent projections into the chosen home layouts. It records selected package roots in `~/.wasp-nest/installed-plugins.json`.
 
@@ -102,7 +103,7 @@ For example, a registry contains actual installed roots:
 
 These are placeholders, not proposed filesystem locations. The local installer writes real roots automatically. A native marketplace or UI install is not proven to populate this registry. For that route, ask the assistant to prepare the registry from the actual enabled plugin roots, review it before writing, and trust Core's hook before global Codex role registration. Without that setup, optional global Codex roles are not promised.
 
-Core alone declares the shared lifecycle hooks. Its [role registrar](../../hooks/register-codex-agents.py) loads declared roles from the explicit selection, preserves customized files in backups, and refuses unsafe source or destination paths. Optional plugins carry role projections without duplicate registration hooks.
+Core alone declares the shared lifecycle hooks. Interstellar Coding is the one optional plugin that ships hooks of its own: a role hook in its `hooks/hooks.json` that records which crew role a session holds and reloads that role's skill at session start and after compaction. Core's [role registrar](../../hooks/register-codex-agents.py) loads declared roles from the explicit selection, preserves customized files in backups, and refuses unsafe source or destination paths. Optional plugins carry role projections without duplicate registration hooks.
 
 ## Public packaging
 

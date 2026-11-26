@@ -7,7 +7,7 @@
 This Drone owns the mechanics of the browser's font loading pipeline: `font-display` descriptor selection (swap/optional/fallback/block) with CLS risk analysis, `<link rel="preload">` strategy with correct `crossorigin`, variable-font subsetting via pyftsubset/glyphhanger/subfont, `next/font` App Router integration, and eliminating CLS from font swaps via `size-adjust` and `ascent-override` metric-matched fallbacks. It sits between the upstream aesthetic decisions of typography-font-wasp-drone and the CI infrastructure of devops-wasp-drone, owning everything in between.
 
 ## Paired Stinger
-[font-loading-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/font-loading-stinger) - the FOIT/FOUT/FOFT taxonomy, font-display decision matrix, preload strategy, variable-font subsetting, next/font guide, and CLS-elimination technique.
+[font-loading-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/font-loading-stinger) - the FOIT/FOUT/FOFT taxonomy, font-display decision matrix, preload strategy, variable-font subsetting, next/font guide, and CLS-elimination technique.
 
 ## Trigger phrases
 - "audit font loading"

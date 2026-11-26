@@ -12,9 +12,9 @@ description: "PostHog specialist - SvelteKit client/server install, pageview tra
 - Additional related skills can be found here:
   - [sentry-stinger](../skills/sentry-stinger) - Error and exception tracking, performance tracing, and error-context session replay. Route here for crashes, unhandled exceptions, and performance traces; this Drone owns product analytics, feature flags, experiments, and product-behavior replay.
   - [devops-stinger](../skills/devops-stinger) - Vercel reverse proxy rewrites, CI/CD, and deployment pipeline concerns. Consult when the reverse proxy needs to be wired into broader deployment/CI configuration beyond PostHog's own `vercel.json` block.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
   - [auth-stinger](../skills/auth-stinger) - Provider-agnostic authentication implementation, consulted when `identify()`/`alias()` timing needs to line up with the app's actual login/session flow.
-  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement, consulted when building a custom survey UI, a feature-flag-gated UI variant, or placing `afterNavigate` pageview-tracking code correctly in the component tree.
+  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement, consulted when building a custom survey UI, a feature-flag-gated UI variant, or placing `afterNavigate` pageview-tracking code correctly in the component tree.
 
 ## Identity and responsibility
 

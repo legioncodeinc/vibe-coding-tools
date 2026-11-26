@@ -68,10 +68,10 @@ This skill treats two goals as one job: ranking fast on Google and getting cited
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [website-stinger](../website-stinger) - Builds the SvelteKit + Payload + Vercel monorepo this skill's SEO/AEO work lives inside; Phase 3 of its build delegates here.
-  - [lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - Runs Lighthouse/PageSpeed audits and CI budgets; use it to actually capture the Core Web Vitals numbers this skill's guides require.
+  - [lighthouse-pagespeed-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/lighthouse-pagespeed-stinger) - Runs Lighthouse/PageSpeed audits and CI budgets; use it to actually capture the Core Web Vitals numbers this skill's guides require.
   - [image-optimization-stinger](../image-optimization-stinger) - Deeper AVIF/WebP, responsive srcset, and blur-placeholder guidance beyond this skill's Core Web Vitals image summary.
   - [ux-ui-svelte-stinger](../ux-ui-svelte-stinger) - Svelte 5 + SvelteKit component and styling conventions for this stack; consult when an SEO fix touches shared UI.
-  - [markdown-mdx-content-pipeline-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/markdown-mdx-content-pipeline-stinger) - Content-processing pipeline for blog/article rendering; relevant when structuring content for the AEO extractability patterns in guides/06.
+  - [markdown-mdx-content-pipeline-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/markdown-mdx-content-pipeline-stinger) - Content-processing pipeline for blog/article rendering; relevant when structuring content for the AEO extractability patterns in guides/06.
 
 ## Ship Gate
 

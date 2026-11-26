@@ -8,7 +8,7 @@ Observed-failure capture, bounded causal reproduction, exact test/fixture repair
 
 ## Paired Stinger
 
-[flaky-test-repair-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/repository-modernization-tools/skills/flaky-test-repair-stinger) supplies dated primary sources, four focused guides, evidence worksheet and explicitly fictional NOT_RUN cases.
+[flaky-test-repair-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/repository-modernization-tools/skills/flaky-test-repair-stinger) supplies dated primary sources, four focused guides, evidence worksheet and explicitly fictional NOT_RUN cases.
 
 ## Trigger phrases
 

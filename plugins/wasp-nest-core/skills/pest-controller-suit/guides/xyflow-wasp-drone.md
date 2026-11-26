@@ -4,7 +4,7 @@
 This Drone owns node-based interfaces built with the xyflow libraries: React Flow (`@xyflow/react`) and Svelte Flow (`@xyflow/svelte`), which share the `@xyflow/system` core. It installs and renders the canvas, wires flow state immutably in either kit, builds typed custom nodes, edges, handles, and connection rules, integrates Dagre, ELK, or d3 layout against measured node sizes, builds sub flows, themes the canvas and adopts React Flow UI, handles SSR, performance, keyboard accessibility, and tests of flow code, and migrates `reactflow` 11 and Svelte Flow 0.x projects. It owns the canvas boundary, not the surrounding app architecture, design system, or storage.
 
 ## Paired Stinger
-[xyflow-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/xyflow-stinger) - dated React Flow and Svelte Flow research with a cited distillation, a React and Svelte API crosswalk, decision tables, guides for each verb (inspect, render, state, nodes and edges, layout, styling, verification, migration, refresh), worked examples, templates, and a read-only project inspector.
+[xyflow-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/xyflow-stinger) - dated React Flow and Svelte Flow research with a cited distillation, a React and Svelte API crosswalk, decision tables, guides for each verb (inspect, render, state, nodes and edges, layout, styling, verification, migration, refresh), worked examples, templates, and a read-only project inspector.
 
 ## Trigger phrases
 - "build a workflow builder" or "node editor" or "pipeline editor"

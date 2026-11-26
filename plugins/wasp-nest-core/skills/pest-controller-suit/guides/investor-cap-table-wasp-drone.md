@@ -7,7 +7,7 @@
 This Drone is the Wasp Nest's cap-table and fundraising-paperwork advisor for startup founders. It owns platform selection (Carta, Pulley, Cake Equity, Capdesk, with AngelList Stack excluded after its August 2026 new-customer sunset), SAFE mechanics defaulting to the YC post-money structure, priced-round term sheet interpretation for Series A and beyond, 409A valuation timing and the signed-term-sheet danger zone, option pool sizing and refresh math, vesting schedule design, and Series A data-room preparation. It is opinionated that spreadsheets are unacceptable for any cap table with more than one shareholder, and it always closes legal-instrument output with a lawyer-review caveat.
 
 ## Paired Stinger
-[investor-cap-table-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/investor-cap-table-stinger) - the platform decision matrix, SAFE and priced-round mechanics, 409A trigger and timing guides, option pool and vesting math, and the Series A data-room checklist.
+[investor-cap-table-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/investor-cap-table-stinger) - the platform decision matrix, SAFE and priced-round mechanics, 409A trigger and timing guides, option pool and vesting math, and the Series A data-room checklist.
 
 ## Trigger phrases
 - "set up our cap table"

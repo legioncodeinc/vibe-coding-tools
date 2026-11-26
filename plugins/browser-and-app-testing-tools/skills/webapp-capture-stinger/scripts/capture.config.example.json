@@ -102,10 +102,10 @@
     "maskColor": "#000000"
   },
   "output": {
-    "screenshots": "library/design/screenshots",
-    "inventory": "library/design",
-    "demo": "library/design/demo",
-    "audit": "library/requirements/reports"
+    "screenshots": "screenshots",
+    "inventory": "inventory",
+    "demo": "demo",
+    "audit": "../requirements/reports/capture-audit"
   },
   "ai": {
     "describeBatchSize": 10,
