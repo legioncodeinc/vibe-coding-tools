@@ -1,6 +1,6 @@
 {
   "name": "repository-modernization-tools",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Compose repository baseline, safe refactoring and contributor onboarding through selected specialist owners.",
   "author": {
     "name": "Legion Code Inc."

@@ -62,9 +62,9 @@ A Tailscale task run through this skill is done when: the relevant guide(s) were
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [devops-stinger](../devops-stinger) - Container build and CI/CD pipeline architecture. Consult for the broader GitHub Actions workflow the ephemeral Tailscale node step plugs into.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline. Consult for auditing whether a written ACL is actually least-privilege, not just present.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL/Neon schema, indexing, and migrations. Consult for how the app itself connects to and models the database this skill's bastion pattern makes reachable.
-  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/git-stinger) - Branching and repository conventions. Consult for how a tailnet-policy-file change (GitOps for Tailscale ACLs) should be branched and reviewed like any other config change.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline. Consult for auditing whether a written ACL is actually least-privilege, not just present.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL/Neon schema, indexing, and migrations. Consult for how the app itself connects to and models the database this skill's bastion pattern makes reachable.
+  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/git-stinger) - Branching and repository conventions. Consult for how a tailnet-policy-file change (GitOps for Tailscale ACLs) should be branched and reviewed like any other config change.
 
 ## Ship Gate
 

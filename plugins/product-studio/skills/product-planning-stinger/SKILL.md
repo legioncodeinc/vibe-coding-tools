@@ -63,20 +63,20 @@ This Stinger does not write PRDs, IRDs or CTRs, and does not build.
 
 ## Related drones and stingers
 
-- [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger/SKILL.md) writes the PRDs from the Handoff Packet.
-- [contract-writing-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/contract-writing-stinger/SKILL.md) drafts CTRs for the flagged boundaries.
+- [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger/SKILL.md) writes the PRDs from the Handoff Packet.
+- [contract-writing-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/contract-writing-stinger/SKILL.md) drafts CTRs for the flagged boundaries.
 - `product-strategy-stinger` and `product-design-stinger` (this pack) produce the inputs.
-- [smoke-it](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/commands/smoke-it.md) executes the approved Wave Plan.
+- [smoke-it](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/commands/smoke-it.md) executes the approved Wave Plan.
 
 ## Critical Directive
 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger) - PRD authoring, PRD template and lifecycle.
-  - [contract-writing-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/contract-writing-stinger) - shared boundary contracts and acceptance.
-  - [estimation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/estimation-stinger) - time and cost forecasts for the plan.
-  - [agile-scrum-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/agile-scrum-stinger) - team and sprint Definition of Done practice.
+  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger) - PRD authoring, PRD template and lifecycle.
+  - [contract-writing-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/contract-writing-stinger) - shared boundary contracts and acceptance.
+  - [estimation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/estimation-stinger) - time and cost forecasts for the plan.
+  - [agile-scrum-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/agile-scrum-stinger) - team and sprint Definition of Done practice.
 
 ## Ship Gate
 
