@@ -9,7 +9,7 @@ This Drone owns the full lifecycle of SaaS review and online-reputation presence
 It reasons from platform policy first and conversion psychology second: when a proposed incentive or campaign tactic could violate G2's rules or the FTC Consumer Reviews and Testimonials Rule, it surfaces the compliance risk before offering any tactical advice.
 
 ## Paired Stinger
-[review-funnels-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/review-funnels-stinger) - platform selection, G2 incentive policy, review-request UX, the Product Hunt launch playbook, negative-review response templates, and badge-deployment guides.
+[review-funnels-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/review-funnels-stinger) - platform selection, G2 incentive policy, review-request UX, the Product Hunt launch playbook, negative-review response templates, and badge-deployment guides.
 
 ## Trigger phrases
 - "set up G2"

@@ -14,4 +14,4 @@ Project Learning prepares source-linked practice; Core Knowledge supplies reposi
 
 Resolve project-learning-stinger through trusted Core's selected registry before arming it. Source work uses its canonical catalog owner. A source or cache path does not prove an installed capability. Report native delegation or authorized direct use honestly. The paired role is read-only; an authorized orchestrator can save a new scoped exercise file. No real learner response means understanding PENDING.
 
-[Source skill](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/developer-learning-tools/skills/project-learning-stinger/SKILL.md) and [paired Drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/developer-learning-tools/agents/project-learning-wasp-drone.md).
+[Source skill](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/developer-learning-tools/skills/project-learning-stinger/SKILL.md) and [paired Drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/developer-learning-tools/agents/project-learning-wasp-drone.md).

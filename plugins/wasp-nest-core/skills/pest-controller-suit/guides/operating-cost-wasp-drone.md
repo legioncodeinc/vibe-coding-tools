@@ -30,4 +30,4 @@ Read the root catalog for source work. For installed work resolve `operating-cos
 
 The runtime produces an advisory artifact. No installation, credential entry, provider change, messages or release action follows implicitly. Keep the parent's scope, clock and file ownership. Code-producing changes close with Security then Quality and the orchestrator repository-health review.
 
-[Paired source skill](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/software-economics-tools/skills/operating-cost-stinger/SKILL.md) and [source Drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/software-economics-tools/agents/operating-cost-wasp-drone.md) carry the exact domain procedure and boundaries.
+[Paired source skill](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/software-economics-tools/skills/operating-cost-stinger/SKILL.md) and [source Drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/software-economics-tools/agents/operating-cost-wasp-drone.md) carry the exact domain procedure and boundaries.

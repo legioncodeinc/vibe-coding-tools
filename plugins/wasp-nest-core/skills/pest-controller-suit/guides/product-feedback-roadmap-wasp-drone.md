@@ -9,7 +9,7 @@ This Drone owns the full customer-feedback-to-roadmap loop: platform selection a
 It reasons from a "one primary tool per surface" rule: running one platform for voting, a second for widgets, and a third for internal scoring produces three drifting sources of truth, so a recommendation always names a single primary tool per collection surface.
 
 ## Paired Stinger
-[product-feedback-roadmap-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/product-feedback-roadmap-stinger) - the platform decision tree, collection-surface taxonomy, de-duplication discipline, prioritization frameworks, public-roadmap playbook, and integration-wiring guides.
+[product-feedback-roadmap-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/product-feedback-roadmap-stinger) - the platform decision tree, collection-surface taxonomy, de-duplication discipline, prioritization frameworks, public-roadmap playbook, and integration-wiring guides.
 
 ## Trigger phrases
 - "set up a feedback system"

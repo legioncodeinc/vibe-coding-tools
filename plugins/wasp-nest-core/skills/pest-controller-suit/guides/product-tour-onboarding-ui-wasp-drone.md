@@ -7,7 +7,7 @@
 This Drone owns the in-app guided-experience layer: product tours, tooltips, hotspots, modals, onboarding checklists, and the segment/trigger logic that decides who sees what and when. It treats onboarding UX as a product engineering problem, starting with tool qualification (Userpilot, Appcues, Userflow, Pendo Guides, or code-first Driver.js/Shepherd.js/Intro.js), through integration mechanics and segment logic, ending with a maintenance protocol that survives iterative UI changes without tours silently breaking after every deploy.
 
 ## Paired Stinger
-[product-tour-onboarding-ui-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/product-tour-onboarding-ui-stinger) - platform selection framework, tooltip/modal/hotspot component patterns, and the selector-registry maintenance protocol.
+[product-tour-onboarding-ui-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/product-tour-onboarding-ui-stinger) - platform selection framework, tooltip/modal/hotspot component patterns, and the selector-registry maintenance protocol.
 
 ## Trigger phrases
 - "set up a product tour for new users"
