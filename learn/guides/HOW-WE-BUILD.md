@@ -37,7 +37,7 @@ Step 0 happens once on each computer. Steps 1 to 9 happen for every project. Cli
 1. **[Make or open the repo](#step-1-make-or-open-the-repo):** Create or open the project in GitKraken, inside your `github` folder, on a new branch.
 2. **[Get Started](#step-2-get-started-and-knowledge):** Set up the project's Library and checks. On a project that already has code, **Knowledge** also explains the code.
 3. **[Plan with Product Studio](#step-3-plan-the-product-with-product-studio):** Strategy first, then design, then the build plan.
-4. **[Turn on TARS](#step-4-turn-on-tars-then-meet-case-and-kipp):** TARS manages the work. **CASE** checks big decisions. **KIPP** catches new ideas that show up mid-build.
+4. **[Turn on TARS](#step-4-turn-on-tars-then-meet-case-and-kipp):** TARS manages the work. **CASE** checks big decisions. **KIPP** turns new ideas that show up mid-build into PRDs.
 5. **[Write the PRDs](#step-5-write-the-prds-with-the-library):** The Library writes the build agreements, each with testable acceptance criteria.
 6. **[Lock the wave plan and Definition of Done](#step-6-lock-the-wave-plan-and-the-definition-of-done):** Approve the build order and the finish line.
 7. **[Write contracts](#step-7-write-contracts-for-shared-parts):** Agree on anything two pieces of work share before either side builds it.
@@ -65,8 +65,8 @@ flowchart TD
     I --> J[Step 8: Build in waves]
     J --> K[Step 9: Ship Gate]
     K --> L([Merged, deployed, checked])
-    J -. new idea mid-build .-> M[KIPP feature card]
-    M -. back through planning .-> G
+    J -. new idea mid-build .-> M[KIPP drafts a PRD]
+    M -. on to the wave plan .-> H
 ```
 
 Here is who talks to whom while the work runs:
@@ -75,7 +75,7 @@ Here is who talks to whom while the work runs:
 flowchart TD
     You((You)) -- asks and approves --> TARS
     You -- new feature ideas --> KIPP
-    KIPP -- feature card --> TARS
+    KIPP -- PRD handoff --> TARS
     TARS -- big decisions --> CASE
     CASE -- PROCEED, SIMPLIFY, OVERKILL, ASK OWNER --> TARS
     TARS -- starts chips --> Sessions[Work sessions]
@@ -97,8 +97,8 @@ Building with The Wasp Nest is like running a small company where most of the wo
 | **Pest Controller** | The router. It looks at a task, picks the right Drone, and hands it its Stinger. | The dispatcher |
 | **Queen Wasp** | The skill that creates new Drones and Stingers (the `/forge` command). | The trainer who hires new specialists |
 | **TARS** | The manager. It starts work sessions, watches them, and makes sure each one finishes. It writes no code. | The project manager |
-| **CASE** | The adviser TARS checks with before big moves. It answers PROCEED, SIMPLIFY, OVERKILL, or ASK OWNER. | A wise second opinion |
-| **KIPP** | The feature desk. You talk to KIPP about new feature ideas that come up while building. | The front desk for new requests |
+| **CASE** | The adviser TARS checks with before big moves, and a read-only watcher of systems and CI. It answers PROCEED, SIMPLIFY, OVERKILL, or ASK OWNER. | A wise second opinion |
+| **KIPP** | The idea desk. You talk to KIPP about new feature ideas; it plans them and writes the PRDs. | The front desk for new requests |
 | **The Library** | The `library/` folder in every project. It holds what was agreed, why, and the proof that it got done. | The project's memory |
 | **Plugin (pack)** | A bundle of Drones and Stingers you can install. Wasp Nest Core is required. The other packs are optional. | A toolbox |
 
@@ -418,6 +418,8 @@ Product Studio plans. It does not write PRDs, contracts, or code. It hands those
 
 **What you do:** In the Claude Code desktop app, run `/tars` (in plugin mode, `/data-and-ai-tools:tars`) or say "be TARS." TARS only works in the desktop app. If it cannot find the tools it needs, it says so and stops.
 
+If you want a larger team, the Interstellar Coding plugin's `/interstellar` runs TARS with a full crew of roles. Use `/tars` or `/interstellar` for a piece of work, not both.
+
 ### TARS, the manager
 
 TARS turns each thing you ask for into a **chip**. A chip is an offer to start a new work session. You click a chip to start it. Each chip has:
@@ -465,7 +467,7 @@ sequenceDiagram
 
 ### CASE, the adviser
 
-CASE is a separate, read-only session. It only talks to TARS. It never edits files or talks to you directly.
+CASE is a separate, read-only session. It only talks to TARS. It never edits files or talks to you directly. It also keeps a read-only watch on CI runs, deploys and health checks, and tells TARS when something changes.
 
 A **CASE review** works like this: TARS sends one batch with your request, numbered questions, what TARS is leaning toward, and the exact version of the code. CASE answers one line per question:
 
@@ -492,21 +494,22 @@ sequenceDiagram
 
 Anything bigger than one small pull request goes through CASE before work starts. A PROCEED from CASE is advice. It never replaces your approval for the things only you can approve.
 
-### KIPP, the feature desk
+### KIPP, the idea desk
 
-**KIPP is for new feature ideas that come up in the middle of a build.** You talk to KIPP directly. It asks short questions, each with a recommended answer. It turns your idea into a **feature card**. It does not write code, PRDs, or contracts.
+**KIPP is for new feature ideas that come up in the middle of a build.** You talk to KIPP directly. It asks short questions, each with a recommended answer. It records your idea on a **feature card**, and when you want it built, it plans it and writes the **PRD** with the Library skill. It does not write code or contracts.
 
-When a card is finished, KIPP hands it to TARS. TARS assigns the PRD and contract numbers, runs the plan past CASE, and starts a Library chip to write the PRD. The new idea then follows Steps 5 through 9 like everything else.
+KIPP reserves the PRD number itself and hands the finished PRD to TARS. TARS runs it past CASE, and the new idea then follows Steps 6 through 9 like everything else.
 
 ```mermaid
 flowchart TD
     You((You)) -- new idea mid-build --> K[KIPP asks short questions]
     K --> FC[Feature card]
-    FC --> T[TARS assigns PRD and CTR numbers]
+    FC --> L[KIPP writes the PRD]
+    L --> T[TARS receives the handoff]
     T --> C{CASE review}
-    C -- PROCEED --> L[Library chip writes the PRD]
+    C -- PROCEED --> Steps([Steps 6 to 9])
+    C -- SIMPLIFY or OVERKILL --> L
     C -- ASK OWNER --> You
-    L --> Steps([Steps 5 to 9])
 ```
 
 

@@ -7,7 +7,7 @@
 
 ### Get the Git life.
 
-**184 specialist Drones, 223 Stingers, commands, hooks, and rules across 21 installable plugins.**
+**192 specialist Drones, 232 Stingers, commands, hooks, and rules across 22 installable plugins.**
 
 Give your coding assistant the people, playbooks, and project memory it needs to build.
 
@@ -143,9 +143,10 @@ Short Core commands use `/wasp-nest-core:` in native Claude. Optional commands s
 | Assess a public website | [`/website-audit-tools:perform-website-audit`](plugins/website-audit-tools/commands/perform-website-audit.md) | Runs intake, site evidence, findings, scores and branded reports. |
 | Assess a codebase | [`/code-audit-tools:audit-my-code`](plugins/code-audit-tools/commands/audit-my-code.md) | Selects an audit tier and produces evidence, a brief and any approved remediation plan. |
 | Capture a running app | [`/browser-and-app-testing-tools:webapp-capture`](plugins/browser-and-app-testing-tools/commands/webapp-capture.md) | Creates scoped screenshots, demos or a visual inventory after intake and a dry run. |
-| Manage several implementation sessions | [`/data-and-ai-tools:tars`](plugins/data-and-ai-tools/commands/tars.md) | TARS manages the work, CASE challenges and resolves scoped decisions, and KIPP runs the Feature Desk. All three require Claude Code Desktop. |
+| Manage several implementation sessions | [`/data-and-ai-tools:tars`](plugins/data-and-ai-tools/commands/tars.md) | TARS manages the work, CASE advises and watches systems and CI read-only, and KIPP plans ideas and writes the PRDs. All three require Claude Code Desktop. |
+| Run a whole development crew | [`/interstellar-coding:interstellar`](plugins/interstellar-coding/commands/interstellar.md) | TARS leads KIPP, CASE, LADY, MOON, OWEL, COOP and MURPH. OWEL keeps an append-only ledger and MURPH gates each change. Separate sessions need Claude Code Desktop; elsewhere the roles run as subagents. Also needs Data and AI Tools and Code Audit Tools. |
 
-These are Claude entry points. Other clients use supported Stingers or command wrappers. TARS, CASE and KIPP have no Codex, Cursor or Cowork fallback; they require Claude Code Desktop. Invocation does not authorize external actions.
+These are Claude entry points. Other clients use supported Stingers or command wrappers. The `/tars` manager team (TARS with its CASE and KIPP helpers) requires Claude Code Desktop and has no Codex, Cursor or Cowork fallback. The Interstellar Coding crew is separate: without the desktop session tools it runs its roles as subagents and says so. Choose one manager per effort: `/tars` runs TARS with its CASE and KIPP helpers, while `/interstellar` runs the full crew, whose CASE and KIPP replace that pair. Invocation does not authorize external actions.
 
 Keep Core installed alongside each owning plugin. [Choose a document workflow](learn/guides/DOCUMENT-WORKFLOWS.md) for prerequisites, sample requests and the difference between preparing an app, refreshing its knowledge and explaining it to readers. Use `/wasp-nest-core:forge` for a new reusable component; public correction requests belong in the issue tracker below.
 
@@ -159,37 +160,38 @@ Keep Core installed alongside each owning plugin. [Choose a document workflow](l
 | **Product Studio** | The planning plugin: strategy, UX design, and the build plan (PRD map, wave plan, Definition of Done) before any PRD is written. |
 | **Smoke It** | The execution workflow that drives PRD criteria to verified completion, in the approved wave order. |
 | **Rule** | A persistent operating boundary for supported harnesses. |
-| **Hook** | A lifecycle check, including the consent-based first-session setup offer. |
+| **Hook** | A lifecycle check, such as the consent-based first-session setup offer. Core carries the shared hooks; Interstellar Coding adds one for its crew roles. |
 
 The Drone and Stinger pairing is enforced by the source validator. A missing pairing is not silently shipped.
 
 ## What ships
 
-Marketplace release **v3.0.1**. The core and add-on packs have independent manifest versions; counts and descriptions below are read from the built plugins, not maintained by hand.
+Marketplace release **v3.1.0**. The core and add-on packs have independent manifest versions; counts and descriptions below are read from the built plugins, not maintained by hand.
 
 | Plugin | Version | Stingers | Drones | What it does |
 | --- | --- | ---: | ---: | --- |
-| [wasp-nest-core](plugins/wasp-nest-core/README.md) | 3.0.1 | 18 | 14 | The Wasp Nest core: shared Drones and Stingers, orchestration commands, rules, and hooks. |
-| [app-primer-zero](plugins/app-primer-zero/README.md) | 3.0.1 | 1 | 0 | Prepare an app library, contracts, schema baseline and a wave handoff before building. |
-| [backend-and-desktop-tools](plugins/backend-and-desktop-tools/README.md) | 3.0.1 | 10 | 10 | Implement TypeScript, Python, Go, Rust, native apps, APIs and terminal workflows. |
-| [browser-and-app-testing-tools](plugins/browser-and-app-testing-tools/README.md) | 3.0.1 | 4 | 4 | Automate browsers, capture live apps and measure Lighthouse/PageSpeed behavior. |
-| [business-and-product-tools](plugins/business-and-product-tools/README.md) | 3.0.1 | 15 | 15 | Form and run a company, discover product needs, hire teams and improve delivery. |
-| [code-audit-tools](plugins/code-audit-tools/README.md) | 3.0.1 | 12 | 11 | Audit repositories and app security, measure bloat, inspect branches and plan remediation. |
-| [content-intelligence](plugins/content-intelligence/README.md) | 3.0.1 | 2 | 0 | Find and verify current repository/news topics and prepare voice-matched drafts. |
-| [data-and-ai-tools](plugins/data-and-ai-tools/README.md) | 3.0.1 | 12 | 12 | Design data, retrieval, AI runtime, model tooling and agent operations. |
-| [developer-learning-tools](plugins/developer-learning-tools/README.md) | 3.0.1 | 4 | 4 | Explain technical sources with source-grounded analogies and learner checks. |
-| [documentation-tools](plugins/documentation-tools/README.md) | 3.0.1 | 8 | 8 | Refresh, extract, publish and package documentation from real sources. |
-| [growth-and-customer-tools](plugins/growth-and-customer-tools/README.md) | 3.0.1 | 15 | 15 | Research buyers, acquire leads, follow up, support customers and grow accounts. |
-| [highlevel](plugins/highlevel/README.md) | 3.0.1 | 3 | 3 | Integrate HighLevel, build with AI Studio and map exported workflows. |
-| [infrastructure-decision-tools](plugins/infrastructure-decision-tools/README.md) | 3.0.1 | 6 | 6 | Prepare platform assets and account dependencies without implicit setup actions. |
-| [littlebird-toolkit](plugins/littlebird-toolkit/README.md) | 3.0.1 | 30 | 0 | Turn Littlebird memory into evidence-backed operating work. |
-| [media-and-creative-tools](plugins/media-and-creative-tools/README.md) | 3.0.1 | 4 | 4 | Create consented photography and integrate voice and video production. |
-| [platform-and-release-tools](plugins/platform-and-release-tools/README.md) | 3.0.1 | 20 | 20 | Integrate authentication, payments, analytics, messaging and production delivery. |
-| [product-studio](plugins/product-studio/README.md) | 3.0.1 | 3 | 3 | Turn an idea into a buildable plan: product strategy, Claude-Design-grade UX, a PRD map, a wave plan and a Definition of Done. |
-| [repository-modernization-tools](plugins/repository-modernization-tools/README.md) | 3.0.1 | 1 | 1 | Compose repository baseline, safe refactoring and contributor onboarding through selected specialist owners. |
-| [software-economics-tools](plugins/software-economics-tools/README.md) | 3.0.1 | 4 | 4 | Model supplied software economics and costs with explicit scenarios and evidence. |
-| [web-development-tools](plugins/web-development-tools/README.md) | 3.0.1 | 30 | 30 | Build web interfaces and sites with React, Svelte, design systems and accessible components. |
-| [website-audit-tools](plugins/website-audit-tools/README.md) | 3.0.1 | 21 | 20 | Audit a public website with crawl, SEO, accessibility, conversion and evidence-backed reports. |
+| [wasp-nest-core](plugins/wasp-nest-core/README.md) | 3.1.0 | 18 | 14 | The Wasp Nest core: shared Drones and Stingers, orchestration commands, rules, and hooks. |
+| [app-primer-zero](plugins/app-primer-zero/README.md) | 3.1.0 | 1 | 0 | Prepare an app library, contracts, schema baseline and a wave handoff before building. |
+| [backend-and-desktop-tools](plugins/backend-and-desktop-tools/README.md) | 3.1.0 | 10 | 10 | Implement TypeScript, Python, Go, Rust, native apps, APIs and terminal workflows. |
+| [browser-and-app-testing-tools](plugins/browser-and-app-testing-tools/README.md) | 3.1.0 | 4 | 4 | Automate browsers, capture live apps and measure Lighthouse/PageSpeed behavior. |
+| [business-and-product-tools](plugins/business-and-product-tools/README.md) | 3.1.0 | 15 | 15 | Form and run a company, discover product needs, hire teams and improve delivery. |
+| [code-audit-tools](plugins/code-audit-tools/README.md) | 3.1.0 | 12 | 11 | Audit repositories and app security, measure bloat, inspect branches and plan remediation. |
+| [content-intelligence](plugins/content-intelligence/README.md) | 3.1.0 | 2 | 0 | Find and verify current repository/news topics and prepare voice-matched drafts. |
+| [data-and-ai-tools](plugins/data-and-ai-tools/README.md) | 3.1.0 | 12 | 12 | Design data, retrieval, AI runtime, model tooling and agent operations. |
+| [developer-learning-tools](plugins/developer-learning-tools/README.md) | 3.1.0 | 4 | 4 | Explain technical sources with source-grounded analogies and learner checks. |
+| [documentation-tools](plugins/documentation-tools/README.md) | 3.1.0 | 8 | 8 | Refresh, extract, publish and package documentation from real sources. |
+| [growth-and-customer-tools](plugins/growth-and-customer-tools/README.md) | 3.1.0 | 15 | 15 | Research buyers, acquire leads, follow up, support customers and grow accounts. |
+| [highlevel](plugins/highlevel/README.md) | 3.1.0 | 3 | 3 | Integrate HighLevel, build with AI Studio and map exported workflows. |
+| [infrastructure-decision-tools](plugins/infrastructure-decision-tools/README.md) | 3.1.0 | 6 | 6 | Prepare platform assets and account dependencies without implicit setup actions. |
+| [interstellar-coding](plugins/interstellar-coding/README.md) | 3.1.0 | 9 | 8 | A development team of agent roles led by TARS: orchestration, product and library, dissent, investigation, efficiency, documentation with an append-only ledger, building and gating. |
+| [littlebird-toolkit](plugins/littlebird-toolkit/README.md) | 3.1.0 | 30 | 0 | Turn Littlebird memory into evidence-backed operating work. |
+| [media-and-creative-tools](plugins/media-and-creative-tools/README.md) | 3.1.0 | 4 | 4 | Create consented photography and integrate voice and video production. |
+| [platform-and-release-tools](plugins/platform-and-release-tools/README.md) | 3.1.0 | 20 | 20 | Integrate authentication, payments, analytics, messaging and production delivery. |
+| [product-studio](plugins/product-studio/README.md) | 3.1.0 | 3 | 3 | Turn an idea into a buildable plan: product strategy, Claude-Design-grade UX, a PRD map, a wave plan and a Definition of Done. |
+| [repository-modernization-tools](plugins/repository-modernization-tools/README.md) | 3.1.0 | 1 | 1 | Compose repository baseline, safe refactoring and contributor onboarding through selected specialist owners. |
+| [software-economics-tools](plugins/software-economics-tools/README.md) | 3.1.0 | 4 | 4 | Model supplied software economics and costs with explicit scenarios and evidence. |
+| [web-development-tools](plugins/web-development-tools/README.md) | 3.1.0 | 30 | 30 | Build web interfaces and sites with React, Svelte, design systems and accessible components. |
+| [website-audit-tools](plugins/website-audit-tools/README.md) | 3.1.0 | 21 | 20 | Audit a public website with crawl, SEO, accessibility, conversion and evidence-backed reports. |
 
 The [Claude catalog](.claude-plugin/marketplace.json) and [Codex catalog](.agents/plugins/marketplace.json) expose these packs individually. Runtime guides and research distillations ship with them. Raw research archives, `node_modules/`, and ingested photography models do not. The photography pack retains only its blank model template.
 
