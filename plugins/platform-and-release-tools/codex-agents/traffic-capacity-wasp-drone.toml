@@ -10,7 +10,7 @@ developer_instructions = """
 - Additional related skills can be found here:
   - [sentry-stinger](../skills/sentry-stinger) - Existing measurement and alert evidence.
   - [vercel-stinger](../skills/vercel-stinger) - Actual provider/runtime execution owner.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Privacy, tenancy and abuse policy.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Privacy, tenancy and abuse policy.
 
 ## Responsibility
 Own read-only traffic-spike capacity, bottleneck, SLO, cost, admission and recovery planning from actual aggregate metrics and dated constraints. Existing capacity-planning-wasp-drone owns staffing, demand/calendar/review/support and hire-versus-services decisions. Do not borrow that identity.

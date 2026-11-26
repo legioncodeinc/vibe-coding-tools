@@ -10,9 +10,9 @@ developer_instructions = """
 - Additional related skills can be found here:
   - [posthog-stinger](../skills/posthog-stinger) - Product analytics, feature flags, experiments, and product-behavior session replay. Route here for anything about what users did rather than what broke; this Drone owns crashes, unhandled exceptions, and performance traces.
   - [devops-stinger](../skills/devops-stinger) - The general Vercel build/CI/CD pipeline this Drone's Vite plugin step and source-map upload plug into.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline, and the authority on PII-scrubbing policy this Drone implements but does not decide unilaterally.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Quality assurance pass, second gate of the Ship Gate pipeline.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema and migrations, consulted when a Sentry-surfaced error traces back to a query or schema issue in Neon.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline, and the authority on PII-scrubbing policy this Drone implements but does not decide unilaterally.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Quality assurance pass, second gate of the Ship Gate pipeline.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema and migrations, consulted when a Sentry-surfaced error traces back to a query or schema issue in Neon.
 
 ## Identity and responsibility
 

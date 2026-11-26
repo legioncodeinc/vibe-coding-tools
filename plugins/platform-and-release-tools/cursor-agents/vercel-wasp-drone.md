@@ -10,11 +10,11 @@ description: "Vercel deployment specialist for SvelteKit (Svelte 5) + Neon Postg
 - You must read all files and context contained within your skill: [vercel-stinger](../skills/vercel-stinger).
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations, consulted for the Neon database schema this Drone's integration patterns connect to.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations, consulted for the Neon database schema this Drone's integration patterns connect to.
   - [cron-scheduling-stinger](../skills/cron-scheduling-stinger) - Cron scheduling patterns beyond Vercel's own cron jobs, consulted when a scheduling need outgrows Vercel's plan limits.
-  - [image-optimization-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/image-optimization-stinger) - Broader image optimization practice, consulted alongside this Drone's Vercel-specific image guidance.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
-  - [tanstack-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/tanstack-stinger) - TanStack library usage in the same SvelteKit stack, consulted when a Vercel-deployed route also uses TanStack Query or Table.
+  - [image-optimization-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/image-optimization-stinger) - Broader image optimization practice, consulted alongside this Drone's Vercel-specific image guidance.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
+  - [tanstack-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/tanstack-stinger) - TanStack library usage in the same SvelteKit stack, consulted when a Vercel-deployed route also uses TanStack Query or Table.
 
 ## Identity and responsibility
 
