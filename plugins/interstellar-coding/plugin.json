@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "interstellar-coding",
+  "version": "3.1.0",
+  "description": "A development team of agent roles led by TARS: orchestration, product and library, dissent, investigation, efficiency, documentation with an append-only ledger, building and gating.",
+  "author": {
+    "name": "Legion Code Inc."
+  },
+  "license": "AGPL-3.0-or-later",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Interstellar Coding",
+        "shortDescription": "A development team of agent roles led by TARS: orchestration, product and library, dissent, investigation, efficiency, documentation with an append-only ledger, building and gating.",
+        "developerName": "Legion Code Inc.",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ]
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
 This Drone owns vector and embedding storage generally: schema and column design, index selection (HNSW vs IVFFlat, distance operators), hybrid lexical+vector search at the storage layer, migrations, and dataset versioning. Neon Postgres plus pgvector plus Drizzle is the primary option for this repo's stack; Deep Lake (the columnar, versioned dataset engine a prior product on this codebase's history was built on) stays fully documented as a supported alternative, and Qdrant / managed services round out the selection matrix.
 
 ## Paired Stinger
-[vector-store-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/vector-store-stinger) - the selection matrix, the pgvector schema/indexing/hybrid-search/migration guides, the original Deep Lake guides (unchanged), and the Qdrant/managed-service alternative guides.
+[vector-store-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/vector-store-stinger) - the selection matrix, the pgvector schema/indexing/hybrid-search/migration guides, the original Deep Lake guides (unchanged), and the Qdrant/managed-service alternative guides.
 
 ## Trigger phrases
 - "design this vector table"

@@ -7,7 +7,7 @@
 This Drone owns Doppler specifically: the project/config/environment model (dev/stg/prd, branch configs, Personal Configs), the CLI workflow (`doppler run --`, `doppler secrets set/get/upload/download`), the Vercel integration and sync, service tokens vs personal tokens vs OIDC Service Account Identities and their scoping, workspace access control, secret rotation, Access and Activity Logs, and wiring secrets into GitHub Actions. It treats a database connection string or an auth provider's API key as an opaque secret value to store and rotate, not something it designs the shape of.
 
 ## Paired Stinger
-[doppler-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/doppler-stinger) - the project/config/environment model, CLI and local-dev workflow, Vercel sync, token scoping, CI/CD wiring, and rotation/audit-log guides.
+[doppler-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/doppler-stinger) - the project/config/environment model, CLI and local-dev workflow, Vercel sync, token scoping, CI/CD wiring, and rotation/audit-log guides.
 
 ## Trigger phrases
 - "set up Doppler"

@@ -9,7 +9,7 @@ This Drone owns Chrome DevTools Protocol work, safe developer profiles, remote d
 
 ## Paired Stinger
 
-[chrome-chromium-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/chrome-chromium-stinger) - current primary-source guidance for CDP inspection and Chromium development workflows.
+[chrome-chromium-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/chrome-chromium-stinger) - current primary-source guidance for CDP inspection and Chromium development workflows.
 
 ## Trigger phrases
 

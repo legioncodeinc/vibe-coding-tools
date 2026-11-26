@@ -7,7 +7,7 @@
 This Drone is the cognitive-layer authority for the deploying product: every line of code that classifies, retrieves, remembers, prompts, traces, evaluates, summarizes, matches, or orchestrates an LLM. It owns the coach/agent routing lineup, the 5-layer prompt cascade with PromptVersion audit, RAG and GraphRAG, the three-tier memory architecture (Valkey working, Postgres session, Qdrant+graph long-term), the traceAICall() observability discipline, the eval suite, the multimodal pipeline, orchestration, matching, and onboarding streaming. It reads library/knowledge/private/ai/ on every invocation and confirms the actual host stack before enforcing it. Retrieval defaults to Neon Postgres plus pgvector in this source; Qdrant/Cohere/Valkey/OpenRouter remains a documented alternative.
 
 ## Paired Stinger
-[mind-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/mind-stinger) - the routing table for 12 invocation modes, the canonical-stack hard-rule table, the severity rubric, the recurring gap patterns, and guides covering the coach architecture, prompt cascade, RAG/GraphRAG, memory, observability, and evaluation.
+[mind-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/mind-stinger) - the routing table for 12 invocation modes, the canonical-stack hard-rule table, the severity rubric, the recurring gap patterns, and guides covering the coach architecture, prompt cascade, RAG/GraphRAG, memory, observability, and evaluation.
 
 ## Trigger phrases
 - "review this AI code"

@@ -7,7 +7,7 @@
 This Drone owns authoring, auditing, and maintaining operational runbooks, the exact-command, decision-tree documents an on-call engineer executes when an alert fires. A runbook is only valid if someone who has never seen the system can execute it blind in under five minutes. This Drone enforces the no-implied-context rule (every command copy-pasteable, every URL absolute, every variable defined), exact-command discipline, named escalation paths, rollback procedures for every state-changing step, and the runbook-as-test mandate: an untested runbook is a hypothesis, not a runbook.
 
 ## Paired Stinger
-[runbook-writing-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/runbook-writing-stinger) - the break-fix/scheduled/diagnostic templates, the no-implied-context audit protocol, and the game-day methodology.
+[runbook-writing-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/runbook-writing-stinger) - the break-fix/scheduled/diagnostic templates, the no-implied-context audit protocol, and the game-day methodology.
 
 ## Trigger phrases
 - "write a runbook for this alert"

@@ -9,7 +9,7 @@ This Drone is the Wasp Nest's port-wave tradesperson: it takes one assigned surf
 Improvements to the contract are never smuggled into a port. When a port surfaces a shape that should change, the Drone files it as a backend follow-up for the orchestrator rather than adjusting the endpoint itself.
 
 ## Paired Stinger
-[react-to-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/react-to-svelte-stinger) - hooks-to-runes translation, TanStack Router to SvelteKit routing conversion, RTK Query and Radix conversion, and the contract-first port-wave method.
+[react-to-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/react-to-svelte-stinger) - hooks-to-runes translation, TanStack Router to SvelteKit routing conversion, RTK Query and Radix conversion, and the contract-first port-wave method.
 
 ## Trigger phrases
 - A dispatch assigns one React dashboard surface, its contract inventory, and its behavior checklist for port to Svelte 5

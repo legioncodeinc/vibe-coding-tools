@@ -7,7 +7,7 @@
 CI and release engineering after target classification: SvelteKit-on-Vercel app checks and deployment interaction, published npm-package build/release contracts, or explicit handoff for another platform. Improve CI without redundant jobs through a baseline/proposed work and proof matrix, dependency-aware triggers, candidate/artifact identity, safe cancellation/rerun rules and measured cost/time inputs. This source tree is an asset distributor; do not assume it has either example pipeline.
 
 ## Paired Stinger
-[ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) - the build/bundle guide, version single-sourcing, the quality-gate spec, workflow architecture, the release flow, npm publish discipline, and native-dep healing.
+[ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) - the build/bundle guide, version single-sourcing, the quality-gate spec, workflow architecture, the release flow, npm publish discipline, and native-dep healing.
 
 ## Trigger phrases
 - "improve CI without redundant jobs / CI is too slow or expensive"

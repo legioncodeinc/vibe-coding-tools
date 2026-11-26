@@ -9,7 +9,7 @@ This Drone owns Playwright and Puppeteer automation, browser provisioning, test 
 
 ## Paired Stinger
 
-[browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - selection, setup, evidence, and failure-diagnosis guidance for Playwright and Puppeteer.
+[browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - selection, setup, evidence, and failure-diagnosis guidance for Playwright and Puppeteer.
 
 ## Trigger phrases
 

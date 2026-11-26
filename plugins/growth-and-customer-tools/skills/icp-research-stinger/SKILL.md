@@ -28,9 +28,9 @@ Turn one company domain into an evidence-backed Ideal Customer Profile: which or
 
 ## When not to use
 
-- ICP work inside a website-audit engagement; use [icp-positioning-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/website-audit-tools/skills/icp-positioning-stinger) in the `website-audit-tools` plugin.
+- ICP work inside a website-audit engagement; use [icp-positioning-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/website-audit-tools/skills/icp-positioning-stinger) in the `website-audit-tools` plugin.
 - Competitor workbooks or battlecards; use [competitive-research-stinger](../competitive-research-stinger).
-- Outbound sequences; use [cold-outreach-stinger](../cold-outreach-stinger). CRM scoring or enrichment pipelines; use [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/crm-integration-stinger).
+- Outbound sequences; use [cold-outreach-stinger](../cold-outreach-stinger). CRM scoring or enrichment pipelines; use [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/crm-integration-stinger).
 - ICP from a company's own CRM or closed-won data (internal analytics, not web research).
 - Lists of named people, emails, or phone numbers: out of scope, decline.
 
@@ -60,11 +60,11 @@ Turn one company domain into an evidence-backed Ideal Customer Profile: which or
 ## Related drones and stingers
 
 - [icp-research-wasp-drone](../../agents/icp-research-wasp-drone.md) - Paired Drone; one instance runs a whole Quick run or one lane of a fanned-out run.
-- [icp-positioning-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/website-audit-tools/skills/icp-positioning-stinger) - ICP inside a website-audit engagement.
+- [icp-positioning-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/website-audit-tools/skills/icp-positioning-stinger) - ICP inside a website-audit engagement.
 - [competitive-research-stinger](../competitive-research-stinger) - Competitor workbooks and battlecards built on the market lane.
 - [cold-outreach-stinger](../cold-outreach-stinger) - Outbound sequences aimed at the resulting ICP.
-- [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/crm-integration-stinger) - Turning the ICP into CRM fields and fit scores.
-- [discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/discovery-research-stinger) - Interviews that validate the ICP with real buyers.
+- [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/crm-integration-stinger) - Turning the ICP into CRM fields and fit scores.
+- [discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/discovery-research-stinger) - Interviews that validate the ICP with real buyers.
 
 ## Critical Directive
 
@@ -73,9 +73,9 @@ Turn one company domain into an evidence-backed Ideal Customer Profile: which or
 - Additional related skills can be found here:
   - [competitive-research-stinger](../competitive-research-stinger) - Market mapping, feature gaps, and battlecards from the same research footprint.
   - [cold-outreach-stinger](../cold-outreach-stinger) - Sequences and deliverability for reaching the ICP, at account and role level.
-  - [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/crm-integration-stinger) - CRM fit-score fields and enrichment sync for ICP tiers.
-  - [discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/discovery-research-stinger) - Customer interviews and opportunity mapping to validate hypotheses.
+  - [crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/crm-integration-stinger) - CRM fit-score fields and enrichment sync for ICP tiers.
+  - [discovery-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/discovery-research-stinger) - Customer interviews and opportunity mapping to validate hypotheses.
   - [alt-ads-platforms-stinger](../alt-ads-platforms-stinger) - Channel fit by ICP for paid acquisition.
-  - [legal-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/legal-docs-stinger) - Privacy notices and data-protection posture when research outputs feed outreach.
+  - [legal-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/legal-docs-stinger) - Privacy notices and data-protection posture when research outputs feed outreach.
 
 Ship Gate removed: research-only stinger, produces research dossiers and evidence ledgers, never committable application code.

@@ -6,7 +6,7 @@
 
 ## Paired Stinger
 
-[`../skills/website-stinger/`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/website-stinger)
+[`../skills/website-stinger/`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/website-stinger)
 
 Read `../skills/website-stinger/SKILL.md` first: it is the master index for this Drone's arsenal.
 
@@ -120,11 +120,11 @@ The notes listed below are source-repository research, not shipped.
 
 ## Critical Directive: paired skill
 
-- You must load your core skill now in advance of any planning or execution. Your core skill is: [website-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/website-stinger).
+- You must load your core skill now in advance of any planning or execution. Your core skill is: [website-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/website-stinger).
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/svelte-stinger) - Svelte runtime implementation.
+  - [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/svelte-stinger) - Svelte runtime implementation.
 
 ## Ship Gate
 

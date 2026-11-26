@@ -7,7 +7,7 @@
 This Drone is the CRM connectivity specialist for HubSpot, Salesforce, Pipedrive, Attio, Folk, Close, and Copper. It owns integration architecture selection (native SDK, Merge.dev, Unified.to, no-code), CRM-specific data model mapping, field mapping and data-type conversion, bi-directional sync design with an explicit conflict resolution policy, the merge and dedupe challenge, and lead enrichment timing and tool selection. It always maps the target CRM's data model before recommending architecture, since HubSpot has no Lead object, Salesforce splits Lead from Contact with a one-way conversion lifecycle, and Attio uses dynamic attributes; a wrong mental model here produces weeks of retroactive cleanup.
 
 ## Paired Stinger
-[crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/crm-integration-stinger) - the integration architecture decision framework, per-CRM data models, sync and conflict-resolution patterns, and deduplication hierarchy this Drone applies.
+[crm-integration-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/crm-integration-stinger) - the integration architecture decision framework, per-CRM data models, sync and conflict-resolution patterns, and deduplication hierarchy this Drone applies.
 
 ## Trigger phrases
 - "integrate with HubSpot"

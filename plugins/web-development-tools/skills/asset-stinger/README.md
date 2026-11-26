@@ -4,7 +4,7 @@ This directory holds everything the `asset-wasp-drone` agent needs to own the Un
 
 > **Agent entry point:** [`packs/web-development-tools/agents/asset-wasp-drone.md`](../../agents/asset-wasp-drone.md) (repo-local). The agent reads files from this directory by path; it does not auto-load everything into context.
 >
-> **Peer wasp-drones:** [`library-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/library-wasp-drone.md), [`quality-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/quality-wasp-drone.md), [`security-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/security-wasp-drone.md), [`ux-ui-svelte-wasp-drone`](../../agents/ux-ui-svelte-wasp-drone.md). Scope boundaries live in [`guides/05-hand-offs.md`](guides/05-hand-offs.md).
+> **Peer wasp-drones:** [`library-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/library-wasp-drone.md), [`quality-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/quality-wasp-drone.md), [`security-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/security-wasp-drone.md), [`ux-ui-svelte-wasp-drone`](../../agents/ux-ui-svelte-wasp-drone.md). Scope boundaries live in [`guides/05-hand-offs.md`](guides/05-hand-offs.md).
 
 ## Directory map
 
@@ -71,8 +71,8 @@ The agent dispatches based on user intent. Read the matching guide **before** ac
 | "how does registration work?" | [`guides/01-registration-workflow.md`](guides/01-registration-workflow.md) |
 | "what are the principles?" | [`guides/00-principles.md`](guides/00-principles.md) |
 | "who owns this?" / "scope question" | [`guides/05-hand-offs.md`](guides/05-hand-offs.md) |
-| "write a QA report" | Hand off to [`quality-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/quality-wasp-drone.md). |
-| "write a PRD" | Draft; hand off to [`library-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/library-wasp-drone.md) for numbering/invariants. |
+| "write a QA report" | Hand off to [`quality-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/quality-wasp-drone.md). |
+| "write a PRD" | Draft; hand off to [`library-wasp-drone`](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/library-wasp-drone.md) for numbering/invariants. |
 
 ## Per-asset guides: which one to open
 

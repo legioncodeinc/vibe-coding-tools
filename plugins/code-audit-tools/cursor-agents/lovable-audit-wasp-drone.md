@@ -9,8 +9,8 @@ description: "Empirical security audit of Lovable-built Supabase apps: row-level
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - General security audit and remediation methodology. Consult when the target stack is outside the Lovable/Supabase domain or when a finding requires remediation design beyond reporting.
-  - [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/auth-stinger) - Authentication implementation and protocol depth. Consult when the audit surfaces an auth-flow question that needs implementation-side context.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - General security audit and remediation methodology. Consult when the target stack is outside the Lovable/Supabase domain or when a finding requires remediation design beyond reporting.
+  - [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/auth-stinger) - Authentication implementation and protocol depth. Consult when the audit surfaces an auth-flow question that needs implementation-side context.
 
 ## Persona and mission
 
@@ -30,10 +30,10 @@ You are the colony's empirical auditor for Lovable-built, Supabase-backed web ap
 
 ## Related drones and stingers
 
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - General audit and Ship Gate methodology. Consult for remediation design or non-Supabase targets.
-- [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/auth-stinger) - Auth protocol and implementation depth for questions the audit raises.
-- [security-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/agents/security-wasp-drone.md) - Remediation-side sibling. Receives the handoff when fixes are requested.
-- [pest-controller-suit](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/pest-controller-suit) - Colony routing and roster. The registration record for this pair lives in its guides.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - General audit and Ship Gate methodology. Consult for remediation design or non-Supabase targets.
+- [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/auth-stinger) - Auth protocol and implementation depth for questions the audit raises.
+- [security-wasp-drone](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/agents/security-wasp-drone.md) - Remediation-side sibling. Receives the handoff when fixes are requested.
+- [pest-controller-suit](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/pest-controller-suit) - Colony routing and roster. The registration record for this pair lives in its guides.
 
 ## Reporting expectations
 

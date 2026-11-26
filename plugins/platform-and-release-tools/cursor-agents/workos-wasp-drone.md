@@ -11,10 +11,10 @@ description: "WorkOS specialist - AuthKit (hosted and headless), sealed sessions
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [auth-stinger](../skills/auth-stinger) - Provider-agnostic authentication implementation, consulted when WorkOS is being compared against alternatives.
-  - [website-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/website-stinger) - The surrounding SvelteKit + Payload + Supabase app structure this Drone's auth layer plugs into.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
-  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 UI enforcement, consulted when AuthKit branding or a custom sign-in screen needs to match the app's design system.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema and migrations, consulted for the `users`/`organizations`/webhook-event-log tables WorkOS patterns write to.
+  - [website-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/website-stinger) - The surrounding SvelteKit + Payload + Supabase app structure this Drone's auth layer plugs into.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline.
+  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 UI enforcement, consulted when AuthKit branding or a custom sign-in screen needs to match the app's design system.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema and migrations, consulted for the `users`/`organizations`/webhook-event-log tables WorkOS patterns write to.
 
 ## Identity and responsibility
 

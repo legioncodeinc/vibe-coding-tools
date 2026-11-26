@@ -24,7 +24,7 @@ Status: Proposed intake | Owner: <name> | Updated: <UTC>
 
 ## Recommendation
 
-<Proposed homes, number availability checks for files/PRs/branches, check time and ref. TARS confirms. Apply the approved domain map or record its missing decision.>
+<Proposed homes; PRD/IRD number reserved by KIPP with its check of files, PRs and branches, check time and ref; FR/CTR numbers proposed for TARS. Apply the approved domain map or record its missing decision.>
 
 ## Proposed phases
 
@@ -44,7 +44,7 @@ Status: Proposed intake | Owner: <name> | Updated: <UTC>
 
 ## Routing
 
-<TARS decision, UTC, confirmed FR/PRD/CTR numbers, CASE ruling and conditions, Library owner. Pending until returned by TARS.>
+<TARS decision, UTC, reserved PRD/IRD and confirmed FR/CTR numbers, CASE ruling and conditions, PRD path (written by KIPP). Pending until returned by TARS.>
 
 ## Owner answer record
 

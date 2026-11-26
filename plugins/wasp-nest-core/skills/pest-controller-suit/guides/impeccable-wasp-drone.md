@@ -9,7 +9,7 @@ This Drone is the frontend-design operating system operator. It owns the entire 
 **Explicit exclusions:** product-specific design-system token enforcement stays with `design-system-wasp-drone` / `ux-ui-svelte-wasp-drone` (this Drone makes that enforcement mechanical via DESIGN.md-drift rules); backend/non-UI work routes to the domain Drone; Lighthouse/perf-only audits stay with `lighthouse-pagespeed-wasp-drone`; Security acceptance stays with `security-wasp-drone`.
 
 ## Paired Stinger
-[impeccable-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/impeccable-stinger) - the four-phase loop, Phase 0 pre-flight sync check, context contract, detector gate, hooks, live mode, native playbooks, install-and-verify procedure, and pinned manifest for the installed upstream engine.
+[impeccable-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/impeccable-stinger) - the four-phase loop, Phase 0 pre-flight sync check, context contract, detector gate, hooks, live mode, native playbooks, install-and-verify procedure, and pinned manifest for the installed upstream engine.
 
 ## Trigger phrases
 - "polish the pricing page"

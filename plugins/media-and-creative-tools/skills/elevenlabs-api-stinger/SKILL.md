@@ -24,8 +24,8 @@ Guide secure, observable ElevenLabs API integrations. It covers server-side key 
 
 ## When not to use
 
-- General provider or model selection outside the ElevenLabs API, use [ai-tools-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/ai-tools-platform-stinger).
-- Browser-side secrets, webhook acceptance, or a formal security finding, use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger).
+- General provider or model selection outside the ElevenLabs API, use [ai-tools-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/ai-tools-platform-stinger).
+- Browser-side secrets, webhook acceptance, or a formal security finding, use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger).
 
 ## Procedure
 
@@ -45,16 +45,16 @@ Guide secure, observable ElevenLabs API integrations. It covers server-side key 
 ## Related drones and stingers
 
 - [elevenlabs-api-wasp-drone](../../agents/elevenlabs-api-wasp-drone.md) - paired implementation specialist.
-- [ai-tools-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/ai-tools-platform-stinger) - provider selection and platform-level tradeoffs.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - independent audit of credentials and untrusted input.
+- [ai-tools-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/ai-tools-platform-stinger) - provider selection and platform-level tradeoffs.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - independent audit of credentials and untrusted input.
 
 ## Critical Directive
 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [ai-tools-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/ai-tools-platform-stinger) - model and provider selection.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - credential and data-flow audit.
+  - [ai-tools-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/ai-tools-platform-stinger) - model and provider selection.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - credential and data-flow audit.
 
 ## Ship Gate
 

@@ -1,6 +1,6 @@
 {
   "name": "backend-and-desktop-tools",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Implement TypeScript, Python, Go, Rust, native apps, APIs and terminal workflows.",
   "author": {
     "name": "Legion Code Inc."

@@ -7,7 +7,7 @@
 This Drone is the editorial blogging strategy specialist. It owns cluster-plus-pillar topical authority architecture, post-length decisions by search intent, title and H1 and meta description craft, keyword research scoping without obsession, AEO and answer-engine formatting for AI Overviews and chatbot citations, CTA copy that converts without begging, the twelve-point pre-publish review checklist, and realistic publishing-cadence planning for solo founders and small teams. The cluster map is the structural backbone; every other recommendation this Drone makes is downstream of it.
 
 ## Paired Stinger
-[blogging-content-strategy-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/blogging-content-strategy-stinger) - the cluster architecture, post-length, title/meta, AEO formatting, CTA, pre-publish, and cadence guides this Drone applies.
+[blogging-content-strategy-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/blogging-content-strategy-stinger) - the cluster architecture, post-length, title/meta, AEO formatting, CTA, pre-publish, and cadence guides this Drone applies.
 
 Read the cluster-pillar architecture guide first on any invocation; everything else is downstream of that map.
 

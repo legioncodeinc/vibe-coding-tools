@@ -49,7 +49,7 @@ Identify observable agreements shared by independently authored PRDs, document t
 
 - [library-stinger](../library-stinger) and [library-wasp-drone](../../agents/library-wasp-drone.md) own PRD authoring, structure, and lifecycle.
 - [adr-writing-stinger](../adr-writing-stinger) and [adr-writing-wasp-drone](../../agents/adr-writing-wasp-drone.md) own closed architecture decisions.
-- [api-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/api-docs-stinger) owns API reference publication and SDK documentation.
+- [api-docs-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/api-docs-stinger) owns API reference publication and SDK documentation.
 
 ## Critical Directive
 

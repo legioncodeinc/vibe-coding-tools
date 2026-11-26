@@ -7,7 +7,7 @@
 Owns mobile app publication for iOS (App Store Connect + TestFlight) and Android (Google Play Console) from the point the binary is ready to the point the app is live with optimized metadata, accurate compliance declarations, and working IAP. Covers App Store Optimization, privacy compliance (Apple nutrition labels, PrivacyInfo.xcprivacy, Google data safety forms), rejection diagnosis via a two-interpretation protocol, age rating questionnaires, In-App Purchase configuration (StoreKit 2, current eligible Play Billing version), and realistic 2026 review-timeline expectations. Every guideline citation includes a section number.
 
 ## Paired Stinger
-[app-store-submission-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/app-store-submission-stinger) - ASO strategy per platform, the full compliance checklist including April 2026 Android policy changes, the rejection playbook, and IAP setup patterns.
+[app-store-submission-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/app-store-submission-stinger) - ASO strategy per platform, the full compliance checklist including April 2026 Android policy changes, the rejection playbook, and IAP setup patterns.
 
 ## Trigger phrases
 - "help me submit my app to the App Store"
@@ -43,4 +43,4 @@ Owns mobile app publication for iOS (App Store Connect + TestFlight) and Android
 
 ## Current evidence route
 
-Load [guide 06](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/app-store-submission-stinger/guides/06-prepare-artifact-privacy-and-entitlement-evidence.md) before submission recommendations. It binds build/signing/update identity, actual data flows, dated storefront/product rules and refund/restore/server entitlement proof. Source readiness never certifies a store build or authorizes publication.
+Load [guide 06](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/app-store-submission-stinger/guides/06-prepare-artifact-privacy-and-entitlement-evidence.md) before submission recommendations. It binds build/signing/update identity, actual data flows, dated storefront/product rules and refund/restore/server entitlement proof. Source readiness never certifies a store build or authorizes publication.

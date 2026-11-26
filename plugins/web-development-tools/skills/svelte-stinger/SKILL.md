@@ -81,7 +81,7 @@ Keep this section a map. The guides and references carry the content; this file 
   - [ux-ui-svelte-stinger](../ux-ui-svelte-stinger) - applies shadcn-svelte, Tailwind v4, and the project's design system to product surfaces (OSPRY portal/web/wl is the worked example); hand off any product-UI or white-label question here.
   - [tailwind-stinger](../tailwind-stinger) - Tailwind CSS utility and configuration specialist; hand off raw Tailwind utility, config, or token-bridge questions here.
   - [shadcn-svelte-stinger](../shadcn-svelte-stinger) - shadcn-svelte component library specialist (Bits UI, Melt UI, copy-in component anatomy); hand off component-library-internals questions here.
-  - [typescript-node-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/typescript-node-stinger) - TypeScript and Node.js specialist for concerns outside Svelte's own compiler and runtime.
+  - [typescript-node-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/typescript-node-stinger) - TypeScript and Node.js specialist for concerns outside Svelte's own compiler and runtime.
   - [dark-mode-theming-stinger](../dark-mode-theming-stinger) - dark-mode and theming patterns; hand off theming-system questions not specific to Svelte 5 mechanics here.
 
 ## Ship Gate

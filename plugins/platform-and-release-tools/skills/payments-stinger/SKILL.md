@@ -94,11 +94,11 @@ Implementation scope stays SvelteKit 5 on Vercel with custom Elements. Next.js/R
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement and shadcn-svelte/Tailwind conventions; consult when the checkout's surrounding page chrome needs to match the product's design system.
-  - [shadcn-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/shadcn-svelte-stinger) - Generic shadcn-svelte library reference (CLI, component anatomy, theming) for any Svelte project adopting it around the Elements checkout.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations for `processed_webhook_events`, `subscriptions`, and entitlement tables this skill specifies but does not migrate.
+  - [ux-ui-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/ux-ui-svelte-stinger) - Svelte 5 + SvelteKit UI enforcement and shadcn-svelte/Tailwind conventions; consult when the checkout's surrounding page chrome needs to match the product's design system.
+  - [shadcn-svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/shadcn-svelte-stinger) - Generic shadcn-svelte library reference (CLI, component anatomy, theming) for any Svelte project adopting it around the Elements checkout.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations for `processed_webhook_events`, `subscriptions`, and entitlement tables this skill specifies but does not migrate.
   - [auth-stinger](../auth-stinger) - Authentication provider selection and session handling that resolves the identity behind every Stripe `customer` ID this skill creates or charges.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass; first gate of the Ship Gate pipeline below.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass; first gate of the Ship Gate pipeline below.
 
 ## Ship Gate
 

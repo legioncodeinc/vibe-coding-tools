@@ -1,6 +1,6 @@
 {
   "name": "highlevel",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Integrate HighLevel, build with AI Studio and map exported workflows.",
   "author": {
     "name": "Legion Code Inc."

@@ -12,7 +12,8 @@ import tomllib
 
 # A validation run must not add compiled companions to its own manifest tree.
 sys.dont_write_bytecode = True
-from distribution_contract import EXPECTED_PLUGINS, CANONICAL_TOTALS, CORE_TOTALS, IMMUTABLE_CORE
+from distribution_contract import (EXPECTED_PLUGINS, CANONICAL_TOTALS, CORE_TOTALS, IMMUTABLE_CORE,
+                                   PACK_HOOK_OWNERS, CORE_HOOK_HANDLERS)
 from pathlib import Path
 
 
@@ -135,6 +136,55 @@ def catalog_errors(root: Path) -> list[str]:
 
 def publication_catalog(root: Path) -> dict:
     return json.loads((root / "plugins" / "wasp-nest-core" / "plugin-catalog.json").read_text())
+
+
+HOOK_BINDINGS = ("hooks/hooks.json", "hooks/openai-hooks.json", "hooks/claude-hooks.json", "hooks/cursor-hooks.json")
+
+
+def pack_hook_errors(plugin: Path, name: str, extension: dict) -> list[str]:
+    """Refuse hooks in an optional plugin, except one approved pack-owned binding.
+
+    A plugin in PACK_HOOK_OWNERS may carry hooks/hooks.json and its listed handler files and
+    nothing else: no manifest hooks field, no second binding, no Core handler, no stray file,
+    no link, and every command must run one of its own approved handlers.
+    """
+    present = [rel for rel in HOOK_BINDINGS if (plugin / rel).exists()]
+    handlers = PACK_HOOK_OWNERS.get(name)
+    if handlers is None:
+        if extension.get("hooks") or present:
+            return [f"optional plugin duplicates global lifecycle hooks: {name}"]
+        return []
+    problem = f"pack-owned hook differs from its approved handlers: {name}"
+    if extension.get("hooks") or present != ["hooks/hooks.json"]:
+        return [f"{problem}: only hooks/hooks.json may bind, with no manifest hooks field"]
+    hooks_dir = plugin / "hooks"
+    errors: list[str] = []
+    for entry in sorted(hooks_dir.iterdir()):
+        if entry.is_symlink() or not entry.is_file():
+            errors.append(f"{problem}: {entry.name} is not a regular file")
+        elif entry.name in CORE_HOOK_HANDLERS:
+            errors.append(f"optional plugin duplicates global lifecycle hooks: {name}/{entry.name}")
+        elif entry.name != "hooks.json" and entry.name not in handlers:
+            errors.append(f"{problem}: unapproved file {entry.name}")
+    for handler in sorted(handlers):
+        if not (hooks_dir / handler).is_file():
+            errors.append(f"{problem}: missing handler {handler}")
+    try:
+        events = json.loads((hooks_dir / "hooks.json").read_text(encoding="utf-8"))["hooks"]
+        commands = [hook for groups in events.values() for group in groups for hook in group["hooks"]]
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        return errors + [f"{problem}: hooks.json is not a readable binding"]
+    allowed = "|".join(re.escape(handler) for handler in sorted(handlers))
+    pattern = re.compile(r'node "\$\{CLAUDE_PLUGIN_ROOT\}/hooks/(?:' + allowed + r')"(?: [A-Za-z]+)?')
+    if not commands:
+        errors.append(f"{problem}: hooks.json binds nothing")
+    for hook in commands:
+        command = hook.get("command") if isinstance(hook, dict) else None
+        if not isinstance(hook, dict) or hook.get("type") != "command" or not isinstance(command, str) \
+                or not pattern.fullmatch(command):
+            errors.append(f"{problem}: unapproved command")
+            break
+    return errors
 
 
 def marketplace_errors(root: Path) -> list[str]:
@@ -311,9 +361,8 @@ def codex_plugin_errors(root: Path) -> list[str]:
                 errors.append("Core native agent registration hook is unwired")
             if not (plugin / "hooks" / "register-codex-agents.py").is_file():
                 errors.append("Core native agent registration helper is missing")
-        elif extension.get("hooks") or any((plugin / rel).exists() for rel in (
-                "hooks/hooks.json", "hooks/openai-hooks.json", "hooks/claude-hooks.json", "hooks/cursor-hooks.json")):
-            errors.append(f"optional plugin duplicates global lifecycle hooks: {name}")
+        else:
+            errors.extend(pack_hook_errors(plugin, name, extension))
     return errors
 
 

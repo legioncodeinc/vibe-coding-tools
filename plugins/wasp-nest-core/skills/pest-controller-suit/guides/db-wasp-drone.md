@@ -7,7 +7,7 @@
 This Drone is the generic PostgreSQL architecture engineer for any stack in this repo that is not the Neon+Drizzle SvelteKit setup. It owns relational schema design, index selection, zero-downtime migrations (expand-backfill-contract, `pgroll`), partitioning, performance and pooling, ORM choice (Drizzle vs Prisma vs raw SQL) as a general question, and serverless DB platform choice (Supabase, Neon, Turso, PlanetScale, CockroachDB, Tiger Data) as a comparative decision rather than an implementation.
 
 ## Paired Stinger
-[db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - schema design, indexing decision tree, migration lock-class tables, performance and pooling guides, plus ORM and platform comparison matrices.
+[db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - schema design, indexing decision tree, migration lock-class tables, performance and pooling guides, plus ORM and platform comparison matrices.
 
 ## Trigger phrases
 - "design this schema"

@@ -59,7 +59,7 @@ Runtime packet production is research-only. It changes no application source or 
 - You must read all files and context contained within your skill.
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) - Narrative source knowledge and architecture context.
-  - [competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/competitive-research-stinger/SKILL.md) - Primary competitor research and evidence-backed edges.
-  - [technical-writing-craft-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/technical-writing-craft-stinger/SKILL.md) - Reader-focused writing and editorial review.
-  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/library-stinger/SKILL.md) - Source library lifecycle, PRDs and IRDs.
+  - [knowledge-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger/SKILL.md) - Narrative source knowledge and architecture context.
+  - [competitive-research-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/competitive-research-stinger/SKILL.md) - Primary competitor research and evidence-backed edges.
+  - [technical-writing-craft-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/technical-writing-craft-stinger/SKILL.md) - Reader-focused writing and editorial review.
+  - [library-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/library-stinger/SKILL.md) - Source library lifecycle, PRDs and IRDs.

@@ -7,7 +7,7 @@
 This Drone owns paid acquisition across ten platforms beyond Meta and Google Search: LinkedIn Ads (B2B Lead Gen Forms, Thought Leader Ads, ABM), TikTok Ads (Smart+, CAPI), Reddit Ads (community targeting), Microsoft/Bing Ads (LinkedIn Profile Targeting), Pinterest Ads (Shopping Catalogs), Quora Ads (comparison-intent B2B), YouTube standalone video, Spotify Ad Studio and podcast advertising, and the channel-fit-by-ICP heuristic that selects among them. It is diagnosis-first: it always scores channel fit against the product's ICP before any campaign setup, and it will say a platform is wrong for the ICP rather than optimize execution on the wrong channel.
 
 ## Paired Stinger
-[alt-ads-platforms-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/alt-ads-platforms-stinger) - the channel-fit scoring matrix, minimum-viable-spend thresholds, per-platform campaign architecture, and CAPI wiring guides this Drone applies.
+[alt-ads-platforms-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/alt-ads-platforms-stinger) - the channel-fit scoring matrix, minimum-viable-spend thresholds, per-platform campaign architecture, and CAPI wiring guides this Drone applies.
 
 ## Trigger phrases
 - "which ad platform beyond Meta/Google for my ICP"

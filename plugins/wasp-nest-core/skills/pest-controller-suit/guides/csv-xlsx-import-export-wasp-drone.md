@@ -7,7 +7,7 @@
 Implements and audits the "upload your spreadsheet" feature surface for React/Next.js products: CSV/XLSX parsing (papaparse, SheetJS, exceljs), large-file streaming via the Web Worker + chunk pattern, column-mapping UX (the 5-stage wizard, managed importers like OneSchema/Flatfile/dromo vs self-hosted react-spreadsheet-import), per-row Zod validation with structured error objects, CSV injection prevention (CWE-1236), encoding edge cases (UTF-8 BOM, CP1252), and styled XLSX export via ExcelJS WorkbookWriter.
 
 ## Paired Stinger
-[csv-xlsx-import-export-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/csv-xlsx-import-export-stinger) - the library decision tree, streaming-parse patterns for large files, column-mapping UX guidance, validation rules, CSV injection sanitization, and export code for XLSX/CSV.
+[csv-xlsx-import-export-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/csv-xlsx-import-export-stinger) - the library decision tree, streaming-parse patterns for large files, column-mapping UX guidance, validation rules, CSV injection sanitization, and export code for XLSX/CSV.
 
 ## Trigger phrases
 - "build a CSV import for this app"

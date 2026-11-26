@@ -14,7 +14,7 @@
 
 The Stinger must equip TARS to:
 
-1. Restore or offer CASE first, KIPP next, then one small, self-contained chip per ask, never a duplicate of a running session.
+1. Restore or spawn CASE first, KIPP next, then one small, self-contained chip per ask, never a duplicate of a running session. Every chip brief names `/smoke-it` or `/wasp-nest-core:source-command-pest-controller`.
 2. Keep a single append-only ledger of sessions, rulings, merges, and owner decisions.
 3. Run a real 10-minute tick (CronCreate) that reviews each managed session's actual transcript and acts on stalls.
 4. Poll CI every minute with a background Monitor and run an independent watchdog that re-arms the poller and cross-checks the app's PR status.
@@ -25,3 +25,7 @@ The Stinger must equip TARS to:
 ## Manager team update (October 7, 2026)
 
 The current owner supplied a CASE/KIPP role record and explicitly limited the three managers to Claude Code Desktop. [07-case-and-kipp.md](guides/07-case-and-kipp.md) applies those roles generically. The local owner profile carries project-specific models, branches, domain maps, session IDs and delegation. Historical research remains dated evidence, not a blanket approval for another product.
+
+## Three standing roles (October 22, 2026)
+
+The owner codified the roles: TARS is the orchestrator and spawner of chips, and always launches sub-sessions through `/smoke-it` or `/wasp-nest-core:source-command-pest-controller`. CASE is the adviser TARS negotiates decisions with, and the read-only watcher of systems and CI (deploys, Sentry, health probes) that reports to TARS. KIPP is the idea factory: it receives the owner's ideas, plans them and writes PRDs, always after loading `/wasp-nest-core:library-stinger`. The CASE brief replaces the retired adviser brief. TARS's own 1-minute CI poller and watchdog are unchanged.

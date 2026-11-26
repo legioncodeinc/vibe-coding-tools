@@ -9,9 +9,9 @@ developer_instructions = """
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [devops-stinger](../skills/devops-stinger) - Container build and CI/CD pipeline architecture, consulted for the broader GitHub Actions workflow the ephemeral Tailscale node step plugs into.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline, consulted for auditing whether a written ACL is actually least-privilege.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL/Neon schema and migrations, consulted for how the app connects to and models the database this Drone's bastion pattern makes reachable.
-  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/git-stinger) - Branching and repository conventions, consulted for how a tailnet-policy-file change should be branched and reviewed like any other config change.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Security audit pass, first gate of the Ship Gate pipeline, consulted for auditing whether a written ACL is actually least-privilege.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL/Neon schema and migrations, consulted for how the app connects to and models the database this Drone's bastion pattern makes reachable.
+  - [git-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/git-stinger) - Branching and repository conventions, consulted for how a tailnet-policy-file change should be branched and reviewed like any other config change.
 
 ## Identity and responsibility
 

@@ -18,7 +18,7 @@ human_description: |
 
 # Library
 
-Source library for the Website Audit plugin at `packs/website-audit-tools/library/`. Schema version: **v2**. The [current plugin layout](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/learn/reference/PLUGIN-LAYOUT.md) and [pack README](../README.md) describe version 3 ownership. Backlog PRDs retain their original product scope and historical package naming; they are not the current marketplace manifest.
+Source library for the Website Audit plugin at `packs/website-audit-tools/library/`. Schema version: **v2**. The [current plugin layout](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/learn/reference/PLUGIN-LAYOUT.md) and [pack README](../README.md) describe version 3 ownership. Backlog PRDs retain their original product scope and historical package naming; they are not the current marketplace manifest.
 
 See [`knowledge/private/standards/documentation-framework.md`](knowledge/private/standards/documentation-framework.md) for the full specification. If your organization maintains a shared, cross-repository schema doc, link it here instead.
 

@@ -9,7 +9,7 @@ This Drone owns every call against the tawk.to REST API v1.1.0 (`https://api.taw
 Every endpoint is a dotted, RPC-style `POST` call with a JSON body; there are no GET/PUT/DELETE verbs. Article bodies are never raw markdown or HTML: they are an ordered array of typed content blocks that must validate against the documented schema before a write succeeds.
 
 ## Paired Stinger
-[tawk-to-api-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/tawk-to-api-stinger) - the full endpoint reference, Knowledge-Base content-block schemas, and the markdown-to-KB publishing workflow.
+[tawk-to-api-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/tawk-to-api-stinger) - the full endpoint reference, Knowledge-Base content-block schemas, and the markdown-to-KB publishing workflow.
 
 ## Trigger phrases
 - "integrate tawk.to"

@@ -7,7 +7,7 @@
 Owns Vercel platform configuration specifically for the SvelteKit (Svelte 5) + Neon Postgres stack: `@sveltejs/adapter-vercel` setup and its runtime/regions/memory/maxDuration/isr/images options, the Node.js-vs-Edge runtime decision, ISR and the three-tier Cache-Control precedence, environment variables per Production/Preview/Development, Vercel cron jobs, the SvelteKit image-optimization gap and its two mitigation paths, Routing Middleware, the Vercel Firewall/WAF and rate limiting, cost control and Spend Limits, `vercel.json`, Turborepo monorepo deploys, Instant Rollback, and the Vercel-Neon integration.
 
 ## Paired Stinger
-[vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/vercel-stinger) - adapter setup and runtime choice, caching/ISR precedence, env vars, cron limits, image optimization, middleware/firewall, Neon integration, and deploys/domains/rollback/cost control.
+[vercel-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/vercel-stinger) - adapter setup and runtime choice, caching/ISR precedence, env vars, cron limits, image optimization, middleware/firewall, Neon integration, and deploys/domains/rollback/cost control.
 
 ## Trigger phrases
 - "deploy this to Vercel"

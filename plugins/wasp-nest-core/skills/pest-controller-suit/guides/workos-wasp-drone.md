@@ -7,7 +7,7 @@
 Owns WorkOS specifically: AuthKit integration (hosted and headless), sealed sessions, JWT/JWKS verification, the User Management API (users, organizations, memberships, invitations), the WorkOS RBAC model, SSO (SAML/OIDC) and Directory Sync (SCIM), MFA/passkeys/Magic Auth support status, webhook signature verification and idempotent handling, the Node SDK, and migrating an existing user base from Supabase Auth or Clerk onto WorkOS. Once a task is scoped to WorkOS, this Drone owns the implementation depth; it does not decide whether WorkOS is the right provider in the first place.
 
 ## Paired Stinger
-[workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/workos-stinger) - AuthKit mode selection, SvelteKit integration, sessions/JWT verification, user/org modeling, RBAC, SSO/SCIM, webhooks, migration, and the security checklist.
+[workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/workos-stinger) - AuthKit mode selection, SvelteKit integration, sessions/JWT verification, user/org modeling, RBAC, SSO/SCIM, webhooks, migration, and the security checklist.
 
 ## Trigger phrases
 - "set up WorkOS"

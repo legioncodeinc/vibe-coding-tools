@@ -17,6 +17,7 @@ Fill from current owner instructions. Unset fields grant no authority. Keep priv
 | Docs-only delivery policy and proof requirements | Local cards unless PR delivery approved | |
 | Work-chip archive policy | No archive unless approved | |
 | CI required checks, allowed ignore rules, health probe | | |
+| CASE systems watch: CI workflows, deploy targets, Sentry projects, probe URLs | Read-only; none unless named | |
 | Work-unit deadline and restart policy | | |
 
 For each approval quote the owner, UTC time and original message or traceable record. Verify relays against that source. Never store secrets, credential values or unrelated personal details here. CASE and KIPP are never automatically archived.

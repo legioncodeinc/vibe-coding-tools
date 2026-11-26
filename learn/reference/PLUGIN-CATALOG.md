@@ -1,10 +1,10 @@
 # Plugin catalog
 
-Generated from the built Wasp Nest v3.0.1 plugins. This is the complete shipped roster; the [README](../../README.md#what-ships) is the short install guide.
+Generated from the built Wasp Nest v3.1.0 plugins. This is the complete shipped roster; the [README](../../README.md#what-ships) is the short install guide.
 
 ## wasp-nest-core
 
-Version `3.0.1`. 18 Stingers, 14 Drones. [Pack overview](../../plugins/wasp-nest-core/README.md).
+Version `3.1.0`. 18 Stingers, 14 Drones. [Pack overview](../../plugins/wasp-nest-core/README.md).
 
 ### Stingers
 
@@ -74,7 +74,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## app-primer-zero
 
-Version `3.0.1`. 1 Stingers, 0 Drones. [Pack overview](../../plugins/app-primer-zero/README.md).
+Version `3.1.0`. 1 Stingers, 0 Drones. [Pack overview](../../plugins/app-primer-zero/README.md).
 
 ### Stingers
 
@@ -94,7 +94,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## backend-and-desktop-tools
 
-Version `3.0.1`. 10 Stingers, 10 Drones. [Pack overview](../../plugins/backend-and-desktop-tools/README.md).
+Version `3.1.0`. 10 Stingers, 10 Drones. [Pack overview](../../plugins/backend-and-desktop-tools/README.md).
 
 ### Stingers
 
@@ -142,7 +142,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## browser-and-app-testing-tools
 
-Version `3.0.1`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/browser-and-app-testing-tools/README.md).
+Version `3.1.0`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/browser-and-app-testing-tools/README.md).
 
 ### Stingers
 
@@ -172,7 +172,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## business-and-product-tools
 
-Version `3.0.1`. 15 Stingers, 15 Drones. [Pack overview](../../plugins/business-and-product-tools/README.md).
+Version `3.1.0`. 15 Stingers, 15 Drones. [Pack overview](../../plugins/business-and-product-tools/README.md).
 
 ### Stingers
 
@@ -236,7 +236,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## code-audit-tools
 
-Version `3.0.1`. 12 Stingers, 11 Drones. [Pack overview](../../plugins/code-audit-tools/README.md).
+Version `3.1.0`. 12 Stingers, 11 Drones. [Pack overview](../../plugins/code-audit-tools/README.md).
 
 ### Stingers
 
@@ -281,7 +281,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## content-intelligence
 
-Version `3.0.1`. 2 Stingers, 0 Drones. [Pack overview](../../plugins/content-intelligence/README.md).
+Version `3.1.0`. 2 Stingers, 0 Drones. [Pack overview](../../plugins/content-intelligence/README.md).
 
 ### Stingers
 
@@ -302,7 +302,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## data-and-ai-tools
 
-Version `3.0.1`. 12 Stingers, 12 Drones. [Pack overview](../../plugins/data-and-ai-tools/README.md).
+Version `3.1.0`. 12 Stingers, 12 Drones. [Pack overview](../../plugins/data-and-ai-tools/README.md).
 
 ### Stingers
 
@@ -316,7 +316,7 @@ Version `3.0.1`. 12 Stingers, 12 Drones. [Pack overview](../../plugins/data-and-
 - [mind-stinger](../../plugins/data-and-ai-tools/skills/mind-stinger/SKILL.md): Reviews, audits, and extends the AI cognitive layer: coach routing, prompt cascade, RAG, three-tier memory, observability, evaluation. Use when reviewing AI code or tuning retrieval.
 - [neon-drizzle-stinger](../../plugins/data-and-ai-tools/skills/neon-drizzle-stinger/SKILL.md): Neon Postgres and Drizzle ORM on SvelteKit/Vercel: connections, schema, migrations, branching, query patterns, pgvector, RLS, and migrating off Supabase. Use for any Neon or Drizzle task.
 - [retrieval-stinger](../../plugins/data-and-ai-tools/skills/retrieval-stinger/SKILL.md): Designs and audits retrieval: full-text search, pgvector recall, hybrid RRF fusion, reranking, chunking, recall quality eval. Use when tuning recall or a search query misses.
-- [tars-stinger](../../plugins/data-and-ai-tools/skills/tars-stinger/SKILL.md): Manage Claude Code Desktop sessions. TARS coordinates, CASE advises and breaks scoped ties, and KIPP runs feature intake.
+- [tars-stinger](../../plugins/data-and-ai-tools/skills/tars-stinger/SKILL.md): Manage Claude Code Desktop sessions. TARS spawns chips through /smoke-it or pest-controller, CASE advises and watches systems, KIPP writes PRDs.
 - [vector-store-stinger](../../plugins/data-and-ai-tools/skills/vector-store-stinger/SKILL.md): Design vector storage. Use for pgvector schemas, HNSW/IVFFlat, hybrid indexes, migrations, or storage choice.
 
 ### Drones
@@ -331,14 +331,14 @@ Version `3.0.1`. 12 Stingers, 12 Drones. [Pack overview](../../plugins/data-and-
 - [mind-wasp-drone](../../plugins/data-and-ai-tools/agents/mind-wasp-drone.md): Cognitive-layer specialist for the deploying product, covering coach/agent routing, prompt cascade, RAG/GraphRAG, three-tier memory, observability, evaluation, multimodal pipeline, orchestration, matching, and onboarding as stack-neutral architecture, plus SvelteKit +server.ts streaming LLM responses on Vercel.
 - [neon-drizzle-wasp-drone](../../plugins/data-and-ai-tools/agents/neon-drizzle-wasp-drone.md): Neon Postgres + Drizzle ORM specialist for the SvelteKit/Vercel stack migrating off Supabase.
 - [retrieval-wasp-drone](../../plugins/data-and-ai-tools/agents/retrieval-wasp-drone.md): Retrieval specialist for an app - owns Postgres full-text search (tsvector, websearch_to_tsquery, ts_rank), pgvector semantic recall, Reciprocal Rank Fusion hybrid search, optional cross-encoder reranking, chunking strategy, and recall/precision evaluation with golden query sets.
-- [tars-wasp-drone](../../plugins/data-and-ai-tools/agents/tars-wasp-drone.md): TARS, the session manager for the Claude Code desktop app: turns the owner's asks into chips, manages every session to merged and deployed, fields their questions, makes manager-level decisions, uses CASE for proportion and scoped decisions, and KIPP as the Feature Desk, runs a real 10-minute tick and a 1-minute CI poller with a watchdog.
+- [tars-wasp-drone](../../plugins/data-and-ai-tools/agents/tars-wasp-drone.md): TARS, the session manager for the Claude Code desktop app: turns the owner's asks into chips, manages every session to merged and deployed, fields their questions, makes manager-level decisions, launches every chip through /smoke-it or the pest-controller command, uses CASE as adviser and read-only systems and CI watcher, and KIPP as the idea factory and PRD writer, runs a real 10-minute tick and a 1-minute CI poller with a watchdog.
 - [vector-store-wasp-drone](../../plugins/data-and-ai-tools/agents/vector-store-wasp-drone.md): Vector and embedding storage specialist - schema and column design, index selection (HNSW vs IVFFlat, distance operators), hybrid lexical+vector search at the storage layer, migrations, and dataset versioning.
 
 ### Commands
 
 - `/data-and-ai-tools:build-rag-feature` ([procedure](../../plugins/data-and-ai-tools/commands/build-rag-feature.md)): Build a bounded RAG feature against an accepted corpus, access contract, and measured retrieval and answer evaluation.
 - `/data-and-ai-tools:design-data` ([procedure](../../plugins/data-and-ai-tools/commands/design-data.md)): Design a source-grounded data model, access boundaries, indexes and a migration proposal without executing database changes.
-- `/data-and-ai-tools:tars` ([procedure](../../plugins/data-and-ai-tools/commands/tars.md)): Make this Claude Code desktop session TARS, the manager. Spawns chips for what you ask, manages every session to done, fields their questions, uses CASE for proportion and scoped decisions, and KIPP as the Feature Desk, runs a real 10-minute tick and a 1-minute CI watch.
+- `/data-and-ai-tools:tars` ([procedure](../../plugins/data-and-ai-tools/commands/tars.md)): Make this Claude Code desktop session TARS, the manager. Spawns chips for what you ask, each run through /smoke-it or the pest-controller command, manages every session to done, fields their questions, uses CASE as adviser and read-only systems and CI watcher, and KIPP as the idea factory and PRD writer, runs a real 10-minute tick and a 1-minute CI watch.
 
 Use the named skill or generated command wrapper where the host does not expose this Claude Code command. Source-authoring commands require the writable source checkout.
 
@@ -350,11 +350,11 @@ These are derived adapters for the source commands, not additional canonical ski
 - [source-command-design-data](../../plugins/data-and-ai-tools/skills/source-command-design-data/SKILL.md): reads the [design-data procedure](../../plugins/data-and-ai-tools/commands/design-data.md) using the installed command wrapper selector.
 - [source-command-tars](../../plugins/data-and-ai-tools/skills/source-command-tars/SKILL.md): reads the [tars procedure](../../plugins/data-and-ai-tools/commands/tars.md) using the installed command wrapper selector.
 
-TARS, CASE and KIPP require Claude Code Desktop; an adapter in Codex, Cursor or Cowork does not make that manager workflow available.
+The /tars manager team (TARS, CASE and KIPP) requires Claude Code Desktop; an adapter in Codex, Cursor or Cowork does not make that manager workflow available.
 
 ## developer-learning-tools
 
-Version `3.0.1`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/developer-learning-tools/README.md).
+Version `3.1.0`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/developer-learning-tools/README.md).
 
 ### Stingers
 
@@ -392,7 +392,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## documentation-tools
 
-Version `3.0.1`. 8 Stingers, 8 Drones. [Pack overview](../../plugins/documentation-tools/README.md).
+Version `3.1.0`. 8 Stingers, 8 Drones. [Pack overview](../../plugins/documentation-tools/README.md).
 
 ### Stingers
 
@@ -434,7 +434,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## growth-and-customer-tools
 
-Version `3.0.1`. 15 Stingers, 15 Drones. [Pack overview](../../plugins/growth-and-customer-tools/README.md).
+Version `3.1.0`. 15 Stingers, 15 Drones. [Pack overview](../../plugins/growth-and-customer-tools/README.md).
 
 ### Stingers
 
@@ -488,7 +488,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## highlevel
 
-Version `3.0.1`. 3 Stingers, 3 Drones. [Pack overview](../../plugins/highlevel/README.md).
+Version `3.1.0`. 3 Stingers, 3 Drones. [Pack overview](../../plugins/highlevel/README.md).
 
 ### Stingers
 
@@ -516,7 +516,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## infrastructure-decision-tools
 
-Version `3.0.1`. 6 Stingers, 6 Drones. [Pack overview](../../plugins/infrastructure-decision-tools/README.md).
+Version `3.1.0`. 6 Stingers, 6 Drones. [Pack overview](../../plugins/infrastructure-decision-tools/README.md).
 
 ### Stingers
 
@@ -558,9 +558,62 @@ These are derived adapters for the source commands, not additional canonical ski
 - [source-command-plan-network-boundaries](../../plugins/infrastructure-decision-tools/skills/source-command-plan-network-boundaries/SKILL.md): reads the [plan-network-boundaries procedure](../../plugins/infrastructure-decision-tools/commands/plan-network-boundaries.md) using the installed command wrapper selector.
 - [source-command-prepare-assets](../../plugins/infrastructure-decision-tools/skills/source-command-prepare-assets/SKILL.md): reads the [prepare-assets procedure](../../plugins/infrastructure-decision-tools/commands/prepare-assets.md) using the installed command wrapper selector.
 
+## interstellar-coding
+
+Version `3.1.0`. 9 Stingers, 8 Drones. [Pack overview](../../plugins/interstellar-coding/README.md).
+
+### Stingers
+
+- [crew-case-stinger](../../plugins/interstellar-coding/skills/crew-case-stinger/SKILL.md): CASE, the crew's read-only contrarian. Answers ASK CASE with one verdict line per question, using structured dissent sized to the stakes.
+- [crew-coop-stinger](../../plugins/interstellar-coding/skills/crew-coop-stinger/SKILL.md): Build one chip as COOP: one outcome, one branch, one PR. Keeps an attempt log, answers CHECKPOINT at once, sends GATE to MURPH before calling a PR ready, and never merges its own PR.
+- [crew-kipp-stinger](../../plugins/interstellar-coding/skills/crew-kipp-stinger/SKILL.md): KIPP, the Interstellar Coding product desk and librarian: feature intake, PRDs, IRDs, number reservation and library invariants. Use when running /kipp or a crew intake.
+- [crew-lady-stinger](../../plugins/interstellar-coding/skills/crew-lady-stinger/SKILL.md): LADY, the crew's deep independent investigator. Runs audits, root-cause work, forensics and pre-merge due diligence with audit-my-code-stinger.
+- [crew-moon-stinger](../../plugins/interstellar-coding/skills/crew-moon-stinger/SKILL.md): MOON, the crew's operating efficiency agent. Keeps a flight recorder per agent, spots dormant, looping or stuck agents, and pauses or terminates them only after their work is preserved.
+- [crew-murph-stinger](../../plugins/interstellar-coding/skills/crew-murph-stinger/SKILL.md): MURPH, the crew's verification and release gate. Runs Security then Quality on a candidate SHA, replies PASS or FAIL, and tracks merged, deployed, verified on evidence.
+- [crew-owel-stinger](../../plugins/interstellar-coding/skills/crew-owel-stinger/SKILL.md): OWEL, the Interstellar Coding documentarian: keeps the append-only crew ledger and writes knowledge docs and ADRs unprompted from what the crew decides. Use when running /owel.
+- [crew-protocol](../../plugins/interstellar-coding/skills/crew-protocol/SKILL.md): Shared contract for the Interstellar Coding crew: roster, authority, messages, the append-only ledger, state layout, and session-start and post-compaction recovery. Read by every role.
+- [crew-tars-stinger](../../plugins/interstellar-coding/skills/crew-tars-stinger/SKILL.md): Lead the Interstellar Coding crew as TARS: boot the roles, spawn every session, route work, and send progress to OWEL's ledger. Overlay on tars-stinger.
+
+### Drones
+
+- [crew-case-wasp-drone](../../plugins/interstellar-coding/agents/crew-case-wasp-drone.md): CASE, consultant and contrarian of the Interstellar Coding crew: a read-only adviser that answers ASK CASE with one verdict line per question (PROCEED, SIMPLIFY, OVERKILL, RETHINK, ASK OWNER).
+- [crew-coop-wasp-drone](../../plugins/interstellar-coding/agents/crew-coop-wasp-drone.md): COOP, build engineer of the Interstellar Coding crew: writes product code for one chip, one outcome, one PR, on its own branch, with an attempt log, immediate checkpoints, and a MURPH gate before ready.
+- [crew-kipp-wasp-drone](../../plugins/interstellar-coding/agents/crew-kipp-wasp-drone.md): KIPP, the Interstellar Coding crew's product team and librarian: runs feature intake, writes PRDs and IRDs with their indexes, reserves PRD and IRD numbers, and keeps the library's folder and naming rules.
+- [crew-lady-wasp-drone](../../plugins/interstellar-coding/agents/crew-lady-wasp-drone.md): LADY, the Interstellar Coding crew's deep independent investigator: full code audits, root-cause work on stuck problems, incident and regression forensics, and pre-merge due diligence, each finding cited to evidence.
+- [crew-moon-wasp-drone](../../plugins/interstellar-coding/agents/crew-moon-wasp-drone.md): MOON, the Interstellar Coding crew's operating efficiency agent: keeps a flight recorder of each agent's real output, dormancy and repeated attempts, and pauses or terminates under-performing agents only after their work is preserved for handoff.
+- [crew-murph-wasp-drone](../../plugins/interstellar-coding/agents/crew-murph-wasp-drone.md): MURPH, verification and release gate of the Interstellar Coding crew: runs Security then Quality on an exact candidate SHA, replies PASS or FAIL with report paths, and tracks a change to merged, deployed and verified on evidence.
+- [crew-owel-wasp-drone](../../plugins/interstellar-coding/agents/crew-owel-wasp-drone.md): OWEL, the Interstellar Coding crew's documentarian and ledger keeper: maintains library/knowledge private and public docs, writes ADRs and knowledge docs unprompted from contracts, PRDs, PRs, transcripts and owner decisions, and keeps the append-only crew ledger.
+- [crew-tars-wasp-drone](../../plugins/interstellar-coding/agents/crew-tars-wasp-drone.md): TARS, lead development engineer and orchestrator of the Interstellar Coding crew: boots the roles in order, is the only spawner, routes work to CASE, KIPP, LADY, MURPH and MOON, and sends project progress to OWEL's ledger.
+
+### Commands
+
+- `/interstellar-coding:case` ([procedure](../../plugins/interstellar-coding/commands/case.md)): Make this session CASE, the crew's read-only contrarian. Answers ASK CASE with one verdict line per question, sized to the stakes.
+- `/interstellar-coding:coop` ([procedure](../../plugins/interstellar-coding/commands/coop.md)): Make this session COOP, build engineer of the Interstellar Coding crew. Builds one chip as one PR on its own branch, logs attempts, answers CHECKPOINT at once, and sends GATE to MURPH before ready.
+- `/interstellar-coding:interstellar` ([procedure](../../plugins/interstellar-coding/commands/interstellar.md)): Make this session TARS, lead of the Interstellar Coding crew. Boots OWEL, MOON, CASE and KIPP, spawns COOP build chips, routes work, and reports progress to OWEL's ledger.
+- `/interstellar-coding:kipp` ([procedure](../../plugins/interstellar-coding/commands/kipp.md)): Make this session KIPP, the crew's product team and librarian: feature intake, PRDs and IRDs, number reservation, library invariants. Writes no product code.
+- `/interstellar-coding:lady` ([procedure](../../plugins/interstellar-coding/commands/lady.md)): Make this session LADY, the crew's deep independent investigator: code audits, root cause on stuck problems, incident forensics and pre-merge due diligence. Read-only; reports findings, never fixes.
+- `/interstellar-coding:moon` ([procedure](../../plugins/interstellar-coding/commands/moon.md)): Make this session MOON, the crew's operating efficiency agent: keeps the flight recorder, spots dormant, looping or stuck agents, and pauses or terminates them only after their work is preserved.
+- `/interstellar-coding:murph` ([procedure](../../plugins/interstellar-coding/commands/murph.md)): Make this session MURPH, the crew's verification and release gate. Runs Security then Quality on a candidate SHA, replies PASS or FAIL, and tracks merged, deployed, verified.
+- `/interstellar-coding:owel` ([procedure](../../plugins/interstellar-coding/commands/owel.md)): Make this session OWEL, the crew's documentarian and ledger keeper: append-only ledger, knowledge docs and ADRs written unprompted from the crew's work. Writes no product code.
+
+Use the named skill or generated command wrapper where the host does not expose this Claude Code command. Source-authoring commands require the writable source checkout.
+
+### Command wrappers
+
+These are derived adapters for the source commands, not additional canonical skills. A wrapper does not grant a host missing tools or authority.
+
+- [source-command-case](../../plugins/interstellar-coding/skills/source-command-case/SKILL.md): reads the [case procedure](../../plugins/interstellar-coding/commands/case.md) using the installed command wrapper selector.
+- [source-command-coop](../../plugins/interstellar-coding/skills/source-command-coop/SKILL.md): reads the [coop procedure](../../plugins/interstellar-coding/commands/coop.md) using the installed command wrapper selector.
+- [source-command-interstellar](../../plugins/interstellar-coding/skills/source-command-interstellar/SKILL.md): reads the [interstellar procedure](../../plugins/interstellar-coding/commands/interstellar.md) using the installed command wrapper selector.
+- [source-command-kipp](../../plugins/interstellar-coding/skills/source-command-kipp/SKILL.md): reads the [kipp procedure](../../plugins/interstellar-coding/commands/kipp.md) using the installed command wrapper selector.
+- [source-command-lady](../../plugins/interstellar-coding/skills/source-command-lady/SKILL.md): reads the [lady procedure](../../plugins/interstellar-coding/commands/lady.md) using the installed command wrapper selector.
+- [source-command-moon](../../plugins/interstellar-coding/skills/source-command-moon/SKILL.md): reads the [moon procedure](../../plugins/interstellar-coding/commands/moon.md) using the installed command wrapper selector.
+- [source-command-murph](../../plugins/interstellar-coding/skills/source-command-murph/SKILL.md): reads the [murph procedure](../../plugins/interstellar-coding/commands/murph.md) using the installed command wrapper selector.
+- [source-command-owel](../../plugins/interstellar-coding/skills/source-command-owel/SKILL.md): reads the [owel procedure](../../plugins/interstellar-coding/commands/owel.md) using the installed command wrapper selector.
+
 ## littlebird-toolkit
 
-Version `3.0.1`. 30 Stingers, 0 Drones. [Pack overview](../../plugins/littlebird-toolkit/README.md).
+Version `3.1.0`. 30 Stingers, 0 Drones. [Pack overview](../../plugins/littlebird-toolkit/README.md).
 
 ### Stingers
 
@@ -609,7 +662,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## media-and-creative-tools
 
-Version `3.0.1`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/media-and-creative-tools/README.md).
+Version `3.1.0`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/media-and-creative-tools/README.md).
 
 ### Stingers
 
@@ -639,7 +692,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## platform-and-release-tools
 
-Version `3.0.1`. 20 Stingers, 20 Drones. [Pack overview](../../plugins/platform-and-release-tools/README.md).
+Version `3.1.0`. 20 Stingers, 20 Drones. [Pack overview](../../plugins/platform-and-release-tools/README.md).
 
 ### Stingers
 
@@ -713,7 +766,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## product-studio
 
-Version `3.0.1`. 3 Stingers, 3 Drones. [Pack overview](../../plugins/product-studio/README.md).
+Version `3.1.0`. 3 Stingers, 3 Drones. [Pack overview](../../plugins/product-studio/README.md).
 
 ### Stingers
 
@@ -741,7 +794,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## repository-modernization-tools
 
-Version `3.0.1`. 1 Stingers, 1 Drones. [Pack overview](../../plugins/repository-modernization-tools/README.md).
+Version `3.1.0`. 1 Stingers, 1 Drones. [Pack overview](../../plugins/repository-modernization-tools/README.md).
 
 ### Stingers
 
@@ -775,7 +828,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## software-economics-tools
 
-Version `3.0.1`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/software-economics-tools/README.md).
+Version `3.1.0`. 4 Stingers, 4 Drones. [Pack overview](../../plugins/software-economics-tools/README.md).
 
 ### Stingers
 
@@ -811,7 +864,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## web-development-tools
 
-Version `3.0.1`. 30 Stingers, 30 Drones. [Pack overview](../../plugins/web-development-tools/README.md).
+Version `3.1.0`. 30 Stingers, 30 Drones. [Pack overview](../../plugins/web-development-tools/README.md).
 
 ### Stingers
 
@@ -915,7 +968,7 @@ These are derived adapters for the source commands, not additional canonical ski
 
 ## website-audit-tools
 
-Version `3.0.1`. 21 Stingers, 20 Drones. [Pack overview](../../plugins/website-audit-tools/README.md).
+Version `3.1.0`. 21 Stingers, 20 Drones. [Pack overview](../../plugins/website-audit-tools/README.md).
 
 ### Stingers
 

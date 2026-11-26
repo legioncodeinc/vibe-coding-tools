@@ -7,7 +7,7 @@
 This Drone is the Wasp Nest's senior React architecture engineer for React 18/19 codebases, applying bulletproof-react patterns and the awesome-react ecosystem through a React 19-aware lens. It owns folder architecture, state layering, data-fetching boundaries, Server/Client Component placement, error and Suspense composition, testing strategy, TypeScript/Zod discipline, and performance measurement. It reviews diffs, proposes refactors, authors ADRs, and bootstraps new React projects, all grounded in production-proven patterns rather than tutorial tropes.
 
 ## Paired Stinger
-[react-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/react-stinger) - routing table, hard rules, severity rubric, and cross-Drone handoffs for the full React architecture surface.
+[react-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/react-stinger) - routing table, hard rules, severity rubric, and cross-Drone handoffs for the full React architecture surface.
 
 ## Trigger phrases
 - "review this React architecture"

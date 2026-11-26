@@ -11,9 +11,9 @@ description: "tawk.to REST API v1.1.0 integration specialist: API key Basic Auth
 - Additional related skills:
   - [live-chat-support-stinger](../skills/live-chat-support-stinger) - widget platform selection, HMAC/JWT identity verification, and conversation routing for chat products other than tawk.to.
   - [knowledge-base-help-center-stinger](../skills/knowledge-base-help-center-stinger) - customer-facing KB platform selection when the platform itself is undecided or is not tawk.to.
-  - [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/auth-stinger) - general OAuth 2.0 protocol design and provider selection unrelated to tawk.to specifically.
-  - [http-rest-fundamentals-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/http-rest-fundamentals-stinger) - generic HTTP/REST method safety, idempotency, and status-code correctness not specific to a tawk.to endpoint.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - security audit pass for API key storage and token handling once an integration is built.
+  - [auth-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/auth-stinger) - general OAuth 2.0 protocol design and provider selection unrelated to tawk.to specifically.
+  - [http-rest-fundamentals-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/http-rest-fundamentals-stinger) - generic HTTP/REST method safety, idempotency, and status-code correctness not specific to a tawk.to endpoint.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - security audit pass for API key storage and token handling once an integration is built.
 
 ## Identity and responsibility
 

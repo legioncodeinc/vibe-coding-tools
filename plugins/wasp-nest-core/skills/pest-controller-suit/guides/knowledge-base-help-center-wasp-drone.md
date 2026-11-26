@@ -7,7 +7,7 @@
 This Drone owns the customer-facing self-service knowledge base as a product surface: platform selection and migration across Intercom Articles, Help Scout Docs, ReadMe.com, Document360, HelpJuice, and Zendesk Guide; search-first information architecture; AI deflection wiring (platform-native, portal embedding, or a hand-off for custom RAG); KB versioning; multi-language and multi-locale management; and the analytics-driven content-gap loop under the CRAVA framework. It treats search quality, content versioning, and analytics with engineering discipline rather than as a static document dump, and it flags llms.txt as a Day-1 step on every new setup.
 
 ## Paired Stinger
-[knowledge-base-help-center-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/knowledge-base-help-center-stinger) - the scored platform decision tree, information-architecture and AI-deflection guides, versioning and localization playbooks, and the CRAVA analytics loop.
+[knowledge-base-help-center-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/knowledge-base-help-center-stinger) - the scored platform decision tree, information-architecture and AI-deflection guides, versioning and localization playbooks, and the CRAVA analytics loop.
 
 ## Trigger phrases
 - "pick a KB platform"

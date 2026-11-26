@@ -1,6 +1,6 @@
 {
   "name": "documentation-tools",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Refresh, extract, publish and package documentation from real sources.",
   "author": {
     "name": "Legion Code Inc."

@@ -153,4 +153,4 @@ For a bounded behavior, state or authority diagram use [guide 06](guides/06-pres
 
 For a bounded grade-8 explanation of existing material, consult [Technical Explainer routing](../pest-controller-suit/guides/technical-explainer-wasp-drone.md) and resolve its selected Developer Learning owner. Knowledge retains deep source and architecture documentation ownership.
 
-Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) to turn existing sources into role-specific Markdown, Word, branded PDF and citation packets. Source authoring remains with this skill.
+Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) to turn existing sources into role-specific Markdown, Word, branded PDF and citation packets. Source authoring remains with this skill.

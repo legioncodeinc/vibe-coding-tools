@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "infrastructure-decision-tools",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Prepare platform assets and account dependencies without implicit setup actions.",
   "author": {
     "name": "Legion Code Inc."

@@ -61,7 +61,7 @@ Load on demand; do not read everything up front.
 ## Related drones and stingers
 
 - [web-security-posture-wasp-drone](../../agents/web-security-posture-wasp-drone.md) - this Stinger's paired Drone.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - the Wasp Nest's internal-repo application-security specialist; consult for the underlying OWASP/header research where this external, passive audit's scope overlaps, cross-link rather than duplicate its research archive, per `guides/07`.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - the Wasp Nest's internal-repo application-security specialist; consult for the underlying OWASP/header research where this external, passive audit's scope overlaps, cross-link rather than duplicate its research archive, per `guides/07`.
 - [vendor-inventory-stinger](../vendor-inventory-stinger) - upstream dependency; this pair reads `01-recon/vendor-inventory.md` that pair writes and does not re-detect vendors itself.
 - [site-crawler-stinger](../site-crawler-stinger) - upstream dependency; this pair reads `site-data/` that pair writes.
 - [audit-scoring-stinger](../audit-scoring-stinger) - reads this pair's `07-security/` output in wave W7 and applies the critical-security-override cap this pair flags but does not itself apply.
@@ -77,7 +77,7 @@ A pass is done when: `guides/01` through `guides/08` were followed in order, eve
 - In the event your core knowledge does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
   - [web-security-posture-wasp-drone](../../agents/web-security-posture-wasp-drone.md) - this Stinger's paired Drone.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - internal-repo application-security specialist; consult for the underlying OWASP/header research where this external, passive audit's scope overlaps, do not re-research it from scratch.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - internal-repo application-security specialist; consult for the underlying OWASP/header research where this external, passive audit's scope overlaps, do not re-research it from scratch.
 
 ## Ship Gate decision
 

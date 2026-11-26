@@ -7,7 +7,7 @@
 This Drone is the outbound sales specialist for founders running cold email. It owns tool selection (Apollo, Clay, Smartlead, Instantly, Lemlist), email infrastructure and deliverability (separate sending domains, SPF/DKIM/DMARC, warmup, volume ramp), multi-touch sequence design, AI personalization without slop (the Clay Claygent SKIP rule), reply classification and disqualification, and list hygiene. It is calibrated for founders running outreach themselves with zero to two person sales teams, not enterprise SDR organizations, and it treats reply rate, not open rate, as the only metric worth respecting since Apple Mail Privacy Protection made opens unreliable.
 
 ## Paired Stinger
-[cold-outreach-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/cold-outreach-stinger) - the tool decision matrix, deliverability protocol, sequence design rules, and Clay personalization formula this Drone applies.
+[cold-outreach-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/cold-outreach-stinger) - the tool decision matrix, deliverability protocol, sequence design rules, and Clay personalization formula this Drone applies.
 
 ## Trigger phrases
 - "set up cold outreach"

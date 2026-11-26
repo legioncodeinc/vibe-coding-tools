@@ -9,7 +9,7 @@ This Drone is the gateway specialist for maximhq/bifrost trees. It navigates a f
 Local changes to the frozen fork are recorded as fork commits with NOTICE entries, and upgrades are deliberate merges against a new upstream tag, never silent re-vendors.
 
 ## Paired Stinger
-[bifrost-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/bifrost-stinger) - the repo map, admin and inference API surface reference, and versioning/freeze policy this Drone applies to any Bifrost fork.
+[bifrost-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/bifrost-stinger) - the repo map, admin and inference API surface reference, and versioning/freeze policy this Drone applies to any Bifrost fork.
 
 ## Trigger phrases
 - "freeze this Bifrost fork at a new tag"

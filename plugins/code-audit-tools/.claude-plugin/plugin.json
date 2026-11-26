@@ -1,6 +1,6 @@
 {
   "name": "code-audit-tools",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Audit repositories and app security, measure bloat, inspect branches and plan remediation.",
   "author": {
     "name": "Legion Code Inc.",

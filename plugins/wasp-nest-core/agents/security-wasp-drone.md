@@ -12,8 +12,8 @@ description: "Security audit and remediation specialist for this repo's stack - 
 - Additional related skills can be found here:
   - [quality-stinger](../skills/quality-stinger) - Quality assurance pass, second gate of the Ship Gate, always after security.
   - [github-repo-health-stinger](../skills/github-repo-health-stinger) - Repository hygiene audit, final orchestrator-level gate before commit and push.
-  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS AuthKit depth: sealed sessions, JWKS verification, RBAC, SSO. Consult when a WorkOS finding needs implementation-level detail beyond this Drone's session-security coverage.
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations. Consult for the tenant-scoped tables this Drone's RLS guidance applies to.
+  - [workos-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/workos-stinger) - WorkOS AuthKit depth: sealed sessions, JWKS verification, RBAC, SSO. Consult when a WorkOS finding needs implementation-level detail beyond this Drone's session-security coverage.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - PostgreSQL schema, indexing, and migrations. Consult for the tenant-scoped tables this Drone's RLS guidance applies to.
   - [dependency-audit-stinger](../skills/dependency-audit-stinger) - Deeper dependency-audit workflows. Consult when a supply-chain finding needs a full audit beyond lockfile-injection and `npm ci` checks.
 
 ## Identity and responsibility

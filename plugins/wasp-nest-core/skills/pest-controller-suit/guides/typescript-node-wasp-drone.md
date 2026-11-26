@@ -7,7 +7,7 @@
 Owns TypeScript/Node for Hivemind (`@deeplake/hivemind`) specifically: strict ESM on Node 22, tsconfig Node16 module resolution + ES2022 + strict, esbuild multi-harness bundling, Vitest with coverage-v8, zod boundary validation (zod ^4 in the app, zod/v3 in the MCP server), the Deep Lake SQL-API access client (retry, `Semaphore(5)`, SQL string-guarding), the single-sourced Deep Lake schema and `healMissingColumns`, MCP tool authorship, jscpd duplication discipline, and the npm publish contract. This is opinionated to the real Hivemind stack, not generic TypeScript advice.
 
 ## Paired Stinger
-[typescript-node-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/typescript-node-stinger) - stack enforcement, ESM/project-layout rules, the Deep Lake SQL-API client, zod-at-boundaries, MCP tool authoring, Vitest discipline, and deterministic audit scripts.
+[typescript-node-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/typescript-node-stinger) - stack enforcement, ESM/project-layout rules, the Deep Lake SQL-API client, zod-at-boundaries, MCP tool authoring, Vitest discipline, and deterministic audit scripts.
 
 ## Trigger phrases
 - "review this TypeScript code"

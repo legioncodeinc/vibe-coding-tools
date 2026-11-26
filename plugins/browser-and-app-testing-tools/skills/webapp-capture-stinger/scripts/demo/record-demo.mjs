@@ -1,143 +1,201 @@
-import { redactCapture } from "../lib/redaction.mjs";
-// Record a scripted product demo: one video per scene, 3x key screenshots,
-// WebVTT captions timed to the recording, a narration script, and an ffmpeg
-// assembly script. The demo plan is human-approved JSON (see demo-plan.example.json).
+// Record a scripted product demo: one video per scene, key screenshots, a write
+// ledger with read-only verification, a privacy scan, an editable timeline, captions,
+// scene titles, narration timings and Eleven v4 clip texts, plus the ffmpeg assembly
+// script. The demo plan is human-approved JSON (see demo-plan.example.json).
 // Designed by Legion Code Inc.
-// Usage: CAPTURE_CONFIG=... PLAN=demo-plan.json node demo/record-demo.mjs
+// Usage: CAPTURE_CONFIG=... PLAN=demo-plan.json node demo/record-demo.mjs [--retake]
 import fs from "node:fs";
 import path from "node:path";
-import { gotoChecked, loadConfig, log, openApp, pad, settle, shotOptions, captureScreenshot, slugify, ensurePrivateOutputDir, writePrivateCapture } from "../lib/common.mjs";
-
-import { assertSafeDemoTarget, demoDenyPattern } from "../lib/onboarding.mjs";
+import { fileURLToPath } from "node:url";
+import { captureScreenshot, ensurePrivateOutputDir, gotoChecked, loadConfig, log, openApp, pad, settle, slugify, writePrivateCapture } from "../lib/common.mjs";
+import { redactCapture } from "../lib/redaction.mjs";
 import { startMaskedVideo } from "../lib/video-privacy.mjs";
 import { withApprovedRequests } from "../lib/browser-policy.mjs";
+import { findingEntry, isGuardrailError, maskText, planDigest, planTake, sceneKey, scanText, segmentsTsv, buildTimeline, validateDemoPlan, writesForScene } from "../lib/demo-plan.mjs";
+import { countWords } from "../lib/narration.mjs";
+import { DemoSceneError, installCursorOverlay, runAction, runVerify, visibleText } from "../lib/demo-actions.mjs";
+import { assertSafeDemoTarget, demoDenyPattern } from "../lib/demo-guard.mjs";
+import { writeDemoCues } from "../lib/demo-cues.mjs";
 
+const here = path.dirname(fileURLToPath(import.meta.url));
 const cfg = loadConfig();
 if (!process.env.PLAN) throw new Error("Set PLAN=/path/to/demo-plan.json (see demo/demo-plan.example.json)");
-const plan = JSON.parse(fs.readFileSync(process.env.PLAN, "utf8"));
-if (!Array.isArray(plan.scenes) || !plan.scenes.length) throw new Error("plan.scenes must be a non-empty array");
-if (plan.approved !== true) throw new Error('plan.approved is not true. Show the plan to the user, and set "approved": true only after they approve it.');
-const ACTIONS = new Set(["wait", "hover", "click", "type", "scroll"]);
-for (const [i, sc] of plan.scenes.entries()) {
-  if (!sc.route || !sc.route.startsWith("/")) throw new Error(`scene ${i + 1}: route must start with /`);
-  for (const a of sc.actions || []) {
-    if (!ACTIONS.has(a.type)) throw new Error(`scene ${i + 1}: unknown action type "${a.type}"`);
-    if (["hover", "click", "type"].includes(a.type) && !a.selector) throw new Error(`scene ${i + 1}: ${a.type} needs a selector`);
-  }
-}
-const OUT = path.join(cfg.output.demo, slugify(redactCapture(cfg, plan.title || "demo")));
+const plan = validateDemoPlan(JSON.parse(fs.readFileSync(process.env.PLAN, "utf8")));
+if (!cfg.output.demo) throw new Error("output.demo is required in the capture config for demo recordings");
+const r = (s) => redactCapture(cfg, maskText(s));
+const mkdirPrivate = (dir) => ensurePrivateOutputDir(dir);
+const writePrivate = (file, text) => writePrivateCapture(file, text);
+
+// Write ledger: every take that attempted a write is remembered, so a rerun cannot
+// silently repeat it (an accidental second appointment, a second drop).
+const slug = slugify(redactCapture(cfg, plan.title || "demo")) || "demo";
+const ROOT = cfg.output.demo;
+mkdirPrivate(ROOT);
+const ledgerPath = path.join(ROOT, `${slug}.ledger.json`);
+const ledger = fs.existsSync(ledgerPath) ? JSON.parse(fs.readFileSync(ledgerPath, "utf8")) : { title: r(plan.title || slug), takes: [] };
+const retake = process.argv.includes("--retake") || process.env.RETAKE === "1";
+const decision = planTake(ledger, plan, slug, { retake });
+if (decision.refuse) throw new Error(decision.message);
+log(decision.message);
+const OUT = path.join(ROOT, decision.dir);
+if (fs.existsSync(OUT)) throw new Error(`${OUT} already exists. Move it aside; takes never overwrite earlier output.`);
+const takeRecord = { take: decision.take, dir: decision.dir, startedAt: new Date().toISOString(), planDigest: planDigest(plan), attemptedWrites: [] };
+ledger.takes.push(takeRecord);
+const saveLedger = () => writePrivate(ledgerPath, JSON.stringify(ledger, null, 2));
+saveLedger();
+for (const sub of ["scenes", "screenshots", "failures"]) mkdirPrivate(path.join(OUT, sub));
+
 const VIDEO = { width: plan.video?.width || 1920, height: plan.video?.height || 1080 };
 const WPM = plan.narration?.wordsPerMinute || 140; // 130 to 150 wpm band (research: demo section)
-ensurePrivateOutputDir(cfg.output.demo);
-ensurePrivateOutputDir(OUT);
-ensurePrivateOutputDir(path.join(OUT, "scenes"));
-ensurePrivateOutputDir(path.join(OUT, "screenshots"));
-
-// Guard rails: a demo plan may interact, but never with destructive-looking targets.
+const END_HOLD_MS = plan.video?.endHoldMs ?? 1500;
+const parkAt = plan.video?.parkAt || { x: VIDEO.width - 40, y: VIDEO.height - 40 };
+const cursor = plan.video?.cursor === true;
+// Built-in deny list always applies; plan.safety.denyPattern only adds to it.
 const DENY = demoDenyPattern(plan.safety?.denyPattern);
+const guard = (locator, action) => assertSafeDemoTarget(locator, action, DENY);
+const patterns = cfg.redact?.patterns || [];
 
-const words = (s) => (s || "").trim().split(/\s+/).filter(Boolean).length;
-const narrationMs = (s) => Math.ceil((words(s) / WPM) * 60000);
-const ts = (ms) => {
-  const h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, s = Math.floor(ms / 1000) % 60, x = ms % 1000;
-  return `${pad(h, 2)}:${pad(m, 2)}:${pad(s, 2)}.${pad(x, 3)}`;
+const rows = [], report = [], privacy = [];
+let writeBlocked = null, abort = null;
+const findingsPath = path.join(ROOT, "findings.md");
+const addFinding = (scene, kind, detail, evidence) => {
+  if (!fs.existsSync(findingsPath)) writePrivate(findingsPath, "# Demo findings\n\nAppended by record-demo.mjs. Text is masked and redacted.\n\n");
+  writePrivateCapture(findingsPath, r(findingEntry({ when: new Date().toISOString(), title: plan.title || slug, take: decision.dir, scene, kind, detail, evidence })), { append: true });
 };
 
-const cues = [];
-const scriptLines = [`# ${plan.title}`, "", plan.summary || "", "", `Estimated narration pace: ${WPM} words per minute.`, ""];
-const concat = [];
-let offset = 0;
-
 for (const [i, scene] of plan.scenes.entries()) {
-  const id = `${pad(i + 1, 2)}-${slugify(redactCapture(cfg, scene.id || scene.title))}`;
+  const key = sceneKey(scene, i);
+  const id = `${pad(i + 1, 2)}-${slugify(redactCapture(cfg, key)) || "scene"}`;
+  const writes = writesForScene(plan, key);
+  const safeKey = r(key);
+  const row = { id: safeKey, title: r(scene.title || key), route: r(scene.route), narration: r(scene.narration || ""), clip: null, durationMs: 0, status: "ok" };
+  rows.push(row);
+  const skip = (reason) => {
+    row.status = "skipped"; row.reason = reason;
+    for (const w of writes) report.push({ id: w.id, scene: safeKey, description: r(w.description), effect: r(w.effect), status: "skipped", reason, checks: [] });
+    log(`scene ${id}: skipped (${reason})`);
+  };
+  if (abort) { skip("run aborted by a guardrail"); continue; }
+  if (writes.length && writeBlocked) { skip(`earlier write scene "${writeBlocked}" did not verify`); continue; }
+
   const { browser, context, page } = await openApp(
     { ...cfg, browser: { ...cfg.browser, viewport: VIDEO, deviceScaleFactor: 1 } },
-    {
-      slowMo: plan.video?.slowMo ?? 250, // human-watchable pacing
-      // showActions: Playwright outlines each interacted element, adds an action subtitle, and draws a cursor.
-
-    },
+    { slowMo: plan.video?.slowMo ?? 250 }, // human-watchable pacing
   );
-  const recorder = await startMaskedVideo(cfg, page, path.join(OUT, "scenes", id), { fps: plan.video?.fps || 5 });
+  // Video is built from masked screenshot frames, so headless shows no cursor. With
+  // video.cursor the DOM overlay draws one and it appears in every masked frame.
+  if (cursor) await context.addInitScript(installCursorOverlay);
+  let recorder;
   const t0 = Date.now();
-  let recording;
+  // Declared local/seeded request grants are active only while an action runs, and only in
+  // scenes listed in writes[], so every granted request is in the ledger and verified.
+  const wrap = writes.length && plan.safety?.requests?.length ? (fn) => withApprovedRequests(cfg, page, { ...plan.safety, approved: plan.approved }, fn) : (fn) => fn();
+  const ctx = { guard, deny: DENY, settle: (p) => settle(p, 0, 600), wrap, parkAt, pointer: parkAt };
+  // Every navigation reloads the overlay at its hidden start, so put it back where the pointer is.
+  const restore = () => page.mouse.move(ctx.pointer.x, ctx.pointer.y).catch(() => {});
+  page.on("load", restore);
+  const hits = [];
+  const scan = async (action) => {
+    for (const h of scanText(await visibleText(page), patterns)) {
+      const prev = hits.find((x) => x.kind === h.kind && x.masked === h.masked);
+      if (prev) prev.count = Math.max(prev.count, h.count); else hits.push({ ...h, action });
+    }
+  };
+  const failureShot = async () => {
+    const file = path.join(OUT, "failures", `${id}.png`);
+    writePrivateCapture(file, await captureScreenshot(cfg, page));
+    return path.relative(ROOT, file);
+  };
+  let checks = [], evidence = null;
   try {
-    await gotoChecked(cfg, page, scene.route);
-    const minHold = narrationMs(scene.narration);
-    for (const a of scene.actions || []) {
-      const target = a.selector ? page.locator(a.selector).first() : null;
-      if (target) {
-        await assertSafeDemoTarget(target, a, DENY);
-        const box = await target.boundingBox();
-        if (box) await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 25 });
-      }
-      const interact = async () => {
-      if (a.type === "click") { await target.click(); await settle(page, 5000, 600); }
-      else if (a.type === "hover") await page.waitForTimeout(a.ms || 800);
-      else if (a.type === "type") {
-        await assertSafeDemoTarget(target, a, DENY);
-        await target.pressSequentially(a.text, { delay: a.delay || 60 });
-      } else if (a.type === "scroll") await page.mouse.wheel(0, a.dy || 600);
-      else if (a.type === "wait") await page.waitForTimeout(a.ms || 1000);
-      };
-      if (plan.safety?.requests?.length) await withApprovedRequests(cfg, page, { ...plan.safety, approved: plan.approved }, interact);
-      else await interact();
+    if (writes.length) {
+      // Recorded before any action runs: a crash mid-scene still counts as an attempt.
+      takeRecord.attemptedWrites.push(...writes.map((w) => w.id));
+      saveLedger();
+    }
+    recorder = await startMaskedVideo(cfg, page, path.join(OUT, "scenes", id), { fps: plan.video?.fps || 5 });
+    await gotoChecked(cfg, page, scene.route, { idleMs: 0, extraMs: 800 });
+    await restore();
+    await scan(0);
+    for (const [j, a] of (scene.actions || []).entries()) {
+      try { await runAction(page, a, ctx); } catch (e) { e.message = `action ${j + 1} (${a.type}): ${e.message}`; throw e; }
       if (a.screenshot) {
         writePrivateCapture(path.join(OUT, "screenshots", `${id}-${slugify(redactCapture(cfg, a.screenshot))}.png`), await captureScreenshot(cfg, page));
       }
+      await scan(j + 1);
     }
+    for (const v of scene.verify || []) checks.push(await runVerify(page, v));
+    const failed = checks.filter((c) => !c.pass);
+    row.status = failed.length ? "mismatch" : writes.length ? "verified" : "ok";
+    if (failed.length) {
+      evidence = await failureShot().catch(() => null);
+      row.error = r(failed.map((c) => `${c.check}: got ${c.actual}`).join("; "));
+    }
+    // Hold long enough for the narration at the plan's pace, plus caption lead and tail.
+    const hold = Math.ceil((countWords(scene.narration) / WPM) * 60000) + 600;
     const elapsed = Date.now() - t0;
-    if (elapsed < minHold) await page.waitForTimeout(minHold - elapsed);
+    if (elapsed < hold) await page.waitForTimeout(hold - elapsed);
+  } catch (e) {
+    const guardrail = !(e instanceof DemoSceneError) && isGuardrailError(e);
+    row.status = guardrail ? "aborted" : "failed";
+    row.error = r(e.message);
+    if (guardrail) abort = e;
+    evidence = await failureShot().catch(() => null);
   } finally {
-    try { recording = await recorder.stop(path.join(OUT, "scenes", `${id}.webm`)); } finally { await context.close(); await browser.close(); }
+    page.off("load", restore);
+    try {
+      if (recorder) {
+        const recording = await recorder.stop(path.join(OUT, "scenes", `${id}.webm`));
+        row.clip = `scenes/${id}.webm`;
+        row.durationMs = recording.durationMs;
+      }
+    } catch (e) { if (!abort) { abort = e; row.status = "aborted"; row.error = r(e.message); } }
+    finally { await context.close(); await browser.close(); }
   }
-  const dur = recording.durationMs;
-  concat.push(`file 'scenes/${id}.mp4'`);
-  if (scene.narration) cues.push(`${cues.length + 1}\n${ts(offset + 300)} --> ${ts(offset + Math.max(dur - 300, 1000))}\n${scene.narration}\n`);
-  scriptLines.push(`## Scene ${i + 1}: ${scene.title}`, "", `- Route: \`${scene.route}\``, `- Recorded length: ${(dur / 1000).toFixed(1)}s (narration needs about ${(narrationMs(scene.narration) / 1000).toFixed(1)}s)`, "", `> ${scene.narration || "(no narration)"}`, "");
-  offset += dur;
-  log(`scene ${id}: ${(dur / 1000).toFixed(1)}s`);
+  const dur = row.durationMs;
+  row.checks = checks.map((c) => ({ ...c, actual: r(c.actual), expected: r(c.expected) }));
+  privacy.push({ id: safeKey, hits });
+
+  const writeStatus = { verified: "verified", mismatch: "mismatch" }[row.status] || "failed";
+  for (const w of writes) report.push({ id: w.id, scene: safeKey, description: r(w.description), effect: r(w.effect), status: writeStatus, checks: row.checks, ...(row.error ? { error: row.error } : {}) });
+  if (writes.length && writeStatus !== "verified") writeBlocked = key;
+  if (["failed", "mismatch", "aborted"].includes(row.status)) addFinding(key, row.status, row.error || "unknown error", evidence);
+  log(`scene ${id}: ${row.status}, ${(dur / 1000).toFixed(1)}s${hits.length ? `, ${hits.length} masked text hit(s) for review` : ""}`);
 }
 
-writePrivateCapture(path.join(OUT, "captions.vtt"), redactCapture(cfg, "WEBVTT\n\n" + cues.join("\n")));
-writePrivateCapture(path.join(OUT, "script.md"), redactCapture(cfg, scriptLines.join("\n")));
-writePrivateCapture(path.join(OUT, "concat.txt"), concat.join("\n") + "\n");
-writePrivateCapture(path.join(OUT, "plan.json"), JSON.stringify(redactCapture(cfg, plan), null, 2));
-writePrivateCapture(path.join(OUT, "make-video.sh"), `#!/usr/bin/env bash
-# Assemble the demo. Requires ffmpeg. Run from this directory.
-set -euo pipefail
-umask 077
-fail() { echo "ERROR: video assembly refused unsafe input or existing output; use a fresh private output directory" >&2; exit 1; }
-[[ -d scenes && ! -L scenes ]] || fail
-for input in concat.txt captions.vtt scenes/*.webm; do
-  [[ -f "$input" && ! -L "$input" ]] || fail
-  links=$(stat -c %h "$input" 2>/dev/null || stat -f %l "$input" 2>/dev/null) || fail
-  [[ "$links" == 1 ]] || fail
-done
-# Preflight every derived output before creating the first one.
-for input in scenes/*.webm; do
-  output="\${input%.webm}.mp4"
-  [[ ! -e "$output" && ! -L "$output" ]] || fail
-done
-for output in demo-silent.mp4 demo.mp4; do
-  [[ ! -e "$output" && ! -L "$output" ]] || fail
-done
-# 1) Normalize every clip to identical H.264 1920x1080 streams (concat demuxer needs identical codec parameters).
-for f in scenes/*.webm; do
-  ffmpeg -n -i "$f" -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black" \\
-    -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow -r 30 -an "\${f%.webm}.mp4"
-done
-# 2) Concatenate without re-encoding.
-ffmpeg -n -f concat -safe 1 -i concat.txt -c copy demo-silent.mp4
-# 3) Soft, toggleable captions; +faststart last so playback starts before the download finishes.
-ffmpeg -n -i demo-silent.mp4 -i captions.vtt -map 0:v -map 1 -c:v copy -c:s mov_text -movflags +faststart demo.mp4
-# Optional narration (video stream copied, audio encoded once):
-#   ffmpeg -n -i demo.mp4 -i narration.wav -map 0:v -map 1:a -map 0:s? -c:v copy -c:s copy -c:a aac -shortest -movflags +faststart demo-narrated.mp4
-# Optional burned-in captions for players without subtitle tracks:
-#   ffmpeg -n -i demo-silent.mp4 -vf subtitles=captions.vtt -c:v libx264 -pix_fmt yuv420p -crf 20 demo-burned.mp4
-# Optional GIF preview (two-pass palette):
-#   ffmpeg -n -i demo-silent.mp4 -vf "fps=15,scale=480:-1:flags=lanczos,palettegen" palette.png
-#   ffmpeg -n -i demo-silent.mp4 -i palette.png -lavfi "fps=15,scale=480:-1:flags=lanczos[x];[x][1:v]paletteuse" demo.gif
-`);
-fs.chmodSync(path.join(OUT, "make-video.sh"), 0o700);
-log(`demo written to ${OUT}`);
+// Timeline, edit list and assembly settings. Failed, aborted and mismatched scenes stay in
+// timeline.json but are left out of segments.tsv so they do not reach the video by default.
+const timeline = buildTimeline(rows);
+writePrivate(path.join(OUT, "timeline.json"), JSON.stringify({ title: r(plan.title || slug), take: decision.take, wordsPerMinute: WPM, tts: plan.narration?.tts || {}, totalMs: timeline.totalMs, scenes: timeline.scenes }, null, 2));
+const usable = timeline.scenes.filter((s) => s.clip && ["ok", "verified"].includes(s.status));
+writePrivate(path.join(OUT, "segments.tsv"), segmentsTsv({ scenes: usable }));
+writePrivate(path.join(OUT, "assembly.conf"), `# Read by make-video.sh\nend_hold_seconds=${Math.max(0, Math.round(END_HOLD_MS)) / 1000}\n`);
+writePrivate(path.join(OUT, "writes-report.json"), JSON.stringify({ take: decision.take, generatedAt: new Date().toISOString(), writes: report }, null, 2));
+writePrivate(path.join(OUT, "privacy-review.json"), JSON.stringify({ take: decision.take, note: "Masked hits only; raw page text is never stored. Run review-demo.mjs and check every tile.", scenes: privacy }, null, 2));
+writePrivate(path.join(OUT, "plan.json"), JSON.stringify(redactCapture(cfg, plan), null, 2));
+
+const script = [`# ${r(plan.title || slug)}`, "", r(plan.summary || ""), "", `Take ${decision.take}. Narration pace: ${WPM} words per minute.`, ""];
+for (const [i, s] of timeline.scenes.entries()) {
+  script.push(`## Scene ${i + 1}: ${s.title} (${s.status})`, "", `- Route: \`${s.route}\``,
+    s.clip ? `- Recorded length: ${(s.durationMs / 1000).toFixed(1)}s, starts at ${(s.startMs / 1000).toFixed(1)}s${usable.includes(s) ? "" : " (left out of segments.tsv)"}` : `- Not recorded${s.reason ? `: ${s.reason}` : ""}`,
+    `- Narration needs about ${((countWords(s.narration) / WPM) * 60).toFixed(1)}s`,
+    ...(s.checks || []).map((c) => `- Verify: ${c.check}: ${c.pass ? "pass" : `FAIL (got ${c.actual})`}`),
+    ...(s.error ? [`- Error: ${s.error}`] : []), "", `> ${s.narration || "(no narration)"}`, "");
+}
+writePrivate(path.join(OUT, "script.md"), redactCapture(cfg, script.join("\n")));
+const makeVideo = path.join(OUT, "make-video.sh");
+writePrivate(makeVideo, fs.readFileSync(path.join(here, "make-video.sh"), "utf8"));
+fs.chmodSync(makeVideo, 0o700);
+
+if (usable.length) {
+  const { cues, overruns } = writeDemoCues(cfg, OUT);
+  log(`${cues.length} narration cue(s); see narration/fit.md`);
+  for (const c of overruns) log(`OVERRUN cue ${c.index} (${c.scene}): needs ${(c.neededMs / 1000).toFixed(1)}s, has ${(c.availableMs / 1000).toFixed(1)}s`);
+} else log("no usable scenes, so no captions or narration cues were written");
+
+Object.assign(takeRecord, { finishedAt: new Date().toISOString(), statuses: Object.fromEntries(rows.map((s) => [s.id, s.status])) });
+saveLedger();
+const bad = report.filter((w) => w.status !== "verified");
+if (bad.length) log(`${bad.length} write(s) not verified; see writes-report.json and ${findingsPath}`);
+log(`demo take ${decision.take} written to ${OUT}`);
+if (abort) throw abort;

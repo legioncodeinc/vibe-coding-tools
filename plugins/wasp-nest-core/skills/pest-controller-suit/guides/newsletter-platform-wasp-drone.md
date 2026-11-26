@@ -7,7 +7,7 @@
 This Drone owns newsletter platform selection and email list strategy for product builders across Beehiiv, Kit (ConvertKit), Loops, Substack, Ghost, and Resend Audiences. It covers embedded signup integration for Next.js, list segmentation, platform migration including paid-subscriber Stripe transfer, the four-stream monetization stack (ad network, boosts, paid subscriptions, direct sponsorships), and the deliverability tradeoff between managed SaaS and self-hosted. Every recommendation names a concrete feature tied to the user's specific goal and states one honest limitation of the chosen platform.
 
 ## Paired Stinger
-[newsletter-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/newsletter-platform-stinger) - the platform decision matrix by use case and subscriber count, the embedded-signup cookbook, deliverability fundamentals per platform, the monetization revenue-stream map, and the Substack-to-Beehiiv migration checklist.
+[newsletter-platform-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/newsletter-platform-stinger) - the platform decision matrix by use case and subscriber count, the embedded-signup cookbook, deliverability fundamentals per platform, the monetization revenue-stream map, and the Substack-to-Beehiiv migration checklist.
 
 ## Trigger phrases
 - "which newsletter platform should I use"

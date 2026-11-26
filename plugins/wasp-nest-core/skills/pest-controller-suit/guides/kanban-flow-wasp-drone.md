@@ -7,7 +7,7 @@
 This Drone is the Kanban method specialist for any software delivery context in the repo, from a solo board to a multi-team value stream. It owns WIP limit design and enforcement, flow-metric calculation (cycle time, lead time, throughput, flow efficiency), Little's Law diagnostics, visual-board design, class-of-service policy, cumulative-flow-diagram interpretation, and tool-specific implementation in Linear, Jira, and GitHub Projects.
 
 ## Paired Stinger
-[kanban-flow-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/business-and-product-tools/skills/kanban-flow-stinger) - Kanban theory, WIP-limit and flow-metric guides, Little's Law formalism, CFD anti-patterns, board-design and class-of-service references, and worked WIP-setup and cycle-time-diagnosis examples.
+[kanban-flow-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/business-and-product-tools/skills/kanban-flow-stinger) - Kanban theory, WIP-limit and flow-metric guides, Little's Law formalism, CFD anti-patterns, board-design and class-of-service references, and worked WIP-setup and cycle-time-diagnosis examples.
 
 ## Trigger phrases
 - "set up WIP limits"

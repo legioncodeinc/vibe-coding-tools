@@ -9,7 +9,7 @@ developer_instructions = """
 - Additional related skills can be found here:
   - [impeccable-stinger](../skills/impeccable-stinger) - UI direction.
   - [typography-font-stinger](../skills/typography-font-stinger) - Fonts and glyph evidence.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Formal security boundary.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Formal security boundary.
 
 ## Persona and mission
 Implement localization in the selected web framework with explicit supported language, content and formatting contracts. Own locale/resource wiring, ICU/plurals, Intl date/number/currency display, document language/direction, logical CSS and bidi behavior. Deliver changed files and a bounded implementation evidence report.

@@ -35,8 +35,8 @@ Equip `xyflow-wasp-drone` to build, review, and migrate node-based editors, work
 - Svelte 5 runes or SvelteKit runtime questions not specific to the canvas; use [svelte-stinger](../svelte-stinger).
 - Design tokens and visual design of nodes and panels; use [impeccable-stinger](../impeccable-stinger) or the design-system owner.
 - shadcn-svelte or Tailwind v4 mechanics beyond the xyflow integration; use [shadcn-svelte-stinger](../shadcn-svelte-stinger) or [tailwind-stinger](../tailwind-stinger).
-- Database schema for saved flows; use [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger).
-- Formal security or quality acceptance; use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) and [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger).
+- Database schema for saved flows; use [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger).
+- Formal security or quality acceptance; use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) and [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger).
 
 ## Procedure
 
@@ -70,7 +70,7 @@ Equip `xyflow-wasp-drone` to build, review, and migrate node-based editors, work
 - [impeccable-stinger](../impeccable-stinger) - Frontend design implementation for node chrome and editor panels.
 - [shadcn-svelte-stinger](../shadcn-svelte-stinger) - Svelte component primitives in place of React Flow UI.
 - [tailwind-stinger](../tailwind-stinger) - Tailwind v4 mechanics beyond the xyflow import order.
-- [browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - Real-browser tests of drag, connect, and pan gestures.
+- [browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - Real-browser tests of drag, connect, and pan gestures.
 
 ## Critical Directive
 
@@ -82,10 +82,10 @@ Equip `xyflow-wasp-drone` to build, review, and migrate node-based editors, work
   - [impeccable-stinger](../impeccable-stinger) - Design implementation for node visuals, editor panels, and anti-slop review.
   - [shadcn-svelte-stinger](../shadcn-svelte-stinger) - shadcn-svelte components for Svelte node chrome.
   - [tailwind-stinger](../tailwind-stinger) - Tailwind v4 configuration and layering.
-  - [browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - Playwright tests for canvas interactions.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Required first Ship Gate audit, including untrusted saved-flow imports and HTML in node content.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Required Quality gate after Security findings are resolved.
-  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Required orchestrator-level repository-health gate before commit or push.
+  - [browser-automation-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/browser-and-app-testing-tools/skills/browser-automation-stinger) - Playwright tests for canvas interactions.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Required first Ship Gate audit, including untrusted saved-flow imports and HTML in node content.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Required Quality gate after Security findings are resolved.
+  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Required orchestrator-level repository-health gate before commit or push.
 
 ## Ship Gate
 

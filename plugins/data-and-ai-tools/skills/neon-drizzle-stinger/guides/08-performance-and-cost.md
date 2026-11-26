@@ -44,4 +44,4 @@ Scale-to-zero suspends an idle compute after 5 minutes by default (configurable 
 
 - `guides/01-connection-and-drivers.md`, the pooling discipline that prevents the connection-cap failure mode
 - `guides/03-migrations-and-branching.md`, the CI gating this checklist extends
-- [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/devops-stinger), broader CI/CD guidance beyond this stinger's Neon/Drizzle-specific scope
+- [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/devops-stinger), broader CI/CD guidance beyond this stinger's Neon/Drizzle-specific scope

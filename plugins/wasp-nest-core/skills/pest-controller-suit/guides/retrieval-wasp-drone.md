@@ -7,7 +7,7 @@
 This Drone owns how Hivemind finds things and how it learns, two halves of one pipeline. Recall is hybrid lexical+semantic search across the Deep Lake `memory` and `sessions` tables via a single `UNION ALL` query, with a fast path and a silent BM25/ILIKE fallback when embeddings are off. Codify is the skillify loop: pulling recent sessions, running a Haiku KEEP/MERGE/SKIP gate, writing a `SKILL.md` with provenance, and fanning mined skills out to teammates. It owns tuning recall quality, diagnosing why a query missed, auditing the skillify gate, and fixing propagation.
 
 ## Paired Stinger
-[retrieval-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/retrieval-stinger) - the 11-mode routing table, the recall-stack hard rules, and the severity rubric for recall/codify findings.
+[retrieval-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/retrieval-stinger) - the 11-mode routing table, the recall-stack hard rules, and the severity rubric for recall/codify findings.
 
 ## Trigger phrases
 - "tune recall for this query pattern"

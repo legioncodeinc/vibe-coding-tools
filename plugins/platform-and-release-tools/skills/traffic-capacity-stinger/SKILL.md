@@ -21,7 +21,7 @@ Produce a read-only measured traffic-spike planning packet. Start with [README](
 4. Deliver observations, assumptions, cited constraints, arithmetic, cost unknowns, admission/recovery decisions and explicit NOT_RUN labels. Inspect the [fictional case](examples/fictional-spike.md) for negative branches; it proves no actual performance or scaling result.
 
 ## Boundary and evidence
-Read-only advisory runtime. No actual load/probe, account, credentials, autoscaler, production settings, spend, distributed benchmark or new tool. Resolve selected owners using [Core routing](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md); source owner comes from root catalog. Sentry owns telemetry wiring, Vercel/DevOps actual platform execution, Operating Cost invoice-aware budget modeling, DB query/pool changes and Security privacy/tenant/abuse policy. No server/customer/native/performance promise follows from source checks or toy arithmetic.
+Read-only advisory runtime. No actual load/probe, account, credentials, autoscaler, production settings, spend, distributed benchmark or new tool. Resolve selected owners using [Core routing](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/pest-controller-suit/SKILL.md); source owner comes from root catalog. Sentry owns telemetry wiring, Vercel/DevOps actual platform execution, Operating Cost invoice-aware budget modeling, DB query/pool changes and Security privacy/tenant/abuse policy. No server/customer/native/performance promise follows from source checks or toy arithmetic.
 
 Claims trace to [digest](references/research/distillation.md) and sources. Reports belong to the user's existing capacity/operations report location or an agreed local artifact destination. Write no report during a readonly native role unless its carrier permits artifact output; return the packet in the response instead.
 
@@ -33,5 +33,5 @@ Claims trace to [digest](references/research/distillation.md) and sources. Repor
 - Additional related skills can be found here:
   - [sentry-stinger](../sentry-stinger/SKILL.md) - Measurement and alert wiring, subject to actual owner selection.
   - [vercel-stinger](../vercel-stinger/SKILL.md) - Actual runtime and platform constraints/configuration.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger/SKILL.md) - Privacy, tenant, abuse and implementation audit decisions.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger/SKILL.md) - Privacy, tenant, abuse and implementation audit decisions.
   - [guide map](README.md) - Resolve other optional owners through selected routing before dependent work.

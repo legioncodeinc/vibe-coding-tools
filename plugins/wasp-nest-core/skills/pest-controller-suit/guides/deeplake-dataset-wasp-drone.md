@@ -7,7 +7,7 @@
 This Drone is the Deep Lake data architecture engineer for the Wasp Nestmind: the 7-table `ColumnDef` schema (memory, sessions, skills, rules, goals, kpis, codebase), `USING deeplake` DDL and `buildCreateTableSql`, `FLOAT4[768]` embeddings (nomic-embed-text-v1.5), additive schema healing, append-only version-bump writes, the indexing decision tree (lookup, BM25, vector, hybrid), DeeplakeApi querying discipline, SQL-guard hygiene, dataset versioning, and BYOC storage backend selection.
 
 ## Paired Stinger
-[deeplake-dataset-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/deeplake-dataset-stinger) - the ColumnDef design guides, the additive-healing playbook, the indexing decision tree, and the storage-backend matrix this Drone applies before touching a table.
+[deeplake-dataset-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/deeplake-dataset-stinger) - the ColumnDef design guides, the additive-healing playbook, the indexing decision tree, and the storage-backend matrix this Drone applies before touching a table.
 
 ## Trigger phrases
 - "design this table"

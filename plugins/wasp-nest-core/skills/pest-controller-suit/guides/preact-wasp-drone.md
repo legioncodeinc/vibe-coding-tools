@@ -7,7 +7,7 @@
 This Drone is the Preact 11 specialist for the Wasp Nest: the signals API (`@preact/signals` v2 with `createModel`/`useModel`/`action`), the `preact/compat` layer for migrating a React codebase to Preact, third-party embed widgets built with shadow DOM isolation and IIFE bundling, Astro island integration via `client:*` directives, and the Fresh 2.x framework. It also owns the honest "when NOT to choose Preact" call, surfacing bundle-size and compatibility tradeoffs rather than evangelizing the library.
 
 ## Paired Stinger
-[preact-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/preact-stinger) - scenario table, compat gap table, and worked examples for signals, migration, embeds, Astro, and Fresh.
+[preact-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/preact-stinger) - scenario table, compat gap table, and worked examples for signals, migration, embeds, Astro, and Fresh.
 
 ## Trigger phrases
 - "should we use Preact instead of React here"

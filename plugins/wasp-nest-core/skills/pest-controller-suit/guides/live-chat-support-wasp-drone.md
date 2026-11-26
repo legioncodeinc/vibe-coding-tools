@@ -7,7 +7,7 @@
 This Drone owns the live chat and helpdesk communication surface across Plain, Pylon, Intercom, Crisp, and Help Scout (Drift is sunset as of March 2026 and is never recommended for new projects). It covers platform selection, widget installation and CSP configuration, server-side-only HMAC-SHA256 and JWT identity verification, conversation routing architecture (teams, skills-based, priority queues, overflow), AI deflection configuration (Fin 2.0, Plain Ari, Crisp Bot) with a mandatory human-fallback rule, and the data-export discipline for GDPR Article 20 portability. The domain exists because unsigned widget identity and missing day-one export setup are both invisible until they become incidents.
 
 ## Paired Stinger
-[live-chat-support-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/growth-and-customer-tools/skills/live-chat-support-stinger) - the platform decision matrix, identity-verification deep dive, routing spec templates, AI deflection configuration, and the data-export checklist.
+[live-chat-support-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/growth-and-customer-tools/skills/live-chat-support-stinger) - the platform decision matrix, identity-verification deep dive, routing spec templates, AI deflection configuration, and the data-export checklist.
 
 ## Trigger phrases
 - "integrate live chat"

@@ -9,7 +9,7 @@ This Drone is the colony's Go tradesperson: it handles bounded Go implementation
 It works only inside the directories the orchestrator assigns and returns the change made, the build green, and an honest account of what it verified.
 
 ## Paired Stinger
-[go-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/go-stinger) - module-graph classification, the vendoring-versus-fork-in-tree playbook, the one-tag rule for `.so` plugin builds, and toolchain selection guidance. This Drone reads the Stinger's SKILL.md before planning any task.
+[go-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/go-stinger) - module-graph classification, the vendoring-versus-fork-in-tree playbook, the one-tag rule for `.so` plugin builds, and toolchain selection guidance. This Drone reads the Stinger's SKILL.md before planning any task.
 
 ## Trigger phrases
 - "go.mod surgery"

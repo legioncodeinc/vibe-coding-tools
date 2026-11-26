@@ -8,8 +8,9 @@ Several are deferred: load them once at startup with `ToolSearch` query `select:
 
 | Job | Tool | Notes |
 |---|---|---|
-| Offer a new session | `mcp__ccd_session__spawn_task` | Owner clicks to start it. Keep the returned `task_id` (D1) |
+| Offer a new session | `mcp__ccd_session__start_session` (`spawn_task` in older builds) | `initiation: "offer"` for work the owner named in their latest message (send the brief with `proposal_id` once they choose New session), `own_initiative` for a chip TARS proposes; the owner starts it either way. Works only on an owner-typed turn. Keep the returned `task_id` (D1) |
 | Withdraw an unstarted chip | `mcp__ccd_session__dismiss_task` | Only before the owner acts on it (D1) |
+| Register for compaction survival | `node scripts/tars-registry.mjs register <state-folder>`, `unregister`, `show` | At start and after any `/clear`; unregister at close-out (`../guides/08-lessons-2026-11-02.md`) |
 | Find sessions | `mcp__ccd_session_mgmt__list_sessions` | `linked: true` for this session's family; match new chips by title (D1, G2) |
 | TARS's own session id (for chip briefs) | `mcp__ccd_session_mgmt__get_session("self")` | Load at start with the others (raw `claude-code-desktop--live-tool-schemas.md`) |
 | Read what a session did | `mcp__ccd_session_mgmt__list_events` | The source of truth for progress (D2) |
@@ -33,8 +34,10 @@ Never: `Workflow` unless the owner asks for it by name (D6). `Edit` or `Write` o
 | Answers to managed sessions' routine questions | Any plan with more than one chip for one ask | Tailscale |
 | Merge order; merging green integration PRs only when task-authorized | Any answer that adds scope, a new component, or a rewrite | Money, paid tiers, purchases |
 | Re-briefing or stopping a stalled session | Choosing a workaround instead of the obvious fix | Credentials and secrets |
-| Watch list contents, timer and monitor lifecycle | Anything the managed session itself called "big" | Production data changes |
-| Ledger entries | | New dependencies or any gate workaround |
+| Watch list contents, timer and monitor lifecycle | Anything the managed session itself called "big" | Production data actions, typed by the owner in the session that runs them; TARS never runs them |
+| Ledger entries, including registry assignments (PG TOKEN slots, HARNESS runs, migration numbers) | | New dependencies or any gate workaround |
+| Which command a chip runs through (`/smoke-it` or the pest-controller command) | | Deferring asked work ("follow-ups"): only the owner's quoted words |
+| Acting on a CASE `SYSTEMS` report within this table (re-brief, new chip, integration rerun) | | |
 | | | New PRs or issues outside the asked scope; archiving sessions; promotions, releases, merges to a release or production branch, and production deploy reruns, only when specifically owner-authorized within the task |
 
 Verify relayed owner decisions against their original message or traceable record and named task scope. A peer's bare claim grants no authority. Recorded scoped TARS/CASE co-approval applies only to the named delegated decisions; CASE never approves owner-only gates. See `../guides/07-case-and-kipp.md`.
@@ -45,12 +48,15 @@ Keep everything for one effort in one folder the owner can read, default `<repo>
 
 | File | Written by | Purpose |
 |---|---|---|
-| `ledger.md` | TARS | Append-only log: UTC time, event, decision, who approved. Start from `templates/ledger.md` |
+| `ledger.md` | TARS; the PreCompact hook appends one line per compaction | Append-only log: UTC time, event, decision, who approved. Also holds the registries (PG TOKEN slots, HARNESS runs, migration numbers) that only TARS assigns. Start from `templates/ledger.md` |
 | `watch.txt` | TARS | The poller's watch list; edit it to add or drop PRs and branches (see `scripts/ci-poll.sh` header) |
 | `heartbeat` | `ci-poll.sh` | Touched every loop; stale over 3 minutes means the poller is dead |
 | `.state/` | `ci-poll.sh` | Last seen state per entry |
+| `~/.wasp-nest/tars/active.json` (outside the folder; `$WASP_TARS_DIR` overrides) | `scripts/tars-registry.mjs` | The registered TARS session: session id, state folder, registration UTC time, cwd. `show` prints it |
 
-Outside the effort folder, TARS also reads (never writes) the lifecycle beacon, when that hook is installed: `~/.wasp-nest/beacon/sessions/claude-<cli-session-id>.json` (or under `$WASP_BEACON_DIR`). It is a second progress source next to `list_events`, used in `guides/03-ten-minute-tick.md` step 2.
+Outside the effort folder, the `tars-compaction.mjs` hook (bound by the Wasp Nest Core plugin, or by an `install.sh` home install in `~/.claude/settings.json`; with both, it acts once) reads the registry. On PreCompact it appends the restart-point line to the registered ledger; on SessionStart with matcher `compact` it tells the registered session to reload `/tars` before any other work. Unregistered sessions get nothing. See `../guides/08-lessons-2026-11-02.md`.
+
+TARS also reads (never writes) the lifecycle beacon, when that hook is installed: `~/.wasp-nest/beacon/sessions/claude-<cli-session-id>.json` (or under `$WASP_BEACON_DIR`). It is a second progress source next to `list_events`, used in `guides/03-ten-minute-tick.md` step 3.
 
 The desktop `local_...` id is not the hook's `session_id`. The hook gets the CLI session id (the transcript file name under `~/.claude/projects/`). Resolve it per managed session, in this order:
 
@@ -63,16 +69,15 @@ Record the resolved id next to the `local_...` id in the ledger. Re-resolve when
 
 | File | Use |
 |---|---|
-| `templates/chip-brief.md` | Every chip prompt |
-| `templates/adviser-brief.md` | Compatibility pointer to the CASE brief |
+| `templates/chip-brief.md` | Every chip prompt; names `/smoke-it` or the pest-controller command |
 | `templates/tick-prompt.md` | The CronCreate prompt for the 10-minute tick |
 | `templates/ledger.md` | A new effort's ledger |
 
 | Additional template | Use |
 |---|---|
 | [owner-profile.md](templates/owner-profile.md) | Current project facts and scoped authorization |
-| [case-brief.md](templates/case-brief.md) | Read-only advocate Desktop session |
-| [kipp-brief.md](templates/kipp-brief.md) | Feature Desk Desktop session |
+| [case-brief.md](templates/case-brief.md) | CASE: adviser and read-only systems and CI watcher; replaces the retired adviser brief |
+| [kipp-brief.md](templates/kipp-brief.md) | KIPP: idea factory and PRD writer, `library-stinger` first |
 | [feature-card.md](templates/feature-card.md) | Proposed feature intake |
 | [feature-index.md](templates/feature-index.md) | Cards and confirmed routing |
 | [manager-handoff.md](templates/manager-handoff.md) | Restart/stop restoration |

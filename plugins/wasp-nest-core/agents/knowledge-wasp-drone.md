@@ -195,7 +195,7 @@ Read these before writing:
 
 ## Audience packet handoff
 
-Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) and its paired library-packets-wasp-drone for role-specific export packets from existing narrative sources. Keep this Drone focused on source knowledge authorship.
+Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) and its paired library-packets-wasp-drone for role-specific export packets from existing narrative sources. Keep this Drone focused on source knowledge authorship.
 
 ## Supplied meeting evidence handoff
 

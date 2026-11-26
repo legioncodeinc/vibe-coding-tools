@@ -40,7 +40,7 @@ For local installed plugins, run Core's `hooks/resolve-component.py` with the pa
 
 For a user asking which capability fits a desired result, use [outcome discovery](guides/outcome-discovery.md). Its packaged shortlist keeps proposed gaps distinct from existing scope and verified installed availability.
 
-164 Drones routed across Core and optional plugins, sorted into domain groups. Website Audit dispatches its separate twenty-Drone engagement. The Domain column is a one-line summary of the Drone's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
+172 Drones routed across Core and optional plugins, sorted into domain groups. Website Audit dispatches its separate twenty-Drone engagement. The Domain column is a one-line summary of the Drone's own frontmatter description. Trigger keywords are pulled from that same description, not invented.
 
 ### Stack and frameworks
 
@@ -231,7 +231,7 @@ The `gohighlevel`, `highlevel-ai-studio`, and `ghl-to-mermaid` pairs above live 
 | `quality-wasp-drone` | Independent Quality reviewer: plan traceability, exact candidate identity, actual check receipts and evidence-limited findings | "QA this", "bind verification evidence", "audit the implementation", "check the plan against the code" | `quality-stinger` |
 | `retrospective-wasp-drone` | Retrospective facilitation: format selection, psychological safety pre-check, time-boxed facilitation plan, action-item follow-through | "run a retro", "plan our retrospective", "our retros produce no change" | `retrospective-stinger` |
 | `swarm-audit-wasp-drone` | Swarm audits of a repository: scouts and briefs a Workflow fleet of single-lens investigators, adversarial refuters, Opus interpreters and critic; runs the 10-minute check-ins, kills and respawns stalls, guarantees nothing goes unreviewed; assembles the master report | "swarm audit", "state of the union", "audit every branch local and remote", "where did the team screw up", "launch an ultracode fleet" | `swarm-audit-stinger` |
-| `tars-wasp-drone` | Session manager for the Claude Code desktop app: turns asks into chips, manages every session to merged and deployed, fields questions, decides within manager authority, checks proportion with an adviser, runs a 10-minute tick and a 1-minute CI watch; does no implementation work | "be TARS", "manage these sessions", "spawn chips for this", "run the swarm" | `tars-stinger` |
+| `tars-wasp-drone` | Session manager for the Claude Code desktop app: turns asks into chips, manages every session to merged and deployed, fields questions, decides within manager authority, launches every chip through `/smoke-it` or the pest-controller command, negotiates with CASE (adviser and read-only systems and CI watcher) and routes ideas to KIPP (idea factory and PRD writer), runs a 10-minute tick and a 1-minute CI watch; does no implementation work | "be TARS", "manage these sessions", "spawn chips for this", "run the swarm" | `tars-stinger` |
 | `code-forensics-wasp-drone` | Conducts forensic investigations of software-development and agency-services engagements to support fee-clawback, breach-of-contract, fraud, and gross-negligence claims | "code forensics" | `code-forensics-stinger` |
 | `discovery-research-wasp-drone` | Continuous product discovery coach  -  Teresa Torres interview cadence, Opportunity Solution Trees (OST), Jobs-to-be-Done (JTBD) interviews, assumption mapping, and prototype experiment design | "run a discovery session", "build an OST", "write an interview script", "map our assumptions" | `discovery-research-stinger` |
 | `okr-goal-setting-wasp-drone` | OKR methodology specialist  -  writes, grades, and iterates on Objectives and Key Results | "write OKRs", "audit our OKRs", "are these KRs measurable?", "set up a quarterly goal cycle" | `okr-goal-setting-stinger` |
@@ -265,6 +265,23 @@ These three Drones run in order under `/product-studio:plan-product`: strategy, 
 | `product-strategy-wasp-drone` | Interview-first product strategy: problem, ICP summary, job, positioning, 2 to 4 bets, north star plus 3 inputs, v1 and NOT-in-v1, riskiest assumption; writes `library/knowledge/private/product/` | "plan a new product", "product strategy", "what should v1 be", "who is this for", "positioning" | `product-strategy-stinger` |
 | `product-design-wasp-drone` | Product strategy to UX package: journeys, IA, Mermaid flows, screen states, WCAG 2.2 AA, light/dark HTML prototypes, scored critique, Claude Design brief and import | "design the product", "UX for this app", "prototype the screens", "Claude Design handoff", "bring in my Claude Design export" | `product-design-stinger` |
 | `product-planning-wasp-drone` | Plans the build from approved strategy and UX: PRD map, saved wave plan with Mermaid graph, project Definition of Done, handoff to Library and contract-writing | "plan the build", "wave plan", "definition of done", "what order do we build in", "break this into PRDs" | `product-planning-stinger` |
+
+---
+
+### Interstellar Coding crew (`interstellar-coding` plugin)
+
+These eight Drones are one development team led by TARS, entered with `/interstellar-coding:interstellar`. Each loads its own role skill, whose first steps are to read the shared `crew-protocol` contract and then load the existing skill it is armed with. Route to one directly only when the owner names the role; otherwise TARS boots and routes the crew. The plugin also needs `data-and-ai-tools` (TARS) and `code-audit-tools` (LADY). `/tars` remains plain TARS without the crew.
+
+| Drone | Domain | Trigger keywords | Paired Stinger |
+|---|---|---|---|
+| `crew-tars-wasp-drone` | Crew lead and orchestrator: boots the crew, only spawner, routes work, reports every update to OWEL's ledger; armed with `tars-stinger`; no product code | "run the Interstellar crew", "be TARS and lead the team", "boot the crew" | `crew-tars-stinger` |
+| `crew-kipp-wasp-drone` | Product team and librarian: feature intake, PRDs and IRDs and their numbers, library invariants; armed with `library-stinger` | "KIPP, I have a feature idea", "write the PRD with the crew", "reserve the next PRD number" | `crew-kipp-stinger` |
+| `crew-case-wasp-drone` | Consultant and contrarian: structured dissent, one verdict line per question, read-only, disagree and commit | "ask CASE", "contrarian view", "poke holes in this plan", "premortem this" | `crew-case-stinger` |
+| `crew-lady-wasp-drone` | Deep independent investigation: audits, root cause, incidents, due diligence; dispatches the code-audit Drones; armed with `audit-my-code-stinger` | "have LADY investigate", "find the real root cause", "independent audit" | `crew-lady-stinger` |
+| `crew-moon-wasp-drone` | Operating efficiency: running record of each agent's output, dormancy and repeated attempts; pauses or terminates only after work is preserved; armed with `time-blocked-turns` | "who is stuck", "watch the agents for loops", "pause that agent" | `crew-moon-stinger` |
+| `crew-owel-wasp-drone` | Documentarian and ledger keeper: append-only ledger, `library/knowledge/`, ADRs written unprompted; armed with `knowledge-stinger` | "OWEL, record this", "put that in the ledger", "document what we decided" | `crew-owel-stinger` |
+| `crew-coop-wasp-drone` | Build engineer: one chip, one branch, one PR; attempt log, checkpoint on request; armed with `/smoke-it` or the routed specialist | "COOP, build this chip", "implement this PRD as a crew chip" | `crew-coop-stinger` |
+| `crew-murph-wasp-drone` | Verification and release gate: Security then Quality on every candidate, PASS or FAIL, shipped means verified; armed with `/ship-gate` | "MURPH, gate this", "run the ship gate on the chip", "is this actually shipped" | `crew-murph-stinger` |
 
 ---
 
@@ -406,8 +423,17 @@ Real sequences for this stack. Every sequence below closes with the Ship Gate; i
 ### Manage parallel sessions (TARS)
 
 1. The owner runs `/tars` in the Claude Code desktop app, which loads `tars-stinger` into that session. TARS needs the desktop app: a terminal session has no chip or session tools.
-2. TARS offers CASE (its read-only adviser) first and KIPP (the owner's feature desk for mid-build ideas) second, arms the 10-minute tick and the 1-minute CI poller, then spawns one small chip per ask; each chip brief names the Drone the chip should arm itself with from this roster. Anything bigger than one small PR goes through a CASE review before chips spawn.
+2. TARS spawns CASE first (the adviser, which also watches systems and CI read-only and reports to TARS), then KIPP (the idea factory, which plans and writes PRDs after loading `library-stinger`), arms the 10-minute tick and the 1-minute CI poller, then spawns one small chip per ask. Each chip brief names the command the chip runs through (`/smoke-it` for a PRD-driven build, `/wasp-nest-core:source-command-pest-controller` for everything else) and the Drone the chip should arm itself with from this roster. Anything bigger than one small PR goes through a CASE review before chips spawn.
 3. Chips do the work under their own Ship Gate; TARS answers their questions, merges green PRs it is allowed to merge, and watches deploys. TARS does no implementation work and never launches a Workflow unless the owner asks.
+
+### Run the Interstellar Coding crew
+
+1. The owner runs `/interstellar-coding:interstellar`. That session becomes TARS: it loads `crew-tars-stinger`, the `crew-protocol` contract, then `tars-stinger`. The crew hook records the role so a resume or compaction reloads the skill.
+2. TARS stands up OWEL first so the ledger is live, then MOON, CASE and KIPP, each started with its own command (`/owel`, `/moon`, `/case`, `/kipp`). LADY and MURPH start on demand. Only TARS spawns.
+3. KIPP turns owner ideas into PRDs; CASE challenges anything bigger than one small change; TARS splits approved work into COOP build chips, each arming the specialist Drone from this roster that its work needs.
+4. COOP builds on its own branch and sends `GATE` to MURPH, who runs Security then Quality and answers PASS or FAIL. COOP carries the Ship Gate; MURPH runs it.
+5. MOON records each agent's real progress. A dormant, looping or stuck agent is checkpointed, its work verified as preserved, then paused or terminated; TARS spawns the inbound agent from the handoff packet. A problem nobody can crack goes to LADY.
+6. Every role sends its updates to OWEL as `LEDGER` lines. OWEL appends them, never edits or deletes one, and writes knowledge docs and ADRs from what it observes.
 
 ### Build a node editor
 
@@ -466,7 +492,7 @@ Don't hand-roll a new Drone. Walk [`../queen-wasp-stinger/guides/pest-controller
 
 ---
 
-**164 Drones routed: 14 in Core and 150 in optional plugins. Website Audit dispatches its 20 additional Drones through its own orchestrator.** Installed Drones have a paired Stinger. See [`PAIRING-AUDIT.md`](PAIRING-AUDIT.md) for the last full pairing audit; the source validator checks the current routed roster against the filesystem.
+**172 Drones routed: 14 in Core and 158 in optional plugins. Website Audit dispatches its 20 additional Drones through its own orchestrator.** Installed Drones have a paired Stinger. See [`PAIRING-AUDIT.md`](PAIRING-AUDIT.md) for the last full pairing audit; the source validator checks the current routed roster against the filesystem.
 
 ---
 

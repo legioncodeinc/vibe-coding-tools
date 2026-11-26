@@ -1,6 +1,6 @@
 # Feature Desk index
 
-Cards record ideas. They are not PRDs, contracts or permission to build. TARS confirms numbering and routes prioritized work through CASE and Library.
+Cards record ideas. They are not PRDs, contracts or permission to build. KIPP writes the PRD with `library-stinger` loaded; KIPP reserves the PRD or IRD number, TARS runs it past CASE, then a `/smoke-it` chip builds it.
 
 | FR or Unassigned | Title and card link | Priority | PRD | CTR | Routing/status |
 |---|---|---|---|---|---|

@@ -18,8 +18,8 @@
 | Wave plan | The approved, dependency-ordered build order saved at `library/requirements/plans/wave-plan.md`. Smoke It and TARS follow it. |
 | Definition of Done | The project-wide checklist every PRD must pass, saved at `library/knowledge/private/standards/definition-of-done.md`. |
 | TARS | The session manager in the Claude Code desktop app. It starts work chips, watches progress and CI, and writes no code. |
-| CASE | TARS's read-only adviser. It answers PROCEED, SIMPLIFY, OVERKILL or ASK OWNER. |
-| KIPP | The feature desk for new ideas that come up mid-build. It writes feature cards and hands them to TARS. |
+| CASE | TARS's adviser and read-only watcher of systems and CI. It answers PROCEED, SIMPLIFY, OVERKILL or ASK OWNER. |
+| KIPP | The idea desk for new ideas that come up mid-build. It plans them, writes the PRDs and hands them to TARS. |
 | Distillation | A cited summary retained in plugin distributions when raw research archives stay in source. |
 
 For document paths and examples, see [Why the Library exists](../concepts/WHY-THE-LIBRARY.md). For current installable names and counts, see the [README catalog](https://github.com/legioncodeinc/vibe-coding-tools#what-ships).

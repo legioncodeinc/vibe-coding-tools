@@ -10,7 +10,7 @@ metadata:
   hive-drone: webapp-capture-wasp-drone
   pair-drone: webapp-capture-wasp-drone
   domain: web app capture
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # Webapp Capture Stinger
@@ -23,7 +23,7 @@ Every path below (`guides/`, `references/`, `scripts/`) is relative to the folde
 
 ## Purpose
 
-Capture a running, authenticated web application from the outside, the way a user sees it, and turn that capture into something a person or another AI can build on. Capture routes share one bounded read-only crawler: a narrated-ready demo (video, key screenshots, captions, script), an observed component inventory (one folder per reviewed component with code, measured styles, screenshots, assets, and purpose, plus a ledger and DTCG candidate tokens), and an inconsistency audit (near-duplicate tokens, scale sprawl, component drift, contrast, and the source patterns behind them). It reads rendered DOM across frameworks. Closed roots, opaque frames and uncaptured states remain coverage limits; the exported code is representative HTML, not original framework source.
+Capture a running, authenticated web application from the outside, the way a user sees it, and turn that capture into something a person or another AI can build on. Capture routes share one bounded read-only crawler: a narrated-ready demo (video, key screenshots, captions, script, an approved and verified write ledger, a privacy review, and Eleven v4 narration cues), an observed component inventory (one folder per reviewed component with code, measured styles, screenshots, assets, and purpose, plus a ledger and DTCG candidate tokens), and an inconsistency audit (near-duplicate tokens, scale sprawl, component drift, contrast, and the source patterns behind them). It reads rendered DOM across frameworks. Closed roots, opaque frames and uncaptured states remain coverage limits; the exported code is representative HTML, not original framework source.
 
 ## When to use
 
@@ -49,7 +49,7 @@ Capture a running, authenticated web application from the outside, the way a use
 3. **Get a session without touching credentials.** Run `scripts/save-session.mjs`; the user logs in in the visible window. Never type passwords, tokens, or keys yourself, and never script it.
 4. **Dry run.** Capture 3 or 4 routes. Check for setting pickers exposed as tabs, theme flips, naming collisions, and blind spots. Update `tabs.noTabsOnRoutes`, `tabs.notATabLabel`, and `routes.exclude`. Reload any settings page a tab click touched and confirm nothing persisted.
 5. **Pick the route** and follow its guide end to end:
-   - Demo, screenshots, script: `guides/01-demo-video-screenshots-script.md`. The demo plan needs the user's approval before recording.
+   - Demo, screenshots, script: `guides/01-demo-video-screenshots-script.md`. The demo plan, and every write it declares in `writes[]`, needs the user's approval before recording; a rerun that would repeat a write needs `--retake`.
    - Component library: `guides/02-component-library-capture.md`. Pilot the describe and merge stages on the dry-run pages and show the user a sample before running every route.
    - Inconsistencies: `guides/03-inconsistency-audit.md`. Uses the inventory data, source tree and the bounded contrast runner.
    - shadcn/ui map: `guides/04-shadcn-map.md`. Needs a built library; maps every component, new variant, and theme token onto shadcn/ui.
@@ -68,7 +68,7 @@ Capture a running, authenticated web application from the outside, the way a use
 - `references/shadcn-catalog.json`, the valid shadcn/ui components, variants, and theme tokens used to validate maps
 - `references/REFERENCE.md`, load when running scripts or editing config: requirements, config fields, script map, output contracts, naming
 - `references/prompts/`, describe, merge, reconcile, Claude Design handoff, and shadcn map and theme templates; filled by the `inventory/prepare-*`, `design-handoff`, and `shadcn-prepare` scripts, never by hand
-- `scripts/`, run as documented in the guides: `doctor.mjs`, `save-session.mjs`, `parallel.mjs`, `screenshots.mjs`, `inventory/*.mjs`, `demo/record-demo.mjs`, `audit/*.mjs`, `lib/common.mjs`
+- `scripts/`, run as documented in the guides: `doctor.mjs`, `save-session.mjs`, `parallel.mjs`, `screenshots.mjs`, `inventory/*.mjs`, `demo/record-demo.mjs`, `demo/review-demo.mjs`, `demo/build-cues.mjs`, `demo/make-video.sh`, `audit/*.mjs`, `lib/common.mjs`
 - `references/research/distilled-webapp-capture.md`, load to verify a claim about Playwright, DTCG, color math, WCAG, ffmpeg, or linting, or to settle a dispute
 - Source research archive (not shipped with the plugin): the shipped distillation summarizes it; do not require it.
 

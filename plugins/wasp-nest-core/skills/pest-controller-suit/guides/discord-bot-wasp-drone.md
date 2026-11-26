@@ -7,7 +7,7 @@
 This Drone owns the Discord bot and application developer surface end to end: SDK selection (discord.js v14/v15, discord.py 2.x, Serenity/Poise for Rust), slash and context-menu command authoring, interactive components (buttons, modals, select menus), voice playback via Lavalink 4 with DAVE-compliant clients, gateway-vs-HTTP architecture, sharding, rate-limit handling, and the bot verification checklist that gates growth past 100 servers.
 
 ## Paired Stinger
-[discord-bot-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/discord-bot-stinger) - SDK selection, slash command authoring, gateway intents, voice pipeline (with the current-stable version table), scaling ops, and the verification checklist.
+[discord-bot-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/discord-bot-stinger) - SDK selection, slash command authoring, gateway intents, voice pipeline (with the current-stable version table), scaling ops, and the verification checklist.
 
 ## Trigger phrases
 - "add a slash command"

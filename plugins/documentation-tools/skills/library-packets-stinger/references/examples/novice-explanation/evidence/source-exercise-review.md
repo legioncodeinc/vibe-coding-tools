@@ -12,7 +12,7 @@ Rejected candidate wording: “Team members approve notes, and the system sends 
 
 ## Repository fixture: do not infer the missing permission implementation
 
-Source: [handler](../fixtures/repo/src/routes/invoices.ts), [data stub](../fixtures/repo/src/data/invoices.ts), [Accepted contract](../fixtures/repo/contracts/invoice-read.md). Reader manuscript: [invoice repository tour](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger/examples/beginner-invoice-tour.md).
+Source: [handler](../fixtures/repo/src/routes/invoices.ts), [data stub](../fixtures/repo/src/data/invoices.ts), [Accepted contract](../fixtures/repo/contracts/invoice-read.md). Reader manuscript: [invoice repository tour](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger/examples/beginner-invoice-tour.md).
 
 The handler exposes identity, delegated permission and data branches in that order. The permission implementation is absent, so the rendered tour says the exact access policy cannot be established. The data function throws, and the tour says no database read succeeds in the supplied fixture. The Accepted contract is described as required behavior rather than evidence of implementation. Review: Pass for source fidelity. Human understanding and application execution: Pending/Unproven.
 
@@ -20,7 +20,7 @@ Rejected candidate wording: “The permissions function guarantees that signed-i
 
 ## Actual Wasp Nest builder: keep selection separate from native execution
 
-Source: builder snapshot, selection snapshot. Reader manuscript: [actual build journey](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/knowledge-stinger/examples/actual-build-journey.md).
+Source: builder snapshot, selection snapshot. Reader manuscript: [actual build journey](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/knowledge-stinger/examples/actual-build-journey.md).
 
 The tour follows the actual main/build entrypoint and imported resolve_plugins function, including Core, prerequisites and unknown/cycle error branches. The ledger preserves exact locations and hashes from the dirty working tree. It describes wrapper/manifest writer functions without claiming those files were built, validated, installed or discovered by a native client in this exercise. Review: Pass for source fidelity. Native execution and learner understanding: Unproven/Pending.
 

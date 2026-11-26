@@ -7,7 +7,7 @@
 This Drone is the Wasp Nest's Python specialist for the canonical stack: Django + Django Ninja + FastAPI + Celery + Channels + pytest + uv + Pydantic v2 + Ruff + pyright + httpx + factory_boy. It owns Django app architecture, ORM access patterns (N+1 prevention via `select_related`/`prefetch_related`), migration mechanics (expand-backfill-contract, never editing applied migrations), the API layer (Ninja over DRF for new code), Celery jobs, Channels realtime, pytest discipline, type adoption, linting/formatting, packaging, and the Django-React decoupled-architecture surface (CORS, auth handoff, API contract).
 
 ## Paired Stinger
-[python-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/backend-and-desktop-tools/skills/python-stinger) - routing table, hard rules, severity rubric, and cross-Drone handoffs for Django/FastAPI/Celery/Channels/pytest work.
+[python-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/backend-and-desktop-tools/skills/python-stinger) - routing table, hard rules, severity rubric, and cross-Drone handoffs for Django/FastAPI/Celery/Channels/pytest work.
 
 ## Trigger phrases
 - "review this Django code"

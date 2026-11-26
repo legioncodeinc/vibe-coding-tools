@@ -34,10 +34,10 @@ Equip `tauri-wasp-drone` to inspect, migrate, implement, secure, test, and distr
 ## When not to use
 
 - General Rust language, Cargo, async, unsafe, or library architecture unrelated to Tauri; use [rust-stinger](../rust-stinger).
-- Frontend-framework component design or reactivity; use the relevant framework Stinger such as [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/svelte-stinger) or [react-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/react-stinger).
-- Formal security audit of the resulting implementation; use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) after Tauri implementation work.
-- CI platform architecture or release automation beyond Tauri-specific integration; use [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) or [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/devops-stinger).
-- Dependency vulnerability triage, SBOMs, or update-bot policy; use [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger).
+- Frontend-framework component design or reactivity; use the relevant framework Stinger such as [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/svelte-stinger) or [react-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/react-stinger).
+- Formal security audit of the resulting implementation; use [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) after Tauri implementation work.
+- CI platform architecture or release automation beyond Tauri-specific integration; use [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) or [devops-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/devops-stinger).
+- Dependency vulnerability triage, SBOMs, or update-bot policy; use [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger).
 
 ## Procedure
 
@@ -74,10 +74,10 @@ For sidecar credentials use [guide 13](guides/13-qualify-sidecars-and-credential
 - [tauri-wasp-drone](../../agents/tauri-wasp-drone.md) - Paired implementation specialist for Tauri-specific project work.
 - [rust-stinger](../rust-stinger) - General Rust and Cargo architecture beneath Tauri integration.
 - [typescript-node-stinger](../typescript-node-stinger) - TypeScript boundaries, package tooling, and test infrastructure around the WebView frontend.
-- [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/svelte-stinger) - Svelte 5 and SvelteKit frontend behavior when the Tauri WebView uses Svelte.
-- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Formal review of IPC authorization, filesystem and shell exposure, remote origins, credentials, and update trust.
-- [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) - CI and release workflow architecture beyond Tauri-specific bundle integration.
-- [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Dependency vulnerabilities, lockfile policy, update automation, and SBOM evidence.
+- [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/svelte-stinger) - Svelte 5 and SvelteKit frontend behavior when the Tauri WebView uses Svelte.
+- [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Formal review of IPC authorization, filesystem and shell exposure, remote origins, credentials, and update trust.
+- [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) - CI and release workflow architecture beyond Tauri-specific bundle integration.
+- [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Dependency vulnerabilities, lockfile policy, update automation, and SBOM evidence.
 
 ## Local file safety update
 
@@ -90,12 +90,12 @@ For O105 use [bounded import](guides/18-qualify-local-import.md), [safe export](
 - Additional related skills can be found here:
   - [rust-stinger](../rust-stinger) - General Rust architecture, Cargo, async, testing, and unsafe-code guidance below the Tauri layer.
   - [typescript-node-stinger](../typescript-node-stinger) - TypeScript and package-tooling guidance for the frontend half of a Tauri application.
-  - [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/svelte-stinger) - Svelte 5 and SvelteKit guidance when that framework renders the WebView.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Required first Ship Gate audit and formal review of Tauri authority and secret boundaries.
-  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/quality-stinger) - Required independent Quality gate after Security findings are resolved.
-  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Required orchestrator-level repository-health gate before commit or push.
-  - [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/platform-and-release-tools/skills/ci-release-stinger) - CI and release workflow architecture for signed multi-platform delivery.
-  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Dependency, advisory, lockfile, SBOM, and provenance review.
+  - [svelte-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/svelte-stinger) - Svelte 5 and SvelteKit guidance when that framework renders the WebView.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Required first Ship Gate audit and formal review of Tauri authority and secret boundaries.
+  - [quality-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/quality-stinger) - Required independent Quality gate after Security findings are resolved.
+  - [github-repo-health-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/github-repo-health-stinger) - Required orchestrator-level repository-health gate before commit or push.
+  - [ci-release-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/platform-and-release-tools/skills/ci-release-stinger) - CI and release workflow architecture for signed multi-platform delivery.
+  - [dependency-audit-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/dependency-audit-stinger) - Dependency, advisory, lockfile, SBOM, and provenance review.
 
 ## Ship Gate
 

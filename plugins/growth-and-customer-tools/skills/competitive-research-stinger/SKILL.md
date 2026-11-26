@@ -60,13 +60,13 @@ Produces two linked deliverables from one research pass: an XLSX competitor-land
 - `xlsx` (external skill, not bundled in Wasp Nest; use only when actually available): base spreadsheet mechanics (openpyxl, recalc, formula discipline) this stinger's XLSX guide builds on top of; read it first for any formula-bearing tab
 - `pdf` (external skill, not bundled in Wasp Nest; use only when actually available): base PDF manipulation mechanics; this stinger's PDF guide covers the HTML-to-PDF-via-Playwright construction path specifically, not covered there
 - `dataviz` (external skill, not bundled in Wasp Nest; use only when actually available): chart form, color, and accessibility method; load its validator before any multi-hue chart in the PDF
-- [csv-xlsx-import-export-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/web-development-tools/skills/csv-xlsx-import-export-stinger): a different domain (building an in-product spreadsheet upload/export FEATURE); do not confuse with this stinger, which produces a one-off research deliverable, not application code
+- [csv-xlsx-import-export-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/web-development-tools/skills/csv-xlsx-import-export-stinger): a different domain (building an in-product spreadsheet upload/export FEATURE); do not confuse with this stinger, which produces a one-off research deliverable, not application code
 - [competitive-research-wasp-drone](../../agents/competitive-research-wasp-drone.md): the paired Drone; delegate to it for a scoped competitive-research task rather than running this stinger inline mid-conversation on an unrelated Drone's work
 - [icp-research-stinger](../icp-research-stinger): evidence-backed ideal customer profile from a company domain; its market and customers lanes are useful input to a competitor landscape
 
 ## Audience document packets
 
-Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) to turn existing sources into role-specific Markdown, Word, branded PDF and citation packets. Source authoring remains with this skill.
+Use [library-packets-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/documentation-tools/skills/library-packets-stinger/SKILL.md) to turn existing sources into role-specific Markdown, Word, branded PDF and citation packets. Source authoring remains with this skill.
 
 ## Critical Directive
 

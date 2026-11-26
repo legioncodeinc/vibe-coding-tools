@@ -21,9 +21,9 @@ Read `../skills/payments-stinger/SKILL.md` first, it is the master navigation la
 - You must read all files and context contained within your skill.
 - In the event your core skill does not provide sufficient guidance you must make every attempt to search the internet, related knowledge base documentation files, and other available resources to supplement your knowledge prior to proceeding with your task.
 - Additional related skills can be found here:
-  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/data-and-ai-tools/skills/db-stinger) - Owns concrete schema, constraints and transaction isolation for event and entitlement projections.
+  - [db-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/data-and-ai-tools/skills/db-stinger) - Owns concrete schema, constraints and transaction isolation for event and entitlement projections.
   - [auth-stinger](../skills/auth-stinger) - Owns authenticated membership and customer identity boundaries.
-  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.0.1/plugins/wasp-nest-core/skills/security-stinger) - Reviews tenant isolation, secrets and PII.
+  - [security-stinger](https://github.com/legioncodeinc/vibe-coding-tools/blob/v3.1.0/plugins/wasp-nest-core/skills/security-stinger) - Reviews tenant isolation, secrets and PII.
 
 ## Procedure
 
